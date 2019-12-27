@@ -1,0 +1,9 @@
+pronunciation = "tommel"
+function_prefix = ""
+template_prefix = "template"
+
+[commands]
+"assign" = ["", "end, space, equal, space"]
+"long string" = ["''''''", "left:3, enter"]
+
+[templates]

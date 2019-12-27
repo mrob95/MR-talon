@@ -1,0 +1,180 @@
+[os]
+"pronunciation"               = "OS"
+
+[shlex]
+"pronunciation" = "shlex"
+"split" = ["shlex.split()"]
+
+[re]
+"pronunciation"               = "(regular expressions | regex)"
+"search"                      = ["re.search(r\"\", )", "left:4"]
+"match"                       = ["re.match(r\"\", )", "left:4"]
+"findall"                     = ["re.findall(r\"\", )", "left:4"]
+"compile"                     = ["re.compile(r\"\")", "left:2"]
+"(sub | substitute)"          = ["re.sub(r\"\", , )", "left:6"]
+
+[sys]
+"pronunciation"               = "(system | sis)"
+"path append"                 = ["sys.path.append()"]
+
+[click]
+"pronunciation"           = "click"
+"command"                 = "@click.command()"
+"echo"                    = ["click.echo()"]
+"argument"                = ["click.argument()"]
+"option"                  = ["@click.option(\n'-',\nhelp=\n)", "up:2, end, left:2"]
+
+[numpy]
+"pronunciation"               = "numb pie"
+"import_as"                   = "np"
+"array"                       = ["np.array()"]
+"stack"                       = ["np.stack()"]
+"log"                         = ["np.log()"]
+"arrange"                     = ["np.arrange()"]
+"zeros"                       = ["np.zeros()"]
+"matrix"                      = ["np.matrix()"]
+"gen from text"               = ["np.genfromtext(, delimiter=\"\")", "left:15"]
+#
+"as type"                     = ["astype()"]
+"(dee | data) type"           = ["dtype"]
+
+[pandas]
+"pronunciation"               = "pandas"
+"import_as"                   = "pd"
+"(con cat | concatenate)"     = ["pd.concat()"]
+"data frame"                  = ["pd.DataFrame()"]
+"categorical"                  = ["pd.Categorical()"]
+"melt"                        = ["pd.melt()"]
+"merge"                       = ["pd.merge()"]
+"read CSV"                    = ["pd.read_csv()"]
+"read excel"                  = ["pd.read_excel()"]
+"read feather"                = ["pd.read_feather()"]
+"series"                      = ["pd.Series()"]
+"to date time"                = ["pd.to_datetime()"]
+"to numeric"                  = ["pd.to_numeric()"]
+#
+"all"                         = ["all()", ""]
+"columns"                     = ["columns", ""]
+"D types"                     = ["dtypes", ""]
+"describe"                    = ["describe()", ""]
+"drop duplicates"             = ["drop_duplicates()", ""]
+"drop NA"                     = ["dropna()", ""]
+"head"                        = ["head()", ""]
+"index"                       = ["index", ""]
+"info"                        = ["info()", ""]
+"not null"                    = ["notnull()", ""]
+"is null"                     = ["isnull()", ""]
+"plot"                        = ["plot()", ""]
+"reset index"                 = ["reset_index()", ""]
+"shape"                       = ["shape", ""]
+"tail"                        = ["tail()", ""]
+"value counts"                = ["value_counts()", ""]
+#
+"apply"                       = ["apply()"]
+"assign"                      = ["assign()"]
+"as type"                     = ["astype()"]
+"count"                       = ["count()"]
+"drop"                        = ["drop()"]
+"fill NA"                     = ["fillna()"]
+"filter"                      = ["filter()"]
+"group by"                    = ["groupby()"]
+"I lock"                      = ["iloc[]"]
+"lock"                        = ["loc[]"]
+"max"                         = ["max()"]
+"mean"                        = ["mean()"]
+"median"                      = ["median()"]
+"min"                         = ["min()"]
+"en largest"                  = ["nlargest()"]
+"en smallest"                 = ["nsmallest()"]
+"pivot"                       = ["pivot()"]
+"pivot table"                 = ["pivot_table()"]
+"Q cut"                       = ["qcut()"]
+"quantile"                    = ["quantile()"]
+"query"                       = ["query()"]
+"rename"                      = ["rename()"]
+"resample"                    = ["resample()"]
+"sample"                      = ["sample()"]
+"set index"                   = ["set_index()"]
+"sort values"                 = ["sort_values()"]
+"standard"                    = ["std()"]
+"sum"                         = ["sum()"]
+"to CSV"                      = ["to_csv()"]
+"to excel"                    = ["to_excel()"]
+"to feather"                  = ["to_feather()"]
+#
+"axis one"                    = "axis=1"
+"inplace true"                = "inplace=True"
+
+[matplotlib]
+"name"                        = "matplotlib.pyplot"
+"pronunciation"               = "[mat] plot [lib]"
+"import_as"                   = "plt"
+"show"                        = ["plt.show()"]
+"subplots"                    = ["plt.subplots()"]
+"title"                       = ["plt.title()"]
+"ex label"                    = ["plt.xlabel()"]
+"ex limit"                    = ["plt.xlim()"]
+"why label"                   = ["plt.ylabel()"]
+"why limit"                   = ["plt.ylim()"]
+#
+"plot"                        = ["plot()"]
+"scatter"                     = ["scatter()"]
+
+[sklearn]
+"pronunciation"                        = "sigh [kit] learn"
+"random Forest regressor"              = ["RandomForestRegressor()"]
+"random Forest classifier"             = ["RandomForestClassifier()"]
+"linear regression"                    = ["LinearRegression()"]
+"naive bayes"                          = ["GaussianNB()"]
+"K nearest neighbours"                 = ["neighbors.KNeighborsClassifier()"]
+"K means [clustering]"                 = ["KMeans()"]
+"(support vector machine | SVM)"       = ["SVC()"]
+"(principal component analysis | PCA)" = ["PCA()"]
+#
+"fit"                                  = ["fit()"]
+"score"                                = ["score()"]
+"accuracy score"                       = ["accuracy_score()"]
+"predict"                                = ["predict()"]
+"train test split"                                = ["train_test_split()"]
+
+[webbrowser]
+"pronunciation" = "web browser"
+"open new tab" = ["webbrowser.open_new_tab()"]
+
+[itertools]
+"pronunciation" = "iter tools"
+"accumulate"   = ["accumulate()"]
+"chain"        = ["chain()"]
+"combinations" = ["combinations()"]
+"compress"     = ["compress()"]
+"cycle"        = ["cycle()"]
+"drop while"   = ["dropwhile()"]
+"group by"     = ["groupby()"]
+"I filter"     = ["ifilter()"]
+"I map"        = ["imap()"]
+"I slice"      = ["islice()"]
+"I zip"        = ["izip()"]
+"permutations" = ["permutations()"]
+"product"      = ["product()"]
+"repeat"       = ["repeat()"]
+"take while"   = ["takewhile()"]
+"tee"          = ["tee()"]
+
+[collections]
+"pronunciation" = "collections"
+"counter"       = ["Counter()"]
+"deck"          = ["deque()"]
+"named tuple"   = ["namedtuple"]
+"ordered dict"  = ["OrderedDict"]
+"default dict"  = ["defaultdict"]
+
+
+[unittest]
+"pronunciation" = "unit test"
+"test case" = "TestCase"
+
+[pytest]
+"pronunciation" = "pie test"
+"approx" = ["approx()"]
+"raises" = ["with raises():", "left:2"]
+"fail" = ["fail()"]

@@ -1,0 +1,179 @@
+"pronunciation" = "Git Bash"
+"executable_contexts" = ["\\sh.exe", "\\bash.exe", "\\cmd.exe", "\\mintty.exe", "powershell", "[shell]", "debian.exe", "windowsterminal.exe", "conemu.exe"]
+
+[commands]
+"bash"                   = "bash "
+"cancel"                 = ["", "ctrl-c"]
+"CD up"                  = ["cd ..", "enter"]
+"CD"                     = "cd "
+"curl"                   = "curl "
+"dot PDF"                = ".pdf"
+"dot jay peg"            = ".jpg"
+"dot PNG"                = ".png"
+"dot pie"                = ".py"
+"dot tex"                = ".tex"
+"echo" = "echo "
+"(LS | list)"            = "ls "
+"line count"             = "wc -l "
+"make directory"         = "mkdir "
+"move file"              = "mv  "
+"pipe"                   = " | "
+"lodge and"              = " && "
+"to file"                = " > "
+"sed replace"            = ["sed -i -e \"s///g\"", "left:4"]
+"sumatra [PDF]"          = "SumatraPDF "
+"sublime"                = "subl -n "
+"sublime here"           = ["subl -n .", "enter"]
+"jupiter notebook"       = "jupyter notebook"
+"jupiter lab"            = "jupyter lab"
+"youtube download"       = "youtube-dl -f best "
+"FFM peg"                = "ffmpeg "
+"W get"                  = "wget "
+"curly"                  = "curl "
+"catty"                  = "cat "
+"V S code here"          = ["code .", "enter"]
+#------------------------------------------------------
+"pacman install" = "pacman -S "
+"apt install" = "sudo apt install "
+#------------------------------------------------------
+# options
+"option continue"        = " --continue "
+"option abort"           = " --abort "
+"option skip"            = " --skip "
+"option help"            = " --help"
+"option version"         = " --version"
+#------------------------------------------------------
+# latex
+"create slides" = ["py \"C:/Users/Mike/Documents/GitHub/slide-html/bin/slide.py\" ", "left:12"]
+"PDF LaTeX"              = "pdflatex "
+"bib TeX"                = "bibtex "
+"pan doc"                = ["pandoc \"\" -o \"", "left:6"]
+"pan doc beamer"         = ["pandoc  -t beamer -o ", "left:14"]
+#------------------------------------------------------
+# python
+"python 3"               = "python3 "
+"python 2"               = "python27 "
+"python 3 pytest"        = "python3 -m pytest "
+"python 2 pytest"        = "python27 -m pytest "
+"python 2 64"            = "C:/Python27-64/python.exe "
+"python 2 pip [install]" = "python27 -m pip install "
+"python 3 pip [install]" = "python3 -m pip install "
+"upgrade pip" = "--upgrade pip"
+"pip two (install | build) package" = "pip2 install -e ."
+"pie test" = "pytest "
+"pie flakes" = "pyflakes "
+"eye python" = "ipython "
+#------------------------------------------------------
+# r
+"R script"               = ["Rscript .r", "left:2"]
+"R markdown"             = ["Rscript -e \"rmarkdown::render('.Rmd', clean=TRUE)\"", "left:19"]
+#------------------------------------------------------
+# jekyll
+"jekyll serve watch"     = "jekyll serve --watch"
+"jekyll build"           = "jekyll build"
+"jekyll"                 = "jekyll "
+#------------------------------------------------------
+# image
+"image [magic] trim"     = ["convert  -fuzz 1% -trim +repage ", "left:24"]
+"image [magic] transparent"     = ["convert  -fuzz 1% -transparent white ", "left:29"]
+"rename PNG large" = "rename 'png_large' 'png' *.png_large"
+"rename jay peg large" = "rename 'jpg_large' 'jpg' *.jpg_large"
+#------------------------------------------------------
+"generate change log" = ["github_changelog_generator /", "left"]
+"generate mathfly change log" = ["github_changelog_generator mrob95/mathfly", "left"]
+
+#------------------------------------------------------
+# git
+[git_commands]
+"cherry pick abort"            = "git cherry-pick --abort"
+"delete branch"                = "branch -D "
+"new branch"                   = "checkout -b "
+"add"                          = "add "
+"add all"                      = "add -A"
+"add force"                    = "add -f "
+"remove"                       = "rm "
+"remove cashed"                = "rm --cached "
+"branch set upstream [to]"     = "branch --set-upstream-to="
+"branch"                       = "branch "
+"branch remotes"               = "branch -r "
+"checkout develop"             = ["checkout develop", "enter"]
+"checkout master"              = ["checkout master", "enter"]
+"checkout upstream develop"    = ["checkout upstream/develop", "enter"]
+"checkout"                     = "checkout "
+"checkout (remote | track)"    = "checkout --track "
+"cherry pick"                  = "cherry-pick "
+"clone github"                 = ["clone https://github.com/.git", "left:4"]
+"commit all"                   = ["commit -a -m \"\"", "left"]
+"commit all and push"          = ["commit -a -m \"\" && git push", "left:13"]
+"commit"                       = ["commit -m \"\"", "left"]
+"commit fix u"                 = "commit --fixup "
+"create ignore" = "curl https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore > .gitignore"
+"diff"                         = "diff "
+"discard"                      = "checkout -- "
+"(discard all | reset hard)"   = "reset --hard"
+"fetch upstream"               = "fetch upstream "
+"fetch upstream and pull"      = "fetch upstream && git pull"
+"fetch origin"                 = "fetch origin "
+"fetch origin and pull"        = "fetch origin && git pull"
+"fetch"                        = "fetch "
+"gooey blame"                  = "gui blame PATH"
+"hub"                          = "https://github.com/"
+"init"                         = "init "
+"log"                          = "log "
+"merge tool"                   = "mergetool "
+"merge"                        = "merge "
+"merge abort"                  = "merge --abort "
+"merge continue"               = "merge --continue "
+"pull"                         = "pull "
+"publish"                      = "push -u origin "
+"push set upstream [origin]"   = "push --set-upstream origin "
+"push"                         = "push "
+"push force"                   = "push --force "
+"rebase"                       = "rebase master"
+"rebase auto squash"           = "rebase -i --autosquash master"
+"rebase interactive"           = "rebase -i "
+"remote"                       = "remote "
+"remote add origin"            = "remote add origin "
+"remote prune origin"          = "remote prune origin "
+"remote prune origin dry run"  = "remote prune origin --dry-run"
+"remote set url"               = "remote set-url "
+"remote rename"                = "remote rename "
+"remove branch"                = "branch -d "
+"reset"                        = "reset "
+"(remote show | show remotes)" = ["remote -v ", "enter"]
+"stash branch"                 = "stash branch NAME"
+"stash list"                   = "stash list"
+"stash"                        = "stash "
+"(stash pop | retrieve)"       = "stash pop "
+"subversion"                   = "svn "
+"subversion clone"             = "svn clone "
+"subversion fetch"             = "svn fetch "
+"subversion rebase"            = "svn rebase "
+"status"                       = ["status", "enter"]
+"tag"                          = "tag "
+"unstage"                      = "reset -- "
+"username" = "mrob95"
+
+[tmux_commands]
+"new" = "c"
+"next" = "n"
+"previous" = "p"
+"find" = "f"
+"(close)" = "ampersand"
+"split" = "percent"
+"split horizontal" = "dquote"
+"swap" = "o"
+"numbers" = "q"
+"kill" = "x"
+"layout" = "space"
+"page up" = "pgup"
+
+[ops_class]
+"sis" = "sys161 "
+"sis debug" = "sys161 -P kernel"
+"debugger" = "os161-gdb --init-eval-command=\"target remote unix:.sockets/gdb\" kernel"
+"kernel" = "kernel"
+"go root" = "cd ~/root"
+"go compile" = "cd ~/src/kern/compile/DUMBVM"
+"compile kernel" = "bmake -j8 && bmake install"
+"test" = "test161 run "

@@ -1,0 +1,273 @@
+# Once you have finished making changes, use the "rebuild caster"
+# command to enact them.
+"pronunciation"   = "LyX maths"
+"greek_prefix"    = "greek"
+"symbol1_prefix"  = ""
+"symbol2_prefix"  = "symbol"
+"text_prefix"     = "text"
+"number_prefix"   = ""
+"accent_prefix"   = "accent"
+"matrix_style"    = "matrix"
+"max_matrix_size" = 10
+
+[misc_lyx_keys]
+"math mode"                       = "c-m"
+"check"                           = "escape:10, end, enter, c-m"
+"fraction"                        = "a-m, f"
+"over"                            = "s-left, a-m, f, down"
+"(super script | to the power)"   = "caret"
+"sub script"                      = "underscore"
+"squared"                         = "caret, 2, right"
+"cubed"                           = "caret, 3, right"
+"inverse"                         = "caret, minus, 1, right"
+"(prekris | parens | brackets)"   = "a-m, lparen"
+"(brax | square brackets)"        = "a-m, lbracket"
+"curly [brackets]"                = "a-m, lbrace"
+"absolute"                        = "a-m, bar"
+"add matrix row"                  = "a-m, w, i"
+"(delete | remove) matrix row"    = "a-m, w, d"
+"add matrix column"               = "a-m, c, i"
+"(delete | remove) matrix column" = "a-m, c, d"
+
+
+# Alternates between executing as text and executing as keys
+[misc_lyx_commands]
+# "summation"            = ["\\underset \\overset \\sum ", "down"]
+"blank summation"        = "\\sum "
+"summation"              = ["\\stackrelthree ", "down", "\\sum ", "down"]
+"(summation | sum) to N" = ["\\stackrelthree ", "n, down", "\\sum ", "down"]
+# "product"              = ["\\underset \\overset \\prod ", "down"]
+"blank product"          = "\\prod "
+"product"                = ["\\stackrelthree ", "down", "\\prod ", "down"]
+# "product to N"         = ["\\underset \\overset \\prod ", "up, n, down:2"]
+"product to N"           = ["\\stackrelthree ", "n, down", "\\prod ", "down"]
+"limit"                  = ["\\underset \\lim ", "down"]
+"blank limit"            = "\\lim "
+"label above"            = "\\overset "
+"label below"            = "\\underset "
+"prime"                  = ["^\\prime ", "right"]
+"degrees"                = ["^\\circ ", "right"]
+"exponential"            = ["\\exp ", "a-m, lparen"]
+"expectation"            = ["E", "a-m, lparen"]
+"variance"               = ["Var", "a-m, lparen"]
+#
+"real numbers"           = ["\\mathbb R", "right"]
+"complex numbers"        = ["\\mathbb C", "right"]
+"integer numbers"        = ["\\mathbb Z", "right"]
+"rational numbers"       = ["\\mathbb Q", "right"]
+"natural numbers"        = ["\\mathbb N", "right"]
+
+
+[greek_letters]
+"alpha"   = "alpha"
+"beater"  = "beta"
+"gamma"   = "gamma"
+"delta"   = "delta"
+"epsilon" = "varepsilon"
+"zita"    = "zeta"
+"eater"   = "eta"
+"theta"   = "theta"
+"iota"    = "iota"
+"kappa"   = "kappa"
+"lambda"  = "lambda"
+"mu"      = "mu"
+"new"     = "nu"
+"zee"     = "xi"
+"pie"     = "pi"
+"row"     = "rho"
+"sigma"   = "sigma"
+"tau"     = "tau"
+"upsilon" = "upsilon"
+"phi"     = "phi"
+"chi"     = "chi"
+"sigh"    = "psi"
+"omega"   = "omega"
+
+
+[tex_symbols1]
+# operators
+"[square] root"                             = "sqrt"
+"generic root"                              = "root"
+"integral"                                  = "int"
+"double integral"                           = "iint"
+"triple integral"                           = "iiint"
+"times"                                     = "times"
+"divide"                                    = "div"
+"C dot"                                     = "cdot"
+"plus or minus"                             = "pm"
+"partial"                                   = "partial"
+"infinity"                                  = "infty"
+"(nice frack | nice fraction)"              = "nicefrac"
+"binomial"                                  = "binom"
+"vector nabla"                              = "nabla"
+# trig
+"sine"                                      = "sin"
+"cosine"                                    = "cos"
+"tangent"                                   = "tan"
+"secant"                                    = "sec"
+"cosecant"                                  = "csc"
+"cotangent"                                 = "cot"
+"arc sine"                                  = "arcsin"
+"arc cosine"                                = "arccos"
+"arc tan"                                   = "arctan"
+"hyperbolic sine"                           = "sinh"
+"hyperbolic cosine"                         = "cosh"
+"hyperbolic cotangent"                      = "coth"
+"hyperbolic tangent"                        = "tanh"
+# functions
+"argument"                                  = "arg"
+"degree"                                    = "deg"
+"determinant"                               = "det"
+"dimension"                                 = "dim"
+"(natural (log | logarithm) | log natural)" = "ln"
+"logarithm"                                 = "log"
+"maximum"                                   = "max"
+"minimum"                                   = "min"
+"modulus"                                   = "bmod"
+"infimum"                                   = "inf"
+"supremum"                                  = "sup"
+"probability"                               = "Pr"
+# relations
+"there exists"                              = "exists"
+"member"                                    = "in"
+"for all"                                   = "forall"
+"[is] not equal [to]"                       = "neq"
+"[is] greater [than] [or] equal [to]"       = "geq"
+"[is] less [than] [or] equal [to]"          = "leq"
+"[is] approximately [equal] [to]"           = "approx"
+"proportional [to]"                         = "propto"
+"preference less [than]"                    = "prec"
+"preference less equals"                    = "preceq"
+"preference greater [than]"                 = "succ"
+"preference greater equal"                  = "succeq"
+# logic
+"logic and"                                 = "land"
+"logic or"                                  = "lor"
+"logic not"                                 = "lnot"
+#
+"left arrow"                                = "leftarrow"
+"right arrow"                               = "rightarrow"
+"up arrow"                                  = "uparrow"
+"down arrow"                                = "downarrow"
+"left right arrow"                          = "leftrightarrow"
+"maps to"                                   = "mapsto"
+"oh plus"                                   = "oplus"
+"oh times"                                  = "otimes"
+"big oh plus"                               = "bigoplus"
+"big oh times"                              = "bigotimes"
+#
+"dot dot dot"                               = "dots"
+"diagonal dots"                             = "ddots"
+"horizontal dots"                           = "cdots"
+"vertical dots"                             = "vdots"
+
+[tex_symbols2]
+# sets
+"empty set"                  = "emptyset"
+"subset"                     = "subset"
+"superset"                   = "supset"
+"strict subset"              = "subsetneq"
+"strict superset"            = "supsetneq"
+"intersection"               = "cap"
+"union"                      = "cup"
+"GCD"                        = "gcd"
+"cat hom"                    = "hom"
+"kernel"                     = "ker"
+"unit"                       = "unitone"
+"unit two"                   = "unittwo"
+"unit fraction"              = "unitfrac"
+"text fraction"              = "tfrac"
+"display fraction"           = "dfrac"
+"continued fraction"         = "cfrac"
+"continued fraction (left)"  = "cfracleft"
+"continued fraction (right)" = "cfracright"
+"text binomial"              = "tbinom"
+"display binomial"           = "dbinom"
+
+[text_modes]
+"roman"                                 = "mathrm"
+"bold"                                  = "mathbf"
+"sans serif"                            = "mathsf"
+"italic"                                = "mathit"
+"typewriter"                            = "mathtt"
+# math fonts
+# "normal"                              = "textrm"
+"(beebee|blackboard bold | blackboard)" = "mathbb"
+# "bold symbol"                         = "boldsymbol"
+# "fraktur"                             = "mathfrak"
+# "calligraphic"                        = "mathcal"
+# "formal script"                       = "mathscr"
+
+[accents]
+"hat"        = "h"
+"tilde"      = "ampersand"
+"dot"        = "dot"
+"double dot" = "dquote"
+"bar"        = "minus"
+"vector"     = "v"
+
+[denominators]
+"(half | halves)"                         = 2
+"(third | thirds)"                        = 3
+"(quarter | quarters | fourth | fourths)" = 4
+"(fifth | fifths)"                        = 5
+"(sixth | sixths)"                        = 6
+"(seventh | sevenths)"                    = 7
+"(eighth | eighths)"                      = 8
+"(ninth | ninths)"                        = 9
+"(tenth | tenths)"                        = 10
+
+[control]
+"new file"     = "c-n"
+"open file"    = "c-o"
+"save as"      = "cs-s"
+"math mode"    = "c-m"
+"display mode" = "cs-m"
+"normal mode"  = "a-p, s"
+"view PDF"     = "c-r"
+"update PDF"   = "cs-r"
+#
+"insert (in line formula | in line)"             = "a-i, h, i"
+"insert (numbered formula)"                      = "a-i, h, n"
+"insert (display formula | display)"             = "a-i, h, d"
+"insert equation array"                          = "a-i, h, e"
+"insert (AMS align environment | AMS align)"     = "a-i, h, a"
+"insert AMS align at [environment]"              = "a-i, h, t"
+"insert AMS flalign [environment]"               = "a-i, h, f"
+"insert (AMS gathered environment | AMS gather)" = "a-i, h, g"
+"insert (AMS multline [environment]| multiline)" = "a-i, h, m"
+"insert array [environment]"                     = "a-i, h, y"
+"insert (cases [environment] | piecewise)"       = "a-i, h, c"
+"insert (aligned [environment] | align)"         = "a-i, h, l"
+"insert aligned at [environment]"                = "a-i, h, v"
+"insert gathered [environment]"                  = "a-i, h, h"
+"insert split [environment]"                     = "a-i, h, s"
+"insert delimiters"                              = "a-i, h, r"
+"insert matrix"                                  = "a-i, h, x"
+"insert macro"                                   = "a-i, h, o"
+#
+"insert [bulleted] list"             = "a-p, b"
+"insert numbered list"               = "a-p, e"
+"insert description"                 = "a-p, d"
+"insert part"                        = "a-p, 0"
+"insert (section | heading)"         = "a-p, 2"
+"insert sub (section | heading)"     = "a-p, 3"
+"insert sub sub (section | heading)" = "a-p, 4"
+"insert paragraph"                   = "a-p, 5"
+"insert sub paragraph"               = "a-p, 6"
+"insert title"                       = "a-p, t"
+"insert author"                      = "a-p, s-a"
+"insert date"                        = "a-p, s-d"
+"insert abstract"                    = "a-p, a"
+"insert address"                     = "a-p, a-a"
+"insert bibliography"                = "a-p, s-b"
+"insert quotation"                   = "a-p, a-q"
+"insert quote"                       = "a-p, q"
+"insert verse"                       = "a-p, v"
+
+[control_repeat]
+"next tab"               = "c-pgdown"
+"(prior | previous) tab" = "c-pgup"
+"close tab"              = "c-w/20"
+"move line up"           = "a-up"
+"move line down"         = "a-down"

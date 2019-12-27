@@ -1,0 +1,151 @@
+[functions]
+"app context"          = "AppContext"
+"choice"               = "Choice"
+"context action"       = "ContextAction"
+"dictation"            = "Dictation"
+"execute"              = "execute"
+"function"             = "Function"
+"run command"          = "RunCommand"
+"integer ref"          = "IntegerRef"
+"short integer ref"    = "ShortIntegerRef"
+"key"                  = "Key"
+"mouse"                = "Mouse"
+"repeat"               = "Repeat"
+"text"                 = "Text"
+"add non ccr app rule" = "add_non_ccr_app_rule"
+"add app rule"         = "add_app_rule"
+"add global rule"      = "add_global_rule"
+
+
+[misc]
+"add app rule"                   = ["add_app_rule()", "left"]
+"add global rule"                = ["add_global_rule()", "left"]
+"class merge rule"               = ["class (MergeRule):", "left:12"]
+"control nexus merger"           = "control.nexus().merger."
+"from dragonfly import all"      = "from dragonfly import Dictation, Choice, Function, IntegerRef, "
+"from dragonfly import"          = "from dragonfly import "
+"import (libs | libraries)"      = "from caster.lib import control, utilities, execution"
+"Import [app] context"           = "from caster.lib.dfplus.context import AppContext"
+"import actions"                 = "from caster.lib.dfplus.actions import Key, Text, Mouse, Store, Retrieve"
+"import everything"                 = "from caster.imports import *"
+"import merge rule"              = "from caster.lib.merge.mergerule import MergeRule"
+"insert defaults"                = ["defaults = {}", "left, enter, tab"]
+"insert extras"                  = ["extras = []", "left, enter:2, up, tab"]
+"insert extra"                   = ["%()s", "left:2"]
+"insert mapping"                 = ["mapping = {}", "left, enter, tab"]
+"utilities load tommel relative" = ["utilities.load_toml_relative()", "left"]
+"utilities read selected"        = ["utilities.read_selected()", "left"]
+
+[templates]
+"language rule" = '''
+pronunciation =
+function_prefix = "fun"
+template_prefix = "template"
+
+[functions]
+
+[commands]
+
+[templates]
+
+from dragonfly import Dictation, MappingRule, Choice, Function, IntegerRef
+from caster.lib.dfplus.actions import Key, Text, Mouse, Store, Retrieve
+from caster.lib.dfplus.context import AppContext
+
+from caster.lib import control, utilities, execution
+from caster.lib.merge.mergerule import MergeRule
+
+BINDINGS = utilities.load_toml_relative("config/language_name.toml")
+
+class classNameNon(MergeRule):
+    mapping = {
+        BINDINGS["template_prefix"] + " <template>":
+            Function(execution.template),
+
+        "configure " + BINDINGS["pronunciation"]:
+            Function(utilities.load_config, config_name="language_name.toml"),
+    }
+    extras = [
+        Choice("template", BINDINGS["templates"]),
+    ]
+
+class className(MergeRule):
+    non = classNameNon
+    mwith = "Core"
+    mcontext = AppContext(title=".")
+    pronunciation = BINDINGS["pronunciation"]
+
+    mapping = {
+        "<command>":
+            Alternating("command"),
+
+        BINDINGS["function_prefix"] + " <fun>":
+            Store(same_is_okay=False) + Text("%(fun)s()") + Key("left") + Retrieve(action_if_text="right"),
+    }
+
+    extras = [
+        Choice("fun",    BINDINGS["functions"]),
+        Choice("command",BINDINGS["commands"]),
+    ]
+
+    defaults = {}
+
+
+control.global_rule(className())
+'''
+
+"CCR" = '''
+from dragonfly import Dictation, MappingRule, Choice, Function, IntegerRef
+from caster.lib.dfplus.actions import Key, Text, Mouse
+
+from caster.lib import control, utilities
+from caster.lib.merge.mergerule import MergeRule
+
+BINDINGS = utilities.load_toml_relative("config/.toml")
+
+class classNameNon(MergeRule):
+    mapping = {
+
+    }
+
+class className(MergeRule):
+    non = classNameNon
+    pronunciation = BINDINGS["pronunciation"]
+
+    mapping = {
+
+    }
+
+    extras = [
+    ]
+
+    defaults = {}
+
+
+control.global_rule(className())
+'''
+
+"App" = '''
+from dragonfly import (Grammar, Pause, Choice, Function, IntegerRef)
+from caster.lib.dfplus.actions import Key, Text
+from caster.lib.dfplus.context import AppContext
+
+from caster.lib.merge.mergerule import MergeRule
+
+
+class AppNameRule(MergeRule):
+    pronunciation = "AppName"
+    mcontext = AppContext(executable="AppName", title="AppName")
+
+    mapping = {
+
+    }
+    extras = [
+
+    ]
+    defaults = {
+
+    }
+
+control.non_ccr_app_rule(AppNameRule())
+'''
