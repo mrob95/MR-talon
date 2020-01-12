@@ -5,7 +5,8 @@ BRING = utilities.load_toml_relative("config/bringme.toml")
 
 sites = BRING["website"]
 
-ctx = Context("chrome", func=lambda app, win: 'Google Chrome' in win.title)
+# ctx = Context("chrome", func=lambda app, win: 'Google Chrome' in win.title)
+ctx = Context("chrome", func=actions.context_matches("google chrome"))
 
 repeat = {str(i): str(i) for i in range(20)}
 numberth = {
@@ -28,7 +29,7 @@ ctx.keymap({
     "previous tab [{chrome.repeat}]": repeated_action(Key("ctrl-shift-tab")),
     "close tab [{chrome.repeat}]": repeated_action(Key("ctrl-w")),
     "reopen tab [{chrome.repeat}]": repeated_action(Key("ctrl-shift-t")),
-    "{chrome.numberth} tab": lambda m: press("ctrl-" + numberth[m["chrome.numberth"]]),
+    "{chrome.numberth} tab": lambda m: press("ctrl-" + numberth[m["chrome.numberth"][0]]),
     "page back [{chrome.repeat}]": repeated_action(Key("alt-left")),
     "page forward [{chrome.repeat}]": repeated_action(Key("alt-right")),
     "zoom reset": Key("ctrl-0"),

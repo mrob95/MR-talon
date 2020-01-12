@@ -1,10 +1,11 @@
 # from dragonfly import Window, Key
 import struct
-from ctypes import cdll
+from ctypes import cdll, windll
 from . import utilities
 from win32gui import GetForegroundWindow
 import win32gui
 import win32con
+
 
 
 # https://github.com/mrob95/pyVirtualDesktopAccessor
@@ -44,6 +45,7 @@ def go_to_n(n):
     #         Key("win-ctrl-left/15:" + str(current-n)).execute()
     #     else:
     #         Key("win-ctrl-right/15:" + str(n-current)).execute()
+    windll.user32.AllowSetForegroundWindow(-1)
     vda.GoToDesktopNumber(n-1)
 
 # def close_all():

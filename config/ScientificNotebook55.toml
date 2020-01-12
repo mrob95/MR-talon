@@ -33,23 +33,6 @@
 "omega"     = "w"
 
 [misc_sn_keys]
-"toggle math"                     = "c-m"
-"toggle text"                     = "c-t"
-"fraction"                        = "c-f"
-"over"                            = "cs-left, c-f"
-"(super script | to the power)"   = "c-h"
-"sub script"                      = "c-l"
-"squared"                         = "c-h, 2, right"
-"cubed"                           = "c-h, 3, right"
-"inverse"                         = "c-h, minus, 1, right"
-"inverse half"                    = "c-h, minus, c-f, 1, down, 2, right:2"
-"(parens | parentheses | prens)"  = "c-0"
-"(squares | square brackets)"     = "c-6"
-"absolute"                        = "c-backslash"
-"norma"                           = "cs-backslash"
-"chi squared"                     = "c-g, q, c-h, 2, right"
-"(radical | square root)"         = "c-r"
-"summation"                       = "c-7"
 "sum to N"                        = "s, m, i, t, o, n"
 "expectation"                     = "s-e, c-0"
 "given"                           = "ctrl:down, t, h, i, n, s, p, a, c, e, ctrl:up, bar, ctrl:down, t, h, i, n, s, p, a, c, e, ctrl:up"
@@ -59,13 +42,9 @@
 "moving average"                  = "M, A, c-0"
 "autoregressive"                  = "A, R, c-0"
 #
-"label above"                     = "f10, i, down:11, enter/25, a, enter"
-"label below"                     = "f10, i, down:11, enter/25, b, enter"
 "thin space"                      = "ctrl:down, t, h, i, n, s, p, a, c, e, ctrl:up"
 "thick space"                     = "ctrl:down, q, u, a, d, ctrl:up"
 "subject to"                      = "ctrl:down, q, u, a, d, ctrl:up, s, dot, t, dot, ctrl:down, q, u, a, d, ctrl:up"
-"add matrix row"                  = "f10, e, up:2, enter/10, enter"
-"add matrix column"               = "f10, e, up, enter/10, enter"
 "unit degrees" = "u, d, e, g"
 "beater hat" = "c-g, b, c-caret"
 
@@ -153,14 +132,6 @@
 "horizontal dots"                           = "cdots"
 "vertical dots"                             = "vdots"
 
-[accents]
-"hat"                                       = "c-caret"
-"tilde"                                     = "c-tilde"
-"dot"                                       = "c-dot"
-"double dot"                                = "c-dquote"
-"bar"                                       = "c-underscore"
-"arrow"                                     = "c-minus"
-
 [denominators]
 "(half | halves)"                           = 2
 "(third | thirds)"                          = 3
@@ -171,42 +142,6 @@
 "(eighth | eighths)"                        = 8
 "(ninth | ninths)"                          = 9
 "(tenth | tenths)"                          = 10
-
-[misc_sn_text]
-"miscellaneous text" = "test"
-
-
-[control]
-"new file"                         = "f10, f, enter"
-"open file"                        = "c-o"
-"save file"                        = "f10, f, s"
-"save as"                          = "f10, f, down:5, enter"
-"print file"                       = "c-p"
-"export document"                  = "f10, f, down:7, enter"
-"page preview"                     = "f10, f, down:17, enter"
-"body math"                        = "a-2, down, enter"
-"body text"                        = "a-2, down:2, enter"
-"(begin | insert) [bulleted] list" = "a-1, down:2, enter"
-"(begin | insert) numbered list"   = "a-1, down:4, enter"
-"end [(bulleted | numbered)] list" = "a-1, up, enter"
-"insert normal text"               = "a-3, down, enter"
-"insert big text"                  = "a-3, down:2, enter"
-"insert small text"                = "a-3, down:9, enter"
-"insert bold text"                 = "a-3, down:3, enter"
-"insert italic text"               = "a-3, down:6, enter"
-"insert bold symbols"              = "a-3, down:4, enter"
-"insert centred text"              = "a-2, down:3, enter"
-"insert left text"                 = "a-2, down:4, enter"
-"insert right text"                = "a-2, down:5, enter"
-"insert quotation"                 = "a-2, down:11, enter"
-"insert (heading | title) [one]"   = "a-2, down:6, enter"
-"insert (heading | title) two"     = "a-2, down:7, enter"
-"insert (heading | title) three"   = "a-2, down:8, enter"
-"insert (heading | title) four"    = "a-2, down:9, enter"
-"insert (heading | title) five"    = "a-2, down:10, enter"
-"evaluate"                         = "c-e"
-"evaluate numerically"             = "f10, c/10, down, enter"
-
 
 [units]
 # Activity

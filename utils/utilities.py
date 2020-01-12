@@ -7,6 +7,8 @@ from subprocess import Popen
 from six import PY2
 if PY2:
     from urllib2 import Request, urlopen, quote
+else:
+    from urllib.parse import quote_plus as quote
 
 import threading
 try:
@@ -132,9 +134,9 @@ def kill_notepad():
 def browser_open(url):
     webbrowser.open_new_tab(url)
 
-def browser_search(text=None, url="https://www.google.com/search?q=%s"):
-    if not text:
-        text = read_selected(True)
+def browser_search(text="", url="https://www.google.com/search?q=%s"):
+    # if not text:
+        # text = read_selected(True)
     url = url % quote(text)
     browser_open(url)
 

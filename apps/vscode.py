@@ -1,13 +1,15 @@
 from ..imports import *
 
 # ctx = Context("code", bundle="com.microsoft.VSCode")
-ctx = Context("code", func=lambda app, win: 'Code.exe' in app.exe)
+# ctx = Context("code", func=lambda app, win: 'Code.exe' in app.exe)
+ctx = Context("code", func=actions.context_matches(exe="code.exe"))
 
 def Pallette(command):
     return [Key("ctrl-shift-p"), command, Key("enter")]
 
 repeated_action = actions.gen_repeated_action("code.repeat")
 repeat = {str(i): str(i) for i in range(20)}
+digits = {str(i): str(i) for i in range(10)}
 numberth = {
     "first": "1",
     "second": "2",
@@ -35,7 +37,7 @@ ctx.keymap({
     "close tab [{code.repeat}]": repeated_action(Key("ctrl-w")),
     "next tab [{code.repeat}]": repeated_action(Key("ctrl-pgdown")),
     "previous tab [{code.repeat}]":repeated_action (Key("ctrl-pgup")),
-    "{code.numberth} tab": lambda m: press("alt-" + numberth[m["code.numberth"]]),
+    "{code.numberth} tab": lambda m: press("alt-" + numberth[m["code.numberth"][0]]),
     #
     "terminal here": Key("ctrl-shift-c"),
     "explorer here": Key("shift-alt-r"),
@@ -110,15 +112,11 @@ ctx.keymap({
     "move down": Key("ctrl-k ctrl-shift-down"),
     "move left": Key("ctrl-k ctrl-shift-left"),
     "move right": Key("ctrl-k ctrl-shift-right"),
-    # "split right": Key("ctrl-backslash"),
     "split right": Key("alt-shift-2 ctrl-k ctrl-shift-right"),
     "split definition": Key("ctrl-k f12"),
     #------------------------------------------------
-    # "[<end>] line <ln1>": Key("ctrl-g")
-    # + Wait()
-    # + Text("%(ln1)s")
-    # + Key("enter")
-    # + Key("%(end)s"),
+    "line {code.digits}+": [Key("ctrl-g"), lambda m: Str("".join(m["digits_list"]))(m), Key("enter")],
+    "end line {code.digits}+": [Key("ctrl-g"), lambda m: Str("".join(m["digits_list"]))(m), Key("enter end")],
     "shunt [{code.repeat}]": repeated_action(Key("shift-down")),
     "(go to | good) file": Key("ctrl-p"),
     "comment line": Key("ctrl-/"),
@@ -129,3 +127,4 @@ ctx.keymap({
 })
 ctx.set_list("repeat", repeat.keys())
 ctx.set_list("numberth", numberth.keys())
+ctx.set_list("digits", digits.keys())

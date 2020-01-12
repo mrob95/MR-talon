@@ -3,14 +3,15 @@ from ..imports import *
 BINDINGS = utilities.load_toml_relative("config/terminal.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
 
-ctx = Context("terminal", func=lambda app, win: 'MINGW64' in win.title)
+# ctx = Context("terminal", func=lambda app, win: 'MINGW64 in win.title)
+ctx = Context("terminal", func=actions.context_matches("mingw64"))
 
 commands = BINDINGS["commands"]
 git_commands = BINDINGS["git_commands"]
 
 def execute_command(list_name, lookup):
     def f(m):
-        c = lookup[m[list_name]]
+        c = lookup[m[list_name][0]]
         if isinstance(c, str):
             Str(c)(None)
         else:

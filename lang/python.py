@@ -2,7 +2,7 @@ from ..imports import *
 
 BINDINGS = utilities.load_toml_relative("config/python.toml")
 
-ctx = Context("python", func=lambda app, win: '.py' in win.title)
+ctx = Context("python", func=actions.context_matches(".py"))
 
 commands = BINDINGS["commands"]
 functions = BINDINGS["functions"]

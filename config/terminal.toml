@@ -13,7 +13,7 @@
 "dot pie"                = ".py"
 "dot tex"                = ".tex"
 "echo" = "echo "
-"(LS | list)"            = "ls "
+"list"            = "ls "
 "line count"             = "wc -l "
 "make directory"         = "mkdir "
 "move file"              = "mv  "
@@ -56,8 +56,8 @@
 "python 3 pytest"        = "python3 -m pytest "
 "python 2 pytest"        = "python27 -m pytest "
 "python 2 64"            = "C:/Python27-64/python.exe "
-"python 2 pip [install]" = "python27 -m pip install "
-"python 3 pip [install]" = "python3 -m pip install "
+"python 2 pip install" = "python27 -m pip install "
+"python 3 pip install" = "python3 -m pip install "
 "upgrade pip" = "--upgrade pip"
 "pip two (install | build) package" = "pip2 install -e ."
 "pie test" = "pytest "
@@ -93,14 +93,14 @@
 "add force"                    = "add -f "
 "remove"                       = "rm "
 "remove cashed"                = "rm --cached "
-"branch set upstream [to]"     = "branch --set-upstream-to="
+"branch set upstream"     = "branch --set-upstream-to="
 "branch"                       = "branch "
 "branch remotes"               = "branch -r "
 "checkout develop"             = ["checkout develop", "enter"]
 "checkout master"              = ["checkout master", "enter"]
 "checkout upstream develop"    = ["checkout upstream/develop", "enter"]
 "checkout"                     = "checkout "
-"checkout (remote | track)"    = "checkout --track "
+"checkout track"    = "checkout --track "
 "cherry pick"                  = "cherry-pick "
 "clone github"                 = ["clone https://github.com/.git", "left:4"]
 "commit all"                   = ["commit -a -m \"\"", "left"]
@@ -110,7 +110,7 @@
 "create ignore" = "curl https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore > .gitignore"
 "diff"                         = "diff "
 "discard"                      = "checkout -- "
-"(discard all | reset hard)"   = "reset --hard"
+"discard all"   = "reset --hard"
 "fetch upstream"               = "fetch upstream "
 "fetch upstream and pull"      = "fetch upstream && git pull"
 "fetch origin"                 = "fetch origin "
@@ -126,7 +126,7 @@
 "merge continue"               = "merge --continue "
 "pull"                         = "pull "
 "publish"                      = "push -u origin "
-"push set upstream [origin]"   = "push --set-upstream origin "
+"push set upstream origin"   = "push --set-upstream origin "
 "push"                         = "push "
 "push force"                   = "push --force "
 "rebase"                       = "rebase master"
@@ -140,11 +140,11 @@
 "remote rename"                = "remote rename "
 "remove branch"                = "branch -d "
 "reset"                        = "reset "
-"(remote show | show remotes)" = ["remote -v ", "enter"]
+"show remotes" = ["remote -v ", "enter"]
 "stash branch"                 = "stash branch NAME"
 "stash list"                   = "stash list"
 "stash"                        = "stash "
-"(stash pop | retrieve)"       = "stash pop "
+"stash pop"       = "stash pop "
 "subversion"                   = "svn "
 "subversion clone"             = "svn clone "
 "subversion fetch"             = "svn fetch "

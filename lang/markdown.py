@@ -2,7 +2,8 @@ from ..imports import *
 
 BINDINGS = utilities.load_toml_relative("config/markdown.toml")
 
-ctx = Context("markdown", func=lambda app, win: 'notepad.exe' in app.exe.lower())
+# ctx = Context("markdown", func=lambda app, win: 'notepad.exe' in app.exe.loCome on linewer())
+ctx = Context("markdown", func=actions.context_matches(exe="notepad.exe"))
 
 elements = BINDINGS["elements"]
 

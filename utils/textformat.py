@@ -6,6 +6,8 @@ def remove_dragon_junk(word):
         return "point"
     elif word == ".\\period\\period":
         return "period"
+    elif word == "i\\pronoun":
+        return "i"
     else:
         return str(word).lstrip("\\").split("\\", 1)[0].replace("-", " ").strip()
 
@@ -23,7 +25,7 @@ def format_text(text, capitalisation=0, spacing=0):
         result = []
         for i in range(len(text)):
             if i%2==0:
-                result.append(punc[(i/2)%len(punc)])
+                result.append(punc[(i//2)%len(punc)])
             if i%3==0:
                 result.append(text[i].upper())
             else:
@@ -45,7 +47,9 @@ def format_text(text, capitalisation=0, spacing=0):
         elif capitalisation == 5:
             text = text.lower()
     words = map(remove_dragon_junk, text.split(" "))
-    if spacing == 1:
+    if spacing == 0:
+        text = " ".join(words)
+    elif spacing == 1:
         text = "".join(words)
     elif spacing == 2:
         text = "-".join(words)
