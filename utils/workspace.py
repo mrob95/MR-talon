@@ -1,4 +1,4 @@
-# from dragonfly import Window, Key
+from talon.voice import Key
 import struct
 from ctypes import cdll, windll
 from . import utilities
@@ -47,6 +47,7 @@ def go_to_n(n):
     #         Key("win-ctrl-right/15:" + str(n-current)).execute()
     windll.user32.AllowSetForegroundWindow(-1)
     vda.GoToDesktopNumber(n-1)
+    Key("alt-escape")(None)
 
 # def close_all():
 #     total = vda.GetDesktopCount()

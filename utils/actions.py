@@ -28,6 +28,18 @@ def gen_alternating(list_name, lookup):
                     Key(key_or_text)(None)
     return execute_command
 
+def Alternating(l):
+    if isinstance(l, str):
+        return l
+    else:
+        result = []
+        for i, key_or_text in enumerate(l):
+            if i%2 == 0:
+                result.append(key_or_text)
+            else:
+                result.append(Key(key_or_text))
+        return result
+
 def exec_str(list_name, lookup):
     return lambda m: Str(lookup[m[list_name][0]])(m)
 
@@ -62,17 +74,17 @@ def context_matches(title=None, exe=None):
     if isinstance(exe, str): exe = [exe]
     if title and exe:
         def f(app, win):
-            if app is None or win is None:
+            if app.exe is None or win.title is None:
                 return False
             return matches(title, win.title.lower()) or matches(exe, app.exe.lower())
     elif title:
         def f(app, win):
-            if win is None or win.title is None:
+            if win.title is None or win.title is None:
                 return False
             return matches(title, win.title.lower())
     elif exe:
         def f(app, win):
-            if app is None or app.exe is None:
+            if app.exe is None or app.exe is None:
                 return False
             return matches(exe, app.exe.lower())
     else:

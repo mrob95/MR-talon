@@ -70,7 +70,7 @@ ctx.keymap(
       "windowsterminal.exe": Key("ctrl-shift-c"),
       }),
     "spark": actions.ContextAction(Key("ctrl-v"), {
-      "mintty.exe": Key("shift-insert"),
+      "mintty.exe": Key("insert"),
       "windowsterminal.exe": Key("ctrl-shift-v"),
       }),
     "check [{basic_keys.repeat}]": actions.ContextAction(
@@ -82,8 +82,8 @@ ctx.keymap(
         "mintty.exe": lambda m: None,
         "code.exe": repeated_action(Key("shift-alt-down")),
       }),
-    "volume up [{basic_keys.repeat}]": repeated_action(Key("volume_up")),
-    "volume down [{basic_keys.repeat}]": repeated_action(Key("volume_down")),
+    "volume up [{basic_keys.repeat}]": repeated_action(Key("volup")),
+    "volume down [{basic_keys.repeat}]": repeated_action(Key("voldown")),
     "music next [{basic_keys.repeat}]": repeated_action(Key("next")),
     "music previous [{basic_keys.repeat}]": repeated_action(Key("previous")),
     "music play": Key("play"),
