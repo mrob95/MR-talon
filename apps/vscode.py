@@ -122,8 +122,8 @@ ctx.keymap({
     "comment line": Key("ctrl-/"),
     "indent [{code.repeat}]": repeated_action(Key("ctrl-]")),
     "[auto] complete": Key("ctrl-space"),
-    # "meta sell": Key("shift-alt-;") + Wait(),
-    # "meta go": Key("ctrl-;") + Wait(),
+    "meta sell": [Key("shift-alt-;"), actions.wait(25)],
+    "meta go": [Key("ctrl-;"), actions.wait(25)],
 })
 ctx.set_list("repeat", repeat.keys())
 ctx.set_list("numberth", numberth.keys())

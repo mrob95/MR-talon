@@ -6,7 +6,7 @@ from utils import actions
 command_exes = ["code.exe", "mintty.exe", "kindle.exe"]
 command_titles = []
 
-in_command_context = False
+in_command_context = None
 
 def switch_command():
     engine.mimic("switch to command mode")
@@ -17,16 +17,12 @@ def switch_normal():
 def check_context():
     global in_command_context
     if actions.context_matches(command_titles, command_exes)(ui.active_app(), ui.active_window()):
-        if in_command_context:
-            return
-        else:
-            in_command_context = True
+        if in_command_context is None or not in_command_context:
             switch_command()
+            in_command_context = True
     else:
-        if in_command_context:
-            in_command_context= False
+        if in_command_context is None or in_command_context:
             switch_normal()
-        else:
-            return
+            in_command_context= False
 
 cron.interval("1s", check_context)

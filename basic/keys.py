@@ -87,6 +87,10 @@ ctx.keymap(
     "music next [{basic_keys.repeat}]": repeated_action(Key("next")),
     "music previous [{basic_keys.repeat}]": repeated_action(Key("previous")),
     "music play": Key("play"),
+
+    "hug prekris": Key("("),
+    "hug curly": Key("{"),
+    "hug brax": Key("["),
   }
 )
 

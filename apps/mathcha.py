@@ -1,6 +1,6 @@
 from ..imports import *
 
-ctx = Context("mathcha", func=actions.context_matches(exe="chrome.exe", title="mathcha"))
+ctx = Context("mathcha", func=actions.context_matches(title="mathcha"))
 
 BINDINGS = utilities.load_toml_relative("config/tex_data.toml")
 
@@ -17,7 +17,7 @@ def matrix(m):
     Key("alt-m c i " * (cols - 1))(m)
 
 def insert_tex(symbol):
-    return [Key("\\"), actions.wait(50), Str(symbol), Key("enter")]
+    return [actions.wait(75), Key("\\"), actions.wait(75), Str(symbol), Key("enter")]
 
 ctx.keymap({
     #
@@ -25,8 +25,8 @@ ctx.keymap({
     #
     **{k: insert_tex(v) for k, v in BINDINGS["tex_symbols1"].items()},
     **{k: insert_tex(v) for k, v in BINDINGS["tex_symbols2"].items()},
-    **{"greek " + k: insert_tex(v) for k, v in BINDINGS["greek_letters"].items()},
-    **{"big greek" + k: insert_tex(v.title()) for k, v in BINDINGS["greek_letters"].items()},
+    **{f"greek {k}": insert_tex(v) for k, v in BINDINGS["greek_letters"].items()},
+    **{f"big greek {k}": insert_tex(v.title()) for k, v in BINDINGS["greek_letters"].items()},
     "summation"       : insert_tex("sum"),
     "product"       : insert_tex("prod"),
     "product"       : insert_tex("lim"),
@@ -39,9 +39,9 @@ ctx.keymap({
     # "over"                           : Key("shift-left alt-m f down"),
     "(super script | to the power)"  : Key("^"),
     "sub script"                     : Key("_"),
-    "squared"                        : Key("^ 2 right"),
-    "cubed"                          : Key("^ 3 right"),
-    "inverse"                        : Key("^ - 1 right"),
+    "squared"                        : Key("^ 2"),
+    "cubed"                          : Key("^ 3"),
+    "inverse"                        : Key("^ - 1"),
     # "(prekris | parens | brackets)"  : Key("alt-m ("),
     # "(brax | square brackets)"       : Key("alt-m ["),
     # "curly [brackets]"               : Key("alt-m {"),

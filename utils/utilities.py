@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import io, os, sys, time, re, datetime
 import toml, webbrowser, json
-# from PIL import ImageGrab
+from PIL import ImageGrab
 from subprocess import Popen
 # from dragonfly import Choice, Clipboard, Key, Window
 from six import PY2
@@ -182,7 +182,7 @@ def image_name(dir=os.path.expandvars("%USERPROFILE%/Pictures/saved")):
     file_name = str(now).rsplit(".", 1)[0].replace(":", "")
     return "%s/%s" % (dir, file_name)
 
-def save_clipboard_image():
+def save_clipboard_image(m=None):
     im = ImageGrab.grabclipboard()
     try:
         im.save('%s.png' % image_name(),'PNG')

@@ -14,6 +14,8 @@
 "dot tex"                = ".tex"
 "echo" = "echo "
 "list"            = "ls "
+"remove" = "rm "
+"remove recursive" = "rm -rf "
 "line count"             = "wc -l "
 "make directory"         = "mkdir "
 "move file"              = "mv  "
@@ -56,6 +58,7 @@
 "python 3 pytest"        = "python3 -m pytest "
 "python 2 pytest"        = "python27 -m pytest "
 "python 2 64"            = "C:/Python27-64/python.exe "
+"python 3 32"            = "C:/Python38-32/python.exe "
 "python 2 pip install" = "python27 -m pip install "
 "python 3 pip install" = "python3 -m pip install "
 "upgrade pip" = "--upgrade pip"
@@ -103,6 +106,8 @@
 "checkout track"    = "checkout --track "
 "cherry pick"                  = "cherry-pick "
 "clone github"                 = ["clone https://github.com/.git", "left:4"]
+"clone"                        = "clone "
+"commit amend"                   = "commit --amend "
 "commit all"                   = ["commit -a -m \"\"", "left"]
 "commit all and push"          = ["commit -a -m \"\" && git push", "left:13"]
 "commit"                       = ["commit -m \"\"", "left"]

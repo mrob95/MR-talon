@@ -12,7 +12,11 @@ class gen_repeated_action():
             except KeyError:
                 rep = 1
             for _ in range(rep):
-                action(m)
+                if isinstance(action, list):
+                    for a in action:
+                        a(m)
+                else:
+                    action(m)
         return f
 
 def gen_alternating(list_name, lookup):
@@ -55,7 +59,11 @@ class ContextAction:
         current_exe = ui.active_app().exe.lower()
         for match, action in self.alternatives.items():
             if match in current_exe:
-                action(m)
+                if isinstance(action, list):
+                    for a in action:
+                        a(m)
+                else:
+                    action(m)
                 return
         else:
             self.default(m)

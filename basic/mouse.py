@@ -1,3 +1,4 @@
+from ..imports import *
 import time
 from talon import ctrl, tap
 from talon.voice import Context
@@ -14,6 +15,7 @@ def right_click(m):
     click(m, button=1)
 
 def dubclick(m):
+    click(m, button=0, times=2)
     click(m, button=0, times=2)
 
 def mouse_drag(m):
@@ -34,6 +36,10 @@ keymap = {
     'kick': click,
     'kick double': dubclick,
     'squat': mouse_drag,
-    'bench': mouse_release,
+    'bench': actions.ContextAction(
+        mouse_release, {
+            "shellexperiencehost.exe": [mouse_release, actions.wait(100), utilities.save_clipboard_image]
+        }
+    ),
 }
 ctx.keymap(keymap)
