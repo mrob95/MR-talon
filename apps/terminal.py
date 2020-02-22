@@ -25,30 +25,9 @@ ctx.keymap({
     **{f"git {k}": ["git ", actions.Alternating(v)] for k, v in git_commands.items()},
 })
 
-
-directory_map = {}
-file_map = {}
-path_last_update = None
-
 mingwctx = Context("mingw", func=lambda app, win: 'MINGW64' in win.title)
 
-def update_directory_map(current_path):
-    global directory_map
-    directories = [p.name for p in current_path.iterdir() if p.is_dir()]
-    spoken_forms = speakit.split_symbols(directories, max_len=3)
-    directory_map = dict(zip(spoken_forms, directories))
-    mingwctx.lists["directories"] = directory_map
-    # print(directory_map)
-
-def update_file_map(current_path):
-    global file_map
-    files = [p for p in current_path.iterdir() if p.is_file()]
-    spoken_forms = speakit.split_symbols([p.stem for p in files], max_len=3)
-    file_map = dict(zip(spoken_forms, [f.name for f in files]))
-    mingwctx.lists["files"] = file_map
-    print(file_map)
-
-
+path_last_update = None
 def update_maps(window):
     if not "MINGW64" in window.title:
         return
