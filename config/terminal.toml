@@ -99,6 +99,11 @@
 "branch set upstream"     = "branch --set-upstream-to="
 "branch"                       = "branch "
 "branch remotes"               = "branch -r "
+"bisect start" = "bisect start"
+"bisect good" = "bisect good "
+"bisect bad" = "bisect bad "
+"bisect reset" = "bisect reset "
+"bisect" = "bisect "
 "checkout develop"             = ["checkout develop", "enter"]
 "checkout master"              = ["checkout master", "enter"]
 "checkout upstream develop"    = ["checkout upstream/develop", "enter"]

@@ -23,7 +23,7 @@ ctx.keymap({
     **{k: Str("\\" + v + " ")  for k, v in BINDINGS["tex_symbols1"].items()},
     **{k: Str("\\" + v + " ")  for k, v in BINDINGS["tex_symbols2"].items()},
     **{"greek " + k: Str("\\" + v + " ") for k, v in BINDINGS["greek_letters"].items()},
-    **{"big greek " + k: Str("\\" + v.title() + " ") for k, v in BINDINGS["greek_letters"].items()},
+    **{"greek big " + k: Str("\\" + v.title() + " ") for k, v in BINDINGS["greek_letters"].items()},
     #
     # Misc maths
     #
