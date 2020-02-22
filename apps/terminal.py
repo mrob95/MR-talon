@@ -26,8 +26,8 @@ ctx.keymap({
 })
 
 
-
 directory_map = {}
+file_map = {}
 path_last_update = None
 
 mingwctx = Context("mingw", func=lambda app, win: 'MINGW64' in win.title)
@@ -35,9 +35,19 @@ mingwctx = Context("mingw", func=lambda app, win: 'MINGW64' in win.title)
 def update_directory_map(current_path):
     global directory_map
     directories = [p.name for p in current_path.iterdir() if p.is_dir()]
-    spoken_forms = speakit.split_symbols(directories)
+    spoken_forms = speakit.split_symbols(directories, max_len=3)
     directory_map = dict(zip(spoken_forms, directories))
-    mingwctx.set_list("directories", directory_map.keys())
+    mingwctx.lists["directories"] = directory_map
+    # print(directory_map)
+
+def update_file_map(current_path):
+    global file_map
+    files = [p for p in current_path.iterdir() if p.is_file()]
+    spoken_forms = speakit.split_symbols([p.stem for p in files], max_len=3)
+    file_map = dict(zip(spoken_forms, [f.name for f in files]))
+    mingwctx.lists["files"] = file_map
+    print(file_map)
+
 
 def update_maps(window):
     if not "MINGW64" in window.title:
@@ -47,16 +57,13 @@ def update_maps(window):
     if current_path == path_last_update:
         return
     path_last_update = current_path
-    update_directory_map(current_path)
-
-def change_directory(m):
-    dire = directory_map[m["directories"][0]]
-    Str(f'cd "{dire}" && ls')(m)
-    Key("enter")(m)
+    mingwctx.lists["directories"] = file_utils.get_directory_map(current_path)
+    mingwctx.lists["files"] = file_utils.get_file_map(current_path)
 
 ui.register("win_title", update_maps)
 ui.register("win_focus", update_maps)
 
 mingwctx.keymap({
-    "CD {mingw.directories}": change_directory,
+    "CD {directories}": ['cd "', lambda m: Str(m["directories"][0])(m), '" && ls', Key("enter")],
+    "file {files}": [lambda m: Str(m["files"][0])(m), " "],
 })

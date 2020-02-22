@@ -44,8 +44,8 @@ def direction_extreme(m):
   except KeyError:
     mod = ""
   dire = directions[m["basic_keys.directions"][0]]
-  if dire in ["up", "down"] and not mod:
-    mod = "ctrl"
+  if dire in ["up", "down"]:
+    mod += "-ctrl"
   dire = "home" if dire in ["left", "up"] else "end"
   key = "-".join([mod, dire] if mod else [dire])
   press(key)
