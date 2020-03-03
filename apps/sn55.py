@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 ctx = Context("sn55", func=actions.context_matches(exe="scientific notebook"))
 

@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 BINDINGS = utilities.load_toml_relative("config/python.toml")
 

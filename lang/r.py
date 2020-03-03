@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 from subprocess import Popen
 
 BINDINGS = utilities.load_toml_relative("config/r.toml")

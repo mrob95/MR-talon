@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 from subprocess import Popen
 from pathlib import Path
 import speakit
@@ -27,7 +27,6 @@ ctx = Context("explorer", func=actions.context_matches(exe="explorer.exe", title
 path_last_update = None
 
 def update_maps(window):
-    print("updating")
     if not window.app.exe or not "explorer.exe" in window.app.exe.lower() or window.title != ui.active_window().title:
         return
     remap = {
@@ -44,7 +43,6 @@ def update_maps(window):
     if current_path == path_last_update or not current_path.is_dir():
         return
     path_last_update = current_path
-    print("Updating")
     ctx.lists["directories"] = file_utils.get_directory_map(current_path)
     ctx.lists["files"] = file_utils.get_file_map(current_path)
 

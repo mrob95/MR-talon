@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 ctx = Context("latex", func=actions.context_matches(title=".tex"))
 

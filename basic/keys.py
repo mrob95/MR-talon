@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 CORE = utilities.load_toml_relative("config/core.toml")
 

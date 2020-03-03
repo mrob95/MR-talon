@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 ctx = Context("lyx", func=actions.context_matches(exe="lyx.exe"))
 

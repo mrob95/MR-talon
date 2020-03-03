@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 import time
 from talon import ctrl, tap
 from talon.voice import Context

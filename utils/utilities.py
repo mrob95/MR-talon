@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import io, os, sys, time, re, datetime
 import toml, webbrowser, json
-from PIL import ImageGrab
+try:
+    from PIL import ImageGrab
+except ImportError:
+    pass
 from subprocess import Popen
-# from dragonfly import Choice, Clipboard, Key, Window
 from six import PY2
 if PY2:
     from urllib2 import Request, urlopen, quote

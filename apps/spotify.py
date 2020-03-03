@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 repeated_action = actions.gen_repeated_action("spotify.n")
 

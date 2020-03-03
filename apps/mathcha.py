@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 ctx = Context("mathcha", func=actions.context_matches(title="mathcha"))
 

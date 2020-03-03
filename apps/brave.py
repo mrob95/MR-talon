@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 repeated_action = actions.gen_repeated_action("brave.repeat")
 BRING = utilities.load_toml_relative("config/bringme.toml")

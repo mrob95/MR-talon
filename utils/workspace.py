@@ -9,8 +9,10 @@ from . import utilities
 from win32gui import GetForegroundWindow
 import win32gui
 import win32con
-
-import pyvda
+try:
+    import pyvda
+except ImportError:
+    pass
 
 ASFW_ANY = -1
 

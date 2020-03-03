@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 from win32gui import GetForegroundWindow, GetWindowText
 import os
 

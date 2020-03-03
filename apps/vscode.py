@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 # ctx = Context("code", bundle="com.microsoft.VSCode")
 # ctx = Context("code", func=lambda app, win: 'Code.exe' in app.exe)

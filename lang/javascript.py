@@ -1,8 +1,8 @@
 from user.imports import *
 
-BINDINGS = utilities.load_toml_relative("config/rust.toml")
+BINDINGS = utilities.load_toml_relative("config/javascript.toml")
 
-ctx = Context("rust", func=actions.context_matches(".rs"))
+ctx = Context("javascript", func=actions.context_matches(".js"))
 
 commands = BINDINGS["commands"]
 functions = BINDINGS["functions"]
@@ -10,5 +10,5 @@ functions = BINDINGS["functions"]
 ctx.keymap({
     **{k: actions.Alternating(v) for k, v in commands.items()},
     **{f"fun {k}": [f"{v}()", Key("left")] for k, v in functions.items()},
-    "function [<dgndictation>]": ["fn ", textformat.insert_text(0, 3), "(){}", Key("left left")],
+    # "function [<dgndictation>]": ["fn ", textformat.insert_text(0, 3), "(){}", Key("left left")],
 })

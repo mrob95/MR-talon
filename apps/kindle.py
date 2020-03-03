@@ -1,4 +1,4 @@
-from ..imports import *
+from user.imports import *
 
 ctx = Context("kindle", func=actions.context_matches(exe="kindle.exe"))
 
