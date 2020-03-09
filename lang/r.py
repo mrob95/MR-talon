@@ -3,9 +3,13 @@ from subprocess import Popen
 
 BINDINGS = utilities.load_toml_relative("config/r.toml")
 
-ctx = Context("R", func=actions.context_matches([
-    # ".r",
-    "rstudio"]))
+
+ctx = Context("R")
+ctx.matches = r"""
+title: /.*\.r$/
+title: /.*\.R$/
+app: RStudio
+"""
 
 commands = BINDINGS["commands"]
 functions = BINDINGS["r_functions"]
@@ -18,10 +22,10 @@ def r_func(data):
     else:
         return [f"{data[0]}({data[1]})", Key(("left "*int(data[2])).strip())]
 
-ctx.keymap({
+ctx.commands = {
     **{k: actions.Alternating(v) for k, v in commands.items()},
     **{f"fun {k}": r_func(v) for k, v in functions.items()},
     **{f"graph {k}": r_func(v) for k, v in graphs.items()},
     **{f"library {k}": f"library({v})" for k, v in graphs.items()},
     **{f"cheatsheet {k}": lambda m: Popen(["SumatraPDF", f"%USERPROFILE%/Documents/cheatsheets/R/{v}.pdf"]) for k, v in cheatsheets.items()},
-})
+}

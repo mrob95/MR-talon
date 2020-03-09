@@ -1,11 +1,15 @@
 from user.imports import *
 
-ctx = Context("sn55", func=actions.context_matches(exe="scientific notebook"))
+
+ctx = Context("sn55")
+ctx.matches = r"""
+app: scinoteb.exe
+"""
 
 BINDINGS = utilities.load_toml_relative("config/ScientificNotebook55.toml")
 
-ctx.set_list("digits1", [str(i) for i in range(10)])
-ctx.set_list("digits2", [str(i) for i in range(10)])
+ctx.lists["digits1"] = [str(i) for i in range(10)]
+ctx.lists["digits2"] = [str(i) for i in range(10)]
 
 def control_hold(**kw):
     def f(m):
@@ -16,15 +20,15 @@ def TeX(symbol):
     return [control_hold(down=True), Str(symbol), control_hold(up=True)]
 
 def matrix(m):
-    rows = m["sn55.digits1"][0]
-    cols = m["sn55.digits2"][0]
+    rows = m["digits1"][0]
+    cols = m["digits2"][0]
     Key("f10")(m)
     actions.wait(50)(m)
     Key("i " + "down "*8 + "enter")(m)
     actions.wait(50)(m)
     Key(rows + " tab " + cols + " enter")(m)
 
-ctx.keymap({
+ctx.commands = {
     #
     # LaTeX symbols
     #
@@ -34,8 +38,8 @@ ctx.keymap({
     #
     # Misc maths
     #
-    "{sn55.digits1}": lambda m: Key(m["sn55.digits1"][0])(m),
-    "matrix {sn55.digits1} by {sn55.digits2}": matrix,
+    "{digits1}": lambda m: Key(m["digits1"][0])(m),
+    "matrix {digits1} by {digits2}": matrix,
     "fraction"                      : Key("ctrl-f"),
     "over"                          : Key("ctrl-shift-left ctrl-f"),
     "(super script | to the power)" : Key("ctrl-h"),
@@ -95,5 +99,4 @@ ctx.keymap({
     "label below"                    : Key("f10 i " + " down "*11 + "enter/25 b enter"),
     "add matrix row"                 : Key("f10 e up up enter/10 enter"),
     "add matrix column"              : Key("f10 e up enter/10 enter"),
-
-})
+}

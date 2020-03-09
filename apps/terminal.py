@@ -2,16 +2,23 @@ from user.imports import *
 from pathlib import Path
 import speakit
 import re
-
+# print(dir(talon))
 BINDINGS = utilities.load_toml_relative("config/terminal.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
 
+ctx = Context("terminal")
+ctx.matches = r"""
+app: mintty.exe
+app: WindowsTerminal.exe
+"""
+
 # ctx = Context("terminal", func=lambda app, win: 'MINGW64 in win.title)
-ctx = Context("terminal", func=actions.context_matches(exe=["mintty.exe", "windowsterminal.exe"]))
+# ctx = Context("terminal", func=actions.context_matches(exe=["mintty.exe", "windowsterminal.exe"]))
 
 commands = BINDINGS["commands"]
 git_commands = BINDINGS["git_commands"]
-
+ctx.lists["terminal_commands"] = commands.keys()
+ctx.lists["git_commands"] = git_commands.keys()
 # def clip_repo():
 #     clip = Clipboard.get_system_text()
 #     if clip.startswith("https://github.com"):
@@ -21,12 +28,16 @@ git_commands = BINDINGS["git_commands"]
 #         if not clip.endswith(".git"):
 #             Text(".git").execute()
 
-ctx.keymap({
-    **{k: actions.Alternating(v) for k, v in commands.items()},
-    **{f"git {k}": ["git ", actions.Alternating(v)] for k, v in git_commands.items()},
-})
+ctx.commands = {
+    "{terminal_commands}": lambda m: actions.exec_alternating(commands[m["terminal_commands"][0]]),
 
-mingwctx = Context("mingw", func=lambda app, win: 'MINGW64' in win.title)
+    "git {git_commands}": [Str("git "), lambda m: actions.exec_alternating(git_commands[m["git_commands"][0]])],
+}
+
+mingwctx = Context("mingw")
+mingwctx.matches = r"""
+title: /MINGW64/
+"""
 
 path_last_update = None
 def update_maps(window):
@@ -44,13 +55,16 @@ def update_maps(window):
 ui.register("win_title", update_maps)
 ui.register("win_focus", update_maps)
 
-mingwctx.keymap({
+mingwctx.commands = {
     "CD {directories}": ['cd "', lambda m: Str(m["directories"][0])(m), '" && ls', Key("enter")],
     "file {files}": [lambda m: Str(m["files"][0])(m), " "],
     "git remote rename {git_remotes}": ["git remote rename ", lambda m: Str(m["git_remotes"][0])(m), " "],
     "git check out {git_branches}": ["git checkout ", lambda m: Str(m["git_branches"][0])(m), " "],
     "git add {git_files}": ["git add ", lambda m: Str(m["git_files"][0])(m), " "],
-})
+}
+
+# mod.list('name', help='...')
+# ctx.lists['self.name'] = {}
 
 # @mingwctx.capture('directories', rule='{directories}')
 # def directories(m):

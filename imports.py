@@ -1,6 +1,6 @@
 
-from talon.voice import *
-from talon import clip, app, ctrl, voice
+from talon.voice import Key, Str, press
+from talon import *
 import talon
 
 from user.utils import utilities, workspace

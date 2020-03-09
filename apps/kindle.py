@@ -1,10 +1,14 @@
 from user.imports import *
 
-ctx = Context("kindle", func=actions.context_matches(exe="kindle.exe"))
 
-ctx.keymap({
-    "library": Key("ctrl-alt-l"),
-    "(show | hide) notebook": Key("ctrl-b"),
-    "(search | find)": Key("ctrl-f"),
-    "(synchronise | refresh)": Key("f5"),
-})
+ctx = Context("kindle")
+ctx.matches = r"""
+app: Kindle.exe
+"""
+
+ctx.defines = r"""
+library: key("ctrl-alt-l")
+(show | hide) notebook: key("ctrl-b")
+(search | find): key("ctrl-f")
+(synchronise | refresh): key("f5")
+"""

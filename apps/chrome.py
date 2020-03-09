@@ -1,12 +1,16 @@
 from user.imports import *
 
-repeated_action = actions.gen_repeated_action("chrome.repeat")
+repeated_action = actions.gen_repeated_action("repeat")
 BRING = utilities.load_toml_relative("config/bringme.toml")
 
 sites = BRING["website"]
 
-# ctx = Context("chrome", func=lambda app, win: 'Google Chrome' in win.title)
-ctx = Context("chrome", func=actions.context_matches(exe="chrome.exe"))
+
+
+ctx = Context("chrome")
+ctx.matches = r"""
+app: chrome.exe
+"""
 
 repeat = {str(i): str(i) for i in range(20)}
 numberth = {
@@ -22,22 +26,22 @@ numberth = {
     "last": "9",
 }
 
-ctx.keymap({
+ctx.commands = {
     "new incognito window": Key("ctrl-shift-n"),
-    "new tab [{chrome.repeat}]": repeated_action(Key("ctrl-t")),
-    "next tab [{chrome.repeat}]": repeated_action(Key("ctrl-tab")),
-    "previous tab [{chrome.repeat}]": repeated_action(Key("ctrl-shift-tab")),
-    "close tab [{chrome.repeat}]": repeated_action([Key("ctrl-w"), actions.wait(50)]),
-    "reopen tab [{chrome.repeat}]": repeated_action(Key("ctrl-shift-t")),
-    "{chrome.numberth} tab": lambda m: press("ctrl-" + numberth[m["chrome.numberth"][0]]),
-    "page back [{chrome.repeat}]": repeated_action(Key("alt-left")),
-    "page forward [{chrome.repeat}]": repeated_action(Key("alt-right")),
+    "new tab [{repeat}]": repeated_action(Key("ctrl-t")),
+    "next tab [{repeat}]": repeated_action(Key("ctrl-tab")),
+    "previous tab [{repeat}]": repeated_action(Key("ctrl-shift-tab")),
+    "close tab [{repeat}]": repeated_action([Key("ctrl-w"), actions.wait(50)]),
+    "reopen tab [{repeat}]": repeated_action(Key("ctrl-shift-t")),
+    "{numberth} tab": lambda m: press("ctrl-" + m["chrome.numberth"][0]),
+    "page back [{repeat}]": repeated_action(Key("alt-left")),
+    "page forward [{repeat}]": repeated_action(Key("alt-right")),
     "zoom reset": Key("ctrl-0"),
     "refresh": Key("ctrl-f5"),
-    "switch focus [{chrome.repeat}]": repeated_action(Key("f6")),
+    "switch focus [{repeat}]": repeated_action(Key("f6")),
     # "find <text>": [Key("ctrl-f/20"), "%(text)s"],
-    "[find] next match [{chrome.repeat}]": repeated_action(Key("ctrl-g")),
-    "[find] prior match [{chrome.repeat}]": repeated_action(Key("ctrl-shift-g")),
+    "[find] next match [{repeat}]": repeated_action(Key("ctrl-g")),
+    "[find] prior match [{repeat}]": repeated_action(Key("ctrl-shift-g")),
     "[toggle] caret browsing": Key("f7"),
     "home page": Key("alt-home"),
     # "show history"            : Key("ctrl-h"),
@@ -61,7 +65,7 @@ ctx.keymap({
     "step into": Key("f11"),
     "step out": Key("shift-f11"),
     "copy all": Key("ctrl-a ctrl-c"),
-    "go {chrome.sites}": [actions.wait(50), Key("ctrl-l"), actions.wait(50), actions.exec_str("chrome.sites", sites), Key("enter")],
+    "go {sites}": [actions.wait(50), Key("ctrl-l"), actions.wait(50), lambda m: Str(m["sites"][0])(m), Key("enter")],
     # "search <text>": [Key("ctrl-l/10"), "%(text)s", Key("enter"),]
     # "science hub": [Key("ctrl-l/10, left/10"), "https://sci-hub.tw/", Key("enter")],
     # Key("alt-d") + Store() + Key("delete"), "https://sci-hub.tw/") + Retrieve() + Key("enter"),
@@ -72,9 +76,9 @@ ctx.keymap({
     "split right": Key("w-left/50, W/50, w-right"),
     # "duplicate tab": Key("y, t"),
     # "go to root": Key("g, U"),
-    # "scroll left [{chrome.repeat}]": repeated_action(lambda m: press("h")),
-    # "scroll right [{chrome.repeat}]": repeated_action(lambda m: press("l")),
-})
-ctx.set_list("repeat", repeat.keys())
-ctx.set_list("numberth", numberth.keys())
-ctx.set_list("sites", sites.keys())
+    # "scroll left [{repeat}]": repeated_action(lambda m: press("h")),
+    # "scroll right [{repeat}]": repeated_action(lambda m: press("l")),
+}
+ctx.lists["repeat"] = repeat
+ctx.lists["numberth"] = numberth
+ctx.lists["sites"] = sites

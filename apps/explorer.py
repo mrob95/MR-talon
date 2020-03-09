@@ -6,7 +6,7 @@ import speakit
 BRING = utilities.load_toml_relative("config/bringme.toml")
 folders = BRING["folder"]
 
-repeated_action = actions.gen_repeated_action("explorer.n")
+repeated_action = actions.gen_repeated_action("repeat")
 repeat = {str(i): str(i) for i in range(20)}
 
 def current_directory():
@@ -21,7 +21,11 @@ def current_directory():
         title = remap[title]
     return title
 
-ctx = Context("explorer", func=actions.context_matches(exe="explorer.exe", title=["save", "open", "choose", "select"]))
+
+ctx = Context("explorer")
+ctx.matches = r"""
+app: Windows Explorer
+"""
 
 
 path_last_update = None
@@ -50,7 +54,7 @@ ui.register("win_title", update_maps)
 ui.register("win_focus", update_maps)
 
 
-ctx.keymap({
+ctx.commands = {
     "follow {directories}": [Key("home"), lambda m: Str(m["directories"][0])(m), Key("enter")],
     "open {files}": [Key("home"), lambda m: Str(m["files"][0])(m), Key("enter")],
     "select {directories}": [Key("home"), lambda m: Str(m["directories"][0])(m)],
@@ -60,14 +64,14 @@ ctx.keymap({
     "new folder": Key("ctrl-shift-n"),
     "new file": Key("alt-f, w, t"),
     "[(show | file | folder)] properties": Key("alt-enter"),
-    "go up [{explorer.n}]": repeated_action(Key("alt-up")),
-    "page back [{explorer.n}]": repeated_action(Key("alt-left")),
-    "page forward [{explorer.n}]": repeated_action(Key("alt-right")),
+    "go up [{repeat}]": repeated_action(Key("alt-up")),
+    "page back [{repeat}]": repeated_action(Key("alt-left")),
+    "page forward [{repeat}]": repeated_action(Key("alt-right")),
 
-    "go {explorer.folders}": [Key("ctrl-l"), actions.exec_str("explorer.folders", folders), Key("enter")],
+    "go {folders}": [Key("ctrl-l"), lambda m: Str(m["folders"][0])(m), Key("enter")],
 
     "terminal here": lambda m: utilities.terminal(current_directory().replace("\\", "/")),
     "new window": lambda m: Popen(["explorer", current_directory()]),
-})
-ctx.set_list("n", repeat.keys())
-ctx.set_list("folders", folders.keys())
+}
+ctx.lists["repeat"] = repeat
+ctx.lists["folders"] = folders

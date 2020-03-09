@@ -17,6 +17,7 @@ def macro_record(j):
     if macro_recording:
         if j["cmd"] == "p.end" and j["grammar"] == "talon":
             m = actions.core.last_phrase()
+            print(m)
             macro.append(m)
 
 
@@ -47,13 +48,12 @@ def macro_play(m):
 
 engine.register("post:phrase", macro_record)
 
+
 ctx = Context("macro")
-ctx.keymap(
-    {
-        "macro (start | record)": macro_start,
-        "macro stop": macro_stop,
-        "macro play [{macro.repeat}]": macro_play,
-        # "macro print": macro_print,
-    }
-)
-ctx.set_list("repeat", [str(i) for i in range(20)])
+ctx.commands = {
+    "macro (start | record)": macro_start,
+    "macro stop": macro_stop,
+    "macro play [{repeat}]": macro_play,
+    # "macro print": macro_print,
+}
+ctx.lists["repeat"] = [str(i) for i in range(20)]

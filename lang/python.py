@@ -2,7 +2,9 @@ from user.imports import *
 
 BINDINGS = utilities.load_toml_relative("config/python.toml")
 
-ctx = Context("python", func=actions.context_matches(".py"))
+
+ctx = Context("python")
+ctx.matches = r"title: /.*\.py/"
 
 commands = BINDINGS["commands"]
 functions = BINDINGS["functions"]
@@ -11,7 +13,7 @@ umeths = BINDINGS["unary_methods"]
 bmeths = BINDINGS["binary_methods"]
 mmeths = BINDINGS["misc_methods"]
 
-ctx.keymap({
+ctx.commands = {
     **{k: actions.Alternating(v) for k, v in commands.items()},
     **{f"fun {k}": [f"{v}()", Key("left")] for k, v in functions.items()},
     "function [<dgndictation>]": ["def ", textformat.insert_text(0, 3), "():", Key("left left")],
@@ -25,4 +27,11 @@ ctx.keymap({
     **{f"magic {k}": f"def __{v[0]}__({v[1]}):" for k, v in mmeths.items()},
     "try except": ["try:", Key("enter enter"), "except:", Key("shift-tab")],
     **{f"try except {k} [error]": ["try:", Key("enter enter"), f"except {v}:", Key("shift-tab")] for k, v in exceptions.items()},
-})
+}
+
+# ctx.lists["commands"] = BINDINGS["commands"]
+# ctx.lists["functions"] = BINDINGS["functions"]
+# ctx.lists["exceptions"] = BINDINGS["exceptions"]
+# ctx.lists["umeths"] = BINDINGS["unary_methods"]
+# ctx.lists["bmeths"] = BINDINGS["binary_methods"]
+# ctx.lists["mmeths"] = BINDINGS["misc_methods"]

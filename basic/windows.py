@@ -4,12 +4,13 @@ import os
 
 CORE = utilities.load_toml_relative("config/core.toml")
 
+
 ctx = Context("windows")
 
 directions = CORE["directions"]
 repeat = {str(i): str(i) for i in range(20)}
 
-repeated_action = actions.gen_repeated_action("windows.repeat")
+repeated_action = actions.gen_repeated_action("repeat")
 
 def copy_bundle(m):
     # bundle = ui.active_app().bundle
@@ -55,38 +56,38 @@ ui.register('win_focus', print)
 
 def next_work(m):
     try:
-        rep = int(m["windows.repeat"][0])
+        rep = int(m["repeat"][0])
     except KeyError:
         rep = 1
     workspace.go_next(rep)
 
 def previous_work(m):
     try:
-        rep = int(m["windows.repeat"][0])
+        rep = int(m["repeat"][0])
     except KeyError:
         rep = 1
     workspace.go_previous(rep)
 
-ctx.keymap({
+ctx.commands = {
         "copy active bundle": copy_bundle,
 
-        "window {windows.direction}": lambda m: press("win-" + directions[m["windows.direction"][0]]),
+        "window {direction}": lambda m: press("win-" + m["direction"][0]),
         "minimize": workspace.minimise,
         "maximise": workspace.maximise,
         "close window": workspace.close_window,
         "show work [spaces]": Key("win-tab"),
         "(create | new) work [space]": Key("win-ctrl-d"),
         "close work space": Key("win-ctrl-f4"),
-        "next work [space] [{windows.repeat}]": next_work,
-        "(previous | prior) work [space] [{windows.repeat}]": previous_work,
+        "next work [space] [{repeat}]": next_work,
+        "(previous | prior) work [space] [{repeat}]": previous_work,
 
-        "[go] work [space] {windows.repeat}": lambda m: workspace.go_to_n(int(m["windows.repeat"][0])),
+        "[go] work [space] {repeat}": lambda m: workspace.go_to_n(int(m["repeat"][0])),
 
-        "send work [space] {windows.repeat}": lambda m: workspace.move_current_to_n(int(m["windows.repeat"][0])),
-        "move work [space] {windows.repeat}": lambda m: workspace.move_current_to_n(int(m["windows.repeat"][0]), True),
+        "send work [space] {repeat}": lambda m: workspace.move_current_to_n(int(m["repeat"][0])),
+        "move work [space] {repeat}": lambda m: workspace.move_current_to_n(int(m["repeat"][0]), True),
         # "close all work [spaces]": workspace.close_all,
         "show window information": utilities.windowinfo,
     }
-)
-ctx.set_list("repeat", repeat.keys())
-ctx.set_list("direction", directions.keys())
+
+ctx.lists["repeat"] = repeat
+ctx.lists["direction"] = directions

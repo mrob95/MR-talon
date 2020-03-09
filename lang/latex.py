@@ -1,9 +1,14 @@
 from user.imports import *
 
-ctx = Context("latex", func=actions.context_matches(title=".tex"))
+# ctx = Context("latex", func=actions.context_matches(title=".tex"))
 
 BINDINGS = utilities.load_toml_relative("config/latex.toml")
 
+
+ctx = Context("markdown")
+ctx.matches = r"""
+title: /.*\.tex$/
+"""
 
 def begin_end(item):
     env, arg = (item[0], item[1]) if isinstance(item, list) else (item, "")
@@ -20,7 +25,7 @@ def symbol(item):
     else:
         return f"\\{item} "
 
-ctx.keymap({
+ctx.commands = {
     # e.g. \documentclass{article}
     **{f"document class {k}": f"\\documentclass{{{v}}}" for k, v in BINDINGS["document_classes"].items()},
     # \begin{document}
@@ -38,4 +43,4 @@ ctx.keymap({
     # \sqrt{} | \int
     **{f"symbol {k}": symbol(v) for k, v in BINDINGS["symbols"].items()},
     **{f"symbol {k}": actions.Alternating(v) for k, v in BINDINGS["misc_symbols"].items()},
-})
+}

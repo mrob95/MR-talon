@@ -44,6 +44,16 @@ def Alternating(l):
                 result.append(Key(key_or_text))
         return result
 
+def exec_alternating(l):
+    if isinstance(l, str):
+        Str(l)(None)
+    else:
+        for i, key_or_text in enumerate(l):
+            if i%2 == 0:
+                Str(key_or_text)(None)
+            else:
+                Key(key_or_text)(None)
+
 def exec_str(list_name, lookup):
     return lambda m: Str(lookup[m[list_name][0]])(m)
 

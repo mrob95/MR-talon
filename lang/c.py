@@ -2,17 +2,18 @@ from user.imports import *
 
 BINDINGS = utilities.load_toml_relative("config/C.toml")
 
-ctx = Context("c", func=actions.context_matches(".c"))
+
+ctx = Context("C")
+ctx.matches = r"title: /.*\.c/\ntitle: /.*\.h/\n"
 
 commands = BINDINGS["commands"]
 functions = BINDINGS["functions"]
 
-execute_command = actions.gen_alternating("c.commands", commands)
+ctx.commands = {
+    "{commands}": lambda m: actions.exec_alternating(commands[m["commands"][0]]),
+    "fun {functions}": [lambda m: Str(m["functions"][0])(m), "()", Key("left")],
 
-ctx.keymap({
-    "{c.commands}": execute_command,
-    "fun {c.functions}": [actions.exec_str("c.functions", functions), "()", Key("left")],
     "function [<dgndictation>]": ["def ", textformat.insert_text(0, 3), "() {}", Key("left "*4)],
-})
-ctx.set_list("functions", functions.keys())
-ctx.set_list("commands", commands.keys())
+}
+ctx.lists["functions"] = functions
+ctx.lists["commands"] = commands.keys()

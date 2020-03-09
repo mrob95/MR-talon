@@ -1,22 +1,26 @@
 from user.imports import *
 
-ctx = Context("lyx", func=actions.context_matches(exe="lyx.exe"))
+
+ctx = Context("lyx")
+ctx.matches = r"""
+app: LyX.exe
+"""
 
 BINDINGS = utilities.load_toml_relative("config/tex_data.toml")
 
-ctx.set_list("digits1", [str(i) for i in range(10)])
-ctx.set_list("digits2", [str(i) for i in range(10)])
+ctx.lists["digits1"] = [str(i) for i in range(10)]
+ctx.lists["digits2"] = [str(i) for i in range(10)]
 
 def matrix(m):
-    rows = int(m["lyx.digits1"][0])
-    cols = int(m["lyx.digits2"][0])
+    rows = int(m["digits1"][0])
+    cols = int(m["digits2"][0])
     # create 1x1
     Str("\\matrix ")(m)
     # expand to reach the right size
     Key("alt-m w i " * (rows - 1))(m)
     Key("alt-m c i " * (cols - 1))(m)
 
-ctx.keymap({
+ctx.commands = {
     #
     # LaTeX symbols
     #
@@ -27,8 +31,8 @@ ctx.keymap({
     #
     # Misc maths
     #
-    "{lyx.digits1}": lambda m: Key(m["lyx.digits1"][0])(m),
-    "matrix {lyx.digits1} by {lyx.digits2}": matrix,
+    "{digits1}": lambda m: Key(m["digits1"][0])(m),
+    "matrix {digits1} by {digits2}": matrix,
     "check"                          : Key("escape end enter ctrl-m"),
     "fraction"                       : Key("alt-m f"),
     "over"                           : Key("shift-left alt-m f down"),
@@ -133,4 +137,4 @@ ctx.keymap({
     "insert quote"                      : Key("alt-p q"),
     "insert verse"                      : Key("alt-p v"),
 
-})
+}

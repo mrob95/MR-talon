@@ -1,15 +1,19 @@
 from user.imports import *
 
-ctx = Context("mathcha", func=actions.context_matches(title="mathcha"))
+
+ctx = Context("mathcha")
+ctx.matches = r"""
+title: /mathcha/
+"""
 
 BINDINGS = utilities.load_toml_relative("config/tex_data.toml")
 
-ctx.set_list("digits1", [str(i) for i in range(10)])
-ctx.set_list("digits2", [str(i) for i in range(10)])
+ctx.lists["digits1"] = [str(i) for i in range(10)]
+ctx.lists["digits2"] = [str(i) for i in range(10)]
 
 def matrix(m):
-    rows = int(m["lyx.digits1"][0])
-    cols = int(m["lyx.digits2"][0])
+    rows = int(m["digits1"][0])
+    cols = int(m["digits2"][0])
     # create 1x1
     Str("\\matrix ")(m)
     # expand to reach the right size
@@ -19,7 +23,7 @@ def matrix(m):
 def insert_tex(symbol):
     return [actions.wait(75), Key("\\"), actions.wait(75), Str(symbol), Key("enter")]
 
-ctx.keymap({
+ctx.commands = {
     #
     # LaTeX symbols
     #
@@ -33,7 +37,7 @@ ctx.keymap({
     #
     # Misc maths
     #
-    "matrix {lyx.digits1} by {lyx.digits2}": matrix,
+    "matrix {digits1} by {digits2}": matrix,
     # "check"                          : Key("escape end enter ctrl-m"),
     "fraction"                       : insert_tex("frac"),
     # "over"                           : Key("shift-left alt-m f down"),
@@ -88,4 +92,4 @@ ctx.keymap({
     # "close tab"             : Key("ctrl-w"),
     # "move line up"          : Key("alt-up"),
     # "move line down"        : Key("alt-down"),
-})
+}

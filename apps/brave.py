@@ -1,12 +1,16 @@
 from user.imports import *
 
-repeated_action = actions.gen_repeated_action("brave.repeat")
+repeated_action = actions.gen_repeated_action("repeat")
 BRING = utilities.load_toml_relative("config/bringme.toml")
 
 sites = BRING["website"]
 
-# ctx = Context("brave", func=lambda app, win: 'Google brave' in win.title)
-ctx = Context("brave", func=actions.context_matches(exe="brave.exe"))
+
+
+ctx = Context("brave")
+ctx.matches = r"""
+app: brave.exe
+"""
 
 repeat = {str(i): str(i) for i in range(20)}
 numberth = {
@@ -22,22 +26,22 @@ numberth = {
     "last": "9",
 }
 
-ctx.keymap({
+ctx.commands = {
     "new incognito window": Key("ctrl-shift-n"),
-    "new tab [{brave.repeat}]": repeated_action(Key("ctrl-t")),
-    "next tab [{brave.repeat}]": repeated_action(Key("ctrl-tab")),
-    "previous tab [{brave.repeat}]": repeated_action(Key("ctrl-shift-tab")),
-    "close tab [{brave.repeat}]": repeated_action([Key("ctrl-w"), actions.wait(50)]),
-    "reopen tab [{brave.repeat}]": repeated_action(Key("ctrl-shift-t")),
-    "{brave.numberth} tab": lambda m: press("ctrl-" + numberth[m["brave.numberth"][0]]),
-    "page back [{brave.repeat}]": repeated_action(Key("alt-left")),
-    "page forward [{brave.repeat}]": repeated_action(Key("alt-right")),
+    "new tab [{repeat}]": repeated_action(Key("ctrl-t")),
+    "next tab [{repeat}]": repeated_action(Key("ctrl-tab")),
+    "previous tab [{repeat}]": repeated_action(Key("ctrl-shift-tab")),
+    "close tab [{repeat}]": repeated_action([Key("ctrl-w"), actions.wait(50)]),
+    "reopen tab [{repeat}]": repeated_action(Key("ctrl-shift-t")),
+    "{numberth} tab": lambda m: press("ctrl-" + m["numberth"][0]),
+    "page back [{repeat}]": repeated_action(Key("alt-left")),
+    "page forward [{repeat}]": repeated_action(Key("alt-right")),
     "zoom reset": Key("ctrl-0"),
     "refresh": Key("ctrl-f5"),
-    "switch focus [{brave.repeat}]": repeated_action(Key("f6")),
+    "switch focus [{repeat}]": repeated_action(Key("f6")),
     # "find <text>": [Key("ctrl-f/20"), "%(text)s"],
-    "[find] next match [{brave.repeat}]": repeated_action(Key("ctrl-g")),
-    "[find] prior match [{brave.repeat}]": repeated_action(Key("ctrl-shift-g")),
+    "[find] next match [{repeat}]": repeated_action(Key("ctrl-g")),
+    "[find] prior match [{repeat}]": repeated_action(Key("ctrl-shift-g")),
     "[toggle] caret browsing": Key("f7"),
     "home page": Key("alt-home"),
     # "show history"            : Key("ctrl-h"),
@@ -62,7 +66,7 @@ ctx.keymap({
     "step into": Key("f11"),
     "step out": Key("shift-f11"),
     "copy all": Key("ctrl-a ctrl-c"),
-    "go {brave.sites}": [actions.wait(50), Key("ctrl-l"), actions.wait(50), actions.exec_str("brave.sites", sites), Key("enter")],
+    "go {sites}": [actions.wait(50), Key("ctrl-l"), actions.wait(50), lambda m: Str(m["sites"][0])(m), Key("enter")],
     # "search <text>": [Key("ctrl-l/10"), "%(text)s", Key("enter"),]
     # "science hub": [Key("ctrl-l/10, left/10"), "https://sci-hub.tw/", Key("enter")],
     # Key("alt-d") + Store() + Key("delete"), "https://sci-hub.tw/") + Retrieve() + Key("enter"),
@@ -73,9 +77,9 @@ ctx.keymap({
     "split right": Key("w-left/50, W/50, w-right"),
     # "duplicate tab": Key("y, t"),
     # "go to root": Key("g, U"),
-    # "scroll left [{brave.repeat}]": repeated_action(lambda m: press("h")),
-    # "scroll right [{brave.repeat}]": repeated_action(lambda m: press("l")),
-})
-ctx.set_list("repeat", repeat.keys())
-ctx.set_list("numberth", numberth.keys())
-ctx.set_list("sites", sites.keys())
+    # "scroll left [{repeat}]": repeated_action(lambda m: press("h")),
+    # "scroll right [{repeat}]": repeated_action(lambda m: press("l")),
+}
+ctx.lists["repeat"] = repeat
+ctx.lists["numberth"] = numberth
+ctx.lists["sites"] = sites
