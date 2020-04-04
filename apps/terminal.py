@@ -21,7 +21,7 @@ def update_maps(window):
         return
     path_last_update = current_path
     mingwctx.lists["directories"] = file_utils.get_directory_map(current_path)
-    # mingwctx.lists["files"] = file_utils.get_file_map(current_path)
+    mingwctx.lists["files"] = file_utils.get_file_map(current_path)
     # mingwctx.lists["git_branches"], mingwctx.lists["git_remotes"], mingwctx.lists["git_files"] = file_utils.get_git_info(current_path)
 
 ui.register("win_title", update_maps)
@@ -31,7 +31,8 @@ mingwctx.defines = r"""
 CD {directories}:
     insert('cd "{directories}" && ls')
     key(enter)
-
+file {files}:
+    insert('"{files}" ')
 # git remote rename {git_remotes}:
 #     insert("git remote rename {git_remotes} ")
 # git check out {git_branches}:
