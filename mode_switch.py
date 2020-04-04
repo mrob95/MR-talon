@@ -1,10 +1,10 @@
 from talon.engine import engine
-from talon.voice import ui
+from talon import ui
 from talon import cron
 from utils import actions
 
 command_exes = ["code.exe", "mintty.exe", "kindle.exe"]
-command_titles = []
+command_titles = ["JupyterLab"]
 
 in_command_context = None
 

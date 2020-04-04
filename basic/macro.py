@@ -39,7 +39,7 @@ def macro_stop(m):
 def macro_play(m):
     macro_stop(None)
     try:
-        repeat = int(m["macro.repeat"][0])
+        repeat = int(m["macro.repeat"])
     except KeyError:
         repeat=1
     for _ in range(repeat):

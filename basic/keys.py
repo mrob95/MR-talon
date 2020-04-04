@@ -17,7 +17,7 @@ simple_keys_norepeat = CORE["misc_core_keys"]
 
 def get_repeat(m, list_name):
   try:
-    rep = int(m[list_name][0])
+    rep = int(m[list_name])
   except KeyError:
     rep = 1
   return rep
@@ -25,11 +25,11 @@ def get_repeat(m, list_name):
 
 def direction(m):
   try:
-    mod = m["direction_modifiers"][0]
+    mod = m["direction_modifiers"]
   except KeyError:
     mod = ""
   try:
-    dire = m["directions"][0]
+    dire = m["directions"]
   except KeyError:
     dire = "left"
   rep = get_repeat(m, "repeat")
@@ -40,10 +40,10 @@ def direction(m):
 
 def direction_extreme(m):
   try:
-    mod = m["direction_modifiers"][0]
+    mod = m["direction_modifiers"]
   except KeyError:
     mod = ""
-  dire = m["directions"][0]
+  dire = m["directions"]
   if dire in ["up", "down"]:
     mod += "-ctrl"
   dire = "home" if dire in ["left", "up"] else "end"
@@ -53,16 +53,16 @@ def direction_extreme(m):
 repeated_action = actions.gen_repeated_action("repeat")
 
 ctx.commands = {
-    "{alphabet}": lambda m: Key(m["alphabet"][0])(m),
-    "big {alphabet}": lambda m: press(m["alphabet"][0].upper()),
+    "{alphabet}": lambda m: Key(m["alphabet"])(m),
+    "big {alphabet}": lambda m: press(m["alphabet"].upper()),
     "numb {digits}+": lambda m: Str("".join(m["digits_list"]))(m),
     "{direction_modifiers} [{repeat}]": direction,
     "[{direction_modifiers}] {directions} [{repeat}]": direction,
     "[{direction_modifiers}] {directions} wally": direction_extreme,
-    "{punctuation}": lambda m: Key(m["punctuation"][0])(m),
-    "long {punctuation2}": [" ", lambda m: Key(m["punctuation2"][0])(m), " "],
-    "{simple_keys} [{repeat}]": repeated_action(lambda m: Key(m["simple_keys"][0])(m)),
-    "{simple_keys_norepeat}": lambda m: press(m["simple_keys_norepeat"][0]),
+    "{punctuation}": lambda m: Key(m["punctuation"])(m),
+    "long {punctuation2}": [" ", lambda m: Key(m["punctuation2"])(m), " "],
+    "{simple_keys} [{repeat}]": repeated_action(lambda m: Key(m["simple_keys"])(m)),
+    "{simple_keys_norepeat}": lambda m: press(m["simple_keys_norepeat"]),
 
     "stoosh": actions.ContextAction(Key("ctrl-c"), {
       "mintty.exe": Key("ctrl-insert"),

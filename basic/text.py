@@ -8,11 +8,11 @@ spacings = CORE["spacing"]
 
 def get_formatting(m):
     try:
-        capitalisation = int(m["capitalisation"][0])
+        capitalisation = int(m["capitalisation"])
     except KeyError:
         capitalisation = 0
     try:
-        spacing = int(m["spacing"][0])
+        spacing = int(m["spacing"])
     except KeyError:
         spacing = 0
     t = m["dgndictation"]

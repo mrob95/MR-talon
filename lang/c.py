@@ -10,8 +10,8 @@ commands = BINDINGS["commands"]
 functions = BINDINGS["functions"]
 
 ctx.commands = {
-    "{commands}": lambda m: actions.exec_alternating(commands[m["commands"][0]]),
-    "fun {functions}": [lambda m: Str(m["functions"][0])(m), "()", Key("left")],
+    "{commands}": lambda m: actions.exec_alternating(commands[m["commands"]]),
+    "fun {functions}": [lambda m: Str(m["functions"])(m), "()", Key("left")],
 
     "function [<dgndictation>]": ["def ", textformat.insert_text(0, 3), "() {}", Key("left "*4)],
 }

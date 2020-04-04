@@ -8,7 +8,7 @@ class gen_repeated_action():
     def __call__(self, action):
         def f(m):
             try:
-                rep = int(m[self.list_name][0])
+                rep = int(m[self.list_name])
             except KeyError:
                 rep = 1
             for _ in range(rep):
@@ -21,7 +21,7 @@ class gen_repeated_action():
 
 def gen_alternating(list_name, lookup):
     def execute_command(m):
-        c = lookup[m[list_name][0]]
+        c = lookup[m[list_name]]
         if isinstance(c, str):
             Str(c)(None)
         else:
@@ -55,10 +55,10 @@ def exec_alternating(l):
                 Key(key_or_text)(None)
 
 def exec_str(list_name, lookup):
-    return lambda m: Str(lookup[m[list_name][0]])(m)
+    return lambda m: Str(lookup[m[list_name]])(m)
 
 def exec_key(list_name, lookup):
-    return lambda m: Key(lookup[m[list_name][0]])(m)
+    return lambda m: Key(lookup[m[list_name]])(m)
 
 class ContextAction:
     def __init__(self, default, alternatives):

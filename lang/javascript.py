@@ -4,7 +4,7 @@ BINDINGS = utilities.load_toml_relative("config/javascript.toml")
 
 
 ctx = Context("JavaScript")
-ctx.matches = r"title: /.*\.js/"
+ctx.matches = r"title: /.*\.js$/"
 
 commands = BINDINGS["commands"]
 functions = BINDINGS["functions"]

@@ -39,7 +39,7 @@ ctx.commands = {
     'squat': mouse_drag,
     'bench': actions.ContextAction(
         mouse_release, {
-            "shellexperiencehost.exe": [mouse_release, actions.wait(100), utilities.save_clipboard_image]
+            "shellexperiencehost.exe": [lambda m: print("Saving screenshot"), mouse_release, actions.wait(100), utilities.save_clipboard_image]
         }
     ),
 }

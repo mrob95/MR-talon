@@ -20,8 +20,8 @@ def TeX(symbol):
     return [control_hold(down=True), Str(symbol), control_hold(up=True)]
 
 def matrix(m):
-    rows = m["digits1"][0]
-    cols = m["digits2"][0]
+    rows = m["digits1"]
+    cols = m["digits2"]
     Key("f10")(m)
     actions.wait(50)(m)
     Key("i " + "down "*8 + "enter")(m)
@@ -38,7 +38,7 @@ ctx.commands = {
     #
     # Misc maths
     #
-    "{digits1}": lambda m: Key(m["digits1"][0])(m),
+    "{digits1}": lambda m: Key(m["digits1"])(m),
     "matrix {digits1} by {digits2}": matrix,
     "fraction"                      : Key("ctrl-f"),
     "over"                          : Key("ctrl-shift-left ctrl-f"),

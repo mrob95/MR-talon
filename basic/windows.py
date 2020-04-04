@@ -54,38 +54,10 @@ def print_non_natlink(i, o):
 from talon import ui
 ui.register('win_focus', print)
 
-def next_work(m):
-    try:
-        rep = int(m["repeat"][0])
-    except KeyError:
-        rep = 1
-    workspace.go_next(rep)
-
-def previous_work(m):
-    try:
-        rep = int(m["repeat"][0])
-    except KeyError:
-        rep = 1
-    workspace.go_previous(rep)
-
 ctx.commands = {
         "copy active bundle": copy_bundle,
 
-        "window {direction}": lambda m: press("win-" + m["direction"][0]),
-        "minimize": workspace.minimise,
-        "maximise": workspace.maximise,
-        "close window": workspace.close_window,
-        "show work [spaces]": Key("win-tab"),
-        "(create | new) work [space]": Key("win-ctrl-d"),
-        "close work space": Key("win-ctrl-f4"),
-        "next work [space] [{repeat}]": next_work,
-        "(previous | prior) work [space] [{repeat}]": previous_work,
-
-        "[go] work [space] {repeat}": lambda m: workspace.go_to_n(int(m["repeat"][0])),
-
-        "send work [space] {repeat}": lambda m: workspace.move_current_to_n(int(m["repeat"][0])),
-        "move work [space] {repeat}": lambda m: workspace.move_current_to_n(int(m["repeat"][0]), True),
-        # "close all work [spaces]": workspace.close_all,
+        # "window {direction}": lambda m: press("win-" + m["direction"]),
         "show window information": utilities.windowinfo,
     }
 

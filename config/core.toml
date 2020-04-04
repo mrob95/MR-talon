@@ -108,7 +108,6 @@
 "deli"                 = "delete"
 "page up"              = "pgup"
 "page down"            = "pgdown"
-"save"          = "ctrl-s"
 "undo"          = "ctrl-z"
 "redo"          = "ctrl-y"
 "zoom in" = "ctrl-="
@@ -126,10 +125,10 @@
 "select all"           = "ctrl-a"
 "find"                 = "ctrl-f"
 "and save"             = "ctrl-s"
+"save"          = "ctrl-s"
 
 
-[misc_core_keys_noCCR]
-"save [file]"          = "ctrl-s"
+# [misc_core_keys_noCCR]
 
 [directions]
 "lease"                = "left"

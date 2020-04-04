@@ -12,8 +12,8 @@ ctx.lists["digits1"] = [str(i) for i in range(10)]
 ctx.lists["digits2"] = [str(i) for i in range(10)]
 
 def matrix(m):
-    rows = int(m["digits1"][0])
-    cols = int(m["digits2"][0])
+    rows = int(m["digits1"])
+    cols = int(m["digits2"])
     # create 1x1
     Str("\\matrix ")(m)
     # expand to reach the right size
@@ -31,7 +31,7 @@ ctx.commands = {
     #
     # Misc maths
     #
-    "{digits1}": lambda m: Key(m["digits1"][0])(m),
+    "{digits1}": lambda m: Key(m["digits1"])(m),
     "matrix {digits1} by {digits2}": matrix,
     "check"                          : Key("escape end enter ctrl-m"),
     "fraction"                       : Key("alt-m f"),

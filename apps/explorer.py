@@ -24,6 +24,14 @@ def current_directory():
 
 ctx = Context("explorer")
 ctx.matches = r"""
+app: /.*/
+and title: /Save/
+app: /.*/
+and title: /Open/
+app: /.*/
+and title: /Browse/
+app: /.*/
+and title: /Select/
 app: Windows Explorer
 """
 
@@ -55,10 +63,10 @@ ui.register("win_focus", update_maps)
 
 
 ctx.commands = {
-    "follow {directories}": [Key("home"), lambda m: Str(m["directories"][0])(m), Key("enter")],
-    "open {files}": [Key("home"), lambda m: Str(m["files"][0])(m), Key("enter")],
-    "select {directories}": [Key("home"), lambda m: Str(m["directories"][0])(m)],
-    "select {files}": [Key("home"), lambda m: Str(m["files"][0])(m)],
+    "follow {directories}": [Key("home"), lambda m: Str(m["directories"])(m), Key("enter")],
+    "open {files}": [Key("home"), lambda m: Str(m["files"])(m), Key("enter")],
+    "select {directories}": [Key("home"), lambda m: Str(m["directories"])(m)],
+    "select {files}": [Key("home"), lambda m: Str(m["files"])(m)],
     # ---
     "address bar": Key("alt-d"),
     "new folder": Key("ctrl-shift-n"),
@@ -68,7 +76,7 @@ ctx.commands = {
     "page back [{repeat}]": repeated_action(Key("alt-left")),
     "page forward [{repeat}]": repeated_action(Key("alt-right")),
 
-    "go {folders}": [Key("ctrl-l"), lambda m: Str(m["folders"][0])(m), Key("enter")],
+    "go {folders}": [Key("ctrl-l"), lambda m: Str(m["folders"])(m), Key("enter")],
 
     "terminal here": lambda m: utilities.terminal(current_directory().replace("\\", "/")),
     "new window": lambda m: Popen(["explorer", current_directory()]),

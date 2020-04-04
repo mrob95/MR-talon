@@ -1,7 +1,12 @@
 from talon import Context, Module
 
-repeat = {str(i): str(i) for i in range(1, 20)}
-digits = {str(i): str(i) for i in range(10)}
+digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+
+repeat = {name: str(i) for i, name in enumerate(digits[1:] + teens)}
+numbers = {name: str(i+1) for i, name in enumerate(digits[1:] + teens)}
+digits = {name: str(i) for i, name in enumerate(digits)}
+
 numberth = {
     "first": "1",
     "second": "2",
@@ -18,6 +23,41 @@ numberth = {
 mod = Module()
 ctx = Context()
 import inspect
-# print(inspect.signature(mod.list))
-mod.list('repeat', 'Number one to twenty')
-ctx.lists['repeat'] = repeat
+
+ctx.lists['repeat20'] = repeat
+ctx.lists['numbers20'] = numbers
+ctx.lists['numberth'] = numberth
+ctx.lists['digits10'] = digits
+
+
+@mod.capture
+def r20(m) -> int:
+    "Repeat values up to twenty"
+
+@mod.capture
+def n20(m) -> int:
+    "Numbers up to twenty"
+
+@mod.capture
+def digits(m) -> int:
+    "A series of digits"
+
+@mod.capture
+def numberth(m) -> int:
+    "Numberth"
+
+@ctx.capture(rule="[{repeat20}]")
+def r20(m):
+    return int(m["repeat20"]) if hasattr(m, "repeat20") else 0
+
+@ctx.capture(rule="[{numbers20}]")
+def n20(m):
+    return int(m["numbers20"]) if hasattr(m, "numbers20") else 1
+
+@ctx.capture(rule="{digits10}+")
+def digits(m):
+    return "".join(m["digits10_list"])
+
+@ctx.capture(rule="{numberth}")
+def numberth(m):
+    return m["numberth"]

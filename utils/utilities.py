@@ -4,6 +4,7 @@ import toml, webbrowser, json
 try:
     from PIL import ImageGrab
 except ImportError:
+    print("Failed to import PIL")
     pass
 from subprocess import Popen
 from six import PY2
