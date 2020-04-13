@@ -7,6 +7,9 @@ def create_spoken_forms(symbols, max_len=3):
     return [" ".join(list(islice(pattern.findall(s), max_len))) for s in symbols]
 MAX = 100
 
+# assert create_spoken_forms(["aTest"]) == ["a", "Test"]
+# assert create_spoken_forms(["aTest_5"]) == ["a", "Test", "5"]
+
 def get_directory_map(current_path):
     directories = [p.name for p in islice(current_path.iterdir(), MAX) if p.is_dir()]
     spoken_forms = create_spoken_forms(directories)

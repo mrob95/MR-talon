@@ -8,9 +8,9 @@ settings():
     insert(tex_symbols)
     key(enter)
     sleep(100ms)
-greek {greek_letters}:
+greek {tex_greek_letters}:
     key(\)
-    insert(greek_letters)
+    insert(tex_greek_letters)
     key(enter)
 <user.digits>:
     insert(digits)
@@ -19,11 +19,14 @@ sub script: key(_)
 squared: key(^ 2)
 cubed: key(^ 3)
 inverse: key(^ - 1)
-{fractions}:
-    key(shift-left)
+math mode:
     key(\)
+    "math-container"
+    key(enter)
+{mathfly_fractions}:
+    key(shift-left \)
     "frac"
     key(enter down)
-    insert(fractions)
+    insert(mathfly_fractions)
     key(right)
     sleep(100ms)

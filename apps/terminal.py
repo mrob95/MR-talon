@@ -32,7 +32,9 @@ CD {directories}:
     insert('cd "{directories}" && ls')
     key(enter)
 file {files}:
-    insert('"{files}" ')
+    insert('{files} ')
+folder {directories}:
+    insert('{directories}/')
 # git remote rename {git_remotes}:
 #     insert("git remote rename {git_remotes} ")
 # git check out {git_branches}:
