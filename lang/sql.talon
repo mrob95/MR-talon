@@ -26,6 +26,7 @@ case when:
 delete: "DELETE "
 distinct: "DISTINCT "
 from: "FROM "
+for system time: "FOR SYSTEM TIME "
 group by: "GROUP BY "
 having: "HAVING "
 insert into: "INSERT INTO "
