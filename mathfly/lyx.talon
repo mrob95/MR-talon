@@ -55,7 +55,7 @@ summation:
     key(down)
 (summation | sum) to N:
 	insert("\\stackrelthree ")
-    key(n, down)
+    key(n down)
     insert("\\sum ")
     key(down)
 blank product: "\\prod "

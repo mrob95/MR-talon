@@ -46,6 +46,7 @@ git commit:
 git commit fix u: "git commit --fixup "
 git create ignore: "curl https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore > .gitignore"
 git diff: "git diff "
+git diff staged: "git diff --staged "
 git discard: "git checkout -- "
 git (discard all | reset hard): "git reset --hard"
 git fetch upstream: "git fetch upstream "
