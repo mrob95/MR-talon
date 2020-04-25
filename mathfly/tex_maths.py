@@ -8,7 +8,7 @@ symbols = {
     "fraction": "frac",
     "summation": "sum",
     "product": "prod",
-    "product": "lim",
+    "limit": "lim",
     "[square] root": "sqrt",
     "generic root": "root",
     "integral": "int",

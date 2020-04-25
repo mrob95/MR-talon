@@ -108,7 +108,7 @@
 "deli"                 = "delete"
 "page up"              = "pgup"
 "page down"            = "pgdown"
-"undo"          = "ctrl-z"
+# "undo"          = "ctrl-z"
 "redo"          = "ctrl-y"
 "zoom in" = "ctrl-="
 "zoom out" = "ctrl--"
@@ -124,8 +124,6 @@
 "shackle"              = "home shift-end"
 "select all"           = "ctrl-a"
 "find"                 = "ctrl-f"
-"and save"             = "ctrl-s"
-"save"          = "ctrl-s"
 
 
 # [misc_core_keys_noCCR]
