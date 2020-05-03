@@ -1,3 +1,5 @@
+os: windows
+-
 window {directions_alt}: key("win-{directions_alt}")
 
 minimize: user.window_minimise()

@@ -33,6 +33,7 @@ def press_key_and_click(m, key, button=0, times=1):
 ctx.commands = {
     'shifty': lambda m: press_key_and_click(m, 'shift'),
     'colic': lambda m: press_key_and_click(m, 'ctrl'),
+    'mouse alt click': lambda m: press_key_and_click(m, 'alt'),
     "millick": lambda m: click(m, 2),
     'kick': click,
     'kick double': dubclick,

@@ -22,7 +22,6 @@ previous tab <user.n20>: key("ctrl-pgup:{n20}")
 terminal here: key(ctrl-shift-c)
 explorer here: key(shift-alt-r)
 #
-find: key(ctrl-f)
 # find <dgndictation>: [key(ctrl-f") Text("%(text)s)kKey"escape"],
 next match <user.n20>: key("f3:{n20}")
 previous match <user.n20>: key("s-enter:{n20}")
@@ -43,6 +42,7 @@ sort lines:
     key(ctrl-shift-p)
     "sort ascending"
     key(enter)
+edit previous <user.n20>: key("ctrl-alt-d:{n20}")
 edit next <user.n20>: key("ctrl-d:{n20}")
 skip next <user.n20>: key("ctrl-k ctrl-d:{n20}")
 edit all: key(ctrl-shift-l)

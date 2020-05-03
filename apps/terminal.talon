@@ -1,5 +1,7 @@
 app: mintty.exe
 app: WindowsTerminal.exe
+app: /.*/
+and title: /MSYS:.*/
 -
 bash: "bash "
 cancel: key(ctrl-c)

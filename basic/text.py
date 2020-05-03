@@ -23,7 +23,9 @@ ctx = Context("text")
 
 ctx.commands = {
         "say <dgndictation> [over]": textformat.insert_text(0,0),
-        "({capitalisation} {spacing} | {capitalisation} | {spacing}) (bow|bowel) <dgndictation>":
+        "({capitalisation} {spacing} | {capitalisation} | {spacing}) bow <dgndictation>":
+            get_formatting,
+        "({capitalisation} {spacing} | {capitalisation} | {spacing}) bower <dgndictation>++":
             get_formatting,
     }
 

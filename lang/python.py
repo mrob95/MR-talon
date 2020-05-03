@@ -6,6 +6,7 @@ BINDINGS = utilities.load_toml_relative("config/python.toml")
 ctx = Context("python")
 ctx.matches = r"""title: /.*\.py/
 title: /JupyterLab/
+title: /IPython:/
 """
 
 commands = BINDINGS["commands"]

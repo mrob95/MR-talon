@@ -66,11 +66,11 @@ ctx.commands = {
 
     "stoosh": actions.ContextAction(Key("ctrl-c"), {
       "mintty.exe": Key("ctrl-insert"),
-      "windowsterminal.exe": Key("ctrl-shift-c"),
+      # "windowsterminal.exe": Key("ctrl-shift-c"),
       }),
     "spark": actions.ContextAction(Key("ctrl-v"), {
       "mintty.exe": Key("insert"),
-      "windowsterminal.exe": Key("ctrl-shift-v"),
+      # "windowsterminal.exe": Key("ctrl-shift-v"),
       }),
     "check [{repeat}]": actions.ContextAction(
       repeated_action(Key("ctrl-enter")), {
@@ -81,11 +81,6 @@ ctx.commands = {
         "mintty.exe": lambda m: None,
         "code.exe": repeated_action(Key("shift-alt-down")),
       }),
-    "volume up [{repeat}]": repeated_action(Key("volup")),
-    "volume down [{repeat}]": repeated_action(Key("voldown")),
-    "music next [{repeat}]": repeated_action(Key("next")),
-    "music previous [{repeat}]": repeated_action(Key("previous")),
-    "music play": Key("play"),
 
     "hug prekris": Key("("),
     "hug curly": Key("{"),

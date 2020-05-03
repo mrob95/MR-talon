@@ -4,7 +4,6 @@ import os
 
 CORE = utilities.load_toml_relative("config/core.toml")
 
-
 ctx = Context("windows")
 
 directions = CORE["directions"]
@@ -31,35 +30,10 @@ def copy_bundle(m):
     print([w for w in ui.windows() if w.id == GetForegroundWindow()])
     # print(os.path.abspath(__file__))
 
-last_window = ""
-
-def print_non_natlink(i, o):
-    if "natspeak" not in str(o):
-        print(i, o)
-    shadow_title = ui.active_window().title
-    actual_title = GetWindowText(GetForegroundWindow())
-    global last_window
-    if shadow_title != actual_title:
-        if last_window != shadow_title:
-            print("Window state mismatch detected")
-            print(f"Shadow window title: {shadow_title}")
-            print(f"Actual window title: {actual_title}")
-            last_window = shadow_title
-        else:
-            pass
-    else:
-        last_window = ""
-
-
-from talon import ui
-ui.register('win_focus', print)
 
 ctx.commands = {
-        "copy active bundle": copy_bundle,
+    "copy active bundle": copy_bundle,
 
-        # "window {direction}": lambda m: press("win-" + m["direction"]),
-        "show window information": utilities.windowinfo,
-    }
-
-ctx.lists["repeat"] = repeat
-ctx.lists["direction"] = directions
+    # "window {direction}": lambda m: press("win-" + m["direction"]),
+    "show window information": utilities.windowinfo,
+}

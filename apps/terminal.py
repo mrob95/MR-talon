@@ -1,22 +1,25 @@
 from user.imports import *
 from pathlib import Path
-import speakit
 import re
-# print(dir(talon))
+
 BINDINGS = utilities.load_toml_relative("config/terminal.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
 
 mingwctx = Context("mingw")
 mingwctx.matches = r"""
 title: /MINGW64/
+title: /MSYS/
 """
 
 path_last_update = None
 def update_maps(window):
-    if not "MINGW64" in window.title:
-        return
     global path_last_update
-    current_path = Path(re.sub(r"MINGW64:/(\w)?", r"\1:", window.title))
+    if "MINGW64" in window.title:
+        current_path = Path(re.sub(r"MINGW64:/(\w)?", r"\1:", window.title))
+    elif "MSYS:" in window.title:
+        current_path = Path(re.sub(r"MSYS:/(\w)?", r"\1:", window.title))
+    else:
+        return
     if current_path == path_last_update:
         return
     path_last_update = current_path
