@@ -7,6 +7,7 @@ ctx = Context("python")
 ctx.matches = r"""title: /.*\.py/
 title: /JupyterLab/
 title: /IPython:/
+title: /PDB:/
 """
 
 commands = BINDINGS["commands"]

@@ -135,9 +135,9 @@
 "dunce"                = "down"
 
 [modifiers]
-"queue"                = "ctrl-shift"
-"shin"                 = "shift"
-"fly"                  = "ctrl"
+"queue"                = "ctrl-shift-"
+"shin"                 = "shift-"
+"fly"                  = "ctrl-"
 
 [enclosures]
 "prekris"              = "(~)"

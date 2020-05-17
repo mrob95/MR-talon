@@ -7,9 +7,12 @@ fun key:
 fun insert:
     "insert()"
     key(left)
+fun action:
+    "action()"
+    key(left)
 mod control: "ctrl-"
 mod shift: "shift-"
-mod alt: "alt-"
+mod (alt | old): "alt-"
 mod down: ":down "
 mod up: ":up "
 capture digits: "<user.digits>"

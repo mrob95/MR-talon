@@ -29,6 +29,9 @@ find all: key(alt-enter)
 replace: key(ctrl-h)
 search in directory: key(ctrl-shift-f)
 #
+copy relative path: key(ctrl-k ctrl-shift-c)
+copy path: key(alt-shift-c)
+#
 go to word: key(ctrl-;)
 go to symbol: key(ctrl-shift-o)
 go to [symbol in] project: key(ctrl-t)

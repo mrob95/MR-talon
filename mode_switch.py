@@ -8,6 +8,8 @@ command_titles = ["JupyterLab"]
 
 in_command_context = None
 
+# talon.speech_system.engine_mimic
+
 def switch_command():
     engine.mimic("switch to command mode")
 

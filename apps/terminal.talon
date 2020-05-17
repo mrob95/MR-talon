@@ -3,25 +3,36 @@ app: WindowsTerminal.exe
 app: /.*/
 and title: /MSYS:.*/
 -
+CD {directories}:
+    insert('cd "{directories}" && ls')
+    key(enter)
+file {files}:
+    insert('{files} ')
+folder {directories}:
+    insert('{directories}/')
+go {folders}:
+	"cd {folders} && ls"
+	key(enter)
+dot {extensions}:
+	".{extensions}"
+#------------------------------------------------------
 bash: "bash "
 cancel: key(ctrl-c)
 CD up:
 	"cd .."
 	key(enter)
 CD: "cd "
-curl: "curl "
-dot PDF: ".pdf"
-dot jay peg: ".jpg"
-dot PNG: ".png"
-dot pie: ".py"
-dot tex: ".tex"
+curly: "curl "
+greppy: "grep "
+greppy recursive: "grep -R "
+header: "head "
 echo: "echo "
 list: "ls "
 remove: "rm "
 remove recursive: "rm -rf "
 line count: "wc -l "
 make directory: "mkdir "
-move file: "mv  "
+move file: "mv "
 pipe: " | "
 lodge and: " && "
 to file: " > "
@@ -39,7 +50,10 @@ youtube download: "youtube-dl -f best "
 FFM peg: "ffmpeg "
 W get: "wget "
 catty: "cat "
-V S code here:
+explorer here:
+	"explorer ."
+	key(enter)
+code here:
 	"code ."
 	key(enter)
 #------------------------------------------------------
@@ -62,6 +76,7 @@ pan doc beamer:
 # python
 python 3: "python3 "
 python 2: "python27 "
+python 3 debug: "python3 -m pdb "
 python 3 pytest: "python3 -m pytest "
 python 2 pytest: "python27 -m pytest "
 python 2 64: "C:/Python27-64/python.exe "

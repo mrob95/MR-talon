@@ -1,16 +1,16 @@
 os: windows
 app: WindowsTerminal.exe
 -
-stoosh: key(ctrl-shift-c)
-spark: key(ctrl-shift-v)
+action(edit.paste): key(ctrl-shift-v)
+action(edit.copy): key(ctrl-shift-c)
 # ---
+<user.numberth> tab: key("ctrl-alt-{numberth}")
 close tab <user.n20>: user.slow_key("ctrl-shift-w:{n20}")
 next tab <user.n20>: key("ctrl-tab:{n20}")
 previous tab <user.n20>: key("ctrl-shift-tab:{n20}")
 duplicate tab: key(ctrl-shift-d)
 new tab: key(ctrl-shift-t)
 open settings: key(ctrl-,)
-<user.numberth> tab: key("ctrl-alt-{numberth}")
 focus left: key(ctrl-alt-shift-left)
 focus right: key(ctrl-alt-shift-right)
 focus up: key(ctrl-alt-shift-up)
