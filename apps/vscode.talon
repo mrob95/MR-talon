@@ -1,6 +1,9 @@
 app: Visual Studio Code
 app: Code.exe
 -
+action(edit.line_clone):
+    key(shift-alt-down)
+#
 comment block: key(shift-alt-a)
 new (file | tab): key(ctrl-n)
 new window: key(ctrl-shift-n)
@@ -24,7 +27,7 @@ explorer here: key(shift-alt-r)
 #
 # find <dgndictation>: [key(ctrl-f") Text("%(text)s)kKey"escape"],
 next match <user.n20>: key("f3:{n20}")
-previous match <user.n20>: key("s-enter:{n20}")
+previous match <user.n20>: key("shift-enter:{n20}")
 find all: key(alt-enter)
 replace: key(ctrl-h)
 search in directory: key(ctrl-shift-f)

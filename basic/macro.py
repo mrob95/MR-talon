@@ -20,7 +20,6 @@ def macro_record(j):
             print(m)
             macro.append(m)
 
-
 def macro_start(m):
     global macro_recording
     global macro

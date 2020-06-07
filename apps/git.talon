@@ -29,10 +29,9 @@ git checkout upstream develop:
 git checkout: "git checkout "
 git checkout track: "git checkout --track "
 git cherry pick: "git cherry-pick "
-git clone github:
-	"git clone https://github.com/.git"
-	key(left:4)
-git clone: "git clone "
+git clone:
+	"git clone "
+	user.insert_git_url()
 git commit amend: "git commit --amend "
 git commit all:
 	'git commit -a -m ""'
@@ -72,7 +71,9 @@ git rebase: "git rebase"
 git rebase auto squash: "git rebase -i --autosquash master"
 git rebase interactive: "git rebase -i "
 git remote: "git remote "
-git remote add origin: "git remote add origin "
+git remote add origin:
+	"git remote add origin "
+	user.insert_git_url()
 git remote prune origin: "git remote prune origin "
 git remote prune origin dry run: "git remote prune origin --dry-run"
 git remote set url: "git remote set-url "

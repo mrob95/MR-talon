@@ -1,5 +1,6 @@
 os: windows
 -
+# Window management
 window {directions_alt}: key("win-{directions_alt}")
 
 minimize: user.window_minimise()
@@ -18,3 +19,6 @@ send work [space] <user.n20>:
     user.workspace_send(n20)
 move work [space] <user.n20>:
     user.workspace_move(n20)
+
+copy active bundle:
+    user.print_window_info()

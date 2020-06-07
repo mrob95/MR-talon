@@ -25,15 +25,47 @@ ctx.lists["extensions"] = {
 #------------------------------------------------------
 
 CORE = utilities.load_toml_relative("config/core.toml")
-
+alphabet = {
+    "anti": "a",
+    "bat": "b",
+    "cap": "c",
+    "die": "d",
+    "each": "e",
+    "fail": "f",
+    "gone": "g",
+    "harp": "h",
+    "sit": "i",
+    "jury": "j",
+    "crunch": "k",
+    "look": "l",
+    "made": "m",
+    "near": "n",
+    "odd": "o",
+    "pet": "p",
+    "queer": "q",
+    "red": "r",
+    "sun": "s",
+    "trap": "t",
+    "urge": "u",
+    "vest": "v",
+    "whale": "w",
+    "box": "x",
+    "yes": "y",
+    "zulu": "z",
+}
 mod.list("alphabet", desc="Alphabet")
 ctx.lists["alphabet"] = {
-    **CORE["letters_alt"],
-    **{f"big {k}": v.upper() for k, v in CORE["letters_alt"].items()}
+    **alphabet,
+    **{f"big {k}": v.upper() for k, v in alphabet.items()}
 }
 
 mod.list("directions", desc="Directions")
-ctx.lists["directions"] = CORE["directions"]
+ctx.lists["directions"] = {
+    "lease": "left",
+    "ross": "right",
+    "sauce": "up",
+    "dunce": "down",
+}
 mod.list("directions_extreme", desc="Directions extreme")
 ctx.lists["directions_extreme"] = {
     "sauce": "ctrl-home",
@@ -43,10 +75,36 @@ ctx.lists["directions_extreme"] = {
 }
 
 mod.list("direction_modifiers", desc="Direction modifiers")
-ctx.lists["direction_modifiers"] = CORE["modifiers"]
+ctx.lists["direction_modifiers"] = {
+    "queue": "ctrl-shift-",
+    "shin": "shift-",
+    "fly": "ctrl-",
+}
+
+mod.list("capitalisation", desc="Capitalisation")
+ctx.lists["capitalisation"] = {
+    "yell": "1",
+    "tie": "2",
+    "(Gerrish | camel)": "3",
+    "sing": "4",
+    "laws": "5",
+    "password": "6",
+}
+mod.list("spacing", desc="Spacings")
+ctx.lists["spacing"] = {
+    "gum": "1",
+    "gun": "1",
+    "spine": "2",
+    "snake": "3",
+    "pebble": "4",
+}
+
 
 mod.list("punctuation", desc="Punctuation")
-ctx.lists["punctuation"] = {**CORE["punctuation"], **CORE["punctuation2"]}
+ctx.lists["punctuation"] = {
+    **CORE["punctuation"],
+    **CORE["punctuation2"]
+}
 
 mod.list("punctuation2", desc="Punctuation2")
 ctx.lists["punctuation2"] = CORE["punctuation2"]

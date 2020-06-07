@@ -14,3 +14,5 @@ ctx.commands = {
     **{f"fun {k}": [f"{v}()", Key("left")] for k, v in functions.items()},
     # "function [<dgndictation>]": ["fn ", textformat.insert_text(0, 3), "(){}", Key("left left")],
 }
+print(dir(talon.actions.list()))
+print(talon.actions.list())

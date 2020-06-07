@@ -5,6 +5,7 @@ app: chrome.exe
 new tab <user.n20>: key("ctrl-t:{n20}")
 go <user.websites>:
     key(ctrl-l)
+    sleep(20ms)
     insert(websites)
     key(enter)
 new incognito window: key("ctrl-shift-n")
@@ -28,6 +29,11 @@ google search: key(ctrl-l)
 image search:
     key(ctrl-l left)
     "https://www.google.com/searchbyimage?&image_url="
+    key(enter)
+science hub:
+    key(ctrl-l left)
+    sleep(20ms)
+    "https://sci-hub.tw/"
     key(enter)
 show downloads: key(ctrl-j)
 add bookmark: key(ctrl-d)

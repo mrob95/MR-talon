@@ -182,7 +182,7 @@ def chrome_get_url():
 
 def image_name(dir=os.path.expandvars("%USERPROFILE%/Pictures/saved")):
     now = datetime.datetime.now()
-    file_name = str(now).rsplit(".", 1)[0].replace(":", "")
+    file_name = now.strftime("%Y-%m-%d %H%M%S")
     return "%s/%s" % (dir, file_name)
 
 def save_clipboard_image(m=None):

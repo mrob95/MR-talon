@@ -36,6 +36,8 @@ move file: "mv "
 pipe: " | "
 lodge and: " && "
 to file: " > "
+screen copy: "scrcpy "
+android [list] devices: "adb devices -l"
 sed replace:
     'sed -i -e "s///g"'
     key(left:4)
