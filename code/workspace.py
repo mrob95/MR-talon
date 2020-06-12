@@ -42,27 +42,27 @@ class Actions:
         win32gui.PostMessage(wndh, win32con.WM_CLOSE, 0, 0)
 
     def workspace_send(n: int):
-        """Close the current window"""
+        """Send the current window to a given workspace"""
         wndh = ui.active_window().id
         pyvda.MoveWindowToDesktopNumber(wndh, n)
 
     def workspace_move(n: int):
-        """Close the current window"""
+        """Send the current window to a given workspace, and follow it"""
         wndh = ui.active_window().id
         pyvda.MoveWindowToDesktopNumber(wndh, n)
         pyvda.GoToDesktopNumber(n)
 
     def workspace_go(n: int):
-        """Close the current window"""
+        """Go to a given workspace"""
         windll.user32.AllowSetForegroundWindow(ASFW_ANY)
         pyvda.GoToDesktopNumber(n)
 
     def workspace_next(n: int):
-        """Close the current window"""
+        """Go to the next workspace (without animation)"""
         current = pyvda.GetCurrentDesktopNumber()
         go_to_n(current+n)
 
     def workspace_previous(n: int):
-        """Close the current window"""
+        """Go to the previous workspace (without animation)"""
         current = pyvda.GetCurrentDesktopNumber()
         go_to_n(current-n)
