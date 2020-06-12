@@ -3,6 +3,7 @@ app: WindowsTerminal.exe
 app: /.*/
 and title: /MSYS:.*/
 -
+tag(): terminal
 CD {directories}:
     insert('cd "{directories}" && ls')
     key(enter)
@@ -38,6 +39,8 @@ lodge and: " && "
 to file: " > "
 screen copy: "scrcpy "
 android [list] devices: "adb devices -l"
+android connect: "adb connect 192.168.0.65:5555"
+android disconnect: "adb disconnect 192.168.0.65:5555"
 sed replace:
     'sed -i -e "s///g"'
     key(left:4)
@@ -46,6 +49,7 @@ sublime: "subl -n "
 sublime here:
 	"subl -n ."
 	key(enter)
+SSH kali: "ssh -p 3022 mrob@172.30.1.3"
 jupiter notebook: "jupyter notebook"
 jupiter lab: "jupyter lab"
 youtube download: "youtube-dl -f best "
@@ -113,3 +117,16 @@ image [magic] transparent:
 	key(left:29)
 rename PNG large: "rename 'png_large' 'png' *.png_large"
 rename jay peg large: "rename 'jpg_large' 'jpg' *.jpg_large"
+# ------------------------------------------------
+mux new: key(ctrl-b c)
+mux next: key(ctrl-b n)
+mux previous: key(ctrl-b p)
+mux find: key(ctrl-b f)
+mux close: key(ctrl-b &)
+mux split: key(ctrl-b %)
+mux split horizontal: key(ctrl-b ")
+mux swap: key(ctrl-b o)
+mux numbers: key(ctrl-b q)
+mux kill: key(ctrl-b x)
+mux layout: key(ctrl-b space)
+mux page up: key(ctrl-b pgup)

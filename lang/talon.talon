@@ -1,5 +1,13 @@
 title: /.*\.talon$/
 -
+OS windows: "os: windows\n"
+app is: "app: "
+app regex:
+    "app: //"
+    key(left)
+title regex:
+    "title: //"
+    key(left)
 key enter: "key(enter)\n"
 #
 fun key: user.insert_function("key")

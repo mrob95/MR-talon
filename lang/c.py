@@ -9,16 +9,33 @@ title: /.*\.h/
 """
 
 commands = BINDINGS["commands"]
-ctx.lists["functions"] = BINDINGS["functions"]
+ctx.lists["functions"] = {
+    "file open": "fopen",
+    "file seek": "fseek",
+    "file close": "fclose",
+    "file read": "fread",
+    "rewind": "rewind",
+    "free": "free",
+    "mallock": "malloc",
+    "mem copy": "memcpy",
+    "print": "printf",
+    "size of": "sizeof",
+    "stir length": "strlen",
+    "stir copy": "strcpy",
+    "string length": "strlen",
+    "string copy": "strcpy",
+}
 ctx.lists["logicals"] = {
     "and": " && ",
     "or": " || ",
 }
 ctx.lists["c_types"] = {
-    "boolean": "bool",
-    "inter": "int",
-    "unsigned": "unsigned",
-    "void": "void",
+    "boolean": "bool ",
+    "inter": "int ",
+    "file": "FILE *",
+    "unsigned": "unsigned ",
+    "void": "void ",
     "struct": "struct ",
     "enum": "enum ",
+    "char star": "char *",
 }

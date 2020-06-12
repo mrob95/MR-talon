@@ -1,7 +1,7 @@
 title: /.*Mathcha.*/
 -
-settings():
-    key_wait = 15.0
+# settings():
+#     key_wait = 15.0
 
 {tex_symbols}:
     key(\)

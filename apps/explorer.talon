@@ -1,3 +1,4 @@
+os: windows
 app: /.*/
 and title: /(Save|Open|Browse|Select)/
 app: Windows Explorer

@@ -3,12 +3,17 @@ title: /.*\.h/
 -
 type {c_types}: insert(c_types)
 assign: " = "
+file size:
+	"""fseek(fp, 0, SEEK_END);
+    int sz = ftell(fp);
+    rewind(fp);
+	"""
 for loop:
 	"for (i=0; i<; i++) {}"
 	key(left enter)
 iffae:
 	"if () {}"
-	key(left enter)
+	key(left enter up home right:4)
 hash include:
 	"#include <>"
 	key(left)
@@ -18,11 +23,11 @@ shells:
 	key(left enter)
 structure:
 	"struct  {};"
-	key(left:2, enter, up, end, left:2)
+	key(left:2 enter up end left:2)
 semi: key(end end ;)
 type def struct:
 	"typedef struct {} ;"
-	key(left:3, enter, down, end, left:2)
+	key(left:3 enter down end left:2)
 return:
 	"return ;"
 	key(left)
@@ -31,4 +36,4 @@ value true: "true"
 value null: "NULL"
 while loop:
 	"while () {}"
-    key(left, enter, up, end, left:3)
+    key(left enter up home right:4)

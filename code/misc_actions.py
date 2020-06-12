@@ -34,14 +34,15 @@ class Actions:
 
     def clip_replace(pattern: str, replacement: str):
         """Replace pattern in clipboard"""
-        cb = clip.get()
+        actions.sleep("150ms")
+        cb = clip.text()
         actions.sleep("150ms")
         replaced = re.sub(pattern, replacement, cb)
         clip.set(replaced)
 
     def insert_git_url():
         """Insert git url from clipboard"""
-        cb = clip.get()
+        cb = clip.text()
         # actions.sleep("150ms")
         if cb.startswith("https://github.com"):
             if not cb.endswith(".git"):

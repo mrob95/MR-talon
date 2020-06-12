@@ -38,9 +38,9 @@ def macro_stop(m):
 def macro_play(m):
     macro_stop(None)
     try:
-        repeat = int(m["macro.repeat"])
+        repeat = int(m["repeat"])
     except KeyError:
-        repeat=1
+        repeat = 1
     for _ in range(repeat):
         for item in macro:
             actions.core.run_phrase(item)

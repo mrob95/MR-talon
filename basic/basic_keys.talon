@@ -1,10 +1,11 @@
+settings():
+    key_wait = 0
+
 {alphabet}: insert(alphabet)
 numb <user.digits>: insert(digits)
 {punctuation}: key(punctuation)
 long {punctuation2}: " {punctuation2} "
 {simple_keys} <user.n20>:
-    print(simple_keys)
-    print(n20)
     key("{simple_keys}:{n20}")
 {simple_keys_norepeat}: key(simple_keys_norepeat)
 {direction_modifiers} <user.n20>:

@@ -1,5 +1,4 @@
-app: mintty.exe
-app: WindowsTerminal.exe
+tag: terminal
 -
 git cherry pick abort: "git cherry-pick --abort"
 git delete branch: "git branch -D "

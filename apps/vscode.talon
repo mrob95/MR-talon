@@ -3,7 +3,7 @@ app: Code.exe
 -
 action(edit.line_clone):
     key(shift-alt-down)
-#
+#ttt
 comment block: key(shift-alt-a)
 new (file | tab): key(ctrl-n)
 new window: key(ctrl-shift-n)
