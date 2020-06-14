@@ -17,7 +17,7 @@ ctx = Context()
 
 @mod.action_class
 class Actions:
-    def slow_key(pattern: str):
+    def slow_key(pattern: str, wait: str = "50ms"):
         """Press some keys slowly"""
         print(pattern)
         keys = pattern.split(" ")
@@ -30,7 +30,7 @@ class Actions:
                 keys2.extend([chord_rep[0]]*int(chord_rep[1]))
         for k in keys2:
             actions.key(k)
-            actions.sleep("50ms")
+            actions.sleep(wait)
 
     def clip_replace(pattern: str, replacement: str):
         """Replace pattern in clipboard"""

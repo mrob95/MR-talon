@@ -31,7 +31,7 @@ ctx.lists["logicals"] = {
 }
 ctx.lists["c_types"] = {
     "boolean": "bool ",
-    "inter": "int ",
+    "integer": "int ",
     "file": "FILE *",
     "unsigned": "unsigned ",
     "void": "void ",

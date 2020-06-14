@@ -18,10 +18,12 @@ class Actions:
         old_clip = clip.get()
         clip.set_text("")
         actions.edit.copy()
+        actions.sleep("150ms")
         new_clip = clip.get()
         actions.insert(f"{pattern}({new_clip})")
         if not new_clip:
             actions.key("left")
+        actions.sleep("150ms")
         clip.set(old_clip)
 
 

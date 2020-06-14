@@ -36,4 +36,4 @@ value true: "true"
 value null: "NULL"
 while loop:
 	"while () {}"
-    key(left enter up home right:4)
+    key(left enter up home right:7)

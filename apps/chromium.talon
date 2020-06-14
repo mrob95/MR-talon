@@ -11,7 +11,7 @@ go <user.websites>:
 new incognito window: key("ctrl-shift-n")
 next tab <user.n20>: key("ctrl-tab:{n20}")
 previous tab <user.n20>: key("ctrl-shift-tab:{n20}")
-close tab <user.n20>: key("ctrl-w:{n20}")
+close tab <user.n20>: user.slow_key("ctrl-w:{n20}", "100ms")
 reopen tab <user.n20>: key("ctrl-shift-t:{n20}")
 page back <user.n20>: key("alt-left:{n20}")
 page forward <user.n20>: key("alt-right:{n20}")

@@ -20,27 +20,13 @@ def get_file_map(current_path):
     spoken_forms = create_spoken_forms([p.stem for p in files])
     return dict(zip(spoken_forms, [f.name for f in files]))
 
-# def get_git_info(current_path):
-#     try:
-#         repo = Repo(current_path)
-#     except:
-#         return {}, {}, {}
-#     # git_dir = current_path / ".git"
-#     # if  not git_dir.is_dir():
-#     #     return {}, {}
 
-#     # remotes_dir = git_dir / "refs" / "remotes"
-#     # remote_names = [d.name for d in remotes_dir.iterdir() if d.is_dir()]
-#     remote_names = [r.name for r in repo.remotes]
-#     remotes = dict(zip(create_spoken_forms(remote_names), remote_names))
+def get_children(mod):
+    return [s for s in dir(mod) if not s.startswith("_")]
 
-#     # branches_dir = git_dir / "refs" / "heads"
-#     # branch_names = [d.name for d in branches_dir.iterdir()]
-#     branch_names = [h.name for h in repo.heads]
-#     branches = dict(zip(create_spoken_forms(branch_names), branch_names))
+# import re
 
-#     file_names = [f.a_path for f in repo.index.diff(None)]
-#     file_names.extend(repo.untracked_files)
-#     files = dict(zip(create_spoken_forms(file_names), file_names))
-
-#     return branches, remotes, files
+# print(get_children(re))
+# children = get_children(re)
+# re_spoken = dict(zip(create_spoken_forms(children), children))
+# print(re_spoken)
