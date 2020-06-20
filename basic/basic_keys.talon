@@ -1,7 +1,7 @@
-settings():
-    key_wait = 0
-
 {alphabet}: insert(alphabet)
+big {alphabet}: insert(user.upper(alphabet))
+all caps {alphabet}+: insert(user.upper(user.cat(alphabet_list)))
+
 numb <user.digits>: insert(digits)
 {punctuation}: key(punctuation)
 long {punctuation2}: " {punctuation2} "
@@ -22,7 +22,9 @@ long {punctuation2}: " {punctuation2} "
 
 action(edit.paste): key(ctrl-v)
 spark: edit.paste()
-action(edit.copy): key(ctrl-c)
+action(edit.copy):
+    print("Global")
+    key(ctrl-c)
 stoosh: edit.copy()
 action(edit.line_insert_down):
     key(ctrl-enter)

@@ -63,6 +63,17 @@ class Actions:
         print(talon.windows.winevents._win_info(GetForegroundWindow()))
         print([w for w in ui.windows() if w.id == GetForegroundWindow()])
 
+    def print_copy_info():
+        """"""
+        print("registry.actions['edit.copy']")
+        print(registry.actions['edit.copy'])
+        print([a.ctx for a in registry.actions['edit.copy']])
+        # print(registry.contexts)
+        # print(registry.contexts["user.basic.basic_keys.talon"])
+        # print(registry.contexts["user.apps.windows_terminal.talon"])
+        print('registry.contexts["user.basic.basic_keys.talon"] > registry.contexts["user.apps.windows_terminal.talon"]')
+        print(registry.contexts["user.basic.basic_keys.talon"] > registry.contexts["user.apps.windows_terminal.talon"])
+
     def test_action(thing: str):
         """testing"""
         print(thing)

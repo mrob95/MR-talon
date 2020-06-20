@@ -19,3 +19,6 @@ context lists:
 context matches:
     'ctx.matches = r""""""'
     key(left:3 enter:2 up)
+fun key: user.insert_function("actions.key")
+fun sleep: user.insert_function("actions.sleep")
+fun insert: user.insert_function("actions.insert")

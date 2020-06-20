@@ -102,6 +102,16 @@ move left: key(ctrl-k ctrl-shift-left)
 move right: key(ctrl-k ctrl-shift-right)
 split right: key(alt-shift-2 ctrl-k ctrl-shift-right)
 split definition: key(ctrl-k f12)
+set anchor: key(ctrl-k ctrl-b)
+go to anchor: key(ctrl-k ctrl-g)
+insert that:
+    key(ctrl-k ctrl-b)
+    mouse_click()
+    mouse_click()
+    user.temp_store()
+    key(ctrl-k ctrl-g escape)
+    user.temp_insert()
+
 #------------------------------------------------
 line <user.digits>:
     key(ctrl-g)
@@ -116,5 +126,3 @@ shunt <user.n20>: key("shift-down:{n20}")
 comment line: key(ctrl-/)
 indent <user.n20>: key("ctrl-]:{n20}")
 [auto] complete: key(ctrl-space)
-# meta sell: key(shift-alt-;")
-# meta go: key(ctrl-;")

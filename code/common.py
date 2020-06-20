@@ -1,9 +1,22 @@
 from user.imports import *
+from typing import List
 
 mod = Module()
 ctx = Context()
 
 BRING = utilities.load_toml_relative("config/bringme.toml")
+
+@mod.action_class
+class Actions:
+    def upper(s: str) -> str:
+        """Uppercase"""
+        return s.upper()
+
+    def cat(l: List[str]) -> str:
+        """Concatenate"""
+        return ''.join(l)
+
+
 
 mod.list("folders", desc="Commonly accessed folders")
 ctx.lists["folders"] = BRING["folder"]
@@ -54,10 +67,7 @@ alphabet = {
     "zulu": "z",
 }
 mod.list("alphabet", desc="Alphabet")
-ctx.lists["alphabet"] = {
-    **alphabet,
-    **{f"big {k}": v.upper() for k, v in alphabet.items()}
-}
+ctx.lists["alphabet"] = alphabet
 
 mod.list("directions", desc="Directions")
 ctx.lists["directions"] = {

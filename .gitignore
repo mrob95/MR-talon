@@ -130,3 +130,4 @@ dmypy.json
 personal.toml
 regexes.md
 actions.txt
+.vscode/

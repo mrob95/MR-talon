@@ -2,13 +2,6 @@ title: /.*\.r$/
 title: /.*\.R$/
 app: RStudio
 -
-fun list files:
-    "list.files(path=\".\", pattern=NULL)"
-fun read standard in [put]:
-    "scan(file=\"stdin\", quiet=TRUE)"
-fun gather:
-    "gather(key = \"\", value = \"\", )"
-    key(left:15)
 graph {r_graph}:
     user.insert_function(r_graph)
 graph {r_graph_misc}:

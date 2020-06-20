@@ -1,14 +1,9 @@
 from user.imports import *
 
-BINDINGS = utilities.load_toml_relative("config/python.toml")
-
 mod = Module()
 ctx = Context("python")
 ctx.matches = r"""
-title: /.*\.py/
-title: /JupyterLab/
-title: /IPython:/
-title: /PDB:/
+tag: python
 """
 
 ctx.lists["functions"] = {
@@ -45,6 +40,9 @@ ctx.lists["functions"] = {
     "keys": "keys",
     "length": "len",
     "list": "list",
+    "logger debug": "logger.debug",
+    "logger info": "logger.info",
+    "logger error": "logger.error({|}, exc_info=True)",
     "lower": "lower",
     "min": "min",
     "minimum": "min",
