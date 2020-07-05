@@ -51,6 +51,12 @@ class Actions:
                 giturl = cb
             actions.insert(giturl)
 
+    def vscode_palette(command: str) -> None:
+        """"""
+        actions.key("ctrl-shift-p")
+        actions.insert(command)
+        actions.key("enter")
+
     def print_window_info():
         """Print random window information"""
         print(f"Shadow app: {ui.active_app()}")

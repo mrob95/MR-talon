@@ -51,7 +51,7 @@ class Actions:
         global global_temporary_store
         old_clip = clip.get()
         actions.edit.copy()
-        actions.sleep("50ms")
+        actions.sleep("100ms")
         global_temporary_store = clip.get()
         clip.set(old_clip)
 

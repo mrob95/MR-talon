@@ -4,6 +4,7 @@ all caps {alphabet}+: insert(user.upper(user.cat(alphabet_list)))
 
 numb <user.digits>: insert(digits)
 {punctuation}: key(punctuation)
+{punctuation2}: "{punctuation2}"
 long {punctuation2}: " {punctuation2} "
 {simple_keys} <user.n20>:
     key("{simple_keys}:{n20}")
@@ -22,12 +23,9 @@ long {punctuation2}: " {punctuation2} "
 
 action(edit.paste): key(ctrl-v)
 spark: edit.paste()
-action(edit.copy):
-    print("Global")
-    key(ctrl-c)
+action(edit.copy): key(ctrl-c)
 stoosh: edit.copy()
-action(edit.line_insert_down):
-    key(ctrl-enter)
+action(edit.line_insert_down): key(ctrl-enter)
 check <user.n20>:
     edit.line_insert_down()
     repeat(n20 - 1)

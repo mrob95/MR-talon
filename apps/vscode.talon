@@ -3,6 +3,8 @@ app: Code.exe
 -
 action(edit.line_clone):
     key(shift-alt-down)
+duple comment:
+    key(shift-alt-down up ctrl-/ down)
 #ttt
 comment block: key(shift-alt-a)
 new (file | tab): key(ctrl-n)
@@ -53,18 +55,10 @@ edit next <user.n20>: key("ctrl-d:{n20}")
 skip next <user.n20>: key("ctrl-k ctrl-d:{n20}")
 edit all: key(ctrl-shift-l)
 #
-transform upper:
-    key(ctrl-shift-p)
-    "uppercase"
-    key(enter)
-transform lower:
-    key(ctrl-shift-p)
-    "lowercase"
-    key(enter)
-transform title:
-    key(ctrl-shift-p)
-    "titlecase"
-    key(enter)
+transform upper: user.vscode_palette("uppercase")
+transform lower: user.vscode_palette("lowercase")
+transform title: user.vscode_palette("titlecase")
+rename file: user.vscode_palette("File: Rename")
 #
 fold that: key(ctrl-shift-[)
 unfold that: key(ctrl-shift-])
@@ -104,13 +98,29 @@ split right: key(alt-shift-2 ctrl-k ctrl-shift-right)
 split definition: key(ctrl-k f12)
 set anchor: key(ctrl-k ctrl-b)
 go to anchor: key(ctrl-k ctrl-g)
-insert that:
+insert mouse:
     key(ctrl-k ctrl-b)
     mouse_click()
     mouse_click()
     user.temp_store()
     key(ctrl-k ctrl-g escape)
     user.temp_insert()
+insert mouse line:
+    key(ctrl-k ctrl-b)
+    mouse_click()
+    key(home shift-end)
+    user.temp_store()
+    key(ctrl-k ctrl-g escape)
+    user.temp_insert()
+remove to <user.digits>:
+    key(ctrl-k ctrl-b ctrl-g)
+    insert(digits)
+    key(enter end ctrl-k ctrl-k backspace)
+copy to <user.digits>:
+    key(ctrl-k ctrl-b ctrl-g)
+    insert(digits)
+    key(enter end ctrl-k ctrl-k)
+    edit.copy()
 
 #------------------------------------------------
 line <user.digits>:

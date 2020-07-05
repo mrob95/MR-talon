@@ -2,9 +2,7 @@ os: windows
 app: WindowsTerminal.exe
 -
 action(edit.paste): key(ctrl-shift-v)
-action(edit.copy):
-    print("Local")
-    key(ctrl-shift-c)
+action(edit.copy): key(ctrl-shift-c)
 # ---
 <user.numberth> tab: key("ctrl-alt-{numberth}")
 close tab <user.n20>: user.slow_key("ctrl-shift-w:{n20}")

@@ -14,7 +14,7 @@ file size:
 	"""
 for loop:
 	"for (int i=0; i<; i++) {}"
-	key(left enter)
+	key(left enter up end left:8)
 for each token:
 	'for (char *tok=strtok(, ""); tok!=NULL; tok=strtok(NULL, "")) {}'
 	key(left enter up home right:22)
