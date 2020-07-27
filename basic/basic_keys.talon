@@ -9,6 +9,7 @@ long {punctuation2}: " {punctuation2} "
 {simple_keys} <user.n20>:
     key("{simple_keys}:{n20}")
 {simple_keys_norepeat}: key(simple_keys_norepeat)
+
 {direction_modifiers} <user.n20>:
     key("{direction_modifiers}left:{n20}")
 [{direction_modifiers}] {directions} <user.n20>:

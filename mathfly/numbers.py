@@ -1,11 +1,11 @@
 from talon import Context, Module
 
-digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+raw_digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
 
-repeat = {name: str(i) for i, name in enumerate(digits[1:] + teens)}
-numbers = {name: str(i+1) for i, name in enumerate(digits[1:] + teens)}
-digits = {name: str(i) for i, name in enumerate(digits)}
+repeat = {name: str(i) for i, name in enumerate(raw_digits[1:] + teens)}
+numbers = {name: str(i+1) for i, name in enumerate(raw_digits[1:] + teens)}
+digits = {name: str(i) for i, name in enumerate(raw_digits)}
 
 numberth = {
     "first": "1",
@@ -28,6 +28,7 @@ ctx.lists['repeat20'] = repeat
 ctx.lists['numbers20'] = numbers
 ctx.lists['numberth'] = numberth
 ctx.lists['digits10'] = digits
+ctx.lists['spoken10'] = raw_digits
 
 
 @mod.capture
@@ -36,6 +37,10 @@ def r20(m) -> int:
 
 @mod.capture
 def n20(m) -> int:
+    "Numbers up to twenty"
+
+@mod.capture
+def spoken10(m) -> str:
     "Numbers up to twenty"
 
 @mod.capture
@@ -53,6 +58,10 @@ def r20(m):
 @ctx.capture(rule="[{numbers20}]")
 def n20(m):
     return int(m["numbers20"]) if hasattr(m, "numbers20") else 1
+
+@ctx.capture(rule="[{spoken10}]")
+def spoken10(m):
+    return m["spoken10"] if hasattr(m, "spoken10") else "one"
 
 @ctx.capture(rule="{digits10}+")
 def digits(m):

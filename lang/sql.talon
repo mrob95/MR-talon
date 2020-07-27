@@ -4,13 +4,18 @@ title: /\.sql/
 case when:
     "CASE WHEN  END"
     key(left:4)
+create table: "CREATE TABLE "
 delete: "DELETE "
 distinct: "DISTINCT "
 from: "FROM "
 for system time: "FOR SYSTEM TIME "
 group by: "GROUP BY "
 having: "HAVING "
-insert into: "INSERT INTO "
+insert into:
+    "INSERT INTO "
+    key(enter:2)
+    "VALUES "
+    key(up:2 end)
 is not null: " IS NOT NULL"
 is null: " IS NULL"
 #
@@ -37,3 +42,4 @@ where: "WHERE "
 with as:
     "WITH  AS ()"
     key(left enter:2 up:2 end left:5)
+semi: key(end ;)

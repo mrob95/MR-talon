@@ -30,7 +30,7 @@ def winfo(t):
 # def ginfo(w):
 #     print(hash(str(speech_system.engine.engine.grammar_blobs['talon_main'][2])))
 
-ui.register('post:app_activate', winfo)
+# ui.register('post:app_activate', winfo)
 
 ctx.commands = {
         # "music play": test_music,

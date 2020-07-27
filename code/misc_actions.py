@@ -1,5 +1,6 @@
 from user.imports import *
 from talon import Module, Context, actions, clip
+from talon.engine import engine
 from win32gui import GetForegroundWindow, GetWindowText
 import os
 import re
@@ -95,3 +96,8 @@ class Actions:
         # print(MEDIA_PLAY_PAUSE)
         # scancode = windll.user32.MapVirtualKeyW(MEDIA_PLAY_PAUSE, 0)
         # print(scancode)
+
+    def dragon_mimic(phrase: str):
+        """mimic"""
+        print(phrase)
+        engine.mimic(phrase)

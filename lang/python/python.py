@@ -184,10 +184,10 @@ ctx.lists["py_exceptions"] = {
 }
 
 ctx.lists["py_types"] = {
-    "inter"  : "int",
-	"integer"  : "int",
+    "inter": "int",
+    "integer": "int",
     "dict": "Dict",
-	"dictionary": "Dict",
+    "dictionary": "Dict",
     "any": "Any",
     "callable": "Callable",
     "float": "float",
