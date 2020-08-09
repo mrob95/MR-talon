@@ -23,7 +23,7 @@ ctx.lists["functions"] = {
     "mem compare":  "memcmp",
     "mem move": "memmove",
     "mem set": "memset",
-    "print": 'printf("{|}\\n")',
+    "print": 'printf("{|}\\n");',
     "size of": "sizeof",
     "string length": "strlen",
     "string copy": "strcpy",

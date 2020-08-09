@@ -1,3 +1,4 @@
+from typing import Mapping
 from user.imports import *
 
 mod = Module()

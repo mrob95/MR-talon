@@ -70,8 +70,16 @@ git rebase: "git rebase"
 git rebase auto squash: "git rebase -i --autosquash master"
 git rebase interactive: "git rebase -i "
 git remote: "git remote "
+git remote remove: "git remote remove "
+git remote add:
+	"git remote add "
+	user.insert_git_url()
+	key(home right:15)
 git remote add origin:
 	"git remote add origin "
+	user.insert_git_url()
+git remote add upstream:
+	"git remote add upstream "
 	user.insert_git_url()
 git remote prune origin: "git remote prune origin "
 git remote prune origin dry run: "git remote prune origin --dry-run"

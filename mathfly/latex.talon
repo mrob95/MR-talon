@@ -12,10 +12,10 @@ begin {tex_environments}:
     insert("\\end{{{tex_environments}}}")
     key(up)
 insert {tex_commands}:
-    insert("\\tex_commands{{}}")
+    insert("\\{tex_commands}{{}}")
     key(left)
 insert {tex_commands_noarg}:
-    insert("\\tex_commands_noarg")
+    insert("\\{tex_commands_noarg} ")
 greek {tex_greek_letters}:
     insert("\\{tex_greek_letters} ")
 symbol {tex_symbols}:

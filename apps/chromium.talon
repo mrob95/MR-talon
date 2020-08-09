@@ -3,6 +3,7 @@ app: chrome.exe
 -
 <user.numberth> tab: key("ctrl-{numberth}")
 new tab <user.n20>: key("ctrl-t:{n20}")
+duplicate tab: key(alt-shift-d)
 go <user.websites>:
     key(ctrl-l)
     sleep(20ms)
@@ -18,7 +19,7 @@ page forward <user.n20>: key("alt-right:{n20}")
 zoom reset: key(ctrl-0)
 refresh: key(ctrl-f5)
 [find] next match <user.n20>: key("ctrl-g:{n20}")
-[find] prior match <user.n20>: key("ctrl-shift-g:{n20}")
+[find] previous match <user.n20>: key("ctrl-shift-g:{n20}")
 [toggle] caret browsing: key(f7)
 home page: key(alt-home)
 show history:
@@ -26,6 +27,7 @@ show history:
     "brave://history/"
     key(enter)
 google search: key(ctrl-l)
+copy path: key(ctrl-l ctrl-c escape)
 image search:
     key(ctrl-l left)
     "https://www.google.com/searchbyimage?&image_url="
