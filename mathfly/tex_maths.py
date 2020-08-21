@@ -140,10 +140,10 @@ greek_letters = {
 }
 
 mod.list("tex_symbols", desc="TeX mathematical symbols")
-ctx.lists['tex_symbols'] = symbols
+ctx.lists["self.tex_symbols"] = symbols
 
 mod.list("tex_greek_letters", desc="TeX greek letters")
-ctx.lists["tex_greek_letters"] = {
+ctx.lists["self.tex_greek_letters"] = {
     **greek_letters,
     **{f"big {k}": v.title() for k, v in greek_letters.items()}
 }

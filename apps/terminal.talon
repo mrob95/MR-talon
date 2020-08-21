@@ -4,17 +4,17 @@ app: /.*/
 and title: /MSYS:.*/
 -
 tag(): terminal
-CD {directories}:
+CD {user.directories}:
     insert('cd "{directories}" && ls')
     key(enter)
-file {files}:
+file {user.files}:
     insert('{files} ')
-folder {directories}:
+folder {user.directories}:
     insert('{directories}/')
-go {folders}:
+go {user.folders}:
 	"cd {folders} && ls"
 	key(enter)
-dot {extensions}:
+dot {user.extensions}:
 	".{extensions}"
 #------------------------------------------------------
 bash: "bash "

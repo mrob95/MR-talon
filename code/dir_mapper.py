@@ -32,9 +32,9 @@ def update_maps(window):
         if not current_path.exists() or current_path == path_last_update:
             return
         path_last_update = current_path
-        ctx.lists["directories"] = file_utils.get_directory_map(current_path)
-        ctx.lists["files"] = file_utils.get_file_map(current_path)
-        # mingwctx.lists["git_branches"], mingwctx.lists["git_remotes"], mingwctx.lists["git_files"] = file_utils.get_git_info(current_path)
+        ctx.lists["self.directories"] = file_utils.get_directory_map(current_path)
+        ctx.lists["self.files"] = file_utils.get_file_map(current_path)
+        # mingwctx.lists["self.git_branches"], mingwctx.lists["self.git_remotes"], mingwctx.lists["self.git_files"] = file_utils.get_git_info(current_path)
     except:
         return
 

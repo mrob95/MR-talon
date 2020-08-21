@@ -5,11 +5,12 @@ BINDINGS = utilities.load_toml_relative("config/C.toml")
 ctx = Context("C")
 ctx.matches = r"""
 title: /.*\.c/
+title: /.*\.cpp/
 title: /.*\.h/
 """
 
 commands = BINDINGS["commands"]
-ctx.lists["functions"] = {
+ctx.lists["self.functions"] = {
     "file open": "fopen",
     "file seek": "fseek",
     "file seek end": "fseek({|}, 0, SEEK_END);",
@@ -80,11 +81,11 @@ ctx.lists["functions"] = {
     "hash string string alloc": "stbds_stralloc", # Allocates a string in a string arena
     "hash string string reset": "stbds_strreset", # Frees all the strings in a string arena
 }
-ctx.lists["logicals"] = {
+ctx.lists["self.logicals"] = {
     "and": " && ",
     "or": " || ",
 }
-ctx.lists["c_types"] = {
+ctx.lists["self.c_types"] = {
     "boolean": "bool ",
     "integer": "int ",
     "file": "FILE *",

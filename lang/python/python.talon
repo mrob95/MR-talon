@@ -3,7 +3,7 @@ title: /JupyterLab/
 title: /IPython:/
 title: /PDB:/
 -
-tag(): python
+tag(): user.python
 args and kwargs: "*args, **kwargs"
 assign: " = "
 assert: "assert "
@@ -89,9 +89,9 @@ import: "import "
 from import:
     "from  import "
     key(home right:5)
-import {py_modules}:
+import {user.py_modules}:
     "import {py_modules}"
-import {py_imports}:
+import {user.py_imports}:
     insert(py_imports)
 # Dunders
 magic init:
@@ -106,12 +106,12 @@ try except:
     key(enter enter)
     "except:"
     key(shift-tab)
-try except {py_exceptions} [error]:
+try except {user.py_exceptions} [error]:
     "try:"
     key(enter enter)
     "except {py_exceptions}:"
     key(shift-tab)
-try except {py_exceptions} [error] as:
+try except {user.py_exceptions} [error] as:
     "try:"
     key(enter enter)
     "except {py_exceptions} as e:"

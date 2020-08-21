@@ -19,12 +19,12 @@ jump equal zero: "jez "
 jump not zero: "jnz "
 jump offset: "jro "
 
-move {tis100_registers} {tis100_registers}:
+move {user.tis100_registers} {user.tis100_registers}:
     "mov {tis100_registers_1}, {tis100_registers_2}"
 
-{tis100_registers}: "{tis100_registers}"
+{user.tis100_registers}: "{tis100_registers}"
 
-tag {tis100_tags}: "{tis100_tags}"
+tag {user.tis100_tags}: "{tis100_tags}"
 
 
 quick reference: key(f1)

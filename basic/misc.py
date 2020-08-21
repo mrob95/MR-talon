@@ -14,7 +14,7 @@ CORE = utilities.load_toml_relative("config/core.toml")
 
 searches = CORE["search"]
 
-
+mod = Module()
 ctx = Context("misc")
 
 def winfo(t):
@@ -33,16 +33,15 @@ def winfo(t):
 # ui.register('post:app_activate', winfo)
 
 ctx.commands = {
-        # "music play": test_music,
-        "{personal}": lambda m: Str(m["personal"])(m),
-        "close all notepads": lambda m: utilities.kill_notepad(),
-        "open scratchpad": lambda m: Popen(["code"]),
-        # "print grammar blob": ginfo,
+    # "music play": test_music,
+    "close all notepads": lambda m: utilities.kill_notepad(),
+    "open scratchpad": lambda m: Popen(["code"]),
+    # "print grammar blob": ginfo,
 
-        "{searches} search <dgndictation>++": lambda m: utilities.browser_search(m["dgndictation"], m["searches"]),
+    "{user.searches} search <dgndictation>++": lambda m: utilities.browser_search(m["dgndictation"], m["searches"]),
 
-        "take screenshot": Key("win-shift-s"),
-    }
+    "take screenshot": Key("win-shift-s"),
+}
 
-ctx.lists["personal"] = PERSONAL
-ctx.lists["searches"] = searches
+mod.list("searches")
+ctx.lists["self.searches"] = searches

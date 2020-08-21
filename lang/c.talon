@@ -1,4 +1,5 @@
 title: /.*\.c/
+title: /.*\.cpp/
 title: /.*\.h/
 -
 type {c_types}: insert(c_types)
@@ -27,9 +28,7 @@ shells:
 shell iffae:
 	"else if () {}"
 	key(left enter up end left:3)
-hash include:
-	"#include <>"
-	key(left)
+hash include: "include "
 hash define: "#define "
 structure:
 	"struct  {};"

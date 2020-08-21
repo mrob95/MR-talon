@@ -24,11 +24,21 @@ mod = Module()
 ctx = Context()
 import inspect
 
-ctx.lists['repeat20'] = repeat
-ctx.lists['numbers20'] = numbers
-ctx.lists['numberth'] = numberth
-ctx.lists['digits10'] = digits
-ctx.lists['spoken10'] = raw_digits
+
+mod.list("repeat20")
+ctx.lists['self.repeat20'] = repeat
+
+mod.list("numbers20")
+ctx.lists['self.numbers20'] = numbers
+
+mod.list("numberth")
+ctx.lists['self.numberth'] = numberth
+
+mod.list("digits10")
+ctx.lists['self.digits10'] = digits
+
+mod.list("spoken10")
+ctx.lists['self.spoken10'] = raw_digits
 
 
 @mod.capture
@@ -51,22 +61,22 @@ def digits(m) -> int:
 def numberth(m) -> int:
     "Numberth"
 
-@ctx.capture(rule="[{repeat20}]")
+@ctx.capture(rule="[{user.repeat20}]")
 def r20(m):
     return int(m["repeat20"]) if hasattr(m, "repeat20") else 0
 
-@ctx.capture(rule="[{numbers20}]")
+@ctx.capture(rule="[{user.numbers20}]")
 def n20(m):
     return int(m["numbers20"]) if hasattr(m, "numbers20") else 1
 
-@ctx.capture(rule="[{spoken10}]")
+@ctx.capture(rule="[{user.spoken10}]")
 def spoken10(m):
     return m["spoken10"] if hasattr(m, "spoken10") else "one"
 
-@ctx.capture(rule="{digits10}+")
+@ctx.capture(rule="{user.digits10}+")
 def digits(m):
     return "".join(m["digits10_list"])
 
-@ctx.capture(rule="{numberth}")
+@ctx.capture(rule="{user.numberth}")
 def numberth(m):
     return m["numberth"]

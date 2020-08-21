@@ -4,10 +4,10 @@ not keypresses. This means that macros can interact with your computer state
 such as by looking at what is in the clipboard, are referencing nearby text.
 """
 
+from talon import *
 from talon.voice import Context, talon, Key, Str, press
 from talon.engine import engine
 from talon import actions
-# actions.core.recent_commands()
 
 macro = []
 macro_recording = False
@@ -20,39 +20,32 @@ def macro_record(j):
             print(m)
             macro.append(m)
 
-def macro_start(m):
-    global macro_recording
-    global macro
-    macro_recording = True
-    macro = []
-
-
-def macro_stop(m):
-    global macro
-    global macro_recording
-    if macro_recording:
-        macro = macro[1:]
-        macro_recording = False
-
-
-def macro_play(m):
-    macro_stop(None)
-    try:
-        repeat = int(m["repeat"])
-    except KeyError:
-        repeat = 1
-    for _ in range(repeat):
-        for item in macro:
-            actions.core.run_phrase(item)
-
 engine.register("post:phrase", macro_record)
 
-
 ctx = Context("macro")
-ctx.commands = {
-    "macro (start | record)": macro_start,
-    "macro stop": macro_stop,
-    "macro play [{repeat}]": macro_play,
-    # "macro print": macro_print,
-}
-ctx.lists["repeat"] = [str(i) for i in range(20)]
+mod = Module()
+
+@mod.action_class
+class Actions:
+    def macro_start():
+        """..."""
+        global macro_recording
+        global macro
+        macro_recording = True
+        macro = []
+
+
+    def macro_stop():
+        """..."""
+        global macro
+        global macro_recording
+        if macro_recording:
+            macro = macro[1:]
+            macro_recording = False
+
+    def macro_play():
+        """..."""
+        global macro
+        actions.user.macro_stop()
+        for item in macro:
+            actions.core.run_phrase(item)

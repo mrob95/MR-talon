@@ -7,12 +7,12 @@ ctx = Context("JavaScript")
 ctx.matches = r"title: /.*\.js$/"
 
 commands = BINDINGS["commands"]
-functions = BINDINGS["functions"]
+ctx.lists["self.functions"] = BINDINGS["functions"]
 
-ctx.commands = {
-    **{k: actions.Alternating(v) for k, v in commands.items()},
-    **{f"fun {k}": [f"{v}()", Key("left")] for k, v in functions.items()},
-    # "function [<dgndictation>]": ["fn ", textformat.insert_text(0, 3), "(){}", Key("left left")],
-}
-print(dir(talon.actions.list()))
-print(talon.actions.list())
+# ctx.commands = {
+#     **{k: actions.Alternating(v) for k, v in commands.items()},
+#     # **{f"fun {k}": [f"{v}()", Key("left")] for k, v in functions.items()},
+#     # "function [<dgndictation>]": ["fn ", textformat.insert_text(0, 3), "(){}", Key("left left")],
+# }
+# print(dir(talon.actions.list()))
+# print(talon.actions.list())

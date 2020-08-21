@@ -102,6 +102,4 @@ git status:
 	"git status"
 	key(enter)
 git tag: "git tag "
-git reset: "git reset "
 git unstage: "git reset -- "
-git username: "git mrob95"

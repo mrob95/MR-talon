@@ -2,17 +2,17 @@ app: LyX.exe
 app: LyX for Windows
 app: lyx
 -
-{tex_symbols}:
+{user.tex_symbols}:
     key(\)
     insert(tex_symbols)
     key(space)
-greek {tex_greek_letters}:
+greek {user.tex_greek_letters}:
     key(\)
     insert(tex_greek_letters)
     key(space)
 <user.digits>:
 	insert(digits)
-<user.digits> {mathfly_fractions}:
+<user.digits> {user.mathfly_fractions}:
 	key(alt-m f)
 	insert(digits)
 	key(down)

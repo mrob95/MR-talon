@@ -30,7 +30,7 @@ ctx.commands = {
     **{f"cheatsheet {k}": lambda m: Popen(["SumatraPDF", f"%USERPROFILE%/Documents/cheatsheets/R/{v}.pdf"]) for k, v in cheatsheets.items()},
 }
 
-ctx.lists["functions"] = {
+ctx.lists["self.functions"] = {
     "anti join": "anti_join",
     "arrange": "arrange",
     "as character": "as.character",
@@ -124,13 +124,13 @@ ctx.lists["functions"] = {
     "un nest": "unnest",
 }
 
-ctx.lists["logicals"] = {
+ctx.lists["self.logicals"] = {
     "and": " & ",
     "in": " %in% ",
     "or": " | ",
 }
 
-ctx.lists["r_graph"] = {
+ctx.lists["self.r_graph"] = {
     "(coordinates | coord) fixed": "coord_fixed",
     "[geom] column": "geom_col",
     "[geom] density": "geom_density",
@@ -160,13 +160,13 @@ ctx.lists["r_graph"] = {
     "theme": "theme",
 }
 
-ctx.lists["r_graph_misc"] = {
+ctx.lists["self.r_graph_misc"] = {
     "labels": "labs(x = \"\",\ny = \"\",\ntitle = \"\",\nsubtitle = \"\",\ncaption = \"\")",
     "remove legend": "theme(legend.position = \"none\")",
     "viridis": "scale_color_viridis(discrete=TRUE)",
 }
 
-ctx.lists["r_libraries"] = {
+ctx.lists["self.r_libraries"] = {
     "cable": "kable",
     "car": "car",
     "dev tools": "devtools",

@@ -17,7 +17,7 @@ mod = Module()
 ctx = Context()
 
 mod.list("mathfly_fractions", "Fractions")
-ctx.lists["mathfly_fractions"] = {
+ctx.lists["self.mathfly_fractions"] = {
     **fractions,
     **{f"{k}s": v for k, v in fractions.items()},
 }

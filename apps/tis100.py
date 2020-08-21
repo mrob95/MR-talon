@@ -6,7 +6,8 @@ ctx.matches = r"""
 title: /TIS-100/
 """
 
-ctx.lists["tis100_registers"] = {
+mod.list("tis100_registers")
+ctx.lists["self.tis100_registers"] = {
     "up": "up",
     "left": "left",
     "down": "down",
@@ -17,7 +18,8 @@ ctx.lists["tis100_registers"] = {
     "ack": "acc",
 }
 
-ctx.lists["tis100_tags"] = {
+mod.list("tis100_tags")
+ctx.lists["self.tis100_tags"] = {
     "negative": "negative",
     "positive": "positive",
     "done": "done",

@@ -14,11 +14,17 @@ action class:
     class Actions:
     """
 context lists:
-    'ctx.lists[""] = '
+    'ctx.lists["self."] = '
     key(left:5)
 context matches:
     'ctx.matches = r""""""'
     key(left:3 enter:2 up)
+mod list: user.insert_function("mod.list")
+    # 'mod.list(, desc="...")'
+    # key(left:13)
+mod tag: user.insert_function("mod.tag")
+    # 'mod.tag(, desc="...")'
+    # key(left:13)
 fun key: user.insert_function("actions.key")
 fun sleep: user.insert_function("actions.sleep")
 fun insert: user.insert_function("actions.insert")

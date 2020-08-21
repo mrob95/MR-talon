@@ -2,11 +2,11 @@ title: /.*\.r$/
 title: /.*\.R$/
 app: RStudio
 -
-graph {r_graph}:
+graph {user.r_graph}:
     user.insert_function(r_graph)
-graph {r_graph_misc}:
+graph {user.r_graph_misc}:
     insert(r_graph_misc)
-library {r_libraries}:
+library {user.r_libraries}:
     insert("library({r_libraries})")
 # ------------------------------------------------
 assign: " <- "

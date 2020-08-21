@@ -3,12 +3,12 @@ title: /.*Mathcha.*/
 # settings():
 #     key_wait = 15.0
 
-{tex_symbols}:
+{user.tex_symbols}:
     key(\)
     insert(tex_symbols)
     key(enter)
     sleep(100ms)
-greek {tex_greek_letters}:
+greek {user.tex_greek_letters}:
     key(\)
     insert(tex_greek_letters)
     key(enter)
@@ -23,7 +23,7 @@ math mode:
     key(\)
     "math-container"
     key(enter)
-{mathfly_fractions}:
+{user.mathfly_fractions}:
     key(shift-left \)
     "frac"
     key(enter down)

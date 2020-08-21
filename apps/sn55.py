@@ -8,8 +8,8 @@ app: scinoteb.exe
 
 BINDINGS = utilities.load_toml_relative("config/ScientificNotebook55.toml")
 
-ctx.lists["digits1"] = [str(i) for i in range(10)]
-ctx.lists["digits2"] = [str(i) for i in range(10)]
+ctx.lists["self.digits1"] = [str(i) for i in range(10)]
+ctx.lists["self.digits2"] = [str(i) for i in range(10)]
 
 def control_hold(**kw):
     def f(m):

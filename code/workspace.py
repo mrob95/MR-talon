@@ -17,7 +17,7 @@ ctx = Context()
 
 CORE = utilities.load_toml_relative("config/core.toml")
 mod.list("directions_alt", desc="Caster directions (lease, ross, sauce, dunce)")
-ctx.lists["directions_alt"] = CORE["directions"]
+ctx.lists["self.directions_alt"] = CORE["directions"]
 
 
 def go_to_n(n):
