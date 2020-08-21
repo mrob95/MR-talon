@@ -6,6 +6,7 @@ import os
 import re
 import time
 import dragonfly
+from subprocess import Popen
 
 from ctypes import (c_short, c_long, c_ushort, c_ulong, sizeof,
                     POINTER, pointer, Structure, Union, windll)
@@ -25,6 +26,10 @@ class Actions:
         win32api.keybd_event(0x0D, 0x0D, 0, 0)
         time.sleep(0.01)
         win32api.keybd_event(0x0D, 0x0D, win32con.KEYEVENTF_KEYUP, 0)
+
+    def open_pdf(path: str):
+        """"""
+        Popen(["SumatraPDF", path])
 
 
     def slow_key(pattern: str, wait: str = "50ms"):

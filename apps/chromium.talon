@@ -4,7 +4,7 @@ app: chrome.exe
 <user.numberth> tab: key("ctrl-{numberth}")
 new tab <user.n20>: key("ctrl-t:{n20}")
 duplicate tab: key(alt-shift-d)
-go <user.websites>:
+go {user.websites}:
     key(ctrl-l)
     sleep(20ms)
     insert(websites)

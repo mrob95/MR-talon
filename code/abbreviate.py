@@ -4,14 +4,14 @@ from talon import Module, Context, actions
 import sys
 
 mod = Module()
-mod.list('abbreviation',    desc='Common abbreviation')
+mod.list("abbreviation",    desc="Common abbreviation")
 @mod.capture
 def abbreviation(m) -> str:
     "One abbreviation"
 
 ctx = Context()
 # List taken from an aenea grammar
-ctx.lists['user.abbreviation'] = {
+ctx.lists["self.abbreviation"] = {
     "administrator": "admin",
     "administrators": "admins",
     "application": "app",
@@ -116,7 +116,7 @@ ctx.lists['user.abbreviation'] = {
     "window": "win",
 }
 
-@ctx.capture(rule='{user.abbreviation}')
+@ctx.capture(rule="{user.abbreviation}")
 def abbreviation(m):
     return m.abbreviation
 

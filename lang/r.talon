@@ -7,7 +7,9 @@ graph {user.r_graph}:
 graph {user.r_graph_misc}:
     insert(r_graph_misc)
 library {user.r_libraries}:
-    insert("library({r_libraries})")
+	insert("library({r_libraries})")
+cheat sheet {r_cheatsheets}:
+	user.open_pdf(r_cheatsheets)
 # ------------------------------------------------
 assign: " <- "
 add comment: "# "

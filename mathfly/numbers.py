@@ -1,7 +1,7 @@
 from talon import Context, Module
 
-raw_digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+raw_digits = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
 
 repeat = {name: str(i) for i, name in enumerate(raw_digits[1:] + teens)}
 numbers = {name: str(i+1) for i, name in enumerate(raw_digits[1:] + teens)}
@@ -26,19 +26,19 @@ import inspect
 
 
 mod.list("repeat20")
-ctx.lists['self.repeat20'] = repeat
+ctx.lists["self.repeat20"] = repeat
 
 mod.list("numbers20")
-ctx.lists['self.numbers20'] = numbers
+ctx.lists["self.numbers20"] = numbers
 
 mod.list("numberth")
-ctx.lists['self.numberth'] = numberth
+ctx.lists["self.numberth"] = numberth
 
 mod.list("digits10")
-ctx.lists['self.digits10'] = digits
+ctx.lists["self.digits10"] = digits
 
 mod.list("spoken10")
-ctx.lists['self.spoken10'] = raw_digits
+ctx.lists["self.spoken10"] = raw_digits
 
 
 @mod.capture
