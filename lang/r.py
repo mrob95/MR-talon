@@ -12,7 +12,7 @@ app: RStudio
 """
 
 
-ctx.lists["self.functions"] = {
+ctx.lists["user.functions"] = {
     "anti join": "anti_join",
     "arrange": "arrange",
     "as character": "as.character",
@@ -106,14 +106,14 @@ ctx.lists["self.functions"] = {
     "un nest": "unnest",
 }
 
-ctx.lists["self.logicals"] = {
+ctx.lists["user.logicals"] = {
     "and": " & ",
     "in": " %in% ",
     "or": " | ",
 }
 
 mod.list("r_graph")
-ctx.lists["self.r_graph"] = {
+ctx.lists["user.r_graph"] = {
     "(coordinates | coord) fixed": "coord_fixed",
     "[geom] column": "geom_col",
     "[geom] density": "geom_density",
@@ -144,14 +144,14 @@ ctx.lists["self.r_graph"] = {
 }
 
 mod.list("r_graph_misc")
-ctx.lists["self.r_graph_misc"] = {
+ctx.lists["user.r_graph_misc"] = {
     "labels": "labs(x = \"\",\ny = \"\",\ntitle = \"\",\nsubtitle = \"\",\ncaption = \"\")",
     "remove legend": "theme(legend.position = \"none\")",
     "viridis": "scale_color_viridis(discrete=TRUE)",
 }
 
 mod.list("r_libraries")
-ctx.lists["self.r_libraries"] = {
+ctx.lists["user.r_libraries"] = {
     "cable": "kable",
     "car": "car",
     "dev tools": "devtools",
@@ -172,4 +172,4 @@ ctx.lists["self.r_libraries"] = {
 }
 
 mod.list("r_cheatsheets")
-ctx.lists["self.r_cheatsheets"] = BINDINGS["cheatsheets"]
+ctx.lists["user.r_cheatsheets"] = BINDINGS["cheatsheets"]

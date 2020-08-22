@@ -1,2 +1,2 @@
-fun {functions}: user.insert_function(functions)
-lodge {logicals}: insert(logicals)
+fun {user.functions}: user.insert_function(functions)
+lodge {user.logicals}: insert(logicals)

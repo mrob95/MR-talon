@@ -7,7 +7,7 @@ tag: user.python
 """
 
 mod.list("py_lib_pandas")
-ctx.lists["self.py_lib_pandas"] = {
+ctx.lists["user.py_lib_pandas"] = {
     # Module
     "Categorical": "pd.Categorical",
     "Data Frame": "pd.DataFrame",
@@ -354,7 +354,7 @@ ctx.lists["self.py_lib_pandas"] = {
 }
 
 mod.list("py_lib_numpy")
-ctx.lists["self.py_lib_numpy"] = {
+ctx.lists["user.py_lib_numpy"] = {
     "allow threads": "np.ALLOW_THREADS!",
     "axis error": "np.AxisError",
     "buff size": "np.BUFSIZE!",

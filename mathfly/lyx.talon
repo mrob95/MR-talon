@@ -45,7 +45,7 @@ add matrix column: key(alt-m c i)
 accent hat: key(alt-m h)
 accent tilde: key(alt-m &)
 accent dot: key(alt-m .)
-accent double dot" : key(alt-m \")
+accent double dot: key(alt-m \")
 accent bar: key(alt-m -)
 accent vector: key(alt-m v)
 #

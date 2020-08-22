@@ -7,7 +7,7 @@ tag: user.python
 """
 
 mod.list("py_lib_re")
-ctx.lists["self.py_lib_re"] = {
+ctx.lists["user.py_lib_re"] = {
     "ascii": "re.ASCII!",
     "debug": "re.DEBUG!",
     "dotall": "re.DOTALL!",
@@ -42,7 +42,7 @@ ctx.lists["self.py_lib_re"] = {
 }
 
 mod.list("py_lib_sys")
-ctx.lists["self.py_lib_sys"] = {
+ctx.lists["user.py_lib_sys"] = {
     "api version": "sys.api_version!",
     "arg vee": "sys.argv!",
     "base exec prefix": "sys.base_exec_prefix!",
@@ -113,7 +113,7 @@ ctx.lists["self.py_lib_sys"] = {
 }
 
 mod.list("py_lib_os")
-ctx.lists["self.py_lib_os"] = {
+ctx.lists["user.py_lib_os"] = {
     "dir entry": "os.DirEntry",
     "f ok": "os.F_OK!",
     "mutable mapping": "os.MutableMapping",

@@ -6,7 +6,7 @@ title: /\.sql/
 title: /Server Management Studio/
 """
 
-ctx.lists["self.functions"] = {
+ctx.lists["user.functions"] = {
     "average": "AVG",
     "count": "COUNT",
     "length": "LENGTH",
@@ -15,7 +15,7 @@ ctx.lists["self.functions"] = {
     "sum": "SUM",
 }
 
-ctx.lists["self.logicals"] = {
+ctx.lists["user.logicals"] = {
     "and": " AND ",
     "as": " AS ",
     "between": " BETWEEN ",

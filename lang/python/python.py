@@ -9,7 +9,7 @@ ctx.matches = r"""
 tag: user.python
 """
 
-ctx.lists["self.functions"] = {
+ctx.lists["user.functions"] = {
     "integer": "int",
     "int": "int",
     "hitter items": "iteritems",
@@ -76,7 +76,7 @@ ctx.lists["self.functions"] = {
     "write": "write",
 }
 
-ctx.lists["self.logicals"] = {
+ctx.lists["user.logicals"] = {
     "and": " and ",
     "as": " as ",
     "else": " else ",
@@ -92,7 +92,7 @@ ctx.lists["self.logicals"] = {
 
 # mod.list("py_umeths", desc="Unary methods")
 mod.list("py_umeths")
-ctx.lists["self.py_umeths"] = {
+ctx.lists["user.py_umeths"] = {
     "integer": "int",
     "iter": "iter",
     "length": "len",
@@ -119,7 +119,7 @@ ctx.lists["self.py_umeths"] = {
 
 # mod.list("py_bmeths", desc="Binary methods")
 mod.list("py_bmeths")
-ctx.lists["self.py_bmeths"] = {
+ctx.lists["user.py_bmeths"] = {
     "add": "add",
     "subtract": "sub",
     "multiply": "mul",
@@ -156,12 +156,12 @@ mmeths = {
     "exit"            : ["exit", "type, value, traceback"],
 }
 mod.list("py_mmeths")
-ctx.lists["self.py_mmeths"] = {
+ctx.lists["user.py_mmeths"] = {
     f"{k}": f"def __{v[0]}__({v[1]}):" for k, v in mmeths.items()
 }
 
 mod.list("py_exceptions")
-ctx.lists["self.py_exceptions"] = {
+ctx.lists["user.py_exceptions"] = {
     "arithmetic"        : "ArithmeticError",
     "assertion"         : "AssertionError",
     "attribute"         : "AttributeError",
@@ -191,7 +191,7 @@ ctx.lists["self.py_exceptions"] = {
 }
 
 mod.list("py_types")
-ctx.lists["self.py_types"] = {
+ctx.lists["user.py_types"] = {
     "inter": "int",
     "integer": "int",
     "dict": "Dict",
@@ -214,7 +214,7 @@ ctx.lists["self.py_types"] = {
 }
 
 mod.list("py_modules")
-ctx.lists["self.py_modules"] = {
+ctx.lists["user.py_modules"] = {
     "O S": "os",
     "pandas": "pandas as pd",
     "numb pie": "numpy as np",
@@ -224,6 +224,6 @@ ctx.lists["self.py_modules"] = {
 }
 
 mod.list("py_imports")
-ctx.lists["self.py_imports"] = {
+ctx.lists["user.py_imports"] = {
     "path": "from pathlib import Path",
 }

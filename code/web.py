@@ -7,4 +7,4 @@ BRING = utilities.load_toml_relative("config/bringme.toml")
 mod = Module()
 ctx = Context()
 mod.list("websites", desc="Websites")
-ctx.lists["self.websites"] = BRING["website"]
+ctx.lists["user.websites"] = BRING["website"]

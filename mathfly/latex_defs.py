@@ -5,7 +5,7 @@ ctx = Context()
 
 mod.list("tex_document_classes", desc="TeX document classes")
 
-ctx.lists["self.tex_document_classes"] = {
+ctx.lists["user.tex_document_classes"] = {
     "article": "article",
     "beamer": "beamer",
     "book": "book",
@@ -15,7 +15,7 @@ ctx.lists["self.tex_document_classes"] = {
 }
 
 mod.list("tex_packages", desc="TeX packages")
-ctx.lists["self.tex_packages"] = {
+ctx.lists["user.tex_packages"] = {
     "AMS math": "amsmath",
     # "bib latex"   = ["[style=authoryear]", "biblatex"]
     "colour": "color",
@@ -31,7 +31,7 @@ ctx.lists["self.tex_packages"] = {
 }
 
 mod.list("tex_environments", desc="TeX environments")
-ctx.lists["self.tex_environments"] = {
+ctx.lists["user.tex_environments"] = {
     "abstract": "abstract",
     "add margin": "addmargin",
     "align": "align",
@@ -71,7 +71,7 @@ ctx.lists["self.tex_environments"] = {
 }
 
 mod.list("tex_commands", desc="TeX commands")
-ctx.lists["self.tex_commands"] = {
+ctx.lists["user.tex_commands"] = {
     "author": "author",
     "[add] bib resource": "addbibresource",
     "caption": "caption",
@@ -112,7 +112,7 @@ ctx.lists["self.tex_commands"] = {
 }
 
 mod.list("tex_commands_noarg", desc="TeX commands without arguments")
-ctx.lists["self.tex_commands_noarg"] = {
+ctx.lists["user.tex_commands_noarg"] = {
     "centering": "centering",
     "column": "column{0.5\\textwidth}",
     "footnote mark": "footnotemark[]",
@@ -135,7 +135,7 @@ ctx.lists["self.tex_commands_noarg"] = {
 
 
 mod.list("tex_templates", desc="TeX templates")
-ctx.lists["self.tex_templates"] = {
+ctx.lists["user.tex_templates"] = {
     "header": r'''
 \documentclass[12pt, a4paper]{article}
 
@@ -196,4 +196,4 @@ ctx.lists["self.tex_templates"] = {
 '''
 }
 # mod.list("tex_packages", desc="TeX packages")
-# ctx.lists["self.tex_packages"] = {}
+# ctx.lists["user.tex_packages"] = {}

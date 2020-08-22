@@ -44,4 +44,4 @@ ctx.commands = {
 }
 
 mod.list("searches")
-ctx.lists["self.searches"] = searches
+ctx.lists["user.searches"] = searches

@@ -12,17 +12,12 @@ except ImportError:
 
 ASFW_ANY = -1
 
-mod = Module()
-ctx = Context()
-
-CORE = utilities.load_toml_relative("config/core.toml")
-mod.list("directions_alt", desc="Caster directions (lease, ross, sauce, dunce)")
-ctx.lists["self.directions_alt"] = CORE["directions"]
-
 
 def go_to_n(n):
     windll.user32.AllowSetForegroundWindow(ASFW_ANY)
     pyvda.GoToDesktopNumber(n)
+
+mod = Module()
 
 @mod.action_class
 class Actions:

@@ -14,7 +14,7 @@ action class:
     class Actions:
     """
 context lists:
-    'ctx.lists["self."] = '
+    'ctx.lists["user."] = '
     key(left:5)
 context matches:
     'ctx.matches = r""""""'

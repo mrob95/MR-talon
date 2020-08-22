@@ -7,7 +7,7 @@ ctx = Context("JavaScript")
 ctx.matches = r"title: /.*\.js$/"
 
 commands = BINDINGS["commands"]
-ctx.lists["self.functions"] = BINDINGS["functions"]
+ctx.lists["user.functions"] = BINDINGS["functions"]
 
 # ctx.commands = {
 #     **{k: actions.Alternating(v) for k, v in commands.items()},

@@ -1,6 +1,6 @@
 os: windows
 -
-window {user.directions_alt}: key("win-{directions_alt}")
+window {user.directions}: key("win-{directions}")
 
 minimize: user.window_minimise()
 maximise: user.window_maximise()

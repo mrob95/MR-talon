@@ -140,11 +140,42 @@ greek_letters = {
 }
 
 mod.list("tex_symbols", desc="TeX mathematical symbols")
-ctx.lists["self.tex_symbols"] = symbols
+ctx.lists["user.tex_symbols"] = symbols
 
 mod.list("tex_greek_letters", desc="TeX greek letters")
-ctx.lists["self.tex_greek_letters"] = {
+ctx.lists["user.tex_greek_letters"] = {
     **greek_letters,
     **{f"big {k}": v.title() for k, v in greek_letters.items()}
 }
 
+sn55_greek_letters = {
+    "alpha": "a",
+    "beater": "b",
+    "gamma": "g",
+    "delta": "d",
+    "epsilon": "e",
+    "zita": "z",
+    "eater": "h",
+    "theta": "y",
+    "iota": "i",
+    "kappa": "k",
+    "lambda": "l",
+    "mu": "m",
+    "new": "n",
+    "zee": "x",
+    "pie": "p",
+    "row": "r",
+    "sigma": "s",
+    "tau": "t",
+    "upsilon": "u",
+    "phi": "f",
+    "chi": "q",
+    "sigh": "c",
+    "omega": "w",
+}
+
+mod.list("sn55_greek_letters", desc="TeX greek letters")
+ctx.lists["user.sn55_greek_letters"] = {
+    **sn55_greek_letters,
+    **{f"big {k}": v.title() for k, v in sn55_greek_letters.items()}
+}

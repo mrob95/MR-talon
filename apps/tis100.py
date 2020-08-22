@@ -7,7 +7,7 @@ title: /TIS-100/
 """
 
 mod.list("tis100_registers")
-ctx.lists["self.tis100_registers"] = {
+ctx.lists["user.tis100_registers"] = {
     "up": "up",
     "left": "left",
     "down": "down",
@@ -19,7 +19,7 @@ ctx.lists["self.tis100_registers"] = {
 }
 
 mod.list("tis100_tags")
-ctx.lists["self.tis100_tags"] = {
+ctx.lists["user.tis100_tags"] = {
     "negative": "negative",
     "positive": "positive",
     "done": "done",

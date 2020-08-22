@@ -3,7 +3,7 @@ app: WindowsTerminal.exe
 app: /.*/
 and title: /MSYS:.*/
 -
-tag(): terminal
+tag(): user.terminal
 CD {user.directories}:
     insert('cd "{directories}" && ls')
     key(enter)

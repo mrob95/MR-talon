@@ -10,7 +10,7 @@ title: /.*\.h/
 """
 
 commands = BINDINGS["commands"]
-ctx.lists["self.functions"] = {
+ctx.lists["user.functions"] = {
     "file open": "fopen",
     "file seek": "fseek",
     "file seek end": "fseek({|}, 0, SEEK_END);",
@@ -81,11 +81,11 @@ ctx.lists["self.functions"] = {
     "hash string string alloc": "stbds_stralloc", # Allocates a string in a string arena
     "hash string string reset": "stbds_strreset", # Frees all the strings in a string arena
 }
-ctx.lists["self.logicals"] = {
+ctx.lists["user.logicals"] = {
     "and": " && ",
     "or": " || ",
 }
-ctx.lists["self.c_types"] = {
+ctx.lists["user.c_types"] = {
     "boolean": "bool ",
     "integer": "int ",
     "file": "FILE *",

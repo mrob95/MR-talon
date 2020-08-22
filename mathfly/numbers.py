@@ -26,19 +26,19 @@ import inspect
 
 
 mod.list("repeat20")
-ctx.lists["self.repeat20"] = repeat
+ctx.lists["user.repeat20"] = repeat
 
 mod.list("numbers20")
-ctx.lists["self.numbers20"] = numbers
+ctx.lists["user.numbers20"] = numbers
 
 mod.list("numberth")
-ctx.lists["self.numberth"] = numberth
+ctx.lists["user.numberth"] = numberth
 
 mod.list("digits10")
-ctx.lists["self.digits10"] = digits
+ctx.lists["user.digits10"] = digits
 
 mod.list("spoken10")
-ctx.lists["self.spoken10"] = raw_digits
+ctx.lists["user.spoken10"] = raw_digits
 
 
 @mod.capture

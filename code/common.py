@@ -19,10 +19,10 @@ class Actions:
 
 
 mod.list("folders", desc="Commonly accessed folders")
-ctx.lists["self.folders"] = BRING["folder"]
+ctx.lists["user.folders"] = BRING["folder"]
 
 mod.list("extensions", desc="Common file extensions")
-ctx.lists["self.extensions"] = {
+ctx.lists["user.extensions"] = {
     "markdown": "md",
     "PDF": "pdf",
     "jay peg": "jpg",
@@ -67,17 +67,18 @@ alphabet = {
     "zulu": "z",
 }
 mod.list("alphabet", desc="Alphabet")
-ctx.lists["self.alphabet"] = alphabet
+ctx.lists["user.alphabet"] = alphabet
 
 mod.list("directions", desc="Directions")
-ctx.lists["self.directions"] = {
+ctx.lists["user.directions"] = {
     "lease": "left",
     "ross": "right",
     "sauce": "up",
     "dunce": "down",
 }
+
 mod.list("directions_extreme", desc="Directions extreme")
-ctx.lists["self.directions_extreme"] = {
+ctx.lists["user.directions_extreme"] = {
     "sauce": "ctrl-home",
     "lease": "home",
     "dunce": "ctrl-end",
@@ -85,14 +86,14 @@ ctx.lists["self.directions_extreme"] = {
 }
 
 mod.list("direction_modifiers", desc="Direction modifiers")
-ctx.lists["self.direction_modifiers"] = {
+ctx.lists["user.direction_modifiers"] = {
     "queue": "ctrl-shift-",
     "shin": "shift-",
     "fly": "ctrl-",
 }
 
 mod.list("capitalisation", desc="Capitalisation")
-ctx.lists["self.capitalisation"] = {
+ctx.lists["user.capitalisation"] = {
     "yell": "1",
     "tie": "2",
     "(Gerrish | camel)": "3",
@@ -101,7 +102,7 @@ ctx.lists["self.capitalisation"] = {
     "password": "6",
 }
 mod.list("spacing", desc="Spacings")
-ctx.lists["self.spacing"] = {
+ctx.lists["user.spacing"] = {
     "gum": "1",
     "gun": "1",
     "spine": "2",
@@ -111,23 +112,23 @@ ctx.lists["self.spacing"] = {
 
 
 mod.list("punctuation", desc="Punctuation")
-ctx.lists["self.punctuation"] = {
+ctx.lists["user.punctuation"] = {
     **CORE["punctuation"],
     **CORE["punctuation2"]
 }
 
 mod.list("punctuation2", desc="Punctuation2")
-ctx.lists["self.punctuation2"] = CORE["punctuation2"]
+ctx.lists["user.punctuation2"] = CORE["punctuation2"]
 
 mod.list("simple_keys", desc="Simple_keys")
-ctx.lists["self.simple_keys"] = CORE["keys"]
+ctx.lists["user.simple_keys"] = CORE["keys"]
 
 mod.list("simple_keys_norepeat", desc="Simple keys norepeat")
-ctx.lists["self.simple_keys_norepeat"] = CORE["misc_core_keys"]
+ctx.lists["user.simple_keys_norepeat"] = CORE["misc_core_keys"]
 
 # ------------------------------------------------
 
 PERSONAL = utilities.load_toml_relative("config/personal.toml")
 
 mod.list("personal", desc="...")
-ctx.lists["self.personal"] = PERSONAL
+ctx.lists["user.personal"] = PERSONAL

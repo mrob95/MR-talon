@@ -41,10 +41,32 @@ class Actions:
         s = pattern.replace("{|}", new_clip)
         actions.insert(s)
         # If we didn't insert selected text, move the cursor
-        if not new_clip:
-            actions.key(f"left:{len(s) - end_pos}")
+        actions.key(f"left:{len(s) - end_pos}")
         actions.sleep("150ms")
         clip.set(old_clip)
+
+    def insert_fancy(pattern: str):
+        """Insert a string."""
+        if not pattern:
+            return
+
+        if pattern[-1] == "@":
+            # String then return
+            s = pattern[:-1]
+            actions.insert(s)
+            actions.key("enter")
+            return
+
+        if "{|}" in pattern:
+            end_pos = pattern.find("{|}")
+            s = pattern.replace("{|}", "")
+            actions.insert(s)
+            actions.key(f"left:{len(s) - end_pos}")
+            return
+
+        actions.insert(pattern)
+
+
 
     def temp_store():
         """"""
