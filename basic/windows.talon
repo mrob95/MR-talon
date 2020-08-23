@@ -21,3 +21,5 @@ move work [space] <user.n20>:
 
 copy active bundle:
     user.print_window_info()
+
+take screenshot: key(win-shift-s)

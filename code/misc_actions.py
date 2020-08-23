@@ -98,20 +98,13 @@ class Actions:
     def test_action(thing: str):
         """testing"""
         print(thing)
-        # VOLUME_UP = win32con.VK_VOLUME_UP
-        # VOLUME_DOWN = win32con.VK_VOLUME_DOWN
-        # VOLUME_MUTE = win32con.VK_VOLUME_MUTE
-        # MEDIA_NEXT_TRACK = win32con.VK_MEDIA_NEXT_TRACK
-        # MEDIA_PREV_TRACK = win32con.VK_MEDIA_PREV_TRACK
-        # MEDIA_PLAY_PAUSE = win32con.VK_MEDIA_PLAY_PAUSE
-        # BROWSER_BACK = win32con.VK_BROWSER_BACK
-        # BROWSER_FORWARD = win32con.VK_BROWSER_FORWARD
-        # dragonfly.Key("playpause").execute()
-        # print(MEDIA_PLAY_PAUSE)
-        # scancode = windll.user32.MapVirtualKeyW(MEDIA_PLAY_PAUSE, 0)
-        # print(scancode)
+
 
     def dragon_mimic(phrase: str):
         """mimic"""
         print(phrase)
         engine.mimic(phrase)
+
+    def kill_notepads():
+        """"""
+        utilities.kill_notepad()
