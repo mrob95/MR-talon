@@ -1,6 +1,7 @@
 from user.imports import *
 from subprocess import Popen
-from talon import speech_system, actions
+from talon import *
+from talon import imgui
 from win32gui import GetForegroundWindow, GetWindowText
 import os
 import time
@@ -26,3 +27,16 @@ def winfo(t):
 #     print(hash(str(speech_system.engine.engine.grammar_blobs['talon_main'][2])))
 
 # ui.register('post:app_activate', winfo)
+
+@imgui.open(x=700, y=0, software=False)
+def gui_wheel(gui: imgui.GUI):
+    gui.text("This is a test")
+    gui.line()
+    if gui.button("Wheel Stop [stop scrolling]"):
+        print("test")
+
+@mod.action_class
+class Actions:
+    def test_gui():
+        """"""
+        gui_wheel.hide()

@@ -120,10 +120,10 @@ try except {user.py_exceptions} [error] as:
 insert line break:
     "# ------------------------------------------------"
 # Libraries
-pandas {py_lib_pandas}: user.insert_function(py_lib_pandas)
-numb pie {py_lib_numpy}: user.insert_function(py_lib_numpy)
-regex {py_lib_re}: user.insert_function(py_lib_re)
-system {py_lib_sys}: user.insert_function(py_lib_sys)
-OS {py_lib_os}: user.insert_function(py_lib_os)
+pandas {user.py_lib_pandas}: user.insert_function(py_lib_pandas)
+numb pie {user.py_lib_numpy}: user.insert_function(py_lib_numpy)
+regex {user.py_lib_re}: user.insert_function(py_lib_re)
+system {user.py_lib_sys}: user.insert_function(py_lib_sys)
+OS {user.py_lib_os}: user.insert_function(py_lib_os)
 
 

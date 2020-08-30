@@ -4,4 +4,4 @@
 # test alphabet [{user.alphabet}] {directions}:
 #     alphabet = alphabet or ""
 #     insert("ctrl-{alphabet}{directions}")
-dragonfly enter: user.dfly_key("enter")
+dragonfly enter: user.test_gui()
