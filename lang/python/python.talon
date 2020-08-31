@@ -49,11 +49,11 @@ while loop:
 	key(left)
 with open:
     "with open() as f:"
-    key(left:8)
+    key(left:7)
 with as:
     "with  as :"
     key(left:5)
-    # Dictation
+# Dictation
 function [<phrase>]$:
     "def "
     insert(user.snake(phrase or ""))
@@ -80,15 +80,15 @@ printer <phrase>$:
     key(left:2)
     insert(user.formatted_text(phrase or "", 4, 0))
 # Types
-from typing import {py_types}: "from typing import {py_types}"
-type {py_types}: insert(py_types)
-is type {py_types}: ": {py_types}"
+from typing import {user.py_types}: "from typing import {py_types}"
+type {user.py_types}: insert(py_types)
+is type {user.py_types}: ": {py_types}"
 produces: key(end left space - > space)
 # Imports
 import: "import "
 from import:
     "from  import "
-    key(home right:5)
+    key(end left:8)
 import {user.py_modules}:
     "import {py_modules}"
 import {user.py_imports}:
@@ -97,9 +97,9 @@ import {user.py_imports}:
 magic init:
     "def __init__(self):"
     key(left left)
-magic {py_umeths}: "def __{py_umeths}__(self):"
-magic {py_bmeths}: "def __{py_bmeths}__(self, other):"
-magic {py_mmeths}: insert(py_mmeths)
+magic {user.py_umeths}: "def __{py_umeths}__(self):"
+magic {user.py_bmeths}: "def __{py_bmeths}__(self, other):"
+magic {user.py_mmeths}: insert(py_mmeths)
 # Exceptions
 try except:
     "try:"
@@ -125,5 +125,5 @@ numb pie {user.py_lib_numpy}: user.insert_function(py_lib_numpy)
 regex {user.py_lib_re}: user.insert_function(py_lib_re)
 system {user.py_lib_sys}: user.insert_function(py_lib_sys)
 OS {user.py_lib_os}: user.insert_function(py_lib_os)
-
+date time now format: user.insert_function('datetime.now().strftime("%Y-%m-%d %H:%M[|]")')
 

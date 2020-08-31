@@ -32,13 +32,13 @@ class Actions:
         #
         # Two cases:
         # pattern is just a string e.g. "find" -> find()
-        # pattern contains a marker e.g. "find({|}, ...)" -> find(, ...)
+        # pattern contains a marker e.g. "find([|], ...)" -> find(, ...)
         # and leave cursor in the right place
         #
-        if pattern.find("{|}") == -1:
-            pattern += "({|})"
-        end_pos = pattern.find("{|}")
-        s = pattern.replace("{|}", new_clip)
+        if pattern.find("[|]") == -1:
+            pattern += "([|])"
+        end_pos = pattern.find("[|]")
+        s = pattern.replace("[|]", new_clip)
         actions.insert(s)
         # If we didn't insert selected text, move the cursor
         actions.key(f"left:{len(s) - end_pos}")
@@ -57,9 +57,9 @@ class Actions:
             actions.key("enter")
             return
 
-        if "{|}" in pattern:
-            end_pos = pattern.find("{|}")
-            s = pattern.replace("{|}", "")
+        if "[|]" in pattern:
+            end_pos = pattern.find("[|]")
+            s = pattern.replace("[|]", "")
             actions.insert(s)
             actions.key(f"left:{len(s) - end_pos}")
             return

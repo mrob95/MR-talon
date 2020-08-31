@@ -13,7 +13,7 @@ commands = BINDINGS["commands"]
 ctx.lists["user.functions"] = {
     "file open": "fopen",
     "file seek": "fseek",
-    "file seek end": "fseek({|}, 0, SEEK_END);",
+    "file seek end": "fseek([|], 0, SEEK_END);",
     "file close": "fclose",
     "file read": "fread",
     "rewind": "rewind",
@@ -24,7 +24,7 @@ ctx.lists["user.functions"] = {
     "mem compare":  "memcmp",
     "mem move": "memmove",
     "mem set": "memset",
-    "print": 'printf("{|}\\n");',
+    "print": 'printf("[|]\\n");',
     "size of": "sizeof",
     "string length": "strlen",
     "string copy": "strcpy",
