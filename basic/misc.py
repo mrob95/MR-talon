@@ -5,7 +5,6 @@ from talon import imgui
 from win32gui import GetForegroundWindow, GetWindowText
 import os
 import time
-import dragonfly
 
 PERSONAL = utilities.load_toml_relative("config/personal.toml")
 CORE = utilities.load_toml_relative("config/core.toml")

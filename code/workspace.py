@@ -4,6 +4,8 @@ from ctypes import cdll, windll
 from win32gui import GetForegroundWindow
 import win32gui
 import win32con
+import logging
+import pprint
 from user.utils import utilities
 try:
     import pyvda
@@ -12,6 +14,8 @@ except ImportError:
 
 ASFW_ANY = -1
 
+# Disable log spam
+logging.getLogger("comtypes").setLevel(logging.INFO)
 
 def go_to_n(n):
     windll.user32.AllowSetForegroundWindow(ASFW_ANY)

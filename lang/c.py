@@ -1,7 +1,6 @@
 from user.imports import *
 
-BINDINGS = utilities.load_toml_relative("config/C.toml")
-
+mod = Module()
 ctx = Context("C")
 ctx.matches = r"""
 title: /.*\.c/
@@ -9,7 +8,6 @@ title: /.*\.cpp/
 title: /.*\.h/
 """
 
-commands = BINDINGS["commands"]
 ctx.lists["user.functions"] = {
     "file open": "fopen",
     "file seek": "fseek",
@@ -85,6 +83,8 @@ ctx.lists["user.logicals"] = {
     "and": " && ",
     "or": " || ",
 }
+
+mod.list("c_types")
 ctx.lists["user.c_types"] = {
     "boolean": "bool ",
     "integer": "int ",

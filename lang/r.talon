@@ -12,7 +12,6 @@ cheat sheet {r_cheatsheets}:
 	user.open_pdf(r_cheatsheets)
 # ------------------------------------------------
 assign: " <- "
-add comment: "# "
 pipe: " %>% "
 data pipe: " %$% "
 chain:

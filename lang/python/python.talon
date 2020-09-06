@@ -126,4 +126,10 @@ regex {user.py_lib_re}: user.insert_function(py_lib_re)
 system {user.py_lib_sys}: user.insert_function(py_lib_sys)
 OS {user.py_lib_os}: user.insert_function(py_lib_os)
 date time now format: user.insert_function('datetime.now().strftime("%Y-%m-%d %H:%M[|]")')
-
+logging get logger: "logger = logging.getLogger(__name__)"
+logging basic config:
+    """logging.basicConfig(
+        level=logging.INFO,
+        file=None,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        datefmt="%Y-%m-%d %H:%M","""

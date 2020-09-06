@@ -140,24 +140,20 @@ ctx.lists["user.py_bmeths"] = {
     "right shift": "rshift",
 }
 
-# mod.list("py_mmeths", desc="Misc methods")
-mmeths = {
-    "new"             : ["new", "cls"],
-    "delete"          : ["del", "self"],
-    "get attribute"   : ["getattr", "self, name"],
-    "delete attribute": ["delattr", "self, name"],
-    "set attribute"   : ["setattr", "self, name, value"],
-    "get item"        : ["getitem", "self, key"],
-    "set item"        : ["setitem", "self, key, value"],
-    "delete item"     : ["delitem", "self, key"],
-    "contains"        : ["contains", "self, item"],
-    "missing"         : ["missing", "self, key"],
-    "round"           : ["round", "self, n"],
-    "exit"            : ["exit", "type, value, traceback"],
-}
 mod.list("py_mmeths")
 ctx.lists["user.py_mmeths"] = {
-    f"{k}": f"def __{v[0]}__({v[1]}):" for k, v in mmeths.items()
+    "new"             : "def __new__(cls):",
+    "delete"          : "def __del__(self):",
+    "get attribute"   : "def __getattr__(self, name):",
+    "delete attribute": "def __delattr__(self, name):",
+    "set attribute"   : "def __setattr__(self, name, value):",
+    "get item"        : "def __getitem__(self, key):",
+    "set item"        : "def __setitem__(self, key, value):",
+    "delete item"     : "def __delitem__(self, key):",
+    "contains"        : "def __contains__(self, item):",
+    "missing"         : "def __missing__(self, key):",
+    "round"           : "def __round__(self, n):",
+    "exit"            : "def __exit__(type, value, traceback):",
 }
 
 mod.list("py_exceptions")
