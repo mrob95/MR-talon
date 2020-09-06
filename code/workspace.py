@@ -10,6 +10,7 @@ from user.utils import utilities
 try:
     import pyvda
 except ImportError:
+    print("Couldn't import module pyvda.")
     pass
 
 ASFW_ANY = -1
