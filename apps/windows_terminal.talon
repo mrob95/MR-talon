@@ -1,6 +1,7 @@
 os: windows
 app: WindowsTerminal.exe
 -
+# https://github.com/mrob95/WindowsTerminal-config/blob/master/settings.json
 action(edit.paste): key(ctrl-shift-v)
 action(edit.copy): key(ctrl-shift-c)
 # ---

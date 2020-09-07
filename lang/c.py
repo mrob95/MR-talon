@@ -8,6 +8,12 @@ title: /.*\.cpp/
 title: /.*\.h/
 """
 
+@ctx.action_class
+class Actions:
+    def lang_print(s: str):
+        actions.insert(f'printf("{s}: %s", {s});')
+
+
 ctx.lists["user.functions"] = {
     "file open": "fopen",
     "file seek": "fseek",

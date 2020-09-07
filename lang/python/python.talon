@@ -80,7 +80,7 @@ printer <phrase>$:
     key(left:2)
     insert(user.formatted_text(phrase or "", 4, 0))
 # Types
-from typing import {user.py_types}: "from typing import {py_types}"
+from typing import {user.py_typing_types}: "from typing import {py_typing_types}"
 type {user.py_types}: insert(py_types)
 is type {user.py_types}: ": {py_types}"
 produces: key(end left space - > space)

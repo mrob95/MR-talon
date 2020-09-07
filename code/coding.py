@@ -8,6 +8,9 @@ global_temporary_store = ""
 
 @mod.action_class
 class Actions:
+    def lang_print(s: str):
+        """print"""
+
     def insert_function(pattern: str):
         """Insert a string, followed by parentheses, wrapping selected text."""
         # try:
@@ -81,6 +84,10 @@ class Actions:
         """"""
         global global_temporary_store
         actions.insert(global_temporary_store)
+
+    def temp_contents() -> str:
+        """"""
+        return global_temporary_store
 
 
 mod.list("functions", desc="like_this()")

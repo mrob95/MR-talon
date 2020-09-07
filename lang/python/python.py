@@ -9,6 +9,12 @@ ctx.matches = r"""
 tag: user.python
 """
 
+@ctx.action_class
+class Actions:
+    def lang_print(s: str):
+        actions.insert(f'print(f"{s}: {{{s}}}")')
+
+
 ctx.lists["user.functions"] = {
     "integer": "int",
     "int": "int",
@@ -186,14 +192,8 @@ ctx.lists["user.py_exceptions"] = {
     "zero division"     : "ZeroDivisionError",
 }
 
-mod.list("py_types")
-ctx.lists["user.py_types"] = {
-    "string": "str",
-    "float": "float",
-    "int": "int",
-    "integer": "int",
-    "boolean": "bool",
-    "bool": "bool",
+mod.list("py_typing_types")
+py_typing_types = {
     "Abstract Set": "AbstractSet",
     "Any": "Any",
     "Any Str": "AnyStr",
@@ -204,6 +204,7 @@ ctx.lists["user.py_types"] = {
     "Awaitable": "Awaitable",
     "Binary I O": "BinaryIO",
     "Byte String": "ByteString",
+    "cast": "cast",
     "Callable": "Callable",
     "Chain Map": "ChainMap",
     "Class Var": "ClassVar",
@@ -212,9 +213,9 @@ ctx.lists["user.py_types"] = {
     "Context Manager": "ContextManager",
     "Coroutine": "Coroutine",
     "Counter": "Counter",
-    "Default Dict": "DefaultDict",
+    "Default Dictionary": "DefaultDict",
     "Deque": "Deque",
-    "Dict": "Dict",
+    "Dictionary": "Dict",
     "Forward Ref": "ForwardRef",
     "Frozen Set": "FrozenSet",
     "Generator": "Generator",
@@ -261,6 +262,21 @@ ctx.lists["user.py_types"] = {
     "Values View": "ValuesView",
     "Wrapper Descriptor Type": "WrapperDescriptorType",
 }
+ctx.lists["user.py_typing_types"] = py_typing_types
+
+mod.list("py_types")
+ctx.lists["user.py_types"] = {
+    **py_typing_types, **{
+    "data frame": "pd.DataFrame",
+    "string": "str",
+    "float": "float",
+    "int": "int",
+    "integer": "int",
+    "boolean": "bool",
+    "bool": "bool",
+    }
+}
+
 
 mod.list("py_modules")
 ctx.lists["user.py_modules"] = {

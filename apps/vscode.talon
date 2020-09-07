@@ -11,6 +11,7 @@ new window: key(ctrl-shift-n)
 open file: key(ctrl-o)
 open folder: key(ctrl-k ctrl-o)
 open recent: key(ctrl-r)
+(go to | good) file: key(ctrl-p)
 save as: key(ctrl-shift-s)
 save all: key(ctrl-k s)
 revert (file | changes):
@@ -23,10 +24,22 @@ next tab <user.n20>: key("ctrl-pgdown:{n20}")
 previous tab <user.n20>: key("ctrl-pgup:{n20}")
 <user.numberth> tab: key("alt-{numberth}")
 #
+line <user.digits>:
+    key(ctrl-g)
+    insert(digits)
+    key(enter)
+end line <user.digits>:
+    key(ctrl-g)
+    insert(digits)
+    key(enter end:2)
+shunt <user.n20>: key("shift-down:{n20}")
+comment line: key(ctrl-/)
+indent <user.n20>: key("ctrl-]:{n20}")
+[auto] complete: key(ctrl-space)
+#
 terminal here: key(ctrl-shift-c)
 explorer here: key(shift-alt-r)
 #
-# find <dgndictation>: [key(ctrl-f") Text("%(text)s)kKey"escape"],
 next match <user.n20>: key("f3:{n20}")
 previous match <user.n20>: key("shift-enter:{n20}")
 find all: key(alt-enter)
@@ -110,6 +123,13 @@ insert mouse line:
     user.temp_store()
     key(ctrl-k ctrl-g escape)
     user.temp_insert()
+print mouse:
+    key(ctrl-k ctrl-b)
+    mouse_click()
+    mouse_click()
+    user.temp_store()
+    key(ctrl-k ctrl-g escape)
+    user.lang_print(user.temp_contents())
 remove to <user.digits>:
     key(ctrl-k ctrl-b ctrl-g)
     insert(digits)
@@ -119,18 +139,3 @@ copy to <user.digits>:
     insert(digits)
     key(enter end ctrl-k ctrl-k)
     edit.copy()
-
-#------------------------------------------------
-line <user.digits>:
-    key(ctrl-g)
-    insert(digits)
-    key(enter)
-end line <user.digits>:
-    key(ctrl-g)
-    insert(digits)
-    key(enter end)
-shunt <user.n20>: key("shift-down:{n20}")
-(go to | good) file: key(ctrl-p)
-comment line: key(ctrl-/)
-indent <user.n20>: key("ctrl-]:{n20}")
-[auto] complete: key(ctrl-space)
