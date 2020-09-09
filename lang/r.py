@@ -1,8 +1,6 @@
 from user.imports import *
 from subprocess import Popen
 
-BINDINGS = utilities.load_toml_relative("config/r.toml")
-
 mod = Module()
 ctx = Context("R")
 ctx.matches = r"""
@@ -170,6 +168,3 @@ ctx.lists["user.r_libraries"] = {
     "vee table": "vtable",
     "viridis": "viridis",
 }
-
-mod.list("r_cheatsheets")
-ctx.lists["user.r_cheatsheets"] = BINDINGS["cheatsheets"]
