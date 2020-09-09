@@ -258,6 +258,7 @@ py_typing_types = {
     "Tuple": "Tuple",
     "Type": "Type",
     "Type Var": "TypeVar",
+    "type checking": "TYPE_CHECKING",
     "Union": "Union",
     "Values View": "ValuesView",
     "Wrapper Descriptor Type": "WrapperDescriptorType",

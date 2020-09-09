@@ -1,7 +1,5 @@
-from talon import speech_system
-from talon import ui
-from talon import cron
-from utils import actions
+from talon import *
+from user.utils import actions
 
 command_exes = ["code.exe", "mintty.exe", "kindle.exe"]
 command_titles = ["JupyterLab"]

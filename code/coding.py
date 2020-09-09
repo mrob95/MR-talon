@@ -44,7 +44,8 @@ class Actions:
         s = pattern.replace("[|]", new_clip)
         actions.insert(s)
         # If we didn't insert selected text, move the cursor
-        actions.key(f"left:{len(s) - end_pos}")
+        if not new_clip:
+            actions.key(f"left:{len(s) - end_pos}")
         actions.sleep("150ms")
         clip.set(old_clip)
 

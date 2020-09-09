@@ -72,6 +72,11 @@ classy [<phrase>]$:
     insert(user.title(phrase or ""))
     "():"
     key(left left)
+data classy [<phrase>]$:
+    "@dataclass\nclass "
+    insert(user.title(phrase or ""))
+    "():"
+    key(left left)
 commenter <phrase>$:
     "# "
     insert(user.formatted_text(phrase or "", 4, 0))
@@ -83,6 +88,9 @@ printer <phrase>$:
 from typing import {user.py_typing_types}: "from typing import {py_typing_types}"
 type {user.py_types}: insert(py_types)
 is type {user.py_types}: ": {py_types}"
+type {user.py_types}+:
+    type_args = user.cat(user.slice(py_types_list, 1), ", ")
+    "{py_types_1}[{type_args}]"
 produces: key(end left space - > space)
 # Imports
 import: "import "

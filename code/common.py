@@ -1,5 +1,5 @@
 from user.imports import *
-from typing import List
+from typing import List, Optional
 
 mod = Module()
 ctx = Context()
@@ -12,10 +12,20 @@ class Actions:
         """Uppercase"""
         return s.upper()
 
-    def cat(l: List[str]) -> str:
+    def cat(l: List[str], sep: str = "") -> str:
         """Concatenate"""
-        return ''.join(l)
+        return sep.join(l)
 
+    def slice(l: List[str], i1: Optional[int] = None, i2: Optional[int] = None) -> List[str]:
+        """Slice"""
+        if i1 is not None and i2 is None:
+            return l[i1:]
+        elif i1 is None and i2 is not None:
+            return l[:i2]
+        elif i1 is not None and i2 is not None:
+            return l[i1:i2]
+        else:
+            return l
 
 
 mod.list("folders", desc="Commonly accessed folders")
