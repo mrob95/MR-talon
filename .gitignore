@@ -127,7 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
 personal.toml
+folders.toml
 regexes.md
 actions.txt
 .vscode/

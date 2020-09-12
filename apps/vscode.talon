@@ -3,8 +3,6 @@ app: Code.exe
 -
 action(edit.line_clone):
     key(shift-alt-down)
-duple comment:
-    key(shift-alt-down up ctrl-/ down)
 #
 new (file | tab): key(ctrl-n)
 new window: key(ctrl-shift-n)
@@ -34,6 +32,8 @@ end line <user.digits>:
     key(enter end:2)
 shunt <user.n20>: key("shift-down:{n20}")
 comment line: key(ctrl-/)
+duple comment:
+    key(shift-alt-down up ctrl-/ down)
 indent <user.n20>: key("ctrl-]:{n20}")
 [auto] complete: key(ctrl-space)
 #

@@ -56,7 +56,7 @@ ctx.lists["user.py_lib_sys"] = {
     "display hook": "sys.displayhook",
     "DLL handle": "sys.dllhandle!",
     "dont write bytecode": "sys.dont_write_bytecode!",
-    "exc info": "sys.exc_info",
+    "exception info": "sys.exc_info",
     "except hook": "sys.excepthook",
     "exec prefix": "sys.exec_prefix!",
     "executable": "sys.executable!",
@@ -109,7 +109,7 @@ ctx.lists["user.py_lib_sys"] = {
     "version": "sys.version!",
     "version info": "sys.version_info!",
     "warn options": "sys.warnoptions!",
-    "win ver": "sys.winver!",
+    "win version": "sys.winver!",
 }
 
 mod.list("py_lib_os")

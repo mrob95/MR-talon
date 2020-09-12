@@ -1,4 +1,5 @@
-app: photoshop
+app: photoshop.exe
+app: Adobe Photoshop
 -
 new (file | pane): key(ctrl-n)
 open file: key(ctrl-o)

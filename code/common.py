@@ -4,8 +4,6 @@ from typing import List, Optional
 mod = Module()
 ctx = Context()
 
-BRING = utilities.load_toml_relative("config/bringme.toml")
-
 @mod.action_class
 class Actions:
     def upper(s: str) -> str:
@@ -27,9 +25,6 @@ class Actions:
         else:
             return l
 
-
-mod.list("folders", desc="Commonly accessed folders")
-ctx.lists["user.folders"] = BRING["folder"]
 
 mod.list("extensions", desc="Common file extensions")
 ctx.lists["user.extensions"] = {
@@ -142,3 +137,8 @@ PERSONAL = utilities.load_toml_relative("config/personal.toml")
 
 mod.list("personal", desc="...")
 ctx.lists["user.personal"] = PERSONAL
+
+FOLDERS = utilities.load_toml_relative("config/folders.toml")
+
+mod.list("folders", desc="Commonly accessed folders")
+ctx.lists["user.folders"] = FOLDERS
