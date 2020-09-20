@@ -1,6 +1,5 @@
-from user.imports import *
+from user.utils import utilities
 from talon import Module, Context, actions, clip
-from talon.engine import engine
 from win32gui import GetForegroundWindow, GetWindowText
 import os
 import re

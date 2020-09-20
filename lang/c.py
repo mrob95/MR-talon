@@ -1,4 +1,4 @@
-from user.imports import *
+from talon import *
 
 mod = Module()
 ctx = Context("C")

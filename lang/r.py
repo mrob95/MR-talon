@@ -1,4 +1,4 @@
-from user.imports import *
+from talon import *
 from subprocess import Popen
 
 mod = Module()
