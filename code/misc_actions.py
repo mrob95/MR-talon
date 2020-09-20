@@ -89,7 +89,7 @@ class Actions:
 
     def test_action(thing: str):
         """testing"""
-        print(thing)
+        pass
 
 
     def dragon_mimic(phrase: str):

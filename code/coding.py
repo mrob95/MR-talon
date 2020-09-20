@@ -1,6 +1,5 @@
 from talon import Module, Context, actions, clip
 import re
-
 mod = Module()
 ctx = Context()
 
