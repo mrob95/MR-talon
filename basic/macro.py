@@ -5,8 +5,6 @@ such as by looking at what is in the clipboard, are referencing nearby text.
 """
 
 from talon import *
-from talon.voice import Context, talon, Key, Str, press
-from talon.engine import engine
 from talon import actions
 
 macro = []
@@ -20,7 +18,7 @@ def macro_record(j):
             print(m)
             macro.append(m)
 
-engine.register("post:phrase", macro_record)
+speech_system.engine.register("post:phrase", macro_record)
 
 ctx = Context("macro")
 mod = Module()

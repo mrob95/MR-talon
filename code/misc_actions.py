@@ -99,3 +99,12 @@ class Actions:
     def kill_notepads():
         """"""
         utilities.kill_notepad()
+
+    def record_error(path: str):
+        """"""
+        actions.key("ctrl-c")
+        actions.sleep("200ms")
+        s = clip.get().replace("\n", " ")
+        actions.app.notify(s)
+        with open(path, "a") as f:
+            f.write(s + "\n")
