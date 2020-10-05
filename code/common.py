@@ -43,7 +43,6 @@ ctx.lists["user.extensions"] = {
 
 #------------------------------------------------------
 
-CORE = utilities.load_toml_relative("config/core.toml")
 alphabet = {
     "anti": "a",
     "bat": "b",
@@ -102,7 +101,7 @@ mod.list("capitalisation", desc="Capitalisation")
 ctx.lists["user.capitalisation"] = {
     "yell": "1",
     "tie": "2",
-    "(Gerrish | camel)": "3",
+    "camel": "3",
     "sing": "4",
     "laws": "5",
     "password": "6",
@@ -116,21 +115,99 @@ ctx.lists["user.spacing"] = {
     "pebble": "4",
 }
 
+punctuation = {
+    "apostrophe": "'",
+    "backslash": "\\",
+    "backtick": "`",
+    "caret": "^",
+    "comma": ",",
+    "co lace": ": space",
+    "boom": ", space",
+    "boomer": ", space",
+    "dollar": "$",
+    "point": ".",
+    "thin quotes": "'",
+    "quote": '"',
+    "quotes": '"',
+    "hashtag": "#",
+    "hyphen": "-",
+    "semicolon": ";",
+    "tilde": "~",
+    "underscore": "_",
+    "greater than": ">",
+    "greater equal": "> =",
+    "less than": "<",
+    "less equal": "< =",
+    "equal to": "space = = space",
+    "angle": "< > left",
+    "prekris": "( ) left",
+    "prens": "( ) left",
+    "brax": "[ ] left",
+    "curly": "{ } left",
+    "left paren": "(",
+    "right paren": ")",
+    "left bracket": "[",
+    "right bracket": "]",
+    "left brace": "{",
+    "right brace": "}",
+}
 
+punctuation2 = {
+    "equals": "=",
+    "ampersand": "&",
+    "starling": "*",
+    "at sign": "@",
+    "pipe symbol": "|",
+    "pipey": "|",
+    "colon": ":",
+    "clamor": "!",
+    "minus": "-",
+    "modulo": "%",
+    "plus": "+",
+    "questo": "?",
+    "slash": "/",
+}
 mod.list("punctuation", desc="Punctuation")
 ctx.lists["user.punctuation"] = {
-    **CORE["punctuation"],
-    **CORE["punctuation2"]
+    **punctuation,
+    **punctuation2
 }
 
 mod.list("punctuation2", desc="Punctuation2")
-ctx.lists["user.punctuation2"] = CORE["punctuation2"]
+ctx.lists["user.punctuation2"] = punctuation2
 
+simple_keys = {
+    "ace": "space",
+    "space": "space",
+    "tabby": "tab",
+    "tabby lease": "shift-tab",
+    "shock": "enter",
+    # "check": "ctrl-enter",
+    "clear": "backspace",
+    "clearing": "backspace",
+    "splat": "ctrl-backspace",
+    "splat ross": "ctrl-delete",
+    "deli": "delete",
+    "page up": "pgup",
+    "page down": "pgdown",
+    # "undo": "ctrl-z",
+    "redo": "ctrl-y",
+    "zoom in": "ctrl-=",
+    "zoom out": "ctrl--",
+}
 mod.list("simple_keys", desc="Simple_keys")
-ctx.lists["user.simple_keys"] = CORE["keys"]
+ctx.lists["user.simple_keys"] = simple_keys
 
+simple_keys_norepeat = {
+    "cutter": "ctrl-x",
+    "eskimo": "escape",
+    "ski": "escape",
+    "shackle": "home shift-end",
+    "select all": "ctrl-a",
+    "find": "ctrl-f",
+}
 mod.list("simple_keys_norepeat", desc="Simple keys norepeat")
-ctx.lists["user.simple_keys_norepeat"] = CORE["misc_core_keys"]
+ctx.lists["user.simple_keys_norepeat"] = simple_keys_norepeat
 
 # ------------------------------------------------
 

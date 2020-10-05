@@ -130,10 +130,15 @@ print mouse:
     user.temp_store()
     key(ctrl-k ctrl-g escape)
     user.lang_print(user.temp_contents())
+
 remove to <user.digits>:
     key(ctrl-k ctrl-b ctrl-g)
     insert(digits)
     key(enter end ctrl-k ctrl-k backspace)
+select to <user.digits>:
+    key(ctrl-k ctrl-b ctrl-g)
+    insert(digits)
+    key(enter end ctrl-k ctrl-k)
 copy to <user.digits>:
     key(ctrl-k ctrl-b ctrl-g)
     insert(digits)

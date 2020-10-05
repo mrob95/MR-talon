@@ -11,6 +11,7 @@ title regex:
 key enter: "key(enter)\n"
 #
 fun key: user.insert_function("key")
+fun sleep: user.insert_function("sleep")
 fun insert: user.insert_function("insert")
 fun action: user.insert_function("action")
 fun print: user.insert_function("print")

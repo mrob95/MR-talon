@@ -107,8 +107,8 @@ symbols = {
     "text fraction": "tfrac",
     "display fraction": "dfrac",
     "continued fraction": "cfrac",
-    "continued fraction (left)": "cfracleft",
-    "continued fraction (right)": "cfracright",
+    "continued fraction left": "cfracleft",
+    "continued fraction right": "cfracright",
     "text binomial": "tbinom",
     "display binomial": "dbinom",
 }

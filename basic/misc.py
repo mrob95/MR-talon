@@ -7,7 +7,6 @@ import os
 import time
 
 PERSONAL = utilities.load_toml_relative("config/personal.toml")
-CORE = utilities.load_toml_relative("config/core.toml")
 
 mod = Module()
 ctx = Context("misc")
