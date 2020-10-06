@@ -41,42 +41,27 @@ mod.list("spoken10")
 ctx.lists["user.spoken10"] = raw_digits
 
 
-@mod.capture
+@mod.capture(rule="[{user.repeat20}]")
 def r20(m) -> int:
     "Repeat values up to twenty"
-
-@mod.capture
-def n20(m) -> int:
-    "Numbers up to twenty"
-
-@mod.capture
-def spoken10(m) -> str:
-    "Numbers up to twenty"
-
-@mod.capture
-def digits(m) -> int:
-    "A series of digits"
-
-@mod.capture
-def numberth(m) -> int:
-    "Numberth"
-
-@ctx.capture(rule="[{user.repeat20}]")
-def r20(m):
     return int(m["repeat20"]) if hasattr(m, "repeat20") else 0
 
-@ctx.capture(rule="[{user.numbers20}]")
-def n20(m):
+@mod.capture(rule="[{user.numbers20}]")
+def n20(m) -> int:
+    "Numbers up to twenty"
     return int(m["numbers20"]) if hasattr(m, "numbers20") else 1
 
-@ctx.capture(rule="[{user.spoken10}]")
-def spoken10(m):
-    return m["spoken10"] if hasattr(m, "spoken10") else "one"
+# @mod.capture(rule="[{user.spoken10}]")
+# def spoken10(m):
+    # "Numbers up to twenty"
+#     return m["spoken10"] if hasattr(m, "spoken10") else "one"
 
-@ctx.capture(rule="{user.digits10}+")
-def digits(m):
+@mod.capture(rule="{user.digits10}+")
+def digits(m) -> str:
+    "A series of digits"
     return "".join(m["digits10_list"])
 
-@ctx.capture(rule="{user.numberth}")
-def numberth(m):
+@mod.capture(rule="{user.numberth}")
+def numberth(m) -> int:
+    "Numberth"
     return m["numberth"]

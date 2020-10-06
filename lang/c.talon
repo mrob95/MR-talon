@@ -28,7 +28,7 @@ shells:
 shell iffae:
 	"else if () {}"
 	key(left enter up end left:3)
-hash include: "include "
+hash include: "#include "
 hash define: "#define "
 structure:
 	"struct  {};"
