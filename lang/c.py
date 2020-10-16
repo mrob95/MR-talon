@@ -82,8 +82,8 @@ ctx.lists["user.functions"] = {
     "hash string defaults": "shdefaults", # Set the default struct used by hmget
     "hash string new arena": "sh_new_arena", # Overwrites pointer with a new hashmap using a string arena for string management
     "hash string new string duplicate": "sh_new_strdup", # Overwrites pointer with a new hashmap using strdup for string management
-    "hash string string alloc": "stbds_stralloc", # Allocates a string in a string arena
-    "hash string string reset": "stbds_strreset", # Frees all the strings in a string arena
+    "hash string alloc": "stbds_stralloc", # Allocates a string in a string arena
+    "hash string reset": "stbds_strreset", # Frees all the strings in a string arena
 }
 ctx.lists["user.logicals"] = {
     "and": " && ",
@@ -101,4 +101,5 @@ ctx.lists["user.c_types"] = {
     "size": "size_t ",
     "enum": "enum ",
     "char star": "char *",
+    "const char star": "char *",
 }

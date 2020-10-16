@@ -61,6 +61,7 @@ alphabet = {
     "odd": "o",
     "pet": "p",
     "queer": "q",
+    "quench": "q",
     "red": "r",
     "sun": "s",
     "trap": "t",

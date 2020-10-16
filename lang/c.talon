@@ -2,7 +2,7 @@ title: /.*\.c/
 title: /.*\.cpp/
 title: /.*\.h/
 -
-type {c_types}: insert(c_types)
+type {user.c_types}: insert(c_types)
 integer main:
 	"int main(int argc, char **argv) {}"
 	key(left enter)
@@ -30,6 +30,11 @@ shell iffae:
 	key(left enter up end left:3)
 hash include: "#include "
 hash define: "#define "
+hash undefine: "#undef "
+hash if: "#if "
+hash if (def|defined): "#ifdef "
+hash if not (def|defined): "#ifndef "
+hash endif: "#endif "
 structure:
 	"struct  {};"
 	key(left:2 enter up end left:2)

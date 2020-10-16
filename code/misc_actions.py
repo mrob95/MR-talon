@@ -1,5 +1,5 @@
 from user.utils import utilities
-from talon import Module, Context, actions, clip
+from talon import Module, Context, actions, clip, app, registry
 from win32gui import GetForegroundWindow, GetWindowText
 import os
 import re
@@ -89,7 +89,6 @@ class Actions:
     def test_action(thing: str):
         """testing"""
         pass
-
 
     def dragon_mimic(phrase: str):
         """mimic"""
