@@ -1,7 +1,7 @@
 app: Visual Studio Code
 app: Code.exe
 -
-eaction(edit.line_clone):
+action(edit.line_clone):
     key(shift-alt-down)
 #
 new (file | tab): key(ctrl-n)

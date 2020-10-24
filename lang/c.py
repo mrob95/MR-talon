@@ -22,6 +22,7 @@ ctx.lists["user.functions"] = {
     "file read": "fread",
     "rewind": "rewind",
     "free": "free",
+    "exit": "exit",
     "mallock": "malloc",
     "mem copy": "memcpy",
     "mem char": "memchr",
