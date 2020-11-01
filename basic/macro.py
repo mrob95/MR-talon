@@ -10,7 +10,7 @@ from talon import actions
 macro = []
 macro_recording = False
 
-def macro_record(j):
+def macro_record(p, j):
     global macro_recording
     if macro_recording:
         if j["cmd"] == "p.end" and j["grammar"] == "talon":

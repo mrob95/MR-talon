@@ -8,7 +8,7 @@ title: /.*\.cpp/
 title: /.*\.h/
 """
 
-@ctx.action_class
+@ctx.action_class("user")
 class Actions:
     def lang_print(s: str):
         actions.insert(f'printf("{s}: %s", {s});')

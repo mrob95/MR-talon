@@ -9,7 +9,7 @@ ctx.matches = r"""
 tag: user.python
 """
 
-@ctx.action_class
+@ctx.action_class("user")
 class Actions:
     def lang_print(s: str):
         actions.insert(f'print(f"{s}: {{{s}}}")')
