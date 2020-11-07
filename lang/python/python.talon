@@ -50,6 +50,10 @@ while loop:
 with open:
     "with open() as f:"
     key(left:7)
+with open {user.py_fopen_modes}+:
+    modes = user.cat(py_fopen_modes_list)
+    'with open(, "{modes}") as f:'
+    key(home right:10)
 with as:
     "with  as :"
     key(left:5)
@@ -58,12 +62,12 @@ function [<phrase>]$:
     "def "
     insert(user.snake(phrase or ""))
     "():"
-    key(left left)
+    key(left:2)
 method [<phrase>]$:
     "def "
     insert(user.snake(phrase or ""))
     "(self):"
-    key(left left)
+    key(left:2)
 selfie [<phrase>]:
     "self."
     insert(user.snake(phrase or ""))
@@ -71,12 +75,12 @@ classy [<phrase>]$:
     "class "
     insert(user.title(phrase or ""))
     "():"
-    key(left left)
+    key(left:2)
 data classy [<phrase>]$:
     "@dataclass\nclass "
     insert(user.title(phrase or ""))
     "():"
-    key(left left)
+    key(left:2)
 commenter <phrase>$:
     "# "
     insert(user.formatted_text(phrase or "", 4, 0))
@@ -104,7 +108,7 @@ import {user.py_imports}:
 # Dunders
 magic init:
     "def __init__(self):"
-    key(left left)
+    key(left:2)
 magic {user.py_umeths}: "def __{py_umeths}__(self):"
 magic {user.py_bmeths}: "def __{py_bmeths}__(self, other):"
 magic {user.py_mmeths}: insert(py_mmeths)

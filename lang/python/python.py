@@ -96,7 +96,6 @@ ctx.lists["user.logicals"] = {
     "for": " for ",
 }
 
-# mod.list("py_umeths", desc="Unary methods")
 mod.list("py_umeths")
 ctx.lists["user.py_umeths"] = {
     "integer": "int",
@@ -123,7 +122,6 @@ ctx.lists["user.py_umeths"] = {
     "unicode": "unicode",
 }
 
-# mod.list("py_bmeths", desc="Binary methods")
 mod.list("py_bmeths")
 ctx.lists["user.py_bmeths"] = {
     "add": "add",
@@ -306,4 +304,13 @@ ctx.lists["user.py_imports"] = {
     "thread pool executor": "from concurrent.futures import ThreadPoolExecutor",
     "progress bar": "from tqdm import tqdm",
     "wraps": "from functools import wraps",
+}
+
+mod.list("py_fopen_modes")
+ctx.lists["user.py_fopen_modes"] = {
+    "append": "a",
+    "binary": "b",
+    "plus": "+",
+    "read": "r",
+    "write": "w",
 }
