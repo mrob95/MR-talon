@@ -11,20 +11,37 @@ greek {user.tex_greek_letters}:
     insert(tex_greek_letters)
     key(space)
 <user.digits>:
-	insert(digits)
+    insert(digits)
 <user.digits> {user.mathfly_fractions}:
-	key(alt-m f)
-	insert(digits)
-	key(down)
-	insert(mathfly_fractions)
-	key(right)
-# TODO:
-# matrix <user.digits> by <user.digits>:
-# 	"\\matrix "
-# 	key("alt-m w i")
-# 	repeat(digits_1)
-# 	key("alt-m c i")
-# 	repeat(digits_2)
+    key(alt-m f)
+    insert(digits)
+    key(down)
+    insert(mathfly_fractions)
+    key(right)
+
+matrix one by <user.digits_int>:
+    key("alt-m [")
+    insert('\\array ')
+    key("alt-m c i")
+    repeat(digits_int-2)
+matrix <user.digits_int> by one:
+    key("alt-m [")
+    insert('\\array ')
+    key("alt-m w i")
+    repeat(digits_int-2)
+matrix <user.digits_int> by <user.digits_int>:
+    key("alt-m [")
+    insert("\\array ")
+        key("alt-m w i")
+    repeat(digits_int_1-2)
+        key("alt-m c i")
+    repeat(digits_int_2-2)
+
+add matrix row: key(alt-m w i)
+(delete | remove) matrix row: key(alt-m w d)
+add matrix column: key(alt-m c i)
+(delete | remove) matrix column: key(alt-m c d)
+
 check: key(escape end enter ctrl-m)
 fraction: key(alt-m f)
 over: key(shift-left alt-m f down)
@@ -33,81 +50,86 @@ sub script: key(_)
 squared: key(^ 2 right)
 cubed: key(^ 3 right)
 inverse: key(^ - 1 right)
+
 (prekris | parens | brackets): key(alt-m ()
 (brax | square brackets): key(alt-m [)
 curly [brackets]: key(alt-m {)
 absolute: key(alt-m |)
-add matrix row: key(alt-m w i)
-(delete | remove) matrix row: key(alt-m w d)
-add matrix column: key(alt-m c i)
-(delete | remove) matrix column: key(alt-m c d)
-#
+
 accent hat: key(alt-m h)
 accent tilde: key(alt-m &)
 accent dot: key(alt-m .)
 accent double dot: key(alt-m \")
 accent bar: key(alt-m -)
 accent vector: key(alt-m v)
-#
+
 blank summation: "\\sum "
 summation:
-	insert("\\stackrelthree ")
+    insert("\\stackrelthree ")
     key(down)
     insert("\\sum ")
     key(down)
 (summation | sum) to N:
-	insert("\\stackrelthree ")
+    insert("\\stackrelthree ")
     key(n down)
     insert("\\sum ")
     key(down)
 blank product: "\\prod "
 product:
-	insert("\\stackrelthree ")
+    insert("\\stackrelthree ")
     key(down)
     insert("\\prod ")
     key(down)
 product to N:
-	insert("\\stackrelthree ")
+    insert("\\stackrelthree ")
     key(n down)
     insert("\\prod ")
     key(down)
 limit:
-	insert("\\underset \\lim ")
-	key(down)
+    insert("\\underset \\lim ")
+    key(down)
 blank limit: "\\lim "
 label above: "\\overset "
 label below: "\\underset "
 prime:
-	insert("^\\prime ")
-	key(right)
+    insert("^\\prime ")
+    key(right)
 degrees:
-	insert("^\\circ ")
-	key(right)
+    insert("^\\circ ")
+    key(right)
 exponential:
-	insert("\\exp ")
-	key(alt-m ()
+    insert("\\exp ")
+    key(alt-m ()
 expectation:
-	insert("E")
-	key(alt-m ()
+    insert("E")
+    key(alt-m ()
 variance:
-	insert("Var")
-	key(alt-m ()
+    insert("Var")
+    key(alt-m ()
 #
 real numbers:
-	insert("\\mathbb R")
-	key(right)
+    insert("\\mathbb R")
+    key(right)
 complex numbers:
-	insert("\\mathbb C")
-	key(right)
+    insert("\\mathbb C")
+    key(right)
 integer numbers:
-	insert("\\mathbb Z")
-	key(right)
+    insert("\\mathbb Z")
+    key(right)
 rational numbers:
-	insert("\\mathbb Q")
-	key(right)
+    insert("\\mathbb Q")
+    key(right)
 natural numbers:
-	insert("\\mathbb N")
-	key(right)
+    insert("\\mathbb N")
+    key(right)
+
+text roman     : "\\mathrm "
+text bold      : "\\mathbf "
+text sans serif: "\\mathsf "
+text italic    : "\\mathit "
+text typewriter: "\\mathtt "
+text (beebee|blackboard bold | blackboard): "\\mathbb "
+
 #
 # Program control
 #

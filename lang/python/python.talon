@@ -129,6 +129,7 @@ try except {user.py_exceptions} [error] as:
     "except {py_exceptions} as e:"
     key(shift-tab)
 # misc
+insert todo: "# TODO: "
 insert line break:
     "# ------------------------------------------------"
 # Libraries

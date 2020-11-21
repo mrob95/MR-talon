@@ -3,6 +3,7 @@ from talon import Context, Module
 fractions = {
     "half": "2",
     "halves": "2",
+    "third": "3",
     "quarter": "4",
     "fourth": "4",
     "fifth": "5",

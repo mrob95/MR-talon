@@ -6,6 +6,9 @@ app: notepad.exe
 insert image:
     "![]()"
     key(left:3)
+insert link:
+    "[]()"
+    key(left:3)
 insert in-line code:
     "``"
     key(left)

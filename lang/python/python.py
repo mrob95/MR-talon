@@ -281,14 +281,16 @@ mod.list("py_modules")
 ctx.lists["user.py_modules"] = {
     "jason": "json",
     "logging": "logging",
-    "tommel": "toml",
+    "numb pie": "numpy as np",
     "O S": "os",
     "pandas": "pandas as pd",
-    "numb pie": "numpy as np",
     "pie test": "pytest",
     "regex": "re",
     "requests": "requests",
+    "random": "random",
     "sis": "sys",
+    "time": "time",
+    "tommel": "toml",
 }
 
 mod.list("py_imports")

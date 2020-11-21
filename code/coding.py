@@ -5,6 +5,21 @@ ctx = Context()
 
 global_temporary_store = ""
 
+mod.list("filetype")
+ctx.lists["user.filetype"] = {
+    "pie": ".py",
+    "python": ".py",
+    "talon": ".talon",
+    "see": ".c",
+    "header": ".h",
+    "H": ".h",
+    "rust": ".rs",
+    "tommel": ".toml",
+    "text": ".txt",
+    "mark": ".md",
+    "markdown": ".md",
+}
+
 @mod.action_class
 class Actions:
     def lang_print(s: str):

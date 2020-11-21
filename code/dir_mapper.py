@@ -30,9 +30,9 @@ def update_maps(window):
     try:
         global path_last_update
         if "MINGW64" in window.title:
-            current_path = Path(re.sub(r"MINGW64:/(\w)?", r"\1:", window.title))
+            current_path = Path(re.sub(r"MINGW64:/(\w)?", r"\1:/", window.title))
         elif "MSYS:" in window.title:
-            current_path = Path(re.sub(r"MSYS:/(\w)?", r"\1:", window.title))
+            current_path = Path(re.sub(r"MSYS:/(\w)?", r"\1:/", window.title))
         elif window.app.exe and "explorer.exe" in window.app.exe.lower():
             remap = {
                 "Downloads": "C:/Users/Mike/Downloads",
@@ -54,5 +54,10 @@ def update_maps(window):
     except:
         return
 
+def print_stuff(win):
+    print(win)
+    print(dir(win))
+
 ui.register("win_title", update_maps)
 ui.register("win_focus", update_maps)
+# ui.register("win_focus", print_stuff)

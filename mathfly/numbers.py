@@ -42,15 +42,15 @@ def n20(m) -> int:
     "Numbers up to twenty"
     return int(m["numbers20"]) if hasattr(m, "numbers20") else 1
 
-# @mod.capture(rule="[{user.spoken10}]")
-# def spoken10(m):
-    # "Numbers up to twenty"
-#     return m["spoken10"] if hasattr(m, "spoken10") else "one"
-
 @mod.capture(rule="{user.digits10}+")
 def digits(m) -> str:
     "A series of digits"
     return "".join(m["digits10_list"])
+
+@mod.capture(rule="{user.digits10}+")
+def digits_int(m) -> int:
+    "A series of digits"
+    return int("".join(m["digits10_list"]))
 
 @mod.capture(rule="{user.numberth}")
 def numberth(m) -> int:

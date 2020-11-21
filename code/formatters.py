@@ -73,3 +73,8 @@ class Actions:
     def title(phrase: Union[Phrase, str]) -> str:
         """Return title text"""
         return actions.user.formatted_text(phrase, 2, 1)
+
+    def phrase_to_str(phrase: Union[Phrase, str]) -> str:
+        """"""
+        words = " ".join(actions.dictate.parse_words(phrase))
+        return words

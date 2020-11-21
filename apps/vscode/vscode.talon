@@ -1,5 +1,5 @@
 app: Visual Studio Code
-app: Code.exe
+# app: Code.exe
 -
 action(edit.line_clone):
     key(shift-alt-down)
@@ -9,31 +9,23 @@ new window: key(ctrl-shift-n)
 open file: key(ctrl-o)
 open folder: key(ctrl-k ctrl-o)
 open recent: key(ctrl-r)
-(go to | good) file: key(ctrl-p)
 save as: key(ctrl-shift-s)
 save all: key(ctrl-k s)
-revert (file | changes):
-    key(ctrl-shift-p)
-    "revert file"
-    key(enter)
+revert (file | changes): user.vscode_palette("revert file")
 close all tabs: key(ctrl-k ctrl-w)
 close tab <user.n20>: key("ctrl-w:{n20}")
 next tab <user.n20>: key("ctrl-pgdown:{n20}")
 previous tab <user.n20>: key("ctrl-pgup:{n20}")
 <user.numberth> tab: key("alt-{numberth}")
 #
-line <user.digits>:
-    key(ctrl-g)
-    insert(digits)
-    key(enter)
+line <user.digits>: user.vscode_go_line(digits)
 end line <user.digits>:
-    key(ctrl-g)
-    insert(digits)
-    key(enter end:2)
+    user.vscode_go_line(digits)
+    key(end:2)
+#
 shunt <user.n20>: key("shift-down:{n20}")
 comment line: key(ctrl-/)
-duple comment:
-    key(shift-alt-down up ctrl-/ down)
+duple comment: key(shift-alt-down up ctrl-/ down)
 indent <user.n20>: key("ctrl-]:{n20}")
 [auto] complete: key(ctrl-space)
 #
@@ -49,19 +41,24 @@ search in directory: key(ctrl-shift-f)
 copy relative path: key(ctrl-k ctrl-shift-c)
 copy path: key(alt-shift-c)
 #
+(go to | good) file: key(ctrl-p)
+go to <phrase> [{user.filetype}]$:
+    key(ctrl-p)
+    insert(user.phrase_to_str(phrase))
+    insert(filetype or "")
+    # sleep(100ms)
+    # key(enter)
 go to word: key(ctrl-;)
 go to symbol: key(ctrl-shift-o)
 go to [symbol in] project: key(ctrl-t)
 go to that: key(f12)
-peek (definition | that): key(alt-f12)
+peek definition: key(alt-f12)
+peek references: key(shift-f12)
 command pallette: key(ctrl-shift-p)
-rename symbol: key(f2)
+rename (symbol | that): key(f2)
 #
 edit lines: key(shift-alt-i)
-sort lines:
-    key(ctrl-shift-p)
-    "sort ascending"
-    key(enter)
+sort lines: user.vscode_palette("sort ascending")
 edit previous <user.n20>: key("ctrl-alt-d:{n20}")
 edit next <user.n20>: key("ctrl-d:{n20}")
 skip next <user.n20>: key("ctrl-k ctrl-d:{n20}")
@@ -75,6 +72,7 @@ rename file: user.vscode_palette("File: Rename")
 fold that: key(ctrl-shift-[)
 unfold that: key(ctrl-shift-])
 unfold all: key(ctrl-k ctrl-j)
+fold level <user.n20>: key("ctrl-k ctrl-{n20}")
 #
 full screen: key(f11)
 toggle side bar: key(ctrl-b)
@@ -107,6 +105,7 @@ move left: key(ctrl-k ctrl-shift-left)
 move right: key(ctrl-k ctrl-shift-right)
 split right: key(alt-shift-2 ctrl-k ctrl-shift-right)
 split definition: key(ctrl-k f12)
+#
 set (anchor | mark): key(ctrl-k ctrl-b)
 go to (anchor | mark): key(ctrl-k ctrl-g)
 insert mouse:
@@ -131,16 +130,11 @@ print mouse:
     key(ctrl-k ctrl-g escape)
     user.lang_print(user.temp_contents())
 
-remove to <user.digits>:
-    key(ctrl-k ctrl-b ctrl-g)
-    insert(digits)
-    key(enter end ctrl-k ctrl-k backspace)
-select to <user.digits>:
-    key(ctrl-k ctrl-b ctrl-g)
-    insert(digits)
-    key(enter end ctrl-k ctrl-k)
-copy to <user.digits>:
-    key(ctrl-k ctrl-b ctrl-g)
-    insert(digits)
-    key(enter end ctrl-k ctrl-k)
-    edit.copy()
+select to <user.digits>: user.vscode_select_to(digits)
+
+# remove to <user.digits>:
+#     user.vscode_select_to(digits)
+#     key(backspace)
+# copy to <user.digits>:
+#     user.vscode_select_to(digits)
+#     edit.copy()

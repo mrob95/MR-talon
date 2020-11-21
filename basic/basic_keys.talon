@@ -21,7 +21,11 @@ long {user.punctuation2}: " {punctuation2} "
 {user.personal}: insert(personal)
 
 [and] save$: key(ctrl-s)
-^undo <user.n20>$: key("ctrl-z:{n20}")
+
+action(edit.undo): key(ctrl-z)
+^undo <user.n20>$:
+    edit.undo()
+    repeat(n20-1)
 
 action(edit.paste): key(ctrl-v)
 spark: edit.paste()

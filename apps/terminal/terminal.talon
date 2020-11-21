@@ -2,6 +2,9 @@ app: mintty.exe
 app: WindowsTerminal.exe
 app: /.*/
 and title: /MSYS:.*/
+
+app: Visual Studio Code
+and user.vs_terminal: True
 -
 tag(): user.terminal
 CD {user.directories}:
@@ -89,6 +92,7 @@ python 2 64: "C:/Python27-64/python.exe "
 python 3 32: "C:/Python38-32/python.exe "
 python 2 pip install: "python27 -m pip install "
 python 3 pip install: "python3 -m pip install "
+pip install: "pip install "
 upgrade pip: "--upgrade pip"
 pip two (install | build) package: "pip2 install -e ."
 pie test: "pytest "

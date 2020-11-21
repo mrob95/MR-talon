@@ -1,5 +1,7 @@
 from user.utils import utilities
-from talon import Module, Context, actions, clip, app, registry
+from talon import Module, Context, actions, clip, app, registry, ui
+import talon
+
 from win32gui import GetForegroundWindow, GetWindowText
 import os
 import re
@@ -56,12 +58,6 @@ class Actions:
             else:
                 giturl = cb
             actions.insert(giturl)
-
-    def vscode_palette(command: str) -> None:
-        """"""
-        actions.key("ctrl-shift-p")
-        actions.insert(command)
-        actions.key("enter")
 
     def print_window_info():
         """Print random window information"""
