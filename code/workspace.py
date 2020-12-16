@@ -10,6 +10,8 @@ from user.utils import utilities
 try:
     import pyvda
 except ImportError:
+    import traceback
+    traceback.print_exc()
     print("Couldn't import module pyvda.")
     pass
 

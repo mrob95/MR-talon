@@ -3,6 +3,7 @@ app: chrome.exe
 -
 <user.numberth> tab: key("ctrl-{numberth}")
 new tab <user.n20>: key("ctrl-t:{n20}")
+new tab: key("ctrl-t")
 duplicate tab: key(alt-shift-d)
 go {user.websites}:
     key(ctrl-l)

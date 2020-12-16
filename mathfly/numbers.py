@@ -32,12 +32,12 @@ mod.list("spoken10")
 ctx.lists["user.spoken10"] = raw_digits
 
 
-@mod.capture(rule="[{user.repeat20}]")
+@mod.capture(rule="{user.repeat20}")
 def r20(m) -> int:
     "Repeat values up to twenty"
     return int(m["repeat20"]) if hasattr(m, "repeat20") else 0
 
-@mod.capture(rule="[{user.numbers20}]")
+@mod.capture(rule="{user.numbers20}")
 def n20(m) -> int:
     "Numbers up to twenty"
     return int(m["numbers20"]) if hasattr(m, "numbers20") else 1

@@ -1,4 +1,5 @@
 title: /.html/
+title: /.xml/
 -
 gin variable:
     "{{{{  }}}}"

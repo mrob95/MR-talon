@@ -27,7 +27,6 @@ class Actions:
 
     def slow_key(pattern: str, wait: str = "50ms"):
         """Press some keys slowly"""
-        print(pattern)
         keys = pattern.split(" ")
         keys2 = []
         for k in keys:
