@@ -113,6 +113,9 @@ magic {user.py_umeths}: "def __{py_umeths}__(self):"
 magic {user.py_bmeths}: "def __{py_bmeths}__(self, other):"
 magic {user.py_mmeths}: insert(py_mmeths)
 # Exceptions
+raise {user.py_exceptions} [error]:
+    "raise {py_exceptions}()"
+    key(left)
 try except:
     "try:"
     key(enter enter)

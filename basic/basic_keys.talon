@@ -6,7 +6,7 @@ numb <user.digits>: insert(digits)
 {user.punctuation}: key(punctuation)
 {user.punctuation2}: "{punctuation2}"
 long {user.punctuation2}: " {punctuation2} "
-{user.simple_keys} <user.n20>: key("{simple_keys}:{n20}")
+{user.simple_keys} [<user.n20>]: key("{simple_keys}:{n20 or 1}")
 {user.simple_keys_norepeat}: key(simple_keys_norepeat)
 
 # TODO: Remove
@@ -20,10 +20,10 @@ duple: edit.line_clone()
 check:edit.line_insert_down()
 
 
-{user.direction_modifiers} <user.n20>: key("{direction_modifiers}left:{n20}")
-[{user.direction_modifiers}] {user.directions} <user.n20>:
+{user.direction_modifiers} [<user.n20>]: key("{direction_modifiers}left:{n20 or 1}")
+[{user.direction_modifiers}] {user.directions} [<user.n20>]:
     direction_modifiers = direction_modifiers or ""
-    key("{direction_modifiers}{directions}:{n20}")
+    key("{direction_modifiers}{directions}:{n20 or 1}")
 [{user.direction_modifiers}] {user.directions_extreme} wally:
     direction_modifiers = direction_modifiers or ""
     key("{direction_modifiers}{directions_extreme}")
@@ -32,24 +32,24 @@ check:edit.line_insert_down()
 [and] save$: key(ctrl-s)
 
 action(edit.undo): key(ctrl-z)
-^undo <user.n20>$:
+^undo [<user.r20>]$:
     edit.undo()
-    repeat(n20-1)
+    repeat(r20 or 0)
 
 action(edit.paste): key(ctrl-v)
 spark: edit.paste()
 action(edit.copy): key(ctrl-c)
 stoosh: edit.copy()
 action(edit.line_insert_down): key(ctrl-enter)
-check <user.n20>:
+check [<user.r20>]:
     edit.line_insert_down()
-    repeat(n20 - 1)
+    repeat(r20 or 0)
 action(edit.line_clone):
     key(home shift-end ctrl-c end enter ctrl-v)
     sleep(50ms)
-duple <user.n20>:
+duple [<user.r20>]:
     edit.line_clone()
-    repeat(n20 - 1)
+    repeat(r20 or 0)
 
 # Text
 say <phrase> [over]:
@@ -63,5 +63,5 @@ hug prekris: key(()
 hug curly: key({)
 hug brax: key([)
 
-repeat last <user.n20>:
+repeat last [<user.n20>]:
     core.repeat_phrase(n20)

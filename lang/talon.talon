@@ -27,7 +27,7 @@ mod up: ":up "
 #
 capture digits: "<user.digits>"
 capture ordinals: "<user.numberth>"
-capture numbers: "<user.n20>"
+capture numbers: "[<user.n20>]"
 capture repeat: "<user.r20>"
 capture phrase: "<phrase>"
 #

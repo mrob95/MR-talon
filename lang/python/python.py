@@ -299,6 +299,8 @@ ctx.lists["user.py_imports"] = {
     "beautiful soup": "from bs4 import BeautifulSoup",
     "create engine": "from sqlalchemy import create_engine",
     "counter": "from collections import Counter",
+    "default dictionary": "from collections import defaultdict",
+    "default dict": "from collections import defaultdict",
     "date time": "from datetime import datetime",
     "data class": "from dataclasses import dataclass",
     "Enum": "from enum import Enum, auto",

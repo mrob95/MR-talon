@@ -2,6 +2,6 @@ macro (start | record):
     user.macro_start()
 macro stop:
     user.macro_stop()
-macro play <user.n20>:
+macro play [<user.r20>]:
     user.macro_play()
-    repeat(n20 - 1)
+    repeat(r20 or 0)

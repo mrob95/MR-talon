@@ -59,28 +59,28 @@ bench:
     user.mouse_release()
     key(alt:up)
 
-drag right <user.n20>:
+drag right [<user.n20>]:
     user.mouse_drag()
     sleep(50ms)
     user.mouse_move_relative(80*n20, 0)
     sleep(50ms)
     user.mouse_release()
 
-drag left <user.n20>:
+drag left [<user.n20>]:
     user.mouse_drag()
     sleep(50ms)
     user.mouse_move_relative(-80*n20, 0)
     sleep(50ms)
     user.mouse_release()
 
-drag up <user.n20>:
+drag up [<user.n20>]:
     user.mouse_drag()
     sleep(50ms)
     user.mouse_move_relative(0, -80*n20)
     sleep(50ms)
     user.mouse_release()
 
-drag down <user.n20>:
+drag down [<user.n20>]:
     user.mouse_drag()
     sleep(50ms)
     user.mouse_move_relative(0, 80*n20)

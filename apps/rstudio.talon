@@ -16,10 +16,10 @@ end line <user.digits>:
     key(shift-alt-g)
     insert(digits)
     key(enter end)
-shunt <user.n20>: key("shift-down:{n20}")
+shunt [<user.n20>]: key("shift-down:{n20 or 1}")
 # ------------------------------------------------
-next tab <user.n20>: key("ctrl-f12:{n20}")
-previous tab <user.n20>: key("ctrl-f11:{n20}")
+next tab [<user.n20>]: key("ctrl-f12:{n20 or 1}")
+previous tab [<user.n20>]: key("ctrl-f11:{n20 or 1}")
 first tab: key(ctrl-shift-f11)
 last tab: key(ctrl-shift-f12)
 close tab: key(ctrl-w)
