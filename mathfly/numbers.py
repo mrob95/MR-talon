@@ -7,7 +7,7 @@ tens = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "nin
 
 repeat = {name: str(i) for i, name in enumerate(raw_digits[1:] + teens)}
 numbers = {name: str(i+1) for i, name in enumerate(raw_digits[1:] + teens)}
-digits_d = {name: str(i) for i, name in enumerate(raw_digits)}
+digits_d = {name: str(i) for i, name in enumerate(raw_digits + teens)}
 tens_d = {name: str(i*10) for i, name in enumerate(tens, 2)}
 numberth_d = {"first": "1","second": "2","third": "3","fourth": "4","fifth": "5","sixth": "6","seventh": "7","eighth": "8","last": "9","ninth": "9"}
 
@@ -34,7 +34,7 @@ ctx.lists["user.spoken10"] = raw_digits
 @mod.capture(rule="{user.repeat20}")
 def r20(m) -> int:
     "Repeat values up to twenty"
-    return int(m["repeat20"]) - 1
+    return int(m["repeat20"])
 
 @mod.capture(rule="{user.numbers20}")
 def n20(m) -> int:

@@ -118,17 +118,17 @@ raise {user.py_exceptions} [error]:
     key(left)
 try except:
     "try:"
-    key(enter enter)
+    key(enter:2)
     "except:"
     key(shift-tab)
 try except {user.py_exceptions} [error]:
     "try:"
-    key(enter enter)
+    key(enter:2)
     "except {py_exceptions}:"
     key(shift-tab)
 try except {user.py_exceptions} [error] as:
     "try:"
-    key(enter enter)
+    key(enter:2)
     "except {py_exceptions} as e:"
     key(shift-tab)
 # misc

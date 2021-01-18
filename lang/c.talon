@@ -2,12 +2,19 @@ title: /.*\.c/
 title: /.*\.cpp/
 title: /.*\.h/
 -
-type {user.c_types}: insert(c_types)
+# type {user.c_types}: insert(c_types)
+type <user.c_type>: insert(c_type)
+variable <user.c_type> <phrase>:
+	insert(c_type)
+	insert(user.snake(phrase))
+standard {user.cpp_std}: "std::{cpp_std}"
 integer main:
 	"int main(int argc, char **argv) {}"
 	key(left enter)
 assign: " = "
 arrow: "->"
+left shift: " << "
+right shift: " >> "
 file size:
 	"""fseek(fp, 0, SEEK_END);
     int sz = ftell(fp);
@@ -54,3 +61,6 @@ value null: "NULL"
 while loop:
 	"while () {}"
     key(left enter up home right:7)
+template header file:
+	"#ifndef \n#define \n\n#endif"
+	key(ctrl-home end ctrl-down _ h left:2)

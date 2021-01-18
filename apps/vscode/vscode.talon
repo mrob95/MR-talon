@@ -22,6 +22,10 @@ line <user.digits>: user.vscode_go_line(digits)
 end line <user.digits>:
     user.vscode_go_line(digits)
     key(end:2)
+select by <user.digits>: user.vscode_select_to(digits)
+select <user.digits> by <user.digits>:
+    user.vscode_go_line(digits_1)
+    user.vscode_select_to(digits_2)
 #
 shunt [<user.n20>]: key("shift-down:{n20 or 1}")
 comment line: key(ctrl-/)
@@ -129,8 +133,10 @@ print mouse:
     user.temp_store()
     key(ctrl-k ctrl-g escape)
     user.lang_print(user.temp_contents())
-
-select by <user.digits>: user.vscode_select_to(digits)
-select <user.digits> by <user.digits>:
-    user.vscode_go_line(digits_1)
-    user.vscode_select_to(digits_2)
+print <user.digits>:
+    key(ctrl-k ctrl-b)
+    user.vscode_go_line(digits)
+    key(ctrl-shift-right)
+    user.temp_store()
+    key(ctrl-k ctrl-g escape)
+    user.lang_print(user.temp_contents())

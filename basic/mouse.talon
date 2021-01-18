@@ -1,5 +1,8 @@
 # mouse_click(button: int = 0, down: bool = None, up: bool = None, hold: int = None)
 #   Click, hold, or release a mouse button
+copy mouse position: user.copy_mouse_position()
+copy mouse relative: user.copy_mouse_position_relative_window()
+
 shifty:
     key(shift:down)
     mouse_click()

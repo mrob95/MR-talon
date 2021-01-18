@@ -38,16 +38,13 @@ ctx.lists["user.functions"] = {
     "string char": "strchr",
     "string compare": "strcmp",
     "string N compare": "strncmp",
-    # "string ": "strcoll",
     "string N copy": "strncpy",
-    # "string ": "strcspn",
-    # "string ": "strerror",
-    # "string ": "strpbrk",
-    # "string ": "strrchr",
-    # "string ": "strspn",
     "string string": "strstr",
     "string token": "strtok",
     "string transform": "strxfrm",
+    # CPP stdlib
+
+    # STB data structures
     "array length": "arrlen", # the length of the dynamic array
     "array length unsigned": "arrlenu", # the length of the dynamic array as an unsigned type
     "array put": "arrput", # copy an object into the dynamic array
@@ -86,6 +83,7 @@ ctx.lists["user.functions"] = {
     "hash string alloc": "stbds_stralloc", # Allocates a string in a string arena
     "hash string reset": "stbds_strreset", # Frees all the strings in a string arena
 }
+
 ctx.lists["user.logicals"] = {
     "and": " && ",
     "or": " || ",
@@ -93,14 +91,62 @@ ctx.lists["user.logicals"] = {
 
 mod.list("c_types")
 ctx.lists["user.c_types"] = {
-    "boolean": "bool ",
-    "integer": "int ",
-    "file": "FILE *",
-    "unsigned": "unsigned ",
-    "void": "void ",
-    "struct": "struct ",
-    "size": "size_t ",
-    "enum": "enum ",
-    "char star": "char *",
-    "const char star": "char *",
+    # Ray tracing
+    "vector three": "vec3",
+    "point three": "point3",
+    "colour": "colour",
+    "ray": "ray",
+    #
+    "auto": "auto",
+    "inline": "inline",
+    "boolean": "bool",
+    "constant": "const",
+    "double": "double",
+    "float": "float",
+    "integer": "int",
+    "file": "FILE",
+    "unsigned": "unsigned",
+    "void": "void",
+    "struct": "struct",
+    "size": "size_t",
+    "enum": "enum",
+    "char star": "char",
+}
+
+mod.list("c_type_modifiers")
+ctx.lists["user.c_type_modifiers"] = {
+    "static": "static",
+    "inline": "inline",
+    "virtual": "virtual",
+    "constant": "const",
+}
+
+@mod.capture(rule="[{user.c_type_modifiers}+] {user.c_types} [(star | value)]")
+def c_type(m) -> str:
+    """"""
+    result = m["c_types"]
+    if hasattr(m, "c_type_modifiers_list"):
+        modifiers = " ".join(m["c_type_modifiers_list"]) + " "
+    else:
+        modifiers = ""
+    if m._words[-1] == "star":
+        end = " *"
+    elif m._words[-1] == "value":
+        end = "& "
+    else:
+        end = " "
+    return f"{modifiers}{result}{end}"
+
+mod.list("cpp_std")
+ctx.lists["user.cpp_std"] = {
+    "C error": "cerr",
+    "C out": "cout",
+    "end line": "endl",
+    "flush": "flush",
+    "square root": "sqrt",
+    "shared pointer": "shared_ptr",
+    "make shared": "make_shared",
+    "numerical limits": "numeric_limits",
+    "oh stream": "ostream",
+    "vector": "vector",
 }

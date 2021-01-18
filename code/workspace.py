@@ -30,17 +30,17 @@ mod = Module()
 class Actions:
     def window_maximise():
         """Maximise the current window"""
-        wndh = GetForegroundWindow()
+        wndh = ui.active_window().id
         win32gui.ShowWindow(wndh, win32con.SW_MAXIMIZE)
 
     def window_minimise():
         """Minimise the current window"""
-        wndh = GetForegroundWindow()
+        wndh = ui.active_window().id
         win32gui.ShowWindow(wndh, win32con.SW_MINIMIZE)
 
     def window_close():
         """Close the current window"""
-        wndh = GetForegroundWindow()
+        wndh = ui.active_window().id
         win32gui.PostMessage(wndh, win32con.WM_CLOSE, 0, 0)
 
     def workspace_send(n: int):
@@ -52,12 +52,11 @@ class Actions:
         """Send the current window to a given workspace, and follow it"""
         wndh = ui.active_window().id
         pyvda.MoveWindowToDesktopNumber(wndh, n)
-        pyvda.GoToDesktopNumber(n)
+        go_to_n(n)
 
     def workspace_go(n: int):
         """Go to a given workspace"""
-        windll.user32.AllowSetForegroundWindow(ASFW_ANY)
-        pyvda.GoToDesktopNumber(n)
+        go_to_n(n)
 
     def workspace_next(n: int):
         """Go to the next workspace (without animation)"""

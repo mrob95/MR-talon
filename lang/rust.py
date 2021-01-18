@@ -1,13 +1,40 @@
-# from user.utils import utilities
-# from talon import *
+from talon import *
 
-# BINDINGS = utilities.load_toml_relative("config/rust.toml")
+mod = Module()
+ctx = Context()
+ctx.matches = r"""
+title: /.*\.rs$/
+"""
+
+@ctx.action_class("user")
+class Actions:
+    def lang_print(s: str):
+        actions.insert(f'println!("{s}: {{}}", {s});')
 
 
+ctx.lists["user.functions"] = {
+    "unwrap": "unwrap",
+    "parse": "parse",
+    "lines": "lines",
+    "to string": "to_string",
+    "iter": "iter",
+    "clone": "clone",
+    "next": "next",
+    "push": "push",
+    "get": "get",
+    "print": 'println("{}", [|]);',
+}
 
-# ctx = Context("rust")
-# ctx.matches = r"""
-# title: /.*\.rs$/
-# """
-# commands = BINDINGS["commands"]
-# functions = BINDINGS["functions"]
+ctx.lists["user.logicals"] = {
+    "and": " && ",
+    "or": " || ",
+    "else": " else ",
+    "if": "if ",
+}
+
+mod.list("rust_types")
+ctx.lists["user.rust_types"] = {
+    "eye 3 2": "i32",
+    "you 3 2": "u32",
+    "string": "str",
+}

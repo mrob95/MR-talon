@@ -134,11 +134,7 @@ punctuation = {
     "semicolon": ";",
     "tilde": "~",
     "underscore": "_",
-    "greater than": ">",
-    "greater equal": "> =",
-    "less than": "<",
-    "less equal": "< =",
-    "equal to": "space = = space",
+    "double equals": "space = = space",
     "angle": "< > left",
     "prekris": "( ) left",
     "prens": "( ) left",
@@ -166,6 +162,10 @@ punctuation2 = {
     "plus": "+",
     "questo": "?",
     "slash": "/",
+    "greater than": ">",
+    "greater equal": "> =",
+    "less than": "<",
+    "less equal": "< =",
 }
 mod.list("punctuation", desc="Punctuation")
 ctx.lists["user.punctuation"] = {

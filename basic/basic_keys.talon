@@ -9,16 +9,6 @@ long {user.punctuation2}: " {punctuation2} "
 {user.simple_keys} [<user.n20>]: key("{simple_keys}:{n20 or 1}")
 {user.simple_keys_norepeat}: key(simple_keys_norepeat)
 
-# TODO: Remove
-{user.simple_keys}: key("{simple_keys}")
-{user.direction_modifiers}: key("{direction_modifiers}left")
-[{user.direction_modifiers}] {user.directions}:
-    direction_modifiers = direction_modifiers or ""
-    key("{direction_modifiers}{directions}")
-^undo$: edit.undo()
-duple: edit.line_clone()
-check:edit.line_insert_down()
-
 
 {user.direction_modifiers} [<user.n20>]: key("{direction_modifiers}left:{n20 or 1}")
 [{user.direction_modifiers}] {user.directions} [<user.n20>]:

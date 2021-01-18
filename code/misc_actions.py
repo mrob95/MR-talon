@@ -1,5 +1,6 @@
 from user.utils import utilities
-from talon import Module, Context, actions, clip, app, registry, ui
+from talon import speech_system
+from talon import *
 import talon
 
 from win32gui import GetForegroundWindow, GetWindowText
@@ -88,7 +89,7 @@ class Actions:
     def dragon_mimic(phrase: str):
         """mimic"""
         print(phrase)
-        engine.mimic(phrase)
+        speech_system.engine_mimic(phrase)
 
     def kill_notepads():
         """"""
