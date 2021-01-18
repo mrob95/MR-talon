@@ -1,12 +1,8 @@
-from talon import Module, Context, ui
-import struct
-from ctypes import cdll, windll
-from win32gui import GetForegroundWindow
+from talon import Module, ui
+from ctypes import windll
 import win32gui
 import win32con
 import logging
-import pprint
-from user.utils import utilities
 try:
     import pyvda
 except ImportError:
