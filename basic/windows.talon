@@ -1,6 +1,8 @@
 os: windows
 -
 window {user.directions}: key("win-{directions}")
+window pin: user.window_pin()
+window unpin: user.window_unpin()
 
 minimize: user.window_minimise()
 maximise: user.window_maximise()

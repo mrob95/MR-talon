@@ -61,15 +61,18 @@ class Actions:
 
     def print_window_info():
         """Print random window information"""
-        print(f"Shadow app: {ui.active_app()}")
-        print(f"Shadow app exe: {ui.active_app().exe}")
-        print(f"Shadow window title: {ui.active_window().title}")
-        print(f"Actual window title: {GetWindowText(GetForegroundWindow())}")
-        print(f"To check: {talon.windows.winevents.monitor.last_foreground}")
-        print(f"Shadow hwnd: {ui.active_window().id}")
-        print(f"Actual hwnd: {GetForegroundWindow()}")
-        print(talon.windows.winevents._win_info(GetForegroundWindow()))
-        print([w for w in ui.windows() if w.id == GetForegroundWindow()])
+        print(f"{ui.active_app()=}")
+        print(f"{ui.active_app().exe=}")
+        print(f"{ui.active_window().title=}")
+        # print(f"Shadow app: {ui.active_app()}")
+        # print(f"Shadow app exe: {ui.active_app().exe}")
+        # print(f"Shadow window title: {ui.active_window().title}")
+        # print(f"Actual window title: {GetWindowText(GetForegroundWindow())}")
+        # print(f"To check: {talon.windows.winevents.monitor.last_foreground}")
+        # print(f"Shadow hwnd: {ui.active_window().id}")
+        # print(f"Actual hwnd: {GetForegroundWindow()}")
+        # print(talon.windows.winevents._win_info(GetForegroundWindow()))
+        # print([w for w in ui.windows() if w.id == GetForegroundWindow()])
 
     def print_copy_info():
         """"""

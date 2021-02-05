@@ -1,6 +1,4 @@
 app: LyX.exe
-app: LyX for Windows
-app: lyx
 -
 {user.tex_symbols}:
     key(\)

@@ -1,4 +1,5 @@
 title: /\.tex/
+and not app: scinoteb.exe
 -
 document class {user.tex_document_classes}:
     insert("\\documentclass{{{tex_document_classes}}}")

@@ -3,47 +3,50 @@ macros are not savable, but they are semantic in that functions are recorded,
 not keypresses. This means that macros can interact with your computer state
 such as by looking at what is in the clipboard, are referencing nearby text.
 """
-
 from talon import *
-from talon import actions
 
 macro = []
-macro_recording = False
-
-def macro_record(p, j):
-    global macro_recording
-    if macro_recording:
-        if j["cmd"] == "p.end" and j["grammar"] == "talon":
-            m = actions.core.last_phrase()
-            print(m)
-            macro.append(m)
-
-speech_system.engine.register("post:phrase", macro_record)
+recording = False
+num_recorded = 0
 
 ctx = Context("macro")
 mod = Module()
 
+
+@imgui.open(x=1300, y=1045, software=False)
+def gui_macro_recording(gui: imgui.GUI):
+    global num_recorded
+    gui.text(f"Macro recording: {num_recorded}")
+
+
 @mod.action_class
 class Actions:
     def macro_start():
-        """..."""
-        global macro_recording
+        """record a new macro"""
         global macro
-        macro_recording = True
+        global recording
+        gui_macro_recording.show()
         macro = []
-
+        recording = True
 
     def macro_stop():
-        """..."""
-        global macro
-        global macro_recording
-        if macro_recording:
-            macro = macro[1:]
-            macro_recording = False
+        """stop recording"""
+        global recording
+        gui_macro_recording.hide()
+        recording = False
 
     def macro_play():
-        """..."""
-        global macro
+        """play recorded macro"""
         actions.user.macro_stop()
-        for item in macro:
-            actions.core.run_phrase(item)
+        # :-1 because we don't want to replay `macro play`
+        for words in macro[:-1]:
+            print(words)
+            actions.mimic(words)
+
+def fn(d):
+    global num_recorded
+    if recording and "parsed" in d:
+        macro.append(d["parsed"]._unmapped)
+        num_recorded += 1
+
+speech_system.register("pre:phrase", fn)

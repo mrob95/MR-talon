@@ -64,3 +64,13 @@ class Actions:
         """Go to the previous workspace (without animation)"""
         current = pyvda.GetCurrentDesktopNumber()
         go_to_n(current-n)
+
+    def window_pin():
+        """Pin the current window"""
+        wndh = ui.active_window().id
+        pyvda.PinWindow(wndh)
+
+    def window_unpin():
+        """Unpin the current window"""
+        wndh = ui.active_window().id
+        pyvda.UnPinWindow(wndh)
