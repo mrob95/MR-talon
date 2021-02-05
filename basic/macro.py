@@ -4,6 +4,7 @@ not keypresses. This means that macros can interact with your computer state
 such as by looking at what is in the clipboard, are referencing nearby text.
 """
 from talon import *
+from talon import imgui
 
 macro = []
 recording = False
@@ -38,15 +39,15 @@ class Actions:
     def macro_play():
         """play recorded macro"""
         actions.user.macro_stop()
-        # :-1 because we don't want to replay `macro play`
-        for words in macro[:-1]:
-            print(words)
-            actions.mimic(words)
+        # First will be "macro start"
+        for item in macro[1:]:
+            actions.core.run_phrase(item)
+            actions.sleep("20ms")
 
-def fn(d):
+def f(o):
     global num_recorded
-    if recording and "parsed" in d:
-        macro.append(d["parsed"]._unmapped)
+    if recording and "parsed" in o:
+        macro.append(actions.core.last_phrase())
         num_recorded += 1
 
-speech_system.register("pre:phrase", fn)
+speech_system.register("post:phrase", f)
