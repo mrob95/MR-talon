@@ -7,6 +7,8 @@ ctx.matches = r"""
 app: Visual Studio Code
 """
 
+mark_window_title = None
+
 @mod.action_class
 class Actions:
     def vscode_palette(command: str) -> None:
@@ -26,4 +28,20 @@ class Actions:
         actions.key("ctrl-g")
         actions.insert(digits)
         actions.key("enter")
+
+    def vscode_mark() -> None:
+        """"""
+        global mark_window_title
+        mark_window_title = ui.active_window().title
+        actions.key("ctrl-k ctrl-b")
+
+    def vscode_return() -> None:
+        """"""
+        global mark_window_title
+        current_window_title = ui.active_window().title
+        if current_window_title == mark_window_title:
+            actions.key("ctrl-k ctrl-g escape")
+        else:
+            actions.key("ctrl-k ctrl-right")
+            actions.key("ctrl-k ctrl-g escape")
 
