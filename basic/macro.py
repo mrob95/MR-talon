@@ -13,17 +13,20 @@ class MacroRecorder:
     phrases: Optional[List[Any]] = None
     recording: bool = False
     num_recorded: int = -1
+    wait_multiplier: int = 0
 
     def reset(self):
         self.phrases = []
         self.recording = False
         self.num_recorded = -1
+        self.wait_multiplier = 0
 
     def play(self):
+        wait = 20 + 50 * self.wait_multiplier
         # First will be "macro start"
         for phrase in self.phrases[1:]:
             actions.core.run_phrase(phrase)
-            actions.sleep("20ms")
+            if wait: actions.sleep(f"{wait}ms")
 
     def add_phrase(self, phrase):
         self.phrases.append(phrase)
@@ -52,6 +55,12 @@ class Actions:
     def macro_play():
         """play recorded macro"""
         actions.user.macro_stop()
+        macro.play()
+
+    def macro_play_slower():
+        """play recorded macro, and slow it down for programs which drop keys"""
+        actions.user.macro_stop()
+        macro.wait_multiplier += 1
         macro.play()
 
 def macro_cb(recognition_result):
