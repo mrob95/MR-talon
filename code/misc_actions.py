@@ -13,7 +13,7 @@ from ctypes import (c_short, c_long, c_ushort, c_ulong, sizeof,
                     POINTER, pointer, Structure, Union, windll)
 import win32con
 import win32api
-
+import os
 
 mod = Module()
 ctx = Context()
@@ -25,6 +25,10 @@ class Actions:
         """"""
         Popen(["SumatraPDF", path])
 
+    def view_talon_log():
+        """Open the talon log viewer"""
+        log_script = os.path.expanduser("~/AppData/Roaming/talon/.venv/Scripts/tail_log.bat")
+        Popen([log_script])
 
     def slow_key(pattern: str, wait: str = "50ms"):
         """Press some keys slowly"""
@@ -47,17 +51,6 @@ class Actions:
         actions.sleep("150ms")
         replaced = re.sub(pattern, replacement, cb)
         clip.set(replaced)
-
-    def insert_git_url():
-        """Insert git url from clipboard"""
-        cb = clip.text()
-        # actions.sleep("150ms")
-        if cb.startswith("https://github.com"):
-            if not cb.endswith(".git"):
-                giturl = cb + ".git"
-            else:
-                giturl = cb
-            actions.insert(giturl)
 
     def print_window_info():
         """Print random window information"""

@@ -4,6 +4,19 @@ from talon import *
 mod = Module()
 ctx = Context()
 
+@mod.action_class
+class Actions:
+    def insert_git_url():
+        """Insert git url from clipboard"""
+        cb = clip.text()
+        # actions.sleep("150ms")
+        if cb.startswith("https://github.com"):
+            if not cb.endswith(".git"):
+                giturl = cb + ".git"
+            else:
+                giturl = cb
+            actions.insert(giturl)
+
 
 mod.list("git_commands")
 ctx.lists["user.git_commands"] = {

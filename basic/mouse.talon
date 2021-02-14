@@ -7,22 +7,30 @@ shifty:
     key(shift:down)
     mouse_click()
     key(shift:up)
+    user.grid_close()
 colic:
     key(ctrl:down)
     mouse_click()
     key(ctrl:up)
+    user.grid_close()
 mouse alt click:
     key(alt:down)
     mouse_click()
     key(alt:up)
+    user.grid_close()
 millick:
     mouse_click(2)
+    user.grid_close()
 kick:
     mouse_click()
+    user.grid_close()
 kick double:
     mouse_click()
     mouse_click()
+    user.grid_close()
 squat:
     user.mouse_drag()
+    user.grid_close()
 bench:
     user.mouse_release()
+    user.grid_close()

@@ -12,25 +12,30 @@ from typing import Any, List, Optional
 class MacroRecorder:
     phrases: Optional[List[Any]] = None
     recording: bool = False
-    num_recorded: int = -1
-    wait_multiplier: int = 0
+    playing: bool = False
+    num_recorded: int = 0
+    wait: int = 20 # ms to wait between phrases when executing
 
     def reset(self):
         self.phrases = []
         self.recording = False
-        self.num_recorded = -1
-        self.wait_multiplier = 0
+        self.playing = False
+        self.num_recorded = 0
+        self.wait = 20
 
     def play(self):
-        wait = 20 + 50 * self.wait_multiplier
-        # First will be "macro start"
-        for phrase in self.phrases[1:]:
+        self.playing = True # Disables "macro start"
+        for phrase in self.phrases:
             actions.core.run_phrase(phrase)
-            if wait: actions.sleep(f"{wait}ms")
+            actions.sleep(f"{self.wait}ms")
+        self.playing = False
 
     def add_phrase(self, phrase):
         self.phrases.append(phrase)
         self.num_recorded += 1
+
+    def slow_down(self):
+        self.wait += 50
 
 mod = Module()
 macro = MacroRecorder()
@@ -43,9 +48,13 @@ def gui(gui: imgui.GUI):
 class Actions:
     def macro_start():
         """record a new macro"""
-        macro.reset()
-        macro.recording = True
-        gui.show()
+        # Since we add the last phrase to the macro after it has been executed,
+        # macro.phrases will always contain "macro start",
+        # so make this a no-op when we are playing the macro.
+        if not macro.playing:
+            macro.reset()
+            macro.recording = True
+            gui.show()
 
     def macro_stop():
         """stop recording"""
@@ -60,7 +69,7 @@ class Actions:
     def macro_play_slower():
         """play recorded macro, and slow it down for programs which drop keys"""
         actions.user.macro_stop()
-        macro.wait_multiplier += 1
+        macro.slow_down()
         macro.play()
 
 def macro_cb(recognition_result):
