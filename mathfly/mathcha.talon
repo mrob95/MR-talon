@@ -1,16 +1,16 @@
-title: /.*Mathcha.*/
+title: /mathcha.io/
 -
-# settings():
-#     key_wait = 15.0
+settings():
+    key_wait = 15.0
 
 {user.tex_symbols}:
     key(\)
     insert(tex_symbols)
     key(enter)
     sleep(100ms)
-greek {user.tex_greek_letters}:
+greek {user.greek_letters}:
     key(\)
-    insert(tex_greek_letters)
+    insert(greek_letters)
     key(enter)
 <user.digits>:
     insert(digits)

@@ -36,7 +36,7 @@ def switch_normal():
     in_command_context = False
 
 def check_context():
-    if speech_system.engine.name == "dragon":
+    if speech_system.engine and speech_system.engine.name == "dragon":
         switch_command() if context_matches_command() else switch_normal()
 
 cron.interval("1s", check_context)

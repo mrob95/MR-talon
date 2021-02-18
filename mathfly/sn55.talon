@@ -5,17 +5,17 @@ app: scinoteb.exe
     insert(tex_symbols)
     key(ctrl:up)
 
-matrix {user.digits10} by {user.digits10}:
+matrix <number> by <number>:
     key(f10)
     sleep(50ms)
     key(i down:8 enter)
-    insert(digits10_1)
+    insert(number)
     key(tab)
-    insert(digits10_2)
+    insert(number)
     key(enter)
 
-greek {user.sn55_greek_letters}:
-    key("ctrl-g {sn55_greek_letters}")
+greek {user.greek_letters}:
+    key("ctrl-g {greek_letters}")
 
 fraction: key(ctrl-f)
 over: key(ctrl-shift-left ctrl-f)

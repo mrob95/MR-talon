@@ -6,3 +6,4 @@ macro play [<user.r20>]:
     user.macro_play()
     repeat(r20 or 0)
 macro play slower: user.macro_play_slower()
+macro mark: user.macro_mouse_mark()

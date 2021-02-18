@@ -6,8 +6,9 @@ such as by looking at what is in the clipboard, are referencing nearby text.
 from talon import *
 from talon import imgui
 from dataclasses import dataclass
-from typing import Any, List, Optional
+from typing import Any, List, Optional, NamedTuple, Tuple
 
+MousePosition = Tuple[int, int]
 @dataclass
 class MacroRecorder:
     phrases: Optional[List[Any]] = None
@@ -15,6 +16,8 @@ class MacroRecorder:
     playing: bool = False
     num_recorded: int = 0
     wait: int = 20 # ms to wait between phrases when executing
+    mouse_marks: Optional[List[MousePosition]] = None
+    mark_cursor: int = 0
 
     def reset(self):
         self.phrases = []
@@ -22,8 +25,10 @@ class MacroRecorder:
         self.playing = False
         self.num_recorded = 0
         self.wait = 20
+        self.mouse_marks = []
 
     def play(self):
+        self.mark_cursor = 0
         self.playing = True # Disables "macro start"
         for phrase in self.phrases:
             actions.core.run_phrase(phrase)
@@ -36,6 +41,18 @@ class MacroRecorder:
 
     def slow_down(self):
         self.wait += 50
+
+    def create_mouse_mark(self):
+        x, y = ctrl.mouse_pos()
+        self.mouse_marks.append((x, y))
+
+    def move_to_mark(self):
+        assert self.playing
+        actions.sleep(f"{self.wait + 50}ms")
+        pos = self.mouse_marks[self.mark_cursor]
+        actions.mouse_move(*pos)
+        self.mark_cursor += 1
+        actions.sleep(f"{self.wait + 50}ms")
 
 mod = Module()
 macro = MacroRecorder()
@@ -51,10 +68,11 @@ class Actions:
         # Since we add the last phrase to the macro after it has been executed,
         # macro.phrases will always contain "macro start",
         # so make this a no-op when we are playing the macro.
-        if not macro.playing:
-            macro.reset()
-            macro.recording = True
-            gui.show()
+        if macro.playing:
+            return
+        macro.reset()
+        macro.recording = True
+        gui.show()
 
     def macro_stop():
         """stop recording"""
@@ -71,6 +89,14 @@ class Actions:
         actions.user.macro_stop()
         macro.slow_down()
         macro.play()
+
+    def macro_mouse_mark():
+        """mark the current mouse position, or return to it if the macro is playing"""
+        if macro.playing:
+            macro.move_to_mark()
+        else:
+            macro.create_mouse_mark()
+
 
 def macro_cb(recognition_result):
     if macro.recording and "parsed" in recognition_result:

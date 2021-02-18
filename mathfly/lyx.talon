@@ -4,36 +4,36 @@ app: LyX.exe
     key(\)
     insert(tex_symbols)
     key(space)
-greek {user.tex_greek_letters}:
+greek {user.greek_letters}:
     key(\)
-    insert(tex_greek_letters)
+    insert(greek_letters)
     key(space)
-<user.digits>:
-    insert(digits)
-<user.digits> {user.mathfly_fractions}:
+<number>:
+    insert(number)
+<number> {user.mathfly_fractions}:
     key(alt-m f)
-    insert(digits)
+    insert(number)
     key(down)
     insert(mathfly_fractions)
     key(right)
 
-matrix one by <user.digits_int>:
+matrix one by <number>:
     key("alt-m [")
-    insert('\\array ')
+    insert("\\array ")
     key("alt-m c i")
-    repeat(digits_int-2)
-matrix <user.digits_int> by one:
+    repeat(number-2)
+matrix <number> by one:
     key("alt-m [")
-    insert('\\array ')
+    insert("\\array ")
     key("alt-m w i")
-    repeat(digits_int-2)
-matrix <user.digits_int> by <user.digits_int>:
+    repeat(number-2)
+matrix <number> by <number>:
     key("alt-m [")
     insert("\\array ")
         key("alt-m w i")
-    repeat(digits_int_1-2)
+    repeat(number_1-2)
         key("alt-m c i")
-    repeat(digits_int_2-2)
+    repeat(number_2-2)
 
 add matrix row: key(alt-m w i)
 (delete | remove) matrix row: key(alt-m w d)

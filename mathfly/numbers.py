@@ -51,6 +51,11 @@ def digits_int(m) -> int:
     "A series of digits"
     return int("".join(m["digits10_list"]))
 
+@ctx.capture("number", rule="{user.digits10}+")
+def number(m) -> int:
+    "A series of digits"
+    return int("".join(m["digits10_list"]))
+
 @mod.capture(rule="{user.numberth}")
 def numberth(m) -> int:
     "Numberth"
