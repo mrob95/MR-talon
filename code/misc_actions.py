@@ -8,6 +8,7 @@ import os
 import re
 import time
 from subprocess import Popen
+from pathlib import Path
 
 from ctypes import (c_short, c_long, c_ushort, c_ulong, sizeof,
                     POINTER, pointer, Structure, Union, windll)

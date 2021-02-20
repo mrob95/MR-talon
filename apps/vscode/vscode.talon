@@ -18,14 +18,14 @@ next tab [<user.n20>]: key("ctrl-pgdown:{n20 or 1}")
 previous tab [<user.n20>]: key("ctrl-pgup:{n20 or 1}")
 <user.numberth> tab: key("alt-{numberth}")
 #
-line <user.digits>: user.vscode_go_line(digits)
-end line <user.digits>:
-    user.vscode_go_line(digits)
+line <user.line_numbers>: user.vscode_go_line(line_numbers)
+end line <user.line_numbers>:
+    user.vscode_go_line(line_numbers)
     key(end:2)
-select by <user.digits>: user.vscode_select_to(digits)
-select <user.digits> by <user.digits>:
-    user.vscode_go_line(digits_1)
-    user.vscode_select_to(digits_2)
+select by <user.line_numbers>: user.vscode_select_to(line_numbers)
+select <user.line_numbers> by <user.line_numbers>:
+    user.vscode_go_line(line_numbers_1)
+    user.vscode_select_to(line_numbers_2)
 #
 shunt [<user.n20>]: key("shift-down:{n20 or 1}")
 comment line: key(ctrl-/)

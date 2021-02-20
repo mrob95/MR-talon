@@ -8,6 +8,7 @@ tens = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "nin
 repeat = {name: str(i) for i, name in enumerate(raw_digits[1:] + teens)}
 numbers = {name: str(i+1) for i, name in enumerate(raw_digits[1:] + teens)}
 digits_d = {name: str(i) for i, name in enumerate(raw_digits)}
+teens_d = {name: str(i + 10) for i, name in enumerate(teens)}
 tens_d = {name: str(i*10) for i, name in enumerate(tens, 2)}
 numberth_d = {"first": "1","second": "2","third": "3","fourth": "4","fifth": "5","sixth": "6","seventh": "7","eighth": "8","last": "9","ninth": "9"}
 
@@ -28,6 +29,9 @@ ctx.lists["user.numberth"] = numberth_d
 mod.list("digits10")
 ctx.lists["user.digits10"] = digits_d
 
+mod.list("line_numbers")
+ctx.lists["user.line_numbers"] = {**digits_d, **teens_d}
+
 mod.list("spoken10")
 ctx.lists["user.spoken10"] = raw_digits
 
@@ -46,15 +50,15 @@ def digits(m) -> str:
     "A series of digits"
     return "".join(m["digits10_list"])
 
-@mod.capture(rule="{user.digits10}+")
-def digits_int(m) -> int:
+@mod.capture(rule="{user.line_numbers}+")
+def line_numbers(m) -> str:
     "A series of digits"
-    return int("".join(m["digits10_list"]))
+    return "".join(m["line_numbers_list"])
 
-@ctx.capture("number", rule="{user.digits10}+")
+@ctx.capture("number", rule="<user.digits>")
 def number(m) -> int:
     "A series of digits"
-    return int("".join(m["digits10_list"]))
+    return int(m["digits"])
 
 @mod.capture(rule="{user.numberth}")
 def numberth(m) -> int:
