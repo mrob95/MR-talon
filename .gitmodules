@@ -1,0 +1,3 @@
+[submodule "maths"]
+	path = maths
+	url = https://github.com/mrob95/mathfly-talon.git
