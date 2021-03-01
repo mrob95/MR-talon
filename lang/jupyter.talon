@@ -1,5 +1,6 @@
 title: /JupyterLab/
 -
+tag(): user.command_mode
 next pane [<user.n20>]: key("ctrl-shift-]:{n20 or 1}")
 previous pane [<user.n20>]: key("ctrl-shift-[:{n20 or 1}")
 replace: key("ctrl-shift-r")

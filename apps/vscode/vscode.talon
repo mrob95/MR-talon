@@ -1,6 +1,7 @@
 app: Visual Studio Code
 # app: Code.exe
 -
+tag(): user.command_mode
 action(edit.line_clone):
     key(shift-alt-down)
 #

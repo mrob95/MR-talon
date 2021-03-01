@@ -9,9 +9,9 @@ def pomodoro(gui: imgui.GUI):
     cur_time = datetime.now().time()
     min_scaled = cur_time.minute % 30
     if min_scaled < 25:
-        gui.text(f"Work: {25-min_scaled:02d} : {60-cur_time.second:02d}")
+        gui.text(f"Work: {24-min_scaled:02d} : {59-cur_time.second:02d}")
     else:
-        gui.text(f"Rest: {5-min_scaled:02d} : {60-cur_time.second:02d}")
+        gui.text(f"Rest: {29-min_scaled:02d} : {59-cur_time.second:02d}")
 
 
 @mod.action_class
