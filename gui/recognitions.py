@@ -4,7 +4,7 @@ mod = Module()
 
 phrase = "==="
 
-@imgui.open(x=0, y=0, software=False)
+@imgui.open(x=0, y=0)
 def recognitions(gui: imgui.GUI):
     gui.text(phrase)
 

@@ -9,7 +9,7 @@ import time
 mod = Module()
 ctx = Context("mute")
 
-@imgui.open(x=1300, y=1045, software=False)
+@imgui.open(x=1300, y=1045)
 def gui_mute(gui: imgui.GUI):
     if gui.button("Mute"):
         actions.key("alt-a")

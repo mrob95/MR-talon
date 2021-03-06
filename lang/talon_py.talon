@@ -13,6 +13,10 @@ action class:
     """@mod.action_class
     class Actions:
     """
+mod capture:
+    '''@mod.capture(rule="")
+    def (m):
+        ""'''
 context lists:
     'ctx.lists["user."] = '
     key(left:5)

@@ -57,7 +57,7 @@ class MacroRecorder:
 mod = Module()
 macro = MacroRecorder()
 
-@imgui.open(x=1100, y=1043, software=False)
+@imgui.open(x=1100, y=1043)
 def gui(gui: imgui.GUI):
     gui.text(f"Macro recording: {macro.num_recorded}")
 

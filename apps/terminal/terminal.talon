@@ -8,6 +8,9 @@ and user.vs_terminal: True
 -
 tag(): user.terminal
 tag(): user.command_mode
+action(edit.line_clone):
+	# "duple" misrecognition
+	mimic("git pull")
 CD {user.directories}:
     insert('cd "{directories}" && ls')
     key(enter)

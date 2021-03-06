@@ -4,7 +4,7 @@ from talon import *
 
 mod = Module()
 
-@imgui.open(x=1300, y=1043, software=False)
+@imgui.open(x=1300, y=1043)
 def pomodoro(gui: imgui.GUI):
     cur_time = datetime.now().time()
     min_scaled = cur_time.minute % 30

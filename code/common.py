@@ -141,7 +141,9 @@ punctuation = {
     "brax": "[ ] left",
     "curly": "{ } left",
     "left paren": "(",
+    "lenny": "(",
     "right paren": ")",
+    "penny": ")",
     "left bracket": "[",
     "right bracket": "]",
     "left brace": "{",
@@ -220,3 +222,8 @@ FOLDERS = utilities.load_toml_relative("config/folders.toml")
 
 mod.list("folders", desc="Commonly accessed folders")
 ctx.lists["user.folders"] = FOLDERS
+
+@mod.capture(rule="{user.alphabet}+")
+def letters(m) -> str:
+    "A series of letters"
+    return "".join(m["alphabet_list"])

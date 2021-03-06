@@ -105,3 +105,6 @@ disable dragon add-in:
     key(enter)
 
 replace: key(ctrl-h)
+
+select <user.xl_cell>: user.xl_select_cells(xl_cell)
+select <user.xl_cell> by <user.xl_cell>: user.xl_select_cells(xl_cell_1, xl_cell_2)

@@ -133,11 +133,11 @@ print mouse:
     mouse_click()
     t = edit.selected_text()
     user.vscode_return()
-    insert(t)
-print <user.digits>:
+    user.lang_print(t)
+print <user.line_numbers>:
     key(ctrl-k ctrl-b)
-    user.vscode_go_line(digits)
+    user.vscode_go_line(line_numbers)
     key(ctrl-shift-right)
     t = edit.selected_text()
     key(ctrl-k ctrl-g escape)
-    insert(t)
+    user.lang_print(t)

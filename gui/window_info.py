@@ -2,7 +2,7 @@ from talon import *
 
 mod = Module()
 
-@imgui.open(x=0, y=30, software=False)
+@imgui.open(x=0, y=30)
 def window_info(gui: imgui.GUI):
     gui.text(f"{ui.active_app()}")
     gui.text(f"{ui.active_app().exe}")

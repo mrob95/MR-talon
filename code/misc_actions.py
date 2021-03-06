@@ -100,3 +100,29 @@ class Actions:
         actions.app.notify(s)
         with open(path, "a") as f:
             f.write(s + "\n")
+
+# from talon import ctrl
+# from talon.experimental.locate import locate
+# # ctrl.mouse_move(*locate('example.png')[0].center)
+
+# import time
+
+# st = time.perf_counter()
+# pos = locate("user/images/vscode/find-dialogue-cross.png")
+# end = time.perf_counter()
+# print(end - st)
+# print(pos)
+
+# speech_system.register("pre:phrase", lambda j: time.sleep(2t))
+
+# from talon.experimental.textarea import TextArea
+# area = TextArea()
+# # area.theme = dark_theme
+# area.title = 'Talon Buffer'
+# area.value = 'hello world\nthis is a test '
+# area.show()
+# print('value', repr(area.value))
+# span = area.word(0)
+# print('first word', span, repr(area[span]))
+# rect = area.text_to_screen(1)
+# print(rect, area.screen_to_text(rect.center))
