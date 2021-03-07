@@ -3,4 +3,4 @@
 	url = https://github.com/mrob95/mathfly-talon.git
 [submodule "windows_virtual_desktops"]
 	path = windows_virtual_desktops
-	url = ./windows_virtual_desktops/
+	url = https://github.com/mrob95/talon-pyvda.git
