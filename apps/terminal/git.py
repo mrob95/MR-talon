@@ -2,7 +2,10 @@ from talon import *
 
 
 mod = Module()
-ctx = Context()
+ctx = Context("git")
+
+mod.list("git_status_items")
+mod.list("git_branch_items")
 
 @mod.action_class
 class Actions:
@@ -17,6 +20,21 @@ class Actions:
                 giturl = cb
             actions.insert(giturl)
 
+mod.list("git_status_actions")
+ctx.lists["user.git_status_actions"] = {
+    "add": "add",
+    "discard": "checkout --",
+    "diff": "diff",
+    "unstage": "reset HEAD",
+}
+
+mod.list("git_branch_actions")
+ctx.lists["user.git_branch_actions"] = {
+    "delete branch": "branch -D",
+    "remove branch": "branch -d",
+    "merge": "merge",
+    "checkout": "checkout",
+}
 
 mod.list("git_commands")
 ctx.lists["user.git_commands"] = {
@@ -24,12 +42,12 @@ ctx.lists["user.git_commands"] = {
     "delete branch": "branch -D ",
     "new branch": "checkout -b ",
     "add": "add ",
+    "add patch": "add -p ",
     "add all": "add -A",
     "add force": "add -f ",
     "remove": "rm ",
     "remove cashed": "rm --cached ",
     "branch set upstream": "branch --set-upstream-to=",
-    "branch": "branch ",
     "branch remotes": "branch -r ",
     "bisect start": "bisect start",
     "bisect good": "bisect good ",
@@ -91,7 +109,6 @@ ctx.lists["user.git_commands"] = {
     "subversion clone": "svn clone ",
     "subversion fetch": "svn fetch ",
     "subversion rebase": "svn rebase ",
-    "status": "status@",
     "tag": "tag ",
     "unstage": "reset -- ",
 }

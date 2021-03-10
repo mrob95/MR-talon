@@ -15,12 +15,20 @@ from ctypes import (c_short, c_long, c_ushort, c_ulong, sizeof,
 import win32con
 import win32api
 import os
+from pathlib import Path
 
 mod = Module()
 ctx = Context()
 
 @mod.action_class
 class Actions:
+    def cd_directory_of(filename: str):
+        """"""
+        p = Path(filename)
+        directory = p.parent.as_posix()
+        print(directory)
+        actions.insert(f"cd '{directory}'\n")
+
 
     def open_pdf(path: str):
         """"""
@@ -100,6 +108,8 @@ class Actions:
         actions.app.notify(s)
         with open(path, "a") as f:
             f.write(s + "\n")
+
+
 
 # from talon import ctrl
 # from talon.experimental.locate import locate

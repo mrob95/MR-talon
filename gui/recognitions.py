@@ -4,7 +4,7 @@ mod = Module()
 
 phrase = "==="
 
-@imgui.open(x=0, y=0)
+@imgui.open(x=1200, y=1043)
 def recognitions(gui: imgui.GUI):
     gui.text(phrase)
 
@@ -17,6 +17,8 @@ class Actions:
 
 def f(o):
     global phrase
-    phrase = " ".join(o["phrase"]) or "==="
+    if o["phrase"]:
+        phrase = " ".join(o["phrase"])
 
 speech_system.register("post:phrase", f)
+recognitions.show()
