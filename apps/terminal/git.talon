@@ -19,13 +19,15 @@ git clone:
 git create ignore: "curl https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore > .gitignore"
 
 git status: "git_status\n"
-git branch: "git_branch\n"
 git {user.git_status_actions} {user.git_status_items} [(and {user.git_status_items})+]:
 	items = user.cat(git_status_items_list, "' '")
 	"git {git_status_actions} '{items}'"
 git go {user.git_status_items}: user.cd_directory_of(git_status_items)
 git file {user.git_status_items}: "'{git_status_items}'"
 
+git branch: "git_branch\n"
 git {user.git_branch_actions} {user.git_branch_items} [(and {user.git_branch_items})+]:
 	items = user.cat(git_branch_items_list, "' '")
 	"git {git_branch_actions} '{items}'"
+git copy branch {user.git_branch_items}:
+	clip.set_text(git_branch_items)
