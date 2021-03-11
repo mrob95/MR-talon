@@ -1,6 +1,7 @@
 app: Ssms.exe
 app: Microsoft SQL Server Management Studio
 -
+tag(): user.command_mode
 new (file|query): key(ctrl-n)
 open file: key(ctrl-o)
 execute query: key(f5)
