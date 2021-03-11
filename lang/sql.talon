@@ -2,44 +2,74 @@ title: /\.sql/
 -
 # Commands
 case when:
-    "CASE WHEN  END"
-    key(left:4)
-create table: "CREATE TABLE "
-delete: "DELETE "
-distinct: "DISTINCT "
-from: "FROM "
-for system time: "FOR SYSTEM TIME "
-group by: "GROUP BY "
-having: "HAVING "
+    "case end"
+    key(left:3 enter:2 up)
+when then:
+    "when  then "
+    key(left:6)
+create table: "create table "
+create view: "create view "
+create index: "create index "
+create synonym: "create synonym "
+create procedure:
+    """create proc
+    as
+    set nocount on;
+    begin
+    end
+    go"""
+    key(up:6 end space)
+drop table: "drop table "
+drop view: "drop view "
+drop index: "drop index "
+drop synonym: "drop synonym "
+drop procedure: "drop procedure "
+delete: "delete "
+distinct: "distinct "
+from: "from "
+for system time: "for system time "
+for system time all: "for system_time all"
+for system time as of: "for system_time as of"
+group by: "group by "
+group by grouping sets:
+    "group by grouping sets ()"
+    key("left enter ( ) left")
+having: "having "
 insert into:
-    "INSERT INTO "
-    key(enter:2)
-    "VALUES "
+    "insert into "
+insert into values:
+    "insert into "
+    key(enter:1)
+    "values "
     key(up:2 end)
-is not null: " IS NOT NULL"
-is null: " IS NULL"
+is not null: " is not null"
+is null: " is null"
 #
-left join: "LEFT JOIN "
-right join: "RIGHT JOIN "
-full join: "FULL JOIN "
-inner join: "INNER JOIN "
-outer join: "OUTER JOIN "
-normal join: "JOIN "
+left join: "left join "
+right join: "right join "
+full join: "full join "
+inner join: "inner join "
+outer join: "outer join "
+normal join: "join "
 #
-limit: "LIMIT "
+limit: "limit "
 not equals: " <> "
-on columns: "ON "
-order ascending: "ASC "
-order by: "ORDER BY "
-order descending: "DESC "
-select every: "SELECT *"
-select: "SELECT "
-union: "UNION "
-update: "UPDATE"
-using: "USING "
-value null: "NULL"
-where: "WHERE "
+order ascending: "asc "
+order by: "order by "
+order descending: "desc "
+partition by: "partition by "
+select every: "select *"
+select count: "select count(*)"
+select: "select "
+set nocount on: "set nocount on"
+truncate table: "truncate table "
+union: "union "
+union all: "union all"
+update: "update"
+using: "using "
+value null: "null"
+where: "where "
 with as:
-    "WITH  AS ()"
+    "with  as ()"
     key(left enter:2 up:2 end left:5)
 semi: key(end ;)

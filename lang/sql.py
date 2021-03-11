@@ -7,25 +7,25 @@ title: /Server Management Studio/
 """
 
 ctx.lists["user.functions"] = {
-    "average": "AVG",
-    "count": "COUNT",
-    "length": "LENGTH",
-    "max": "MAX",
-    "min": "MIN",
-    "sum": "SUM",
+    "average": "avg",
+    "count": "count",
+    "length": "length",
+    "max": "max",
+    "min": "min",
+    "sum": "sum",
 }
 
 ctx.lists["user.logicals"] = {
-    "and": " AND ",
-    "as": " AS ",
-    "between": " BETWEEN ",
-    "in": " IN ",
-    "is": " IS ",
-    "is not": " IS NOT ",
-    "like": " LIKE ",
-    "or": " OR ",
-    "on": " ON ",
-    "then": " THEN ",
-    "not": " NOT ",
+    "and": " and ",
+    "as": " as ",
+    "between": " between ",
+    "in": " in ",
+    "is": " is ",
+    "is not": " is not ",
+    "like": " like ",
+    "or": " or ",
+    "on": " on ",
+    "then": " then ",
+    "not": " not ",
 }
 
