@@ -1,5 +1,6 @@
 app: Excel
 -
+tag(): user.command_mode
 settings():
     key_wait = 10
 
@@ -19,6 +20,10 @@ rename tab:
     key(alt-h)
     sleep(200ms)
     key(o r)
+tab colour:
+    key(alt-h)
+    sleep(200ms)
+    key(o t)
 
 duplicate tab:
     key(alt-h)
@@ -32,6 +37,10 @@ paste values:
     key(alt-h)
     sleep(200ms)
     key(v e)
+paste widths:
+    key(alt-h)
+    sleep(200ms)
+    key(v w)
 
 insert cells:
     key(ctrl-shift-+)
@@ -52,8 +61,20 @@ destroy column:
     sleep(200ms)
     key(down:3 enter)
 
-select row: key(shift-space)
-select column: key(ctrl-space)
+select row:
+    key(shift-space)
+    sleep(200ms)
+select column:
+    key(ctrl-space)
+    sleep(200ms)
+delete row:
+    key(shift-space)
+    sleep(200ms)
+    key(delete)
+delete column:
+    key(ctrl-space)
+    sleep(200ms)
+    key(delete)
 
 go to file: key(alt-f)
 go to home: key(alt-h)
@@ -62,10 +83,16 @@ go to insert: key(alt-n)
 go to data: key(alt-a)
 go to view: key(alt-w)
 go to formula: key(alt-m)
+go to analyse: key(alt:down j t alt:up)
 
 fill down <user.n20>: key("ctrl-d:{n20}")
 absolute reference <user.n20>: key("f4:{n20}")
 
+refresh all: key(ctrl-alt-f5)
+pivot [table] auto refresh:
+    key(alt:down j t alt:up)
+    key(z p t t)
+    key(tab right up tab down:2 space)
 
 edit cell: key(f2)
 cell fill: key(alt-h h)
