@@ -31,3 +31,4 @@ git {user.git_branch_actions} {user.git_branch_items} [(and {user.git_branch_ite
 	"git {git_branch_actions} '{items}'"
 git copy branch {user.git_branch_items}:
 	clip.set_text(git_branch_items)
+	app.notify(git_branch_items)
