@@ -19,6 +19,11 @@ class Actions:
             actions.sleep("100ms")
             utilities.save_clipboard_image()
 
+    def mouse_hold_for_a_bit():
+        """"""
+        ctrl.mouse_click(hold=100)
+
+
     def mouse_move_relative(x: int, y: int):
         """"""
         x_cur, y_cur = ctrl.mouse_pos()

@@ -33,8 +33,7 @@ mod.list("talon_tags")
 
 def update_lists(decls):
     for thing in ["actions", "lists", "captures", "tags", "apps"]:
-        l = getattr(decls, thing)
-        names = l.keys()
+        names = getattr(decls, thing).keys()
         spoken = [create_spoken_form(s) for s in names]
         ctx.lists[f"user.talon_{thing}"] = dict(zip(spoken, names))
         # print(dict(zip(spoken, names)))
