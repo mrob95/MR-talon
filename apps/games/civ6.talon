@@ -17,4 +17,3 @@ tree civics: user.mouse_move_relative_window(85, 81)
 # mouse microphone: user.mouse_move_relative_window
 
 view city states: user.mouse_move_relative_window(1452, 81)
-
