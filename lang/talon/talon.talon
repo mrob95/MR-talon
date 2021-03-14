@@ -10,14 +10,11 @@ title regex:
     key(left)
 key enter: "key(enter)\n"
 #
-fun key: user.insert_function("key")
-fun sleep: user.insert_function("sleep")
-fun insert: user.insert_function("insert")
-fun action: user.insert_function("action")
-fun print: user.insert_function("print")
-fun function: user.insert_function("user.insert_function")
-fun formatted [text]: user.insert_function("user.formatted_text")
-fun snake [text]: user.insert_function("user.snake")
+fun [user] {user.talon_actions}: user.insert_function(talon_actions)
+list [user] {user.talon_lists}: "{{{talon_lists}}}"
+capture [user] {user.talon_captures}: "<{talon_captures}>"
+tag [user] {user.talon_tags}: "tag: {talon_tags}"
+set tag [user] {user.talon_tags}: "tag(): {talon_tags}"
 #
 mod control: "ctrl-"
 mod shift: "shift-"

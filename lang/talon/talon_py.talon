@@ -30,6 +30,5 @@ clip capture:
     """
 mod list: user.insert_function("mod.list")
 mod tag: user.insert_function("mod.tag")
-fun key: user.insert_function("actions.key")
-fun sleep: user.insert_function("actions.sleep")
-fun insert: user.insert_function("actions.insert")
+(action | fun) {user.talon_actions}:
+    user.insert_function("actions.{talon_actions}")
