@@ -88,6 +88,8 @@ printer <phrase>$:
     'print("")'
     key(left:2)
     insert(user.formatted_text(phrase or "", 4, 0))
+print [all] assignments: user.print_all_assignments()
+print arguments: user.print_arguments()
 # Types
 from typing import {user.py_typing_types}: "from typing import {py_typing_types}"
 type {user.py_types}: insert(py_types)

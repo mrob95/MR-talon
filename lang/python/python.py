@@ -1,5 +1,6 @@
-from typing import Mapping
+from typing import Mapping, Union
 from talon import *
+import re
 
 mod = Module()
 ctx = Context("python")
@@ -9,10 +10,54 @@ ctx.matches = r"""
 tag: user.python
 """
 
+def print_string(s):
+    return f'print(f"{s}: {{{s}}}")'
+
 @ctx.action_class("user")
 class Actions:
     def lang_print(s: str):
-        actions.insert(f'print(f"{s}: {{{s}}}")')
+        actions.insert(print_string(s))
+
+
+@mod.action_class
+class Actions:
+    def print_all_assignments():
+        """Adds a print statement below each assignment in a selected block of python code."""
+        text = actions.edit.selected_text()
+        new_lines = []
+        for line in text.split("\n"):
+            new_lines.append(line)
+            assignment_match = re.match(r"^(\s*)([^\(]+?) = .+?$", line)
+            if assignment_match:
+                whitespace, assigned = assignment_match.groups()
+                if "," in assigned:
+                    for sub_assigned in assigned.split(","):
+                        sub_assigned = sub_assigned.strip()
+                        new_lines.append(f"{whitespace}{print_string(sub_assigned)}")
+                else:
+                    new_lines.append(f"{whitespace}{print_string(assigned)}")
+        actions.user.paste("\n".join(new_lines))
+
+    def print_arguments():
+        """Adds a print statement below a selected function declaration."""
+        text = actions.edit.selected_text()
+        text_no_newlines = text.replace("\n", "")
+
+        match = re.search(r"def (.+?)\((.+?)\):", text_no_newlines)
+        if not match: return
+        name, args_str = match.groups()
+
+        # Get rid of e.g. Union[str, int]
+        args_str = re.sub(r"\[.+?\]", "", args_str)
+        args = args_str.split(",")
+        args_to_print = []
+        for arg in args:
+            arg_name = arg.strip().split(" ")[0].split("=")[0].strip(": ")
+            args_to_print.append(f"{arg_name}={{{arg_name}}}")
+
+        print_str = f'print(f"***{name}*** {", ".join(args_to_print)}")'
+        result = "\n    ".join((text, print_str))
+        actions.user.paste(result)
 
 
 ctx.lists["user.functions"] = {
