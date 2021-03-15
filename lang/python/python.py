@@ -11,7 +11,7 @@ tag: user.python
 """
 
 def print_string(s):
-    return f'print(f"{s}: {{{s}}}")'
+    return f"print(f'{s} = {{{s}}}')"
 
 @ctx.action_class("user")
 class Actions:
@@ -30,12 +30,9 @@ class Actions:
             assignment_match = re.match(r"^(\s*)([^\(]+?) = .+?$", line)
             if assignment_match:
                 whitespace, assigned = assignment_match.groups()
-                if "," in assigned:
-                    for sub_assigned in assigned.split(","):
-                        sub_assigned = sub_assigned.strip()
-                        new_lines.append(f"{whitespace}{print_string(sub_assigned)}")
-                else:
-                    new_lines.append(f"{whitespace}{print_string(assigned)}")
+                for sub_assigned in assigned.split(","):
+                    sub_assigned = sub_assigned.strip()
+                    new_lines.append(f"{whitespace}{print_string(sub_assigned)}")
         actions.user.paste("\n".join(new_lines))
 
     def print_arguments():
