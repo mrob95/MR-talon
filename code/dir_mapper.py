@@ -54,10 +54,5 @@ def update_maps(window):
     except:
         return
 
-def print_stuff(win):
-    print(win)
-    print(dir(win))
-
 ui.register("win_title", update_maps)
 ui.register("win_focus", update_maps)
-# ui.register("win_focus", print_stuff)

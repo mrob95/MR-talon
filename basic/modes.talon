@@ -1,4 +1,4 @@
 
 
-talon sleep: speech.disable()
-talon wake: speech.enable()
+# talon sleep: speech.disable()
+# talon wake: speech.enable()

@@ -2,7 +2,6 @@ from subprocess import Popen
 from talon import *
 from talon import imgui
 from win32gui import GetForegroundWindow, GetWindowText
-from user.utils import utilities
 import os
 import time
 
@@ -19,7 +18,4 @@ def gui_mute(gui: imgui.GUI):
 class Actions:
     def mute_show():
         """"""
-        if gui_mute.showing:
-            gui_mute.hide()
-        else:
-            gui_mute.show()
+        gui_mute.hide() if gui_mute.showing else gui_mute.show()

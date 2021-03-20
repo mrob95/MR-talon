@@ -4,7 +4,6 @@ from talon import Context, Module, actions, clip, ui
 ctx = Context()
 mod = Module()
 
-
 @ctx.action_class("edit")
 class edit_actions:
     def selected_text() -> str:
@@ -14,7 +13,6 @@ class edit_actions:
             return s.get()
         except clip.NoChange:
             return ""
-
 
 @mod.action_class
 class Actions:

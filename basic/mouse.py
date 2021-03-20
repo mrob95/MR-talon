@@ -1,4 +1,3 @@
-from user.utils import utilities
 from talon import *
 import time
 
@@ -15,9 +14,6 @@ class Actions:
         """Drag"""
         ctrl.mouse_click(up=True)
         current_exe = ui.active_app().exe.lower()
-        if "shellexperiencehost.exe" in current_exe:
-            actions.sleep("100ms")
-            utilities.save_clipboard_image()
 
     def mouse_hold_for_a_bit():
         """"""

@@ -1,4 +1,4 @@
-from user.utils import utilities
+import toml
 from talon import *
 from typing import List, Optional
 
@@ -214,12 +214,12 @@ ctx.lists["user.simple_keys_norepeat"] = simple_keys_norepeat
 
 # ------------------------------------------------
 
-PERSONAL = utilities.load_toml_relative("config/personal.toml")
+PERSONAL = toml.load("user/config/personal.toml")
 
 mod.list("personal", desc="...")
 ctx.lists["user.personal"] = PERSONAL
 
-FOLDERS = utilities.load_toml_relative("config/folders.toml")
+FOLDERS = toml.load("user/config/folders.toml")
 
 mod.list("folders", desc="Commonly accessed folders")
 ctx.lists["user.folders"] = FOLDERS

@@ -1,13 +1,11 @@
-from user.utils import utilities
 from talon import speech_system
 from talon import *
-import talon
 
 from win32gui import GetForegroundWindow, GetWindowText
 import os
 import re
 import time
-from subprocess import Popen
+from subprocess import Popen, run
 from pathlib import Path
 
 from ctypes import (c_short, c_long, c_ushort, c_ulong, sizeof,
@@ -88,7 +86,8 @@ class Actions:
 
     def kill_notepads():
         """"""
-        utilities.kill_notepad()
+        bat_path = Path("user/utils/notepad_kill.bat")
+        p = run([bat_path.absolute()], capture_output=True)
 
     def record_error(path: str):
         """"""

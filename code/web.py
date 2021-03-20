@@ -1,5 +1,4 @@
 from talon import Context, Module
-from user.utils import utilities
 
 
 mod = Module()
