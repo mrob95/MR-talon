@@ -23,6 +23,7 @@ class Actions:
 mod.list("git_status_actions")
 ctx.lists["user.git_status_actions"] = {
     "add": "add",
+    "add patch": "add -p",
     "discard": "checkout --",
     "diff": "diff",
     "unstage": "reset HEAD",
@@ -78,6 +79,7 @@ ctx.lists["user.git_commands"] = {
     "gooey blame": "gui blame PATH",
     "init": "init ",
     "log": "log ",
+    "slog": "slog ",
     "merge tool": "mergetool ",
     "merge": "merge ",
     "merge abort": "merge --abort ",
