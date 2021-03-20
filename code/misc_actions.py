@@ -23,10 +23,9 @@ ctx = Context()
 @mod.action_class
 class Actions:
     def cd_directory_of(filename: str):
-        """"""
+        """CD to the directory of the path passed."""
         p = Path(filename)
-        directory = p.parent.as_posix()
-        print(directory)
+        directory = p.as_posix() if filename.endswith("/") else p.parent.as_posix()
         actions.insert(f"cd '{directory}'\n")
 
 
