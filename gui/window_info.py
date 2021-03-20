@@ -11,5 +11,5 @@ def window_info(gui: imgui.GUI):
 @mod.action_class
 class Actions:
     def window_info_toggle():
-        """"""
+        """toggle window info imgui"""
         window_info.hide() if window_info.showing else window_info.show()
