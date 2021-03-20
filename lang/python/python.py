@@ -18,7 +18,6 @@ class Actions:
     def lang_print(s: str):
         actions.insert(print_string(s))
 
-
 @mod.action_class
 class Actions:
     def print_all_assignments():
@@ -27,16 +26,20 @@ class Actions:
         new_lines = []
         for line in text.split("\n"):
             new_lines.append(line)
-            assignment_match = re.match(r"^(\s*)([^\(]+?) = .+?$", line)
-            if assignment_match:
-                whitespace, assigned = assignment_match.groups()
-                for sub_assigned in assigned.split(","):
-                    sub_assigned = sub_assigned.strip()
-                    new_lines.append(f"{whitespace}{print_string(sub_assigned)}")
+            for pattern, extra_whitespace in [
+                (r"^(\s*)([^\(\#]+?) = .+?$", ""),
+                (r"^(\s*)for (.+?) in .+?:$", "    "),
+            ]:
+                assignment_match = re.match(pattern, line)
+                if assignment_match:
+                    whitespace, assigned = assignment_match.groups()
+                    for sub_assigned in assigned.split(","):
+                        sub_assigned = sub
+                        new_lines.append(f"{whitespace}{extra_whitespace}{print_string(sub_assigned)}")
         actions.user.paste("\n".join(new_lines))
 
     def print_arguments():
-        """Adds a print statement below a selected function declaration."""
+        """Adds a print statement below a selected function declaration containing its arguments."""
         text = actions.edit.selected_text()
         text_no_newlines = text.replace("\n", "")
 
@@ -49,10 +52,11 @@ class Actions:
         args = args_str.split(",")
         args_to_print = []
         for arg in args:
+            if arg in {"self", "cls"}: continue
             arg_name = arg.strip().split(" ")[0].split("=")[0].strip(": ")
             args_to_print.append(f"{arg_name}={{{arg_name}}}")
 
-        print_str = f'print(f"***{name}*** {", ".join(args_to_print)}")'
+        print_str = f'print(f"{name}: {", ".join(args_to_print)}")'
         result = "\n    ".join((text, print_str))
         actions.user.paste(result)
 
