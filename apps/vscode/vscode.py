@@ -3,8 +3,10 @@ from talon import *
 mod = Module()
 ctx = Context()
 
+mod.tag("vscode")
+
 ctx.matches = r"""
-app: Visual Studio Code
+tag: vscode
 """
 
 mark_window_title = None
@@ -45,3 +47,11 @@ class Actions:
             actions.key("ctrl-k ctrl-right")
             actions.key("ctrl-k ctrl-g escape")
 
+    def vscode_grab_mouse() -> str:
+        """Grab the identifier below the mouse cursor and return it"""
+        actions.user.vscode_mark()
+        actions.mouse_click()
+        actions.mouse_click()
+        t = actions.edit.selected_text()
+        actions.user.vscode_return()
+        return t

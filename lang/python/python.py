@@ -143,6 +143,12 @@ ctx.lists["user.logicals"] = {
     "for": " for ",
 }
 
+ctx.lists["user.values"] = {
+    "false": "False",
+    "none": "None",
+    "true": "True",
+}
+
 mod.list("py_umeths")
 ctx.lists["user.py_umeths"] = {
     "integer": "int",

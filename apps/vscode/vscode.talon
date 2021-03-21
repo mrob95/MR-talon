@@ -1,6 +1,7 @@
 app: Visual Studio Code
 app: Code.exe
 -
+tag(): user.vscode
 tag(): user.command_mode
 action(edit.line_clone):
     key(shift-alt-down)
@@ -113,31 +114,5 @@ split definition: key(ctrl-k f12)
 #
 set (anchor | mark): key(ctrl-k ctrl-b)
 go to (anchor | mark): key(ctrl-k ctrl-g)
-insert mouse:
-    user.vscode_mark()
-    mouse_click()
-    mouse_click()
-    t = edit.selected_text()
-    user.vscode_return()
-    insert(t)
-insert mouse line:
-    user.vscode_mark()
-    mouse_click()
-    key(home shift-end)
-    t = edit.selected_text()
-    user.vscode_return()
-    insert(t)
-print mouse:
-    user.vscode_mark()
-    mouse_click()
-    mouse_click()
-    t = edit.selected_text()
-    user.vscode_return()
-    user.lang_print(t)
-print <user.line_numbers>:
-    key(ctrl-k ctrl-b)
-    user.vscode_go_line(line_numbers)
-    key(ctrl-shift-right)
-    t = edit.selected_text()
-    key(ctrl-k ctrl-g escape)
-    user.lang_print(t)
+insert mouse: insert(user.vscode_grab_mouse())
+print mouse: user.lang_print(user.vscode_grab_mouse())
