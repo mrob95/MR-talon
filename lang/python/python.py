@@ -104,6 +104,7 @@ ctx.lists["user.functions"] = {
     "max": "max",
     "maximum": "max",
     "pop": "pop",
+    "path": "Path",
     "print": "print",
     "quit": "quit",
     "range": "range",
