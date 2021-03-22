@@ -1,5 +1,4 @@
-app: brave.exe
-app: chrome.exe
+app: chromium
 -
 <user.numberth> tab: key("ctrl-{numberth}")
 new tab [<user.n20>]: key("ctrl-t:{n20 or 1}")

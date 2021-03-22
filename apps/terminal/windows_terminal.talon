@@ -1,5 +1,4 @@
-os: windows
-app: WindowsTerminal.exe
+app: windows_terminal
 -
 # https://github.com/mrob95/WindowsTerminal-config/blob/master/settings.json
 action(edit.paste): key(ctrl-shift-v)

@@ -1,5 +1,5 @@
 tag: user.python
-and tag: user.vscode
+and app: vscode
 -
 for mouse:
     "for  in {user.vscode_grab_mouse()}:"
