@@ -60,7 +60,7 @@ def notes_gui(gui: imgui.GUI):
 @mod.action_class
 class Actions:
     def notes_gui_toggle():
-        """"""
+        """Toggle the notes gui"""
         if notes_gui.showing:
             ctx.tags = []
             notes_gui.hide()
@@ -70,7 +70,7 @@ class Actions:
             notes_gui.show()
 
     def create_note():
-        """"""
+        """Create a new note"""
         curtime = datetime.now().strftime("%Y-%m-%d %H%M%S")
         file_path = NOTES_DIR / f"{curtime}.txt"
         file_path.touch()
@@ -78,7 +78,7 @@ class Actions:
         update_notes()
 
     def delete_note(n: int):
-        """"""
+        """Delete note number n"""
         global notes
         assert n <= len(notes)
         note = notes[n-1]
@@ -88,7 +88,7 @@ class Actions:
         update_notes()
 
     def show_note(n: int):
-        """"""
+        """Show note number n"""
         global notes
         assert n <= len(notes)
         subprocess.Popen(["notepad", str(notes[n-1].path)])

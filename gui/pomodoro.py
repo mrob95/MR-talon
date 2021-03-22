@@ -17,9 +17,5 @@ def pomodoro(gui: imgui.GUI):
 @mod.action_class
 class Actions:
     def pomodoro_toggle():
-        """"""
+        """Toggle pomodoro"""
         pomodoro.hide() if pomodoro.showing else pomodoro.show()
-
-    def pomodoro_reset():
-        """"""
-        ...

@@ -7,21 +7,16 @@ ctx = Context()
 @mod.action_class
 class Actions:
     def mouse_drag():
-        """Drag"""
+        """Start dragging"""
         ctrl.mouse_click(down=True)
 
     def mouse_release():
-        """Drag"""
+        """Release drag"""
         ctrl.mouse_click(up=True)
         current_exe = ui.active_app().exe.lower()
 
-    def mouse_hold_for_a_bit():
-        """"""
-        ctrl.mouse_click(hold=100)
-
-
     def mouse_move_relative(x: int, y: int):
-        """"""
+        """Move the mouse relative to its current position"""
         x_cur, y_cur = ctrl.mouse_pos()
         actions.mouse_move(x_cur+x, y_cur+y)
 
@@ -37,7 +32,7 @@ class Actions:
         clip.set_text((x - rect.left, y - rect.top))
 
     def mouse_move_relative_window(x: int, y: int):
-        """"""
+        """Move the mouse to a point relative to the current window"""
         rect = ui.active_window().rect
         actions.mouse_move(x+rect.left, y+rect.top)
 

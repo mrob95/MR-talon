@@ -9,7 +9,7 @@ app: RStudio
 @mod.action_class
 class Actions:
     def r_paste_into_console(pattern: str):
-        """"""
+        """Paste text into the Rstudio console"""
         with clip.capture() as s:
             actions.edit.copy()
         text = s.get()

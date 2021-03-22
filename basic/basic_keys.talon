@@ -44,7 +44,7 @@ say <phrase> [over]:
     insert(user.formatted_text(phrase, 0, 0))
 ({user.capitalisation} {user.spacing} | {user.capitalisation} | {user.spacing}) bow <phrase>:
     insert(user.formatted_text(phrase, capitalisation or 0, spacing or 0))
-({user.capitalisation} {user.spacing} | {user.capitalisation} | {user.spacing}) stern <phrase>$:
+({user.capitalisation} {user.spacing} | {user.capitalisation} | {user.spacing}) burn <phrase>$:
     insert(user.formatted_text(phrase, capitalisation or 0, spacing or 0))
 
 hug prekris: key(()

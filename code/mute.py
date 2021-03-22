@@ -17,5 +17,5 @@ def gui_mute(gui: imgui.GUI):
 @mod.action_class
 class Actions:
     def mute_show():
-        """"""
+        """Show the mute button"""
         gui_mute.hide() if gui_mute.showing else gui_mute.show()

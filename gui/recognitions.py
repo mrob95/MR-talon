@@ -11,7 +11,7 @@ def recognitions(gui: imgui.GUI):
 @mod.action_class
 class Actions:
     def recognitions_toggle():
-        """"""
+        """Toggle the recognition monitor"""
         recognitions.hide() if recognitions.showing else recognitions.show()
 
 

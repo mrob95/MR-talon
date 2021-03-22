@@ -26,9 +26,8 @@ class Actions:
         directory = p.as_posix() if filename.endswith("/") else p.parent.as_posix()
         actions.insert(f"cd '{directory}'\n")
 
-
     def open_pdf(path: str):
-        """"""
+        """Open a file using SumatraPDF"""
         Popen(["SumatraPDF", path])
 
     def view_talon_log():
@@ -64,33 +63,17 @@ class Actions:
         print(f"{ui.active_app().exe=}")
         print(f"{ui.active_window().title=}")
 
-    def print_copy_info():
-        """"""
-        print("registry.actions['edit.copy']")
-        print(registry.actions['edit.copy'])
-        print([a.ctx for a in registry.actions['edit.copy']])
-        # print(registry.contexts)
-        # print(registry.contexts["user.basic.basic_keys.talon"])
-        # print(registry.contexts["user.apps.windows_terminal.talon"])
-        print('registry.contexts["user.basic.basic_keys.talon"] > registry.contexts["user.apps.windows_terminal.talon"]')
-        print(registry.contexts["user.basic.basic_keys.talon"] > registry.contexts["user.apps.windows_terminal.talon"])
-
-    def test_action(thing: str):
-        """testing"""
-        pass
-
     def dragon_mimic(phrase: str):
-        """mimic"""
-        print(phrase)
+        """Mimic a phrase using the speech engine"""
         speech_system.engine_mimic(phrase)
 
     def kill_notepads():
-        """"""
+        """Close all notepad windows"""
         bat_path = Path("user/utils/notepad_kill.bat")
         p = run([bat_path.absolute()], capture_output=True)
 
     def record_error(path: str):
-        """"""
+        """Record a mistake"""
         actions.key("ctrl-c")
         actions.sleep("200ms")
         s = clip.get().replace("\n", " ")

@@ -123,7 +123,7 @@ ctx.lists["user.c_type_modifiers"] = {
 
 @mod.capture(rule="[{user.c_type_modifiers}+] {user.c_types} [(star | value)]")
 def c_type(m) -> str:
-    """"""
+    """A C type, e.g. static inline int *"""
     result = m["c_types"]
     if hasattr(m, "c_type_modifiers_list"):
         modifiers = " ".join(m["c_type_modifiers_list"]) + " "

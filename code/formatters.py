@@ -75,6 +75,6 @@ class Actions:
         return actions.user.formatted_text(phrase, 2, 1)
 
     def phrase_to_str(phrase: Union[Phrase, str]) -> str:
-        """"""
+        """Parse and join a phrase into a string"""
         words = " ".join(actions.dictate.parse_words(phrase))
         return words
