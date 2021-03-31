@@ -18,7 +18,7 @@ shell iffae: user.insert_fancy("elif [|]:")
 shells: "else:"
 insert (doc | long) string:
     '""""""'
-    key(left:3, enter:2, up)
+    key(left:3 enter:2 up)
 lambda: user.insert_fancy("lambda [|]:")
 return: "return "
 set trace: "import pdb; pdb.set_trace()"
@@ -31,7 +31,7 @@ with open {user.py_fopen_modes}+:
 with as: user.insert_fancy("with [|] as :")
 # Dictation
 function [<phrase>]$:
-    "def {user.snake(phrase or '')}():$"
+    "def {user.snake(phrase or '')}():"
     key(left:2)
 method [<phrase>]$:
     "def {user.snake(phrase or '')}(self):"
@@ -47,9 +47,10 @@ commenter <phrase>$:
     "# "
     insert(user.formatted_text(phrase or "", 4, 0))
 printer <phrase>$:
-    'print("{user.formatted_text(phrase or '', 4, 0)}")'
+    'print("{user.formatted_text(phrase or \'\', 4, 0)}")'
 print [all] assignments: user.print_all_assignments()
 print arguments: user.print_arguments()
+refactor assignment: user.refactor_assignment()
 # Types
 from typing import {user.py_typing_types}: "from typing import {py_typing_types}"
 type {user.py_types}: insert(py_types)

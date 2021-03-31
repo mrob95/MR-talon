@@ -34,7 +34,7 @@ class Actions:
                 if assignment_match:
                     whitespace, assigned = assignment_match.groups()
                     for sub_assigned in assigned.split(","):
-                        sub_assigned = sub
+                        sub_assigned = sub_assigned.strip()
                         new_lines.append(f"{whitespace}{extra_whitespace}{print_string(sub_assigned)}")
         actions.user.paste("\n".join(new_lines))
 
@@ -59,6 +59,15 @@ class Actions:
         print_str = f'print(f"{name}: {", ".join(args_to_print)}")'
         result = "\n    ".join((text, print_str))
         actions.user.paste(result)
+
+    def refactor_assignment():
+        """Refactor a simple if-else assignment into an inline assignmenth"""
+        text = actions.edit.selected_text()
+        match = re.search(r"(\s*)if (.+?):\s+(?P<ident>.+?)\s?=\s?(.+?)\n\s*else:\s+(?P=ident)\s?=\s?(.+?)", text, re.MULTILINE)
+
+        if match:
+            ws, test, ident, value_if, value_else = match.groups()
+            actions.user.paste(f"{ws}{ident} = {value_if} if {test} else {value_else}")
 
 
 ctx.lists["user.functions"] = {
