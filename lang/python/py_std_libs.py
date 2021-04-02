@@ -292,3 +292,19 @@ ctx.lists["user.py_lib_datetime"] = {
     "weekday": "weekday!",
     "year": "year!",
 }
+
+mod.list("py_lib_json")
+ctx.lists["user.py_lib_json"] = {
+    "Decode Error": "json.JSONDecodeError!",
+    "Decoder": "json.JSONDecoder!",
+    "Encoder": "json.JSONEncoder!",
+    "codecs": "json.codecs!",
+    "decoder": "json.decoder!",
+    "detect encoding": "json.detect_encoding",
+    "dump": "json.dump",
+    "dumps": "json.dumps",
+    "encoder": "json.encoder!",
+    "load": "json.load",
+    "loads": "json.loads",
+    "scanner": "json.scanner!",
+}
