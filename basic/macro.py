@@ -31,7 +31,7 @@ class MacroRecorder:
         self.mark_cursor = 0
         self.playing = True # Disables "macro start"
         for phrase in self.phrases:
-            actions.core.run_phrase(phrase)
+            actions.mimic(phrase)
             actions.sleep(f"{self.wait}ms")
         self.playing = False
 
@@ -57,7 +57,7 @@ class MacroRecorder:
 mod = Module()
 macro = MacroRecorder()
 
-@imgui.open(x=1100, y=1043)
+@imgui.open(x=1050, y=1043)
 def gui(gui: imgui.GUI):
     gui.text(f"Macro recording: {macro.num_recorded}")
 
@@ -68,8 +68,7 @@ class Actions:
         # Since we add the last phrase to the macro after it has been executed,
         # macro.phrases will always contain "macro start",
         # so make this a no-op when we are playing the macro.
-        if macro.playing:
-            return
+        if macro.playing: return
         macro.reset()
         macro.recording = True
         gui.show()
@@ -100,6 +99,6 @@ class Actions:
 
 def macro_cb(recognition_result):
     if macro.recording and "parsed" in recognition_result:
-        macro.add_phrase(actions.core.last_phrase())
+        macro.add_phrase(recognition_result["parsed"]._unmapped)
 
 speech_system.register("post:phrase", macro_cb)

@@ -25,7 +25,16 @@ class Actions:
         text = actions.edit.selected_text()
         new_lines = []
         for line in text.split("\n"):
-            new_lines.append(line)
+            # Special case for e.g. 'if test: a = 1'
+            one_line_if_match = re.match(r"(\s*)(.+?):\s*((.+)=(.+))$", line)
+            if one_line_if_match:
+                ws, if_statement, assignment, *_ = one_line_if_match.groups()
+                new_lines.append(f"{ws}{if_statement}")
+                new_lines.append(f"{ws}    {assignment}")
+                line = f"{ws}    {assignment}"
+            else:
+                new_lines.append(line)
+
             for pattern, extra_whitespace in [
                 (r"^(\s*)([^\(\#]+?) = .+?$", ""),
                 (r"^(\s*)for (.+?) in .+?:$", "    "),

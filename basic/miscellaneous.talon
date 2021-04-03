@@ -5,3 +5,4 @@ close all notepads: user.kill_notepads()
 
 prekris deli: app.notify("lenny")
 prekris lease deli: app.notify("penny")
+co lace: app.notify("coalgap")

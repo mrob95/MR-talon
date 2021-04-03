@@ -1,3 +1,4 @@
+from typing import Any
 from talon import speech_system
 from talon import *
 

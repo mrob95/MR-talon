@@ -7,6 +7,14 @@ def window_info(gui: imgui.GUI):
     gui.text(f"{ui.active_app()}")
     gui.text(f"{ui.active_app().exe}")
     gui.text(f"{ui.active_window().title}")
+    gui.text(f"")
+
+    for c in reversed(registry.active_contexts()):
+        if not c.path.startswith("user."): continue
+        if not c.path.endswith(".talon"): continue
+        p = c.path[5:-6]
+        gui.text(f"- {p}")
+
 
 @mod.action_class
 class Actions:
