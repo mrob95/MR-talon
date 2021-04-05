@@ -79,6 +79,40 @@ class Actions:
             actions.user.paste(f"{ws}{ident} = {value_if} if {test} else {value_else}")
 
 
+mod.list("py_modules")
+ctx.lists["user.py_modules"] = {
+    "jason": "json",
+    "logging": "logging",
+    "numb pie": "numpy as np",
+    "O S": "os",
+    "pandas": "pandas as pd",
+    "pie test": "pytest",
+    "regex": "re",
+    "requests": "requests",
+    "random": "random",
+    "sis": "sys",
+    "subprocess": "subprocess",
+    "time": "time",
+    "tommel": "toml",
+}
+
+mod.list("py_imports")
+ctx.lists["user.py_imports"] = {
+    "argument parser": "from argparse import ArgumentParser",
+    "beautiful soup": "from bs4 import BeautifulSoup",
+    "create engine": "from sqlalchemy import create_engine",
+    "counter": "from collections import Counter",
+    "default dictionary": "from collections import defaultdict",
+    "default dict": "from collections import defaultdict",
+    "date time": "from datetime import datetime",
+    "data class": "from dataclasses import dataclass",
+    "Enum": "from enum import Enum, auto",
+    "path": "from pathlib import Path",
+    "thread pool executor": "from concurrent.futures import ThreadPoolExecutor",
+    "progress bar": "from tqdm import tqdm",
+    "wraps": "from functools import wraps",
+}
+
 ctx.lists["user.functions"] = {
     "integer": "int",
     "int": "int",
@@ -149,6 +183,7 @@ ctx.lists["user.functions"] = {
 
 ctx.lists["user.logicals"] = {
     "and": " and ",
+    "and not": " and not ",
     "as": " as ",
     "else": " else ",
     "if": " if ",
@@ -158,6 +193,7 @@ ctx.lists["user.logicals"] = {
     "not": " not ",
     "not in": " not in ",
     "or": " or ",
+    "or not": " or not ",
     "for": " for ",
 }
 
@@ -345,40 +381,6 @@ ctx.lists["user.py_types"] = {
     "boolean": "bool",
     "bool": "bool",
     }
-}
-
-
-mod.list("py_modules")
-ctx.lists["user.py_modules"] = {
-    "jason": "json",
-    "logging": "logging",
-    "numb pie": "numpy as np",
-    "O S": "os",
-    "pandas": "pandas as pd",
-    "pie test": "pytest",
-    "regex": "re",
-    "requests": "requests",
-    "random": "random",
-    "sis": "sys",
-    "time": "time",
-    "tommel": "toml",
-}
-
-mod.list("py_imports")
-ctx.lists["user.py_imports"] = {
-    "argument parser": "from argparse import ArgumentParser",
-    "beautiful soup": "from bs4 import BeautifulSoup",
-    "create engine": "from sqlalchemy import create_engine",
-    "counter": "from collections import Counter",
-    "default dictionary": "from collections import defaultdict",
-    "default dict": "from collections import defaultdict",
-    "date time": "from datetime import datetime",
-    "data class": "from dataclasses import dataclass",
-    "Enum": "from enum import Enum, auto",
-    "path": "from pathlib import Path",
-    "thread pool executor": "from concurrent.futures import ThreadPoolExecutor",
-    "progress bar": "from tqdm import tqdm",
-    "wraps": "from functools import wraps",
 }
 
 mod.list("py_fopen_modes")

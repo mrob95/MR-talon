@@ -38,10 +38,10 @@ method [<phrase>]$:
     key(left:2)
 selfie [<phrase>]: "self.{user.snake(phrase or '')}"
 classy [<phrase>]$:
-    "class {user.snake(phrase or '')}():"
+    "class {user.formatted_text(phrase or '', 2, 1)}():"
     key(left:2)
 data classy [<phrase>]$:
-    "@dataclass\nclass {user.snake(phrase or '')}():"
+    "@dataclass\nclass {user.formatted_text(phrase or '', 2, 1)}():"
     key(left:2)
 commenter <phrase>$:
     "# "

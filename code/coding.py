@@ -70,3 +70,4 @@ class Actions:
 mod.list("functions", desc="like_this()")
 mod.list("logicals", desc="logical operators")
 mod.list("values", desc="built-in values e.g. False")
+mod.list("doclinks", desc="Links to documentation")

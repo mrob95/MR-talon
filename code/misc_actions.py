@@ -2,18 +2,11 @@ from typing import Any
 from talon import speech_system
 from talon import *
 
-from win32gui import GetForegroundWindow, GetWindowText
 import os
+import webbrowser
 import re
 import time
 from subprocess import Popen, run
-from pathlib import Path
-
-from ctypes import (c_short, c_long, c_ushort, c_ulong, sizeof,
-                    POINTER, pointer, Structure, Union, windll)
-import win32con
-import win32api
-import os
 from pathlib import Path
 
 mod = Module()
@@ -21,6 +14,10 @@ ctx = Context()
 
 @mod.action_class
 class Actions:
+    def browser_open(url: str):
+        """Open the passed url in a web browser"""
+        webbrowser.open_new_tab(url)
+
     def cd_directory_of(filename: str):
         """CD to the directory of the path passed."""
         p = Path(filename)
