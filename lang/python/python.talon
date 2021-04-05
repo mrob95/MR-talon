@@ -88,9 +88,6 @@ try except {user.py_exceptions} [error] as:
     key(enter:2)
     "except {py_exceptions} as e:"
     key(shift-tab)
-# misc
-insert todo: "# TODO: "
-insert line break: "# ------------------------------------------------"
 # Libraries
 pandas {user.py_lib_pandas}: user.insert_function(py_lib_pandas)
 numb pie {user.py_lib_numpy}: user.insert_function(py_lib_numpy)
@@ -100,6 +97,7 @@ OS {user.py_lib_os}: user.insert_function(py_lib_os)
 sunny {user.py_lib_spark}: user.insert_function(py_lib_spark)
 date time {user.py_lib_datetime}: user.insert_function(py_lib_datetime)
 jason {user.py_lib_json}: user.insert_function(py_lib_json)
+subprocess {user.py_lib_subprocess}: user.insert_function(py_lib_subprocess)
 
 logging get logger: "logger = logging.getLogger(__name__)"
 logging basic config:

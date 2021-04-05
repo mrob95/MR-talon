@@ -30,6 +30,10 @@ select <user.line_numbers> by <user.line_numbers>:
 shunt [<user.n20>]: key("shift-down:{n20 or 1}")
 comment line: key(ctrl-/)
 duple comment: key(shift-alt-down up ctrl-/ down)
+insert to do: key(ctrl-/ T O D O : space)
+insert line break:
+    key(ctrl-/)
+    " ------------------------------------------------"
 indent [<user.n20>]: key("ctrl-]:{n20 or 1}")
 [auto] complete: key(ctrl-space)
 #
