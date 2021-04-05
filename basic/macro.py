@@ -1,12 +1,6 @@
-"""
-macros are not savable, but they are semantic in that functions are recorded,
-not keypresses. This means that macros can interact with your computer state
-such as by looking at what is in the clipboard, are referencing nearby text.
-"""
-from talon import *
-from talon import imgui
+from talon import imgui, ctrl, actions, Module, speech_system
 from dataclasses import dataclass
-from typing import Any, List, Optional, NamedTuple, Tuple
+from typing import Any, List, Optional, Tuple
 
 MousePosition = Tuple[int, int]
 @dataclass
