@@ -90,6 +90,9 @@ try except {user.py_exceptions} [error] as:
     key(shift-tab)
 # Libraries
 pandas {user.py_lib_pandas}: user.insert_function(py_lib_pandas)
+document pandas {user.py_lib_pandas}:
+    clean = user.replace("pd.", "", py_lib_pandas)
+    user.browser_open("https://pandas.pydata.org/pandas-docs/stable/search.html?q={clean}")
 numb pie {user.py_lib_numpy}: user.insert_function(py_lib_numpy)
 regex {user.py_lib_re}: user.insert_function(py_lib_re)
 system {user.py_lib_sys}: user.insert_function(py_lib_sys)
@@ -98,6 +101,7 @@ sunny {user.py_lib_spark}: user.insert_function(py_lib_spark)
 date time {user.py_lib_datetime}: user.insert_function(py_lib_datetime)
 jason {user.py_lib_json}: user.insert_function(py_lib_json)
 subprocess {user.py_lib_subprocess}: user.insert_function(py_lib_subprocess)
+pie test {user.py_lib_pytest}: user.insert_function(py_lib_pytest)
 
 logging get logger: "logger = logging.getLogger(__name__)"
 logging basic config:

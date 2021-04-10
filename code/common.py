@@ -1,4 +1,5 @@
 import toml
+import re
 from talon import *
 from typing import List, Optional
 
@@ -14,6 +15,10 @@ class Actions:
     def cat(l: List[str], sep: str = "") -> str:
         """Concatenate"""
         return sep.join(l)
+
+    def replace(pat: str, rep: str, s: str) -> str:
+        """Replace"""
+        return re.sub(pat, rep, s)
 
     def slice(l: List[str], i1: Optional[int] = None, i2: Optional[int] = None) -> List[str]:
         """Slice"""
