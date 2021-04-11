@@ -114,6 +114,17 @@ ctx.lists["user.py_imports"] = {
     "wraps": "from functools import wraps",
 }
 
+mod.list("py_decorators", "Python decorators e.g. @property")
+ctx.lists["user.py_decorators"] = {
+    "class method": "classmethod",
+    "context manager": "context_manager",
+    "LRU cache": "lru_cache",
+    "property": "property",
+    "static method": "staticmethod",
+    "total ordering": "total_ordering",
+    "wraps": "wraps",
+}
+
 ctx.lists["user.functions"] = {
     "integer": "int",
     "int": "int",

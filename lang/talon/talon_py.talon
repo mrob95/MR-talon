@@ -32,3 +32,4 @@ mod list: user.insert_function("mod.list")
 mod tag: user.insert_function("mod.tag")
 (action | fun) {user.talon_actions}:
     user.insert_function("actions.{talon_actions}")
+context list {user.talon_lists}: 'ctx.lists["{talon_lists}"] = '

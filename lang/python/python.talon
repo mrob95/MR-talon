@@ -48,6 +48,7 @@ commenter <phrase>$:
     insert(user.formatted_text(phrase or "", 4, 0))
 printer <phrase>$:
     'print("{user.formatted_text(phrase or \'\', 4, 0)}")'
+atty {user.py_decorators}: "@{py_decorators}"
 print [all] assignments: user.print_all_assignments()
 print arguments: user.print_arguments()
 refactor assignment: user.refactor_assignment()
