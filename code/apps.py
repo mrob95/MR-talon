@@ -15,10 +15,12 @@ app.exe: Code.exe
 
 apps.windows_explorer = """
 os: windows
-app.name: /.*/
+and app.name: /.*/
 and title: /(Save|Open|Browse|Select)/
-app.name: Windows Explorer
-app.exe: explorer.exe
+os: windows
+and app.exe: explorer.exe
+os: windows
+and app.name: Windows Explorer
 """
 
 apps.windows_command_processor = """
