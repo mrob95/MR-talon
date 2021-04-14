@@ -119,3 +119,7 @@ go to (anchor | mark): key(ctrl-k ctrl-g)
 insert mouse: insert(user.vscode_grab_mouse())
 print mouse: user.lang_print(user.vscode_grab_mouse())
 #
+git revert: key(ctrl-k ctrl-r)
+git stage: key(ctrl-k ctrl-alt-s)
+git unstage: key(ctrl-k ctrl-n)
+git diff: key(ctrl-shift-g ,)
