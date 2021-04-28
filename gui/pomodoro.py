@@ -1,6 +1,6 @@
 import time
 from datetime import time, datetime
-from talon import *
+from talon import ui, Module, Context, registry, actions, imgui, cron
 
 mod = Module()
 

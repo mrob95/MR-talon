@@ -1,5 +1,5 @@
 from typing import Mapping, Union
-from talon import *
+from talon import ui, Module, Context, registry, actions, imgui, cron
 import re
 
 mod = Module()
@@ -387,6 +387,7 @@ mod.list("py_types")
 ctx.lists["user.py_types"] = {
     **py_typing_types, **{
     "data frame": "pd.DataFrame",
+    "path": "Path",
     "string": "str",
     "float": "float",
     "int": "int",

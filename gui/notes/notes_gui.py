@@ -3,7 +3,7 @@ import shutil
 import subprocess
 from datetime import time, datetime
 from typing import List, NamedTuple
-from talon import *
+from talon import ui, Module, Context, registry, actions, imgui, cron
 import os
 from pathlib import Path
 

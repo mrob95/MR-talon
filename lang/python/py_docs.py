@@ -1,4 +1,4 @@
-from talon import *
+from talon import ui, Module, Context, registry, actions, imgui, cron
 
 mod = Module()
 ctx = Context()
@@ -91,7 +91,7 @@ py_stdlib_docs = {
     "inspect": "inspect.html",
     "IO": "io.html",
     "IP address": "ipaddress.html",
-    "iter tools": "itertools.html",
+    "hitter tools": "itertools.html",
     "jason": "json.html",
     "keyword": "keyword.html",
     "lib two to three": "2to3.html",

@@ -1,4 +1,4 @@
-from talon import *
+from talon import ui, Module, Context, registry, actions, imgui, cron
 from subprocess import Popen
 
 mod = Module()

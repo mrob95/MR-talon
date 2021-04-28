@@ -4,7 +4,7 @@ app: Code.exe
 and title: /^user - .*\.py/
 -
 standard imports:
-    "from talon import *\n"
+    "from talon import ui, Module, Context, registry, actions, imgui, cron\n"
 (context and module | module and context):
     """mod = Module()
     ctx = Context()

@@ -1,6 +1,6 @@
-title: /.*\.c/
-title: /.*\.cpp/
-title: /.*\.h/
+title: /.*\.c$/
+title: /.*\.cpp$/
+title: /.*\.h$/
 -
 # type {user.c_types}: insert(c_types)
 type <user.c_type>: insert(c_type)
