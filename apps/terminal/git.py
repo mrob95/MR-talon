@@ -7,6 +7,8 @@ ctx = Context("git")
 mod.list("git_status_items")
 mod.list("git_branch_items")
 
+mod.tag("git_patching", "Whether we are in the 'add -p' dialogue")
+
 @mod.action_class
 class Actions:
     def insert_git_url():
@@ -20,10 +22,17 @@ class Actions:
                 giturl = cb
             actions.insert(giturl)
 
+    def git_start_patching():
+        "Enter the 'add -p' dialogue"
+        ctx.tags = ["user.git_patching"]
+    def git_stop_patching():
+        "Exit the 'add -p' dialogue"
+        ctx.tags = []
+
 mod.list("git_status_actions")
 ctx.lists["user.git_status_actions"] = {
     "add": "add",
-    "add patch": "add -p",
+    # "add patch": "add -p",
     "discard": "checkout --",
     "diff": "diff",
     "unstage": "reset HEAD",
@@ -43,7 +52,7 @@ ctx.lists["user.git_commands"] = {
     "delete branch": "branch -D ",
     "new branch": "checkout -b ",
     "add": "add ",
-    "add patch": "add -p ",
+    # "add patch": "add -p ",
     "add all": "add -A",
     "add force": "add -f ",
     "remove": "rm ",
