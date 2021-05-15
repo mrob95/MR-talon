@@ -4,3 +4,6 @@
 [submodule "windows_virtual_desktops"]
 	path = windows_virtual_desktops
 	url = https://github.com/mrob95/talon-pyvda.git
+[submodule "cursorless-talon"]
+	path = cursorless-talon
+	url = https://github.com/mrob95/cursorless-talon.git

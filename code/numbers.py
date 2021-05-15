@@ -64,3 +64,8 @@ def number(m) -> int:
 def numberth(m) -> int:
     "Numberth"
     return m["numberth"]
+
+@mod.capture(rule="( {user.alphabet} | {user.digits10} | {user.punctuation})")
+def any_alphanumeric_key(m) -> str:
+    "any alphanumeric key"
+    return str(m)
