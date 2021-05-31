@@ -1,7 +1,7 @@
 app: Visual Studio Code
-and title: /^user - .*\.py/
+and title: /user - .*\.py/
 app: Code.exe
-and title: /^user - .*\.py/
+and title: /user - .*\.py/
 -
 standard imports:
     "from talon import ui, Module, Context, registry, actions, imgui, cron\n"

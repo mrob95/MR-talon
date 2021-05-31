@@ -1,4 +1,4 @@
-from talon import ui, Module, Context, registry, actions, imgui, cron
+from talon import ui, Module, Context, registry, actions, imgui, cron, ctrl
 import time
 
 mod = Module()

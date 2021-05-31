@@ -49,12 +49,18 @@ search in directory: key(ctrl-shift-f)
 copy relative path: key(ctrl-k ctrl-shift-c)
 copy path: key(alt-shift-c)
 #
+go last [<user.r20>]:
+    key(ctrl-k ctrl-pgdown)
+    repeat(r20 or 0)
+go next [<user.r20>]:
+    key(ctrl-k ctrl-pgup)
+    repeat(r20 or 0)
 (go to | good) file: key(ctrl-p)
 go to <phrase> [{user.filetype}]$:
     key(ctrl-p)
+    sleep(100ms)
     insert(user.phrase_to_str(phrase))
     insert(filetype or "")
-    # sleep(100ms)
     # key(enter)
 go to word: key(ctrl-;)
 go to symbol: key(ctrl-shift-o)
@@ -116,7 +122,7 @@ split definition: key(ctrl-k f12)
 #
 set (anchor | mark): key(ctrl-k ctrl-b)
 go to (anchor | mark): key(ctrl-k ctrl-g)
-insert mouse: insert(user.vscode_grab_mouse())
+insert mouse: user.paste(user.vscode_grab_mouse())
 print mouse: user.lang_print(user.vscode_grab_mouse())
 #
 git revert: key(ctrl-k ctrl-r)

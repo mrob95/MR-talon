@@ -110,7 +110,7 @@ ctx.lists["user.c_types"] = {
     "struct": "struct",
     "size": "size_t",
     "enum": "enum",
-    "char star": "char",
+    "char star": "char *",
 }
 
 mod.list("c_type_modifiers")

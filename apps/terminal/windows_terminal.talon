@@ -23,3 +23,6 @@ split right: key(ctrl-shift-h)
 split down: key(ctrl-h)
 drop down: key(ctrl-shift-f1)
 clear screen: key(ctrl-l)
+
+next match [<user.n20>]: key("f3:{n20 or 1}")
+previous match [<user.n20>]: key("ctrl-f3:{n20 or 1}")
