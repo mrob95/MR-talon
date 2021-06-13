@@ -40,6 +40,8 @@ def update_maps(window: ui.Window):
             current_path = Path(re.sub(r"MINGW64:/(\w)?", r"\1:/", window.title))
         elif "MSYS:" in window.title:
             current_path = Path(re.sub(r"MSYS:/(\w)?", r"\1:/", window.title))
+        elif "mike@DESKTOP" in window.title:
+            current_path = Path(re.sub(r"^mike@DESKTOP.+: /mnt/(\w)?", r"\1:/", window.title))
         elif window.app.exe and "explorer.exe" in window.app.exe.lower():
             remap = {
                 "Downloads": "C:/Users/Mike/Downloads",

@@ -1,6 +1,6 @@
 from typing import Any
 from talon import speech_system
-from talon import ui, Module, Context, registry, actions, imgui, cron
+from talon import ui, Module, Context, registry, actions, imgui, cron, clip
 
 import os
 import webbrowser

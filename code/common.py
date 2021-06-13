@@ -213,6 +213,7 @@ simple_keys_norepeat = {
     "ski": "escape",
     "shackle": "home shift-end",
     "select all": "ctrl-a",
+    "select every": "ctrl-a",
     "find": "ctrl-f",
 }
 mod.list("simple_keys_norepeat", desc="Simple keys norepeat")
