@@ -8,9 +8,6 @@ and user.vs_terminal: True
 -
 tag(): user.terminal
 tag(): user.command_mode
-action(edit.line_clone):
-	# "duple" misrecognition
-	mimic("git pull")
 CD {user.directories}:
     insert('cd "{directories}" && ls')
     key(enter)
@@ -19,16 +16,16 @@ file {user.files}:
 folder {user.directories}:
     insert('{directories}/')
 go {user.folders}:
-	"cd {folders} && ls"
-	key(enter)
+    "cd {folders} && ls"
+    key(enter)
 dot {user.extensions}:
-	".{extensions}"
+    ".{extensions}"
 #------------------------------------------------------
 bash: "bash "
 cancel: key(ctrl-c)
 CD up:
-	"cd .."
-	key(enter)
+    "cd .."
+    key(enter)
 CD: "cd "
 curly: "curl "
 greppy: "grep "
@@ -54,8 +51,8 @@ sed replace:
 sumatra [PDF]: "SumatraPDF "
 sublime: "subl -n "
 sublime here:
-	"subl -n ."
-	key(enter)
+    "subl -n ."
+    key(enter)
 SSH kali: "ssh -p 3022 mrob@172.30.1.3"
 jupiter notebook: "jupyter notebook"
 jupiter lab: "jupyter lab"
@@ -64,11 +61,11 @@ FFM peg: "ffmpeg "
 W get: "wget "
 catty: "cat "
 explorer here:
-	"explorer ."
-	key(enter)
+    "explorer ."
+    key(enter)
 code here:
-	"code ."
-	key(enter)
+    "code ."
+    key(enter)
 #------------------------------------------------------
 # options
 option continue: " --continue "
@@ -80,11 +77,11 @@ option version: " --version"
 PDF LaTeX: "pdflatex "
 bib TeX: "bibtex "
 pan doc:
-	'pandoc  -o '
-	key(left:4)
+    'pandoc  -o '
+    key(left:4)
 pan doc beamer:
-	"pandoc  -t beamer -o "
-	key(left:14)
+    "pandoc  -t beamer -o "
+    key(left:14)
 #------------------------------------------------------
 # python
 python 3: "python3 "
@@ -105,11 +102,11 @@ eye python: "ipython "
 #------------------------------------------------------
 # r
 R script:
-	"Rscript .r"
-	key(left:2)
+    "Rscript .r"
+    key(left:2)
 R markdown:
-	"Rscript -e \"rmarkdown::render('.Rmd', clean=TRUE)\""
-	key(left:19)
+    "Rscript -e \"rmarkdown::render('.Rmd', clean=TRUE)\""
+    key(left:19)
 #------------------------------------------------------
 # jekyll
 jekyll serve watch: "jekyll serve --watch"
@@ -118,11 +115,11 @@ jekyll: "jekyll "
 #------------------------------------------------------
 # image
 image [magic] trim:
-	"convert  -fuzz 1% -trim +repage "
-	key(left:24)
+    "convert  -fuzz 1% -trim +repage "
+    key(left:24)
 image [magic] transparent:
-	"convert  -fuzz 1% -transparent white "
-	key(left:29)
+    "convert  -fuzz 1% -transparent white "
+    key(left:29)
 rename PNG large: "rename 'png_large' 'png' *.png_large"
 rename jay peg large: "rename 'jpg_large' 'jpg' *.jpg_large"
 # ------------------------------------------------

@@ -1,9 +1,6 @@
 app: vscode
 -
 tag(): user.command_mode
-action(edit.line_clone):
-    key(shift-alt-down)
-#
 new (file | tab): key(ctrl-n)
 new window: key(ctrl-shift-n)
 open file: key(ctrl-o)
@@ -26,7 +23,7 @@ select by <user.line_numbers>: user.vscode_select_to(line_numbers)
 select <user.line_numbers> by <user.line_numbers>:
     user.vscode_go_line(line_numbers_1)
     user.vscode_select_to(line_numbers_2)
-#
+    #
 shunt [<user.n20>]: key("shift-down:{n20 or 1}")
 comment line: key(ctrl-/)
 duple comment: key(shift-alt-down up ctrl-/ down)
@@ -129,3 +126,16 @@ git revert: key(ctrl-k ctrl-r)
 git stage: key(ctrl-k ctrl-alt-s)
 git unstage: key(ctrl-k ctrl-n)
 git diff: key(ctrl-shift-g ,)
+
+
+#
+refresh file: print(user.vscode_get_file_contents())
+very {user.vscode_variables}: "{vscode_variables}"
+fun {user.vscode_functions}: user.insert_function(vscode_functions)
+
+
+#
+command server write: key(ctrl-shift-alt-p)
+test lineup:
+    out = user.vscode("workbench.view.explorer")
+    print(out)

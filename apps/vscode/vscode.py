@@ -11,6 +11,10 @@ ctx.matches = r"""
 app: vscode
 """
 
+@ctx.action_class('edit')
+class EditActions:
+    def line_clone(): actions.key('shift-alt-down')
+
 mark_window_title = None
 
 @mod.action_class

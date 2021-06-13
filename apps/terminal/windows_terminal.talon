@@ -1,8 +1,5 @@
 app: windows_terminal
 -
-# https://github.com/mrob95/WindowsTerminal-config/blob/master/settings.json
-action(edit.paste): key(ctrl-shift-v)
-action(edit.copy): key(ctrl-shift-c)
 # ---
 <user.numberth> tab: key("ctrl-alt-{numberth}")
 close tab [<user.n20>]: user.slow_key("ctrl-shift-w:{n20 or 1}")

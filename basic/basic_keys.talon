@@ -18,23 +18,15 @@ long {user.punctuation2}: " {punctuation2} "
 {user.personal}: insert(personal)
 
 [and] save$: key(ctrl-s)
-
-action(edit.undo): key(ctrl-z)
 ^undo [<user.r20>]$:
     edit.undo()
     repeat(r20 or 0)
 
-action(edit.paste): key(ctrl-v)
 spark: edit.paste()
-action(edit.copy): key(ctrl-c)
 stoosh: edit.copy()
-action(edit.line_insert_down): key(ctrl-enter)
 check [<user.r20>]:
     edit.line_insert_down()
     repeat(r20 or 0)
-action(edit.line_clone):
-    key(home shift-end ctrl-c end enter ctrl-v)
-    sleep(50ms)
 duple [<user.r20>]:
     edit.line_clone()
     repeat(r20 or 0)
@@ -50,6 +42,5 @@ say <phrase> [over]:
 hug prekris: key(()
 hug curly: key({)
 hug brax: key([)
-
 repeat last [<user.n20>]:
     core.repeat_phrase(n20)

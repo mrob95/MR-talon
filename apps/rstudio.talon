@@ -38,7 +38,6 @@ focus git: key(ctrl-f1)
 focus connections: key(ctrl-f5)
 # ------------------------------------------------
 run (line | that): key(ctrl-enter)
-action(edit.line_insert_down): key(end enter)
 (run document | build it): key(ctrl-alt-r)
 comment (line | selected | block): key(ctrl-shift-c)
 knit (document | file): key(ctrl-shift-k)

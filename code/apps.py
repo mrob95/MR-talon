@@ -8,8 +8,8 @@ app.exe: brave.exe
 app.exe: chrome.exe
 """
 
+# app.name: Visual Studio Code
 apps.vscode = """
-app.name: Visual Studio Code
 app.exe: Code.exe
 """
 
