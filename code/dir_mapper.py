@@ -40,8 +40,11 @@ def update_maps(window: ui.Window):
             current_path = Path(re.sub(r"MINGW64:/(\w)?", r"\1:/", window.title))
         elif "MSYS:" in window.title:
             current_path = Path(re.sub(r"MSYS:/(\w)?", r"\1:/", window.title))
-        elif "mike@DESKTOP" in window.title:
+        elif "mike@DESKTOP-74I5GN5: /mnt" in window.title:
             current_path = Path(re.sub(r"^mike@DESKTOP.+: /mnt/(\w)?", r"\1:/", window.title))
+        elif "mike@DESKTOP-74I5GN5: ~/" in window.title:
+            # debian wsl
+            current_path = Path(window.title.replace("mike@DESKTOP-74I5GN5: ~", "\\\\wsl$\\Debian\\home\\mike"))
         elif window.app.exe and "explorer.exe" in window.app.exe.lower():
             remap = {
                 "Downloads": "C:/Users/Mike/Downloads",
@@ -58,7 +61,8 @@ def update_maps(window: ui.Window):
         if not current_path.exists() or current_path == path_last_update:
             return
         path_last_update = current_path
-        ctx.lists["user.directories"] = get_directory_map(current_path)
+        dirs = get_directory_map(current_path)
+        ctx.lists["user.directories"] = dirs
         ctx.lists["user.files"] = get_file_map(current_path)
     except:
         return

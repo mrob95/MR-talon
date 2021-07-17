@@ -11,7 +11,7 @@ title: /.*\.h/
 @ctx.action_class("user")
 class Actions:
     def lang_print(s: str):
-        actions.insert(f'printf("{s}: %s", {s});')
+        actions.insert(f'printf("{s}: %s\\n", {s});')
 
 
 ctx.lists["user.functions"] = {

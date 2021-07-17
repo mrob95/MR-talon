@@ -84,15 +84,15 @@ pan doc beamer:
     key(left:14)
 #------------------------------------------------------
 # python
-python 3: "python3 "
+python: "python "
 python 2: "python27 "
-python 3 debug: "python3 -m pdb "
-python 3 pytest: "python3 -m pytest "
+python debug: "python -m pdb "
+python pytest: "python -m pytest "
 python 2 pytest: "python27 -m pytest "
 python 2 64: "C:/Python27-64/python.exe "
 python 3 32: "C:/Python38-32/python.exe "
 python 2 pip install: "python27 -m pip install "
-python 3 pip install: "python3 -m pip install "
+python pip install: "python -m pip install "
 pip install: "pip install "
 upgrade pip: "--upgrade pip"
 pip two (install | build) package: "pip2 install -e ."

@@ -111,6 +111,7 @@ ctx.lists["user.git_commands"] = {
     "remove branch": "branch -d ",
     "reset": "reset ",
     "show remotes": "remote -v @",
+    "show": "show ",
     "submodule add": "submodule add ",
     "stash branch": "stash branch NAME",
     "stash list": "stash list",

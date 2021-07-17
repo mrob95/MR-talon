@@ -62,7 +62,7 @@ go to <phrase> [{user.filetype}]$:
 go to word: key(ctrl-;)
 go to symbol: key(ctrl-shift-o)
 go to [symbol in] project: key(ctrl-t)
-go to that: key(f12)
+go to definition: key(f12)
 peek definition: key(alt-f12)
 peek references: key(shift-f12)
 command pallette: key(ctrl-shift-p)
