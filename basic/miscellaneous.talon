@@ -6,3 +6,9 @@ close all notepads: user.kill_notepads()
 prekris deli: app.notify("lenny")
 prekris lease deli: app.notify("penny")
 co lace: app.notify("coalgap")
+
+type clipboard: insert(clip.text())
+
+google that:
+    text = edit.selected_text()
+    user.browser_open("https://www.google.com/search?q={text}")

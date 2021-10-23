@@ -53,6 +53,7 @@ go next [<user.r20>]:
     key(ctrl-k ctrl-pgup)
     repeat(r20 or 0)
 (go to | good) file: key(ctrl-p)
+cutter fail: key(ctrl-p)
 go to <phrase> [{user.filetype}]$:
     key(ctrl-p)
     sleep(100ms)

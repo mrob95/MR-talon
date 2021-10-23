@@ -2,7 +2,7 @@
 big {user.alphabet}: insert(user.upper(alphabet))
 all caps {user.alphabet}+: insert(user.upper(user.cat(alphabet_list)))
 
-numb <user.digits>: insert(digits)
+(numb | number) <user.digits>: insert(digits)
 {user.punctuation}: key(punctuation)
 {user.punctuation2}: "{punctuation2}"
 long {user.punctuation2}: " {punctuation2} "
