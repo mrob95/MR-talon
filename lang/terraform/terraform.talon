@@ -5,6 +5,7 @@ title: /.*\.tf/
 # General
 # ---
 for each: "for_each = "
+iffae: user.insert_fancy("count = [|] ? 1 : 0")
 depends on: "depends_on = []"
 life cycle create before destroy:
     "lifecycle {}"
