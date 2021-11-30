@@ -32,7 +32,7 @@ value (null|nil): "nil"
 import:
     "import ()"
     key("left enter")
-package: "package "
+
 
 function [<phrase>]$:
     "func "
@@ -47,3 +47,27 @@ type int: "int"
 type bool: "bool"
 type string: "string"
 assign: " := "
+
+document {user.doclinks}: user.browser_open(doclinks)
+{user.go_stdlib}: user.insert_function(go_stdlib)
+package {user.go_packages}: insert(go_packages)
+
+advent template: """
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"io"
+	"os"
+	"regexp"
+	"strconv"
+	"strings"
+)
+
+func main() {
+    scanner := bufio.NewScanner(os.Stdin)
+    for scanner.Scan() {
+        line := scanner.Text()
+    }
+}"""
