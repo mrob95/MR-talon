@@ -140,3 +140,5 @@ command server write: key(ctrl-shift-alt-p)
 test lineup:
     out = user.vscode("workbench.view.explorer")
     print(out)
+
+show snippets: key(alt-\)

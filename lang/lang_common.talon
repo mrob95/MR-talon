@@ -3,3 +3,5 @@ lodge {user.logicals}: insert(logicals)
 value {user.values}: insert(values)
 
 document {user.doclinks}: user.browser_open(doclinks)
+
+snippet {user.snippets}: user.snippet(snippets)

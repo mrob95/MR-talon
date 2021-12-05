@@ -3,9 +3,12 @@ title: /\.go/
 iffae:
     "if  {}"
     key("left enter up end left:2")
+shell iffae:
+    "else if  {}"
+    key("left enter up end left:2")
 shells:
     "else {}"
-    key("left enter up")
+    key("left enter up end left:2")
 switch:
     "switch  {}"
     key("left enter up end left:2")
@@ -36,7 +39,7 @@ import:
 
 function [<phrase>]$:
     "func "
-    insert(user.snake(phrase or ""))
+    insert(user.camel(phrase or ""))
     "() {}"
     key(left enter up end left:3)
 type struct:
@@ -51,23 +54,3 @@ assign: " := "
 document {user.doclinks}: user.browser_open(doclinks)
 {user.go_stdlib}: user.insert_function(go_stdlib)
 package {user.go_packages}: insert(go_packages)
-
-advent template: """
-package main
-
-import (
-	"bufio"
-	"fmt"
-	"io"
-	"os"
-	"regexp"
-	"strconv"
-	"strings"
-)
-
-func main() {
-    scanner := bufio.NewScanner(os.Stdin)
-    for scanner.Scan() {
-        line := scanner.Text()
-    }
-}"""
