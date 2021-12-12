@@ -46,10 +46,11 @@ type struct:
     "type  struct {}"
     key(left enter up home right:5)
 return: "return "
-type int: "int"
-type bool: "bool"
-type string: "string"
 assign: " := "
+
+type <user.go_type>: user.insert_fancy(go_type)
+make <user.go_map>: user.insert_fancy("make({go_map})")
+very <user.go_slice>: user.insert_fancy("var [|] {go_slice}")
 
 document {user.doclinks}: user.browser_open(doclinks)
 {user.go_stdlib}: user.insert_function(go_stdlib)

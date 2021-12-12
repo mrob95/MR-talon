@@ -70,6 +70,10 @@ class Actions:
         """Return snake text"""
         return actions.user.formatted_text(phrase, 0, 3)
 
+    def camel(phrase: Union[Phrase, str]) -> str:
+        """Return camel text"""
+        return actions.user.formatted_text(phrase, 3, 1)
+
     def title(phrase: Union[Phrase, str]) -> str:
         """Return title text"""
         return actions.user.formatted_text(phrase, 2, 1)
