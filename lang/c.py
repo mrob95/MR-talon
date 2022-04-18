@@ -129,9 +129,9 @@ def c_type(m) -> str:
         modifiers = " ".join(m["c_type_modifiers_list"]) + " "
     else:
         modifiers = ""
-    if m._words[-1] == "star":
+    if m[-1] == "star":
         end = " *"
-    elif m._words[-1] == "value":
+    elif m[-1] == "value":
         end = "& "
     else:
         end = " "

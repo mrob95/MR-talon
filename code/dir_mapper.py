@@ -42,9 +42,9 @@ def update_maps(window: ui.Window):
             current_path = Path(re.sub(r"MSYS:/(\w)?", r"\1:/", window.title))
         elif "mike@DESKTOP-74I5GN5: /mnt" in window.title:
             current_path = Path(re.sub(r"^mike@DESKTOP.+: /mnt/(\w)?", r"\1:/", window.title))
-        elif "mike@DESKTOP-74I5GN5: ~/" in window.title:
+        elif "mike@DESKTOP-74I5GN5: ~" in window.title:
             # debian wsl
-            current_path = Path(window.title.replace("mike@DESKTOP-74I5GN5: ~", "\\\\wsl$\\Debian\\home\\mike"))
+            current_path = Path(window.title.replace("mike@DESKTOP-74I5GN5: ~", "\\\\wsl$\\Ubuntu\\home\\mike"))
         elif window.app.exe and "explorer.exe" in window.app.exe.lower():
             remap = {
                 "Downloads": "C:/Users/Mike/Downloads",

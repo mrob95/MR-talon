@@ -10,13 +10,14 @@ title: /\.go/
 @ctx.action_class("user")
 class Actions:
     def lang_print(s: str):
-        actions.insert(f'fmt.Println(f"{s}: ", {s})')
+        actions.insert(f'fmt.Println("{s}: ", {s})')
 
 ctx.lists["user.functions"] = {
+    "error": "fmt.Errorf",
     "make": "make",
     "make map": "make(map[[|]])",
     "print": "fmt.Println",
-    "print F": 'fmt.Printf("[|]\n")',
+    "print F": 'fmt.Printf("[|]")',
     "length": "len",
     "int": "int",
     "to integer": "strconv.Atoi",

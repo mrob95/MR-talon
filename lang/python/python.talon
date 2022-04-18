@@ -11,7 +11,7 @@ breaker: "break"
 double under: user.insert_fancy("__[|]__")
 for each: user.insert_fancy("for [|] in :")
 for loop: user.insert_fancy("for i in range([|]):")
-if name is main: "if __name__ == '__main__':\n"
+if name (is | equals) main: "if __name__ == '__main__':\n"
 (iffae | iffy): user.insert_fancy("if [|]:")
 iffae not: user.insert_fancy("if not [|]:")
 shell iffae: user.insert_fancy("elif [|]:")
@@ -30,19 +30,19 @@ with open {user.py_fopen_modes}+:
     key(home right:10)
 with as: user.insert_fancy("with [|] as :")
 # Dictation
-function [<phrase>]$:
+create function [<phrase>]$:
     "def {user.snake(phrase or '')}():"
     key(left:2)
-method [<phrase>]$:
+create method [<phrase>]$:
     "def {user.snake(phrase or '')}(self):"
     key(left:2)
 selfie [<phrase>]: "self.{user.snake(phrase or '')}"
 classy [<phrase>]$:
-    "class {user.formatted_text(phrase or '', 2, 1)}():"
-    key(left:2)
+    "class {user.formatted_text(phrase or '', 2, 1)}:"
+    key(left)
 data classy [<phrase>]$:
-    "@dataclass\nclass {user.formatted_text(phrase or '', 2, 1)}():"
-    key(left:2)
+    "@dataclass\nclass {user.formatted_text(phrase or '', 2, 1)}:"
+    key(left)
 commenter <phrase>$:
     "# "
     insert(user.formatted_text(phrase or "", 4, 0))

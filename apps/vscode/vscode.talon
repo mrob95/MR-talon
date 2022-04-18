@@ -118,8 +118,9 @@ move right: key(ctrl-k ctrl-shift-right)
 split right: key(alt-shift-2 ctrl-k ctrl-shift-right)
 split definition: key(ctrl-k f12)
 #
-set (anchor | mark): key(ctrl-k ctrl-b)
-go to (anchor | mark): key(ctrl-k ctrl-g)
+mark set: key(ctrl-k ctrl-b)
+mark jump: key(ctrl-k ctrl-g)
+
 insert mouse: user.paste(user.vscode_grab_mouse())
 print mouse: user.lang_print(user.vscode_grab_mouse())
 #
@@ -131,8 +132,8 @@ git diff: key(ctrl-shift-g ,)
 
 #
 refresh file: print(user.vscode_get_file_contents())
-very {user.vscode_variables}: "{vscode_variables}"
-fun {user.vscode_functions}: user.insert_function(vscode_functions)
+very {user.file_variables}: "{file_variables}"
+fun {user.file_functions}: user.insert_function(file_functions)
 
 
 #

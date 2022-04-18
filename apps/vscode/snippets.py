@@ -39,22 +39,7 @@ py_ctx = Context()
 py_ctx.matches = r"""
 tag: user.python
 """
-py_ctx.lists["user.snippets"] = {
-    **get_user_snippets("python"), **{
-        "class funky": "def(class method)",
-        "class static funky": "def(class static method)",
-        "class": "class",
-        "else if": "elif",
-        "for": "for",
-        "funky": "def",
-        "if else": "if/else",
-        "if": "if",
-        "lambda": "lambda",
-        "try except": "try/except",
-        "while": "while",
-        "with": "with",
-    }
-}
+py_ctx.lists["user.snippets"] = get_user_snippets("python")
 
 tf_ctx = Context()
 tf_ctx.matches = r"""
@@ -66,7 +51,7 @@ tf_ctx.lists["user.snippets"] = {
         "provisioner": "provisioner",
         "output": "output",
         "variable": "vare",
-        }
+    }
 }
 
 go_ctx = Context()

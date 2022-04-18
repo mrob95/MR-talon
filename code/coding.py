@@ -29,8 +29,6 @@ class Actions:
             actions.insert(pattern.rstrip("!"))
             return
 
-        # text = actions.edit.selected_text()
-
         #
         # Two cases:
         # pattern is just a string e.g. "find" -> find()
@@ -42,7 +40,6 @@ class Actions:
         end_pos = pattern.find("[|]")
         s = pattern.replace("[|]", "")
         actions.insert(s)
-        # If we didn't insert selected text, move the cursor
         actions.key(f"left:{len(s) - end_pos}")
 
     def insert_fancy(pattern: str):

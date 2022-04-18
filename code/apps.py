@@ -8,6 +8,13 @@ app.exe: brave.exe
 app.exe: chrome.exe
 """
 
+apps.firefox = """
+os: windows
+and app.name: Firefox
+os: windows
+and app.exe: firefox.exe
+"""
+
 # app.name: Visual Studio Code
 apps.vscode = """
 app.exe: Code.exe

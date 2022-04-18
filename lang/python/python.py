@@ -1,6 +1,8 @@
-from typing import Mapping, Union
+from typing import Mapping, Union, Optional, Dict
 from talon import ui, Module, Context, registry, actions, imgui, cron
+from user.code.speakify import create_voice_mapping
 import re
+import time
 
 mod = Module()
 ctx = Context("python")
@@ -10,13 +12,52 @@ ctx.matches = r"""
 tag: user.python
 """
 
+CLASS_REGEX = re.compile(r"class (?P<name>[A-Za-z_]+?)(?:\((?P<super>[A-Za-z_]+?)\))?:")
+VAR_REGEX = re.compile(r"([A-Za-z_]+?) = .+?")
+FUNC_USE_REGEX = re.compile(r"([A-Za-z_]+?)\(")
+FUNC_DEF_REGEX = re.compile(r"def ([A-Za-z_]+?)\(")
+METHOD_DEF_REGEX = re.compile(r"\s+def ([A-Za-z_]+?)\(")
+SELF_REGEX = re.compile(r"\s+self\.([A-Za-z_]+?)\(")
+IMPORT_REGEX = re.compile(r"import ([A-Za-z_,\ ]+)")
+
 def print_string(s):
     return f"print(f'{s} = {{{s}}}')"
+
+
+def set_list(name: str, values: Dict):
+    ctx.lists[name] = values
 
 @ctx.action_class("user")
 class Actions:
     def lang_print(s: str):
         actions.insert(print_string(s))
+
+    def refresh_lists(file_contents: Optional[str]):
+        if file_contents is None:
+            return
+        classes = [c[0] for c in CLASS_REGEX.findall(file_contents)]
+        class_mapping = create_voice_mapping(classes)
+
+        vars = VAR_REGEX.findall(file_contents)
+        var_mapping = create_voice_mapping(vars)
+
+        funcs = FUNC_USE_REGEX.findall(file_contents) + FUNC_DEF_REGEX.findall(file_contents)
+        func_mapping = create_voice_mapping(funcs)
+
+        imports = []
+        for import_list in IMPORT_REGEX.findall(file_contents):
+            imports.extend([i.strip() for i in import_list.split(",")])
+        import_mapping = create_voice_mapping(imports)
+
+        ctx.lists["user.file_functions"] = func_mapping | class_mapping
+        ctx.lists["user.file_variables"] = var_mapping | func_mapping | class_mapping | import_mapping
+        print(ctx.lists["user.file_functions"])
+        print(registry.lists["user.file_variables"])
+
+        # members = SELF_REGEX.findall(file_contents)
+        # methods = METHOD_DEF_REGEX.findall(file_contents)
+        # ctx.lists["user.vscode_members"] = create_voice_mapping(members)
+        # ctx.lists["user.vscode_methods"] = create_voice_mapping(methods)
 
 @mod.action_class
 class Actions:
@@ -78,7 +119,6 @@ class Actions:
             ws, test, ident, value_if, value_else = match.groups()
             actions.user.paste(f"{ws}{ident} = {value_if} if {test} else {value_else}")
 
-
 mod.list("py_modules")
 ctx.lists["user.py_modules"] = {
     "jason": "json",
@@ -111,6 +151,7 @@ ctx.lists["user.py_imports"] = {
     "path": "from pathlib import Path",
     "thread pool executor": "from concurrent.futures import ThreadPoolExecutor",
     "progress bar": "from tqdm import tqdm",
+    "pretty print": "from pprint import pprint",
     "wraps": "from functools import wraps",
 }
 
@@ -161,6 +202,7 @@ ctx.lists["user.functions"] = {
     "list": "list",
     "logger debug": "logger.debug",
     "logger info": "logger.info",
+    "logger warning": "logger.info",
     "logger error": "logger.error([|], exc_info=True)",
     "lower": "lower",
     "min": "min",

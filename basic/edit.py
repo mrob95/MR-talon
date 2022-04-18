@@ -13,6 +13,15 @@ class edit_actions:
             return s.get()
         except clip.NoChange:
             return ""
+    def undo(): actions.key('ctrl-z')
+    def paste(): actions.key('ctrl-v')
+    def copy(): actions.key('ctrl-c')
+    def save(): actions.key('ctrl-s')
+    def line_insert_down(): actions.key('ctrl-enter')
+    def line_clone():
+        actions.key('home shift-end ctrl-c end enter ctrl-v')
+        actions.sleep('50ms')
+    def delete_word(): actions.key("ctrl-backspace")
 
 @mod.action_class
 class Actions:
@@ -24,3 +33,7 @@ class Actions:
             actions.edit.paste()
             # sleep here so that clip.revert doesn't revert the clipboard too soon
             actions.sleep("150ms")
+
+    def delete_word_right():
+        """Delete a word to the right"""
+        actions.key("ctrl-delete")

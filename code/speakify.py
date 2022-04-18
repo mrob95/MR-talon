@@ -40,10 +40,10 @@ def test_create_spoken_forms():
         ("test_filename.py", {'test filename py', 'test filename', 'test filename P Y'}),
         ("fs_watcher", {'fs watcher', 'F S watcher'}),
         ("TestCase", {'Test Case'}),
+        ("testCase", {'test Case'}),
         ("s3_ls", {'S 3 L S', 's 3 ls'}),
     ]:
         spoken = create_spoken_forms(symbol)
-        clip.set_text(str(spoken))
         assert spoken == result, f"{spoken} != {result}"
 
 test_create_spoken_forms()
@@ -69,4 +69,3 @@ def create_voice_mapping(items: List[str]) -> Dict[str, str]:
         for spoken in create_spoken_forms(item):
             result[spoken] = item
     return result
-

@@ -194,8 +194,6 @@ simple_keys = {
     # "check": "ctrl-enter",
     "clear": "backspace",
     "clearing": "backspace",
-    "splat": "ctrl-backspace",
-    "splat ross": "ctrl-delete",
     "deli": "delete",
     "page up": "pgup",
     "page down": "pgdown",

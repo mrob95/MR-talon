@@ -3,6 +3,16 @@ title: /\.go/
 iffae:
     "if  {}"
     key("left enter up end left:2")
+if error:
+    "if err != nil {}"
+    key("left enter")
+if error return:
+    "if err != nil {}"
+    key("left enter")
+    "return err"
+if error equals:
+    "if err := ; err != nil {}"
+    key("left enter up end left:14")
 shell iffae:
     "else if  {}"
     key("left enter up end left:2")
@@ -27,6 +37,9 @@ for loop:
 for each:
     "for  := range  {}"
     key("left enter up home right:4")
+
+(end | finish) timer: "elapsed := time.Since(start)\nfmt.Printf(\"execution took %s\", elapsed)"
+(start | begin) timer: "start := time.Now()"
 
 value true: "true"
 value false: "false"

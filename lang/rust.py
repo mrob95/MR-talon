@@ -22,7 +22,7 @@ ctx.lists["user.functions"] = {
     "next": "next",
     "push": "push",
     "get": "get",
-    "print": 'println("{}", [|]);',
+    "print": 'println!("{}", [|]);',
 }
 
 ctx.lists["user.logicals"] = {

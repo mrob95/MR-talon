@@ -17,7 +17,7 @@ long {user.punctuation2}: " {punctuation2} "
     key("{direction_modifiers or ''}{directions_extreme}")
 {user.personal}: insert(personal)
 
-[and] save$: key(ctrl-s)
+[and] save$: edit.save()
 ^undo [<user.r20>]$:
     edit.undo()
     repeat(r20 or 0)
@@ -30,6 +30,14 @@ check [<user.r20>]:
 duple [<user.r20>]:
     edit.line_clone()
     repeat(r20 or 0)
+
+splat [<user.r20>]:
+    edit.delete_word()
+    repeat(r20 or 0)
+splat ross [<user.r20>]:
+    user.delete_word_right()
+    repeat(r20 or 0)
+
 
 # Text
 say <phrase> [over]:

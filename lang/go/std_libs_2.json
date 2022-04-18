@@ -169,6 +169,24 @@
         "Writer At": "io.WriterAt!",
         "Writer To": "io.WriterTo!"
     },
+    "log": {
+        "Fatal": "log.Fatal",
+        "Fatal F": "log.Fatalf",
+        "Fatal line": "log.Fatalln",
+        "Flags": "log.Flags",
+        "Output": "log.Output",
+        "Panic": "log.Panic",
+        "Panic F": "log.Panicf",
+        "Panic line": "log.Panicln",
+        "Prefix": "log.Prefix",
+        "Print": "log.Print",
+        "Print F": "log.Printf",
+        "Print line": "log.Println",
+        "SetFlags": "log.SetFlags",
+        "SetOutput": "log.SetOutput",
+        "SetPrefix": "log.SetPrefix",
+        "Writer": "log.Writer"
+    },
     "os": {
         "Chdir": "os.Chdir",
         "Chmod": "os.Chmod",

@@ -13,3 +13,11 @@ class EditActions:
     def line_clone():
         # "duple" misrecognition
         actions.mimic('git pull')
+
+    def delete_word():
+        actions.key("ctrl-w")
+
+@ctx.action_class('user')
+class EditActions:
+    def delete_word_right():
+        actions.key("alt-d")
