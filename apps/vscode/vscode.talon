@@ -15,7 +15,9 @@ next tab [<user.n20>]: key("ctrl-pgdown:{n20 or 1}")
 previous tab [<user.n20>]: key("ctrl-pgup:{n20 or 1}")
 <user.numberth> tab: key("alt-{numberth}")
 #
-line <user.line_numbers>: user.vscode_go_line(line_numbers)
+line <user.line_numbers>:
+    user.vscode_go_line(line_numbers)
+    key(home)
 end line <user.line_numbers>:
     user.vscode_go_line(line_numbers)
     key(end:2)

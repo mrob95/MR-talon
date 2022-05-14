@@ -4,9 +4,6 @@ from talon import ui, Module, Context, registry, actions, imgui, cron, clip
 mod = Module()
 ctx = Context("git")
 
-mod.list("git_status_items")
-mod.list("git_branch_items")
-
 mod.tag("git_patching", "Whether we are in the 'add -p' dialogue")
 
 @mod.action_class
@@ -94,7 +91,7 @@ ctx.lists["user.git_commands"] = {
     "merge abort": "merge --abort ",
     "merge continue": "merge --continue ",
     "pull": "pull ",
-    "publish": "push -u origin ",
+    "publish": "push -u origin $(git rev-parse --abbrev-ref HEAD)",
     "push set upstream origin": "push --set-upstream origin ",
     "push": "push ",
     "push force": "push --force ",

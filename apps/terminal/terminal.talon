@@ -8,7 +8,7 @@ and user.vs_terminal: True
 -
 tag(): user.terminal
 tag(): user.command_mode
-CD {user.directories}:
+see dee {user.directories}:
     insert('cd "{directories}" && ls')
     key(enter)
 file {user.files}:
@@ -23,10 +23,10 @@ dot {user.extensions}:
 #------------------------------------------------------
 bash: "bash "
 cancel: key(ctrl-c)
-CD up:
+see dee up:
     "cd .."
     key(enter)
-CD: "cd "
+see dee: "cd "
 curly: "curl "
 greppy: "grep "
 greppy recursive: "grep -R "
