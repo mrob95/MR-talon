@@ -5,15 +5,10 @@ git {user.git_commands}:
 	user.insert_fancy("git {git_commands}")
 	user.git_stop_patching()
 
-git add patch:
-	"git add -p "
-	user.git_start_patching()
-
+git add patch: "git_add_p "
 git add patch {user.git_status_items} [(and {user.git_status_items})+]:
 		items = user.cat(git_status_items_list, "' '")
-		user.paste("git add -p '{items}'")
-		user.git_start_patching()
-
+		user.paste("git_add_p '{items}'")
 
 git remote add:
 	"git remote add "
