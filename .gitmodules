@@ -7,3 +7,6 @@
 [submodule "cursorless-talon"]
 	path = cursorless-talon
 	url = https://github.com/mrob95/cursorless-talon.git
+[submodule "rango-talon"]
+	path = rango-talon
+	url = https://github.com/david-tejada/rango-talon
