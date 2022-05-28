@@ -5,7 +5,7 @@ in_command_context = False
 mod = Module()
 mod.tag("command_mode")
 
-def check_context():
+def check_context(*a):
     global in_command_context
     if speech_system.engine and speech_system.engine.name == "dragon":
         if "user.command_mode" in registry.tags:
@@ -18,3 +18,5 @@ def check_context():
             in_command_context = False
 
 cron.interval("1s", check_context)
+ui.register("win_title", check_context)
+ui.register("win_focus", check_context)
