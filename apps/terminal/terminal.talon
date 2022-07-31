@@ -23,6 +23,8 @@ dot {user.extensions}:
 #------------------------------------------------------
 bash: "bash "
 cancel: key(ctrl-c)
+(history | page back): key(ctrl-r)
+page forward: key(ctrl-s)
 see dee up:
     "cd .."
     key(enter)
@@ -91,6 +93,7 @@ python pytest: "python -m pytest "
 python 2 pytest: "python27 -m pytest "
 python 2 64: "C:/Python27-64/python.exe "
 python 3 32: "C:/Python38-32/python.exe "
+python 3: "python3 "
 python 2 pip install: "python27 -m pip install "
 python pip install: "python -m pip install "
 pip install: "pip install "

@@ -9,6 +9,8 @@ go {user.websites}:
     insert(websites)
     key(enter)
 new incognito window: key("ctrl-shift-n")
+tab left [<user.n20>]: key("ctrl-shift-pgup:{n20 or 1}")
+tab right [<user.n20>]: key("ctrl-shift-pgdown:{n20 or 1}")
 next tab [<user.n20>]: key("ctrl-tab:{n20 or 1}")
 previous tab [<user.n20>]: key("ctrl-shift-tab:{n20 or 1}")
 close tab [<user.n20>]: user.slow_key("ctrl-w:{n20 or 1}", "100ms")

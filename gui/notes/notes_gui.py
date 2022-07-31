@@ -1,8 +1,8 @@
-import time
+from time import sleep
 import shutil
 import subprocess
 from datetime import time, datetime
-from typing import List, NamedTuple
+from typing import List, NamedTuple, Dict
 from talon import ui, Module, Context, registry, actions, imgui, cron
 import os
 from pathlib import Path
@@ -17,6 +17,7 @@ class Note(NamedTuple):
     heading: str
     body: str
     path: Path
+    mtime_seen: float
 
 mod = Module()
 ctx = Context()
@@ -24,7 +25,8 @@ ctx = Context()
 mod.tag("notes_showing")
 
 counter = 0
-notes: List[Note] = []
+notes_by_filename: Dict[str, Note] = {}
+notes_by_number: Dict[int, Note] = {}
 
 def occasional_update():
     global counter
@@ -32,14 +34,25 @@ def occasional_update():
     return counter % 60 == 0
 
 def update_notes():
-    global notes
-    notes = []
-    for path in NOTES_DIR.glob("*.txt"):
+    global notes_by_filename
+    all_notes = list(NOTES_DIR.glob("*.txt"))
+    filenames = {p.name for p in all_notes}
+    for k in list(notes_by_filename.keys()):
+        if k not in filenames:
+            del notes_by_filename[k]
+
+    for path in all_notes:
+        mtime = path.stat().st_mtime
+        if path.name in notes_by_filename and mtime <= notes_by_filename[path.name].mtime_seen:
+            continue # nothing new
         with open(path, "r") as f:
             lines = list(f.readlines())
         heading = lines[0].strip() if len(lines) > 0 else ""
         body = "\n".join(lines[1:]) if len(lines) > 1 else ""
-        notes.append(Note(heading, body, path))
+        if not heading and not body:
+            path.unlink()
+            continue
+        notes_by_filename[path.name] = Note(heading, body, path, mtime)
 
 def maybe_update_notes():
     if occasional_update():
@@ -50,11 +63,12 @@ extra_padding = 50
 @imgui.open(x=0, y=600)
 def notes_gui(gui: imgui.GUI):
     maybe_update_notes()
-    global notes
+    global notes_by_filename
     gui.text(f"| Notes {' '*extra_padding} |")
-    for i, note in enumerate(notes, 1):
+    for i, note in enumerate(notes_by_filename.values(), 1):
         if gui.button(f"{i: >2}. {note.heading}  |"):
             subprocess.Popen(["notepad", str(note.path)])
+        notes_by_number[i] = note
 
 
 @mod.action_class
@@ -77,18 +91,20 @@ class Actions:
         subprocess.Popen(["notepad", str(file_path)])
         update_notes()
 
-    def delete_note(n: int):
+    def delete_note(n:int):
         """Delete note number n"""
-        global notes
-        assert n <= len(notes)
-        note = notes[n-1]
+        global notes_by_number
+        global notes_by_filename
+        assert n <= len(notes_by_number)
+        note = notes_by_number[n]
         archive_name = f"{note.path.stem} - {note.heading}.txt"
         shutil.move(note.path, ARCHIVE_DIR / archive_name)
-        notes[n-1].path.unlink()
-        update_notes()
+        note.path.unlink()
+        del notes_by_number[n]
+        del notes_by_filename[note.path.name]
 
     def show_note(n: int):
         """Show note number n"""
-        global notes
-        assert n <= len(notes)
-        subprocess.Popen(["notepad", str(notes[n-1].path)])
+        global notes_by_number
+        assert n <= len(notes_by_number)
+        subprocess.Popen(["notepad", str(notes_by_number[n].path)])

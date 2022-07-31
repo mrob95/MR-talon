@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Optional
 from talon import Module, Context, ui, actions, registry, fs
 import re
@@ -52,11 +53,15 @@ class Actions:
 @ctx.action_class('user')
 class UserAction:
     def get_file_contents() -> str:
-        actions.user.vscode_mark()
-        actions.key("ctrl-a")
-        t = actions.edit.selected_text()
-        actions.user.vscode_return()
-        return t
+        title = ui.active_window().title
+        first, _, path = title.rpartition(" - ")
+        if not first: # e.g. title = "Save As"
+            return ""
+        if "WSL: Ubuntu" in first:
+            path = path.replace("~", "\\\\wsl$\\Ubuntu\\home\\mike")
+        with open(path, "r") as f:
+            return f.read()
+
 
 
 @ctx.action_class('edit')

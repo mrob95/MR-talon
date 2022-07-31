@@ -12,3 +12,5 @@ type clipboard: insert(clip.text())
 google that:
     text = edit.selected_text()
     user.browser_open("https://www.google.com/search?q={text}")
+
+toggle list info: user.list_info_toggle()

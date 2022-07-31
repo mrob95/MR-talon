@@ -5,10 +5,11 @@ is type {user.rust_types}: insert(": {rust_types}")
 function main:
 	"fn main() {}"
 	key(left enter)
+create function [<phrase>]$:
+    "fn {user.snake(phrase or '')}() -> "
+    key(left:5)
 semi: key(end:2 ;)
-iffae:
-	"if  {}"
-	key(left enter up home right:3)
+iffae: "if "
 shells:
 	"else {}"
 	key(left enter)
@@ -23,8 +24,7 @@ while loop:
 	key(left enter up home right:6)
 letter: "let "
 letter mute: "let mut "
-value true: "true"
-value false: "false"
+
 right arrow: " => "
 produces: " -> "
 pattern match:

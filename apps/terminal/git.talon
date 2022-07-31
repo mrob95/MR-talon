@@ -1,14 +1,11 @@
 tag: user.terminal
 -
 
-git {user.git_commands}:
-	user.insert_fancy("git {git_commands}")
-	user.git_stop_patching()
+git {user.git_commands}: user.insert_fancy("git {git_commands}")
 
-git add patch: "git_add_p "
 git add patch {user.git_status_items} [(and {user.git_status_items})+]:
 		items = user.cat(git_status_items_list, "' '")
-		user.paste("git_add_p '{items}'")
+		user.paste("git add -p '{items}'")
 
 git remote add:
 	"git remote add "
@@ -25,14 +22,12 @@ git clone:
 	user.insert_git_url()
 git create ignore: "curl https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore > .gitignore"
 
-git status: "git_status\n"
 git {user.git_status_actions} {user.git_status_items} [(and {user.git_status_items})+]:
 	items = user.cat(git_status_items_list, "' '")
 	user.paste("git {git_status_actions} '{items}'")
 git go {user.git_status_items}: user.cd_directory_of(git_status_items)
 git file {user.git_status_items}: "'{git_status_items}'"
 
-git branch: "git_branch\n"
 git {user.git_branch_actions} {user.git_branch_items} [(and {user.git_branch_items})+]:
 	items = user.cat(git_branch_items_list, "' '")
 	user.paste("git {git_branch_actions} '{items}'")

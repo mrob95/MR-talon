@@ -1,3 +1,5 @@
+from pathlib import Path
+from typing import List
 from talon import Module, Context, actions, clip
 import re
 mod = Module()

@@ -13,20 +13,30 @@ class Actions:
 
 
 ctx.lists["user.functions"] = {
-    "unwrap": "unwrap",
-    "parse": "parse",
-    "lines": "lines",
-    "to string": "to_string",
-    "iter": "iter",
+    "as string": "as_str",
+    "collect": "collect",
+    "collect into": "collect::<[|]>()",
     "clone": "clone",
-    "next": "next",
-    "push": "push",
+    "count": "count",
     "get": "get",
+    "into": "into",
+    "iter": "iter",
+    "iter mute": "iter_mut",
+    "lines": "lines",
+    "length": "len",
+    "map": "map",
+    "next": "next",
+    "parse": "parse",
+    "push": "push",
     "print": 'println!("{}", [|]);',
+    "to string": "to_string",
+    "to owned": "to_owned",
+    "unwrap": "unwrap",
 }
 
 ctx.lists["user.logicals"] = {
     "and": " && ",
+    "as": " as ",
     "or": " || ",
     "else": " else ",
     "if": "if ",
@@ -37,4 +47,10 @@ ctx.lists["user.rust_types"] = {
     "eye 3 2": "i32",
     "you 3 2": "u32",
     "string": "str",
+}
+
+ctx.lists["user.values"] = {
+    "false": "false",
+    "none": "None",
+    "true": "true",
 }

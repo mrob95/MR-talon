@@ -233,3 +233,8 @@ ctx.lists["user.folders"] = FOLDERS
 def letters(m) -> str:
     "A series of letters"
     return "".join(m["alphabet_list"])
+
+@mod.capture(rule="{user.alphabet}")
+def letter(m) -> str:
+    "A series of letters"
+    return m["alphabet"]

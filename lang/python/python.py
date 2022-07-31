@@ -13,7 +13,7 @@ tag: user.python
 """
 
 CLASS_REGEX = re.compile(r"class (?P<name>[A-Za-z_]+?)(?:\((?P<super>[A-Za-z_]+?)\))?:")
-VAR_REGEX = re.compile(r"([A-Za-z_]+?) = .+?")
+VAR_REGEX = re.compile(r"([A-Za-z_, ]+?) = .+?")
 FUNC_USE_REGEX = re.compile(r"([A-Za-z_]+?)\(")
 FUNC_DEF_REGEX = re.compile(r"def ([A-Za-z_]+?)\(")
 METHOD_DEF_REGEX = re.compile(r"\s+def ([A-Za-z_]+?)\(")
@@ -32,32 +32,35 @@ class Actions:
     def lang_print(s: str):
         actions.insert(print_string(s))
 
-    def refresh_lists(file_contents: Optional[str]):
+    def refresh_lists(file_contents: str):
         if file_contents is None:
             return
         classes = [c[0] for c in CLASS_REGEX.findall(file_contents)]
-        class_mapping = create_voice_mapping(classes)
+        class_mapping = create_voice_mapping(classes, acronyms=False)
 
         vars = VAR_REGEX.findall(file_contents)
-        var_mapping = create_voice_mapping(vars)
+        vars_split = []
+        for var in vars:
+            vars_split.extend(var.strip().split(", "))
+        var_mapping = create_voice_mapping(vars_split, acronyms=False)
 
         funcs = FUNC_USE_REGEX.findall(file_contents) + FUNC_DEF_REGEX.findall(file_contents)
-        func_mapping = create_voice_mapping(funcs)
+        func_mapping = create_voice_mapping(funcs, acronyms=False)
 
         imports = []
         for import_list in IMPORT_REGEX.findall(file_contents):
             imports.extend([i.strip() for i in import_list.split(",")])
-        import_mapping = create_voice_mapping(imports)
+        import_mapping = create_voice_mapping(imports, acronyms=False)
 
         ctx.lists["user.file_functions"] = func_mapping | class_mapping
         ctx.lists["user.file_variables"] = var_mapping | func_mapping | class_mapping | import_mapping
-        print(ctx.lists["user.file_functions"])
-        print(registry.lists["user.file_variables"])
+        # print(ctx.lists["user.file_functions"])
+        # print(registry.lists["user.file_variables"])
 
         # members = SELF_REGEX.findall(file_contents)
         # methods = METHOD_DEF_REGEX.findall(file_contents)
-        # ctx.lists["user.vscode_members"] = create_voice_mapping(members)
-        # ctx.lists["user.vscode_methods"] = create_voice_mapping(methods)
+        # ctx.lists["user.vscode_members"] = create_voice_mapping(members, acronyms=False)
+        # ctx.lists["user.vscode_methods"] = create_voice_mapping(methods, acronyms=False)
 
 @mod.action_class
 class Actions:

@@ -12,3 +12,4 @@ def check_time():
             timer.show()
 
 cron.interval("59s", check_time)
+timer.show()

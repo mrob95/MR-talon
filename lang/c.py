@@ -3,9 +3,9 @@ from talon import ui, Module, Context, registry, actions, imgui, cron
 mod = Module()
 ctx = Context("C")
 ctx.matches = r"""
-title: /.*\.c/
-title: /.*\.cpp/
-title: /.*\.h/
+title: /.*\.c$/
+title: /.*\.cpp$/
+title: /.*\.h$/
 """
 
 @ctx.action_class("user")

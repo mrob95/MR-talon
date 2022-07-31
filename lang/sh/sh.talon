@@ -20,7 +20,7 @@ case when:
     key(left:4 enter up end left:3)
 
 create function [<phrase>]$:
-    "{user.snake(phrase or '')}() {}"
+    "{user.snake(phrase or '')}() {{}}"
     key(left enter)
 
 lodge (folder | directory) exists: user.insert_fancy("[ -d [|] ]")
