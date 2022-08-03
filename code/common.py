@@ -1,7 +1,8 @@
 import toml
+from pathlib import Path
 import re
-from talon import ui, Module, Context, registry, actions, imgui, cron
-from typing import List, Optional
+from talon import ui, Module, Context, registry, actions, imgui, cron, resource
+from typing import List, Optional, Dict
 
 mod = Module()
 ctx = Context()
@@ -79,6 +80,17 @@ alphabet = {
 }
 mod.list("alphabet", desc="Alphabet")
 ctx.lists["user.alphabet"] = alphabet
+
+@mod.capture(rule="{user.alphabet}+")
+def letters(m) -> str:
+    "A series of letters"
+    return "".join(m["alphabet_list"])
+
+@mod.capture(rule="{user.alphabet}")
+def letter(m) -> str:
+    "A series of letters"
+    return m["alphabet"]
+
 
 mod.list("directions", desc="Directions")
 ctx.lists["user.directions"] = {
@@ -216,25 +228,3 @@ simple_keys_norepeat = {
 }
 mod.list("simple_keys_norepeat", desc="Simple keys norepeat")
 ctx.lists["user.simple_keys_norepeat"] = simple_keys_norepeat
-
-# ------------------------------------------------
-
-PERSONAL = toml.load("user/config/personal.toml")
-
-mod.list("personal", desc="...")
-ctx.lists["user.personal"] = PERSONAL
-
-FOLDERS = toml.load("user/config/folders.toml")
-
-mod.list("folders", desc="Commonly accessed folders")
-ctx.lists["user.folders"] = FOLDERS
-
-@mod.capture(rule="{user.alphabet}+")
-def letters(m) -> str:
-    "A series of letters"
-    return "".join(m["alphabet_list"])
-
-@mod.capture(rule="{user.alphabet}")
-def letter(m) -> str:
-    "A series of letters"
-    return m["alphabet"]

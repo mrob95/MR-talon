@@ -186,6 +186,7 @@ ctx.lists["user.functions"] = {
     "count": "count",
     "ends with": "endswith",
     "enumerate": "enumerate",
+    "exists": "exists",
     "extend": "extend",
     "find all": "find_all",
     "find": "find",
