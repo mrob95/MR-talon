@@ -30,8 +30,8 @@ see dee up:
     key(enter)
 see dee: "cd "
 curly: "curl "
-greppy: "grep "
-greppy recursive: "grep -R "
+greppy: "egrep "
+greppy recursive: "egrep -R "
 header: "head "
 echo: "echo "
 list: "ls "
@@ -138,3 +138,5 @@ mux numbers: key(ctrl-b q)
 mux kill: key(ctrl-b x)
 mux layout: key(ctrl-b space)
 mux page up: key(ctrl-b pgup)
+
+complete: key(alt-?)

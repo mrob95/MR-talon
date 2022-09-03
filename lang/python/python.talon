@@ -2,6 +2,8 @@ title: /.*\.py/
 title: /JupyterLab/
 title: /IPython:/
 title: /PDB:/
+title: /.* - python\s*$/
+title: /.* - pytest\s*$/
 -
 tag(): user.python
 args and kwargs: "*args, **kwargs"

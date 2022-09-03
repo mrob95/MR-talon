@@ -1,5 +1,6 @@
 tag: user.terminal
-and title: /git .+ -p/
+title: /git .+ -p/
+title: /.* - git\s*$/
 -
 yes | yep:   "y\n"
 no | nope:    "n\n"
