@@ -75,6 +75,7 @@ option abort: " --abort "
 option skip: " --skip "
 option help: " --help"
 option version: " --version"
+option {user.alphabet}: " -{alphabet} "
 #------------------------------------------------------
 PDF LaTeX: "pdflatex "
 bib TeX: "bibtex "
