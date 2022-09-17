@@ -49,6 +49,17 @@ class Actions:
         actions.user.vscode_return()
         return t
 
+    def vscode_select_between(start: str, end: str) -> None:
+        """Select between two line numbers"""
+        if len(end) < len(start):
+            # 242, 5  -> "24" + "5" = "245"
+            # 242, 55 -> "2" + "55" = "255"
+            # 100001, 255 -> "100" + "255" = "100255"
+            end = start[:len(start) - len(end)] + end
+        actions.user.vscode_go_line(start)
+        actions.user.vscode_select_to(end)
+
+
 
 @ctx.action_class('user')
 class UserAction:
@@ -66,17 +77,4 @@ class UserAction:
 
 @ctx.action_class('edit')
 class EditActions:
-    # def save():
-    #     actions.key("ctrl-s")
-    #     try:
-    #         actions.user.refresh_lists(None)
-    #     except NotImplementedError:
-    #         return
-    #     try:
-    #         contents = actions.user.get_file_contents()
-    #     except NotImplementedError:
-    #         return
-
-    #     actions.user.refresh_lists(contents)
-
     def line_clone(): actions.key('shift-alt-down')

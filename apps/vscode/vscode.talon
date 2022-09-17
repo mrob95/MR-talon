@@ -25,9 +25,7 @@ end line <user.line_numbers>:
     key(end:2)
 select by <user.line_numbers>: user.vscode_select_to(line_numbers)
 select <user.line_numbers> by <user.line_numbers>:
-    user.vscode_go_line(line_numbers_1)
-    user.vscode_select_to(line_numbers_2)
-    #
+    user.vscode_select_between(line_numbers_1, line_numbers_2)
 shunt [<user.n20>]: key("shift-down:{n20 or 1}")
 comment line: key(ctrl-/)
 duple comment: key(shift-alt-down up ctrl-/ down)
