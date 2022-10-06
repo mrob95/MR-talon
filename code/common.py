@@ -198,8 +198,6 @@ mod.list("punctuation2", desc="Punctuation2")
 ctx.lists["user.punctuation2"] = punctuation2
 
 simple_keys = {
-    "ace": "space",
-    "space": "space",
     "tabby": "tab",
     "tabby lease": "shift-tab",
     "shock": "enter",
@@ -218,6 +216,8 @@ mod.list("simple_keys", desc="Simple_keys")
 ctx.lists["user.simple_keys"] = simple_keys
 
 simple_keys_norepeat = {
+    "ace": "space",
+    "space": "space",
     "cutter": "ctrl-x",
     "eskimo": "escape",
     "ski": "escape",
