@@ -91,7 +91,7 @@ ctx.lists["user.git_commands"] = {
     "push": "push ",
     "push force": "push --force ",
     "rebase master": "rebase master",
-    "rebase": "rebase",
+    "rebase": "rebase ",
     "rebase auto squash": "rebase -i --autosquash master",
     "rebase interactive": "rebase -i ",
     "remote": "remote ",

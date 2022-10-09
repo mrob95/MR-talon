@@ -88,21 +88,16 @@ pan doc beamer:
 #------------------------------------------------------
 # python
 python: "python "
-python 2: "python27 "
-python debug: "python -m pdb "
+python debug: "python -m pdb -c c "
 python pytest: "python -m pytest "
-python 2 pytest: "python27 -m pytest "
-python 2 64: "C:/Python27-64/python.exe "
-python 3 32: "C:/Python38-32/python.exe "
-python 3: "python3 "
-python 2 pip install: "python27 -m pip install "
-python pip install: "python -m pip install "
 pip install: "pip install "
+pip install editable: "pip install -e ."
 upgrade pip: "--upgrade pip"
-pip two (install | build) package: "pip2 install -e ."
-pie test: "pytest "
+pie test: "pytest --pdb "
 pie flakes: "pyflakes "
 eye python: "ipython "
+venv activate: "activate"
+venv deactivate: "deactivate"
 #------------------------------------------------------
 # r
 R script:
