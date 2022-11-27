@@ -1,38 +1,74 @@
 from talon import ui, Module, Context, registry, actions, imgui, cron
-from typing import Optional
+from user.code.speakify import create_voice_mapping
+import os
+import re
 
 mod = Module()
 ctx = Context()
 
 mod.list("file_variables")
-mod.list("file_functions")
 
 
 @imgui.open(x=0, y=30)
 def list_info(gui: imgui.GUI):
-    # print(registry.lists["user.file_variables"])
-    for spoken, actual in registry.lists["user.file_variables"][0].items():
+    gui.text("-- file_variables --")
+    variables = registry.lists["user.file_variables"][0].items()
+    variables = sorted(variables, key=lambda v: v[0])
+    for spoken, actual in variables:
         gui.text(f"{spoken}: {actual}")
 
 @mod.action_class
 class Actions:
-    def get_file_contents() -> str:
-        """Return the full contents of the current file"""
+    def get_var_regex() -> str:
+        """Return a regex to parse the contents of the current file"""
         raise NotImplementedError
 
-    def refresh_lists(file_contents: str):
-        """Parse the passed string"""
+    def get_file_path() -> str:
+        """Return the path of the current file"""
         raise NotImplementedError
+
+    def update_lists(file_contents: str):
+        """Parse the passed string"""
+        if not file_contents:
+            return
+        try:
+            var_regex = re.compile(actions.user.get_var_regex())
+        except NotImplementedError:
+            return
+
+        variable_idents = set()
+        for c in var_regex.findall(file_contents):
+            if len(c[1]) > 2:
+                variable_idents.add(c[1])
+
+        var_mapping = create_voice_mapping(variable_idents, acronyms=False)
+        ctx.lists["user.file_variables"] = var_mapping
+
+    def refresh_lists():
+        """refresh user.file_variables"""
+        refresh(None)
 
     def list_info_toggle():
         """toggle window info imgui"""
         list_info.hide() if list_info.showing else list_info.show()
 
 
+previous_file = (None, None) # path, mtime
+
 def refresh(_):
     try:
-        contents = actions.user.get_file_contents()
-        actions.user.refresh_lists(contents)
+        global previous_file
+        path = actions.user.get_file_path()
+        if os.path.getsize(path) > 1_000_000:
+            return
+        mtime = os.path.getmtime(path)
+        if path == previous_file[0]:
+            if previous_file[1] and mtime <= previous_file[1]:
+                return
+        with open(path, "r") as f:
+            contents = f.read()
+        actions.user.update_lists(contents)
+        previous_file = path, mtime
     except NotImplementedError:
         return
 

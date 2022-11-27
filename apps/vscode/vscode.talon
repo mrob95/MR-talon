@@ -133,9 +133,7 @@ git diff: key(ctrl-shift-g ,)
 
 
 #
-refresh file: print(user.vscode_get_file_contents())
 very {user.file_variables}: "{file_variables}"
-fun {user.file_functions}: user.insert_function(file_functions)
 
 
 #

@@ -40,9 +40,9 @@ splat ross [<user.r20>]:
 
 
 # Text
-say <phrase> [over]:
+phrase <phrase> [over]:
     insert(user.formatted_text(phrase, 0, 0))
-phrase <phrase>$:
+say <phrase>$:
     insert(user.formatted_text(phrase, 0, 0))
 ({user.capitalisation} {user.spacing} | {user.capitalisation} | {user.spacing}) bow <phrase>:
     insert(user.formatted_text(phrase, capitalisation or 0, spacing or 0))

@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Optional
 from talon import Module, Context, ui, actions, registry, fs
+import os
 import re
 import time
 from user.code.speakify import create_voice_mapping
@@ -63,18 +64,22 @@ class Actions:
 
 @ctx.action_class('user')
 class UserAction:
-    def get_file_contents() -> str:
+    def get_file_path() -> str:
         title = ui.active_window().title
         first, _, path = title.rpartition(" - ")
         if not first: # e.g. title = "Save As"
             return ""
         if "WSL: Ubuntu" in first:
             path = path.replace("~", "\\\\wsl$\\Ubuntu\\home\\mike")
-        with open(path, "r") as f:
-            return f.read()
+        if not os.path.exists(path):
+            print(f"get_file_path found non-existent path {path}!")
+        return path
 
 
 
 @ctx.action_class('edit')
 class EditActions:
     def line_clone(): actions.key('shift-alt-down')
+    def save():
+        actions.key("ctrl-s")
+        actions.user.refresh_lists()
