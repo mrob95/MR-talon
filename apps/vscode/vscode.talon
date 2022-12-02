@@ -143,3 +143,6 @@ test lineup:
     print(out)
 
 show snippets: key(alt-\)
+
+(toggle | insert) break: key(f9)
+insert conditional break: user.vscode_palette("Debug: Add Conditional Breakpoint")

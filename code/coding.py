@@ -27,8 +27,8 @@ class Actions:
 
     def insert_function(pattern: str):
         """Insert a string, followed by parentheses, wrapping selected text."""
-        if pattern.endswith("!"):
-            actions.insert(pattern.rstrip("!"))
+        if pattern.endswith("@"):
+            actions.insert(pattern.rstrip("@"))
             return
 
         #
