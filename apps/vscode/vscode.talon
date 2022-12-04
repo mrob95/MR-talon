@@ -90,9 +90,11 @@ fold level [<user.n20>]: key("ctrl-k ctrl-{n20}")
 #
 full screen: key(f11)
 toggle side bar: key(ctrl-b)
+toggle (bottom | lower): key(ctrl-j)
 show problems: key(ctrl-shift-m)
 show extensions: key(ctrl-shift-x)
 show explorer: key(ctrl-shift-e)
+show debug: key(ctrl-shift-d)
 show terminal: key(ctrl-')
 show git: user.vscode_palette("GitLens: Focus on File History View")
 show sequel server: user.vscode_palette("SQL Server: Focus on Connections View")
@@ -144,5 +146,15 @@ test lineup:
 
 show snippets: key(alt-\)
 
-(toggle | insert) break: key(f9)
-insert conditional break: user.vscode_palette("Debug: Add Conditional Breakpoint")
+debug break: key(f9)
+debug conditional: user.vscode_palette("Debug: Add Conditional Breakpoint")
+debug focus: mouse_move(862, 42)
+debug restart: key(ctrl-shift-f5)
+debug step: key(f11)
+debug step out: key(shift-f11)
+debug next: key(f10)
+debug stop: key(shift-f5)
+debug continue: key(f5)
+debug (start | choose):
+    key(ctrl-p)
+    "debug "
