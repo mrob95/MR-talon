@@ -154,7 +154,7 @@ debug step: key(f11)
 debug step out: key(shift-f11)
 debug next: key(f10)
 debug finish: key(shift-f5)
-debug (continue|start): key(f5)
+debug (start | continue): key(f5)
 debug choose:
     key(ctrl-p)
     "debug "

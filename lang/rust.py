@@ -23,6 +23,7 @@ ctx.lists["user.functions"] = {
     "count": "count",
     "contains": "contains",
     "chars": "chars",
+    "enumerate": "enumerate",
     "flatten": "flatten",
     "get": "get",
     "into": "into",
@@ -43,7 +44,9 @@ ctx.lists["user.functions"] = {
     "panic": "panic!",
     "Some": "Some",
     "sort": "sort",
+    "step by": "step_by",
     "split": "split",
+    "skip": "skip",
     "split once": "split_once",
     "to string": "to_string",
     "to owned": "to_owned",
@@ -65,7 +68,8 @@ ctx.lists["user.logicals"] = {
 mod.list("rust_types")
 ctx.lists["user.rust_types"] = {
     "boolean": "bool",
-    "bool": "bool",    "byte": "byte",
+    "bool": "bool",
+    "char": "char",
     "eff eight": "f8",
     "eye eight": "i8",
     "you eight": "u8",
@@ -78,9 +82,10 @@ ctx.lists["user.rust_types"] = {
     "eff sixty four": "f64",
     "eye sixty four": "i64",
     "you sixty four": "u64",
+    "you size": "usize",
+    "eye size": "isize",
     "stir": "str",
     "string": "String",
-    "char": "char",
 }
 
 ctx.lists["user.values"] = {
@@ -91,9 +96,11 @@ ctx.lists["user.values"] = {
 
 mod.list("rust_derives")
 ctx.lists["user.rust_derives"] = {
-    "debug": "Debug",
     "copy": "Copy",
     "clone": "Clone",
+    "debug": "Debug",
+    "default": "Default",
+    "hash": "Hash",
 }
 
 mod.list("rust_type_modifiers")

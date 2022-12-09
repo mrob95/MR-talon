@@ -2,7 +2,7 @@ title: /.*\.rs$/
 -
 type <user.rust_type>: insert(rust_type)
 is type <user.rust_type>: insert(": {rust_type}")
-turbo fish <user.rust_type>: insert("::<{rust_type}>")
+turbo <user.rust_type>: insert("::<{rust_type}>")
 function main:
 	"fn main() {}"
 	key(left enter)
