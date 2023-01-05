@@ -23,7 +23,6 @@ insert (doc | long) string:
     key(left:3 enter:2 up)
 lambda: user.insert_fancy("lambda [|]:")
 return: "return "
-set trace: "import pdb; pdb.set_trace()"
 while loop: user.insert_fancy("while [|]:")
 with open: user.insert_fancy("with open([|]) as f:")
 with open {user.py_fopen_modes}+:

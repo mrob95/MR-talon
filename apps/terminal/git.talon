@@ -22,6 +22,8 @@ git clone:
 	user.insert_git_url()
 git create ignore: "curl https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore > .gitignore"
 
+# These commands depend on this tool:
+# https://github.com/mrob95/talon-git-labeller
 git {user.git_status_actions} {user.git_status_items} [(and {user.git_status_items})+]:
 	items = user.cat(git_status_items_list, "' '")
 	user.paste("git {git_status_actions} '{items}'")

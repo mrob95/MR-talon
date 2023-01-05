@@ -99,6 +99,7 @@ show terminal: key(ctrl-')
 show git: user.vscode_palette("GitLens: Focus on File History View")
 show sequel server: user.vscode_palette("SQL Server: Focus on Connections View")
 show settings: key(ctrl-,)
+show (tests | testing): user.vscode_palette("View: Show Testing")
 new terminal: key(ctrl-shift-')
 show keyboard shortcuts: key(ctrl-k ctrl-s)
 #
@@ -158,3 +159,6 @@ debug (start | continue): key(f5)
 debug choose:
     key(ctrl-p)
     "debug "
+debug test cursor: key(ctrl-; ctrl-c)
+debug test file: key(ctrl-; ctrl-f)
+debug test last: key(ctrl-; ctrl-l)

@@ -15,6 +15,8 @@ class Actions:
 
 
 ctx.lists["user.functions"] = {
+    "all": "all(|[|]| )",
+    "any": "any(|[|]| )",
     "as string": "as_str",
     "collect": "collect",
     "collect into": "collect::<[|]>()",
@@ -22,13 +24,18 @@ ctx.lists["user.functions"] = {
     "cloned": "cloned",
     "count": "count",
     "contains": "contains",
+    "contains key": "contains_key",
     "chars": "chars",
     "enumerate": "enumerate",
+    "entry": "entry",
+    "filter": "filter(|[|]| )",
     "flatten": "flatten",
     "get": "get",
     "into": "into",
-    "iter": "iter",
-    "iter mute": "iter_mut",
+    "iterate": "iter",
+    "insert": "insert",
+    "iterate mute": "iter_mut",
+    "last": "last",
     "lines": "lines",
     "length": "len",
     "map": "map(|[|]| )",
@@ -36,6 +43,7 @@ ctx.lists["user.functions"] = {
     "min": "min",
     "next": "next",
     "Okay": "Ok",
+    "or insert": "or_insert",
     "parse": "parse",
     "parse into": "parse::<[|]>()",
     "push": "push",
@@ -53,7 +61,12 @@ ctx.lists["user.functions"] = {
     "trim": "trim",
     "take": "take",
     "unwrap": "unwrap",
-    "vector": "vec!"
+    "unreachable": "unreachable!",
+    "vector": "vec![[|]]",
+
+    "hash map new": "HashMap[|]::new()",
+    "hash set new": "HashSet[|]::new()",
+    "vector new": "Vec[|]::new()",
 }
 
 ctx.lists["user.logicals"] = {
@@ -84,6 +97,7 @@ ctx.lists["user.rust_types"] = {
     "you sixty four": "u64",
     "you size": "usize",
     "eye size": "isize",
+    "self": "Self",
     "stir": "str",
     "string": "String",
 }
@@ -101,6 +115,7 @@ ctx.lists["user.rust_derives"] = {
     "debug": "Debug",
     "default": "Default",
     "hash": "Hash",
+    "equal": "PartialEq",
 }
 
 mod.list("rust_type_modifiers")
