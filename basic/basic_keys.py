@@ -139,7 +139,6 @@ punctuation = {
     "backtick": "`",
     "caret": "^",
     "comma": ",",
-    # "co lace": ": space",
     "coal gap": ": space",
     "boom": ", space",
     "boomer": ", space",
@@ -169,7 +168,7 @@ punctuation = {
     "right brace": "}",
 }
 
-punctuation2 = {
+punctuation_long = {
     "equals": "=",
     "ampersand": "&",
     "starling": "*",
@@ -191,40 +190,8 @@ punctuation2 = {
 mod.list("punctuation", desc="Punctuation")
 ctx.lists["user.punctuation"] = {
     **punctuation,
-    **punctuation2
+    **punctuation_long
 }
 
-mod.list("punctuation2", desc="Punctuation2")
-ctx.lists["user.punctuation2"] = punctuation2
-
-simple_keys = {
-    "tabby": "tab",
-    "tabby lease": "shift-tab",
-    "shock": "enter",
-    # "check": "ctrl-enter",
-    "clear": "backspace",
-    "clearing": "backspace",
-    "deli": "delete",
-    "page up": "pgup",
-    "page down": "pgdown",
-    # "undo": "ctrl-z",
-    "redo": "ctrl-y",
-    "zoom in": "ctrl-=",
-    "zoom out": "ctrl--",
-}
-mod.list("simple_keys", desc="Simple_keys")
-ctx.lists["user.simple_keys"] = simple_keys
-
-simple_keys_norepeat = {
-    "ace": "space",
-    "space": "space",
-    "cutter": "ctrl-x",
-    "eskimo": "escape",
-    "ski": "escape",
-    "shackle": "home shift-end",
-    "select all": "ctrl-a",
-    "select every": "ctrl-a",
-    "find": "ctrl-f",
-}
-mod.list("simple_keys_norepeat", desc="Simple keys norepeat")
-ctx.lists["user.simple_keys_norepeat"] = simple_keys_norepeat
+mod.list("punctuation_long", desc="Punctuation long")
+ctx.lists["user.punctuation_long"] = punctuation_long
