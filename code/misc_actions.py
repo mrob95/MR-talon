@@ -67,14 +67,4 @@ class Actions:
 
     def kill_notepads():
         """Close all notepad windows"""
-        bat_path = Path("user/utils/notepad_kill.bat")
-        p = run([bat_path.absolute()], capture_output=True)
-
-    def record_error(path: str):
-        """Record a mistake"""
-        actions.key("ctrl-c")
-        actions.sleep("200ms")
-        s = clip.get().replace("\n", " ")
-        actions.app.notify(s)
-        with open(path, "a") as f:
-            f.write(s + "\n")
+        run(["taskkill", "/IM", "notepad.exe", "/f", "/s", "localhost"], capture_output=True)

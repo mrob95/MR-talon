@@ -1,8 +1,8 @@
 app: remedybg.exe
 -
 settings():
-    key_hold = 16
     key_wait = 16
+    key_hold = 16
 
 set break point: key(f9)
 continue: key(f5)

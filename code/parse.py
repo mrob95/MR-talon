@@ -59,6 +59,8 @@ def refresh(_):
     try:
         global previous_file
         path = actions.user.get_file_path()
+        if not path:
+            return
         if os.path.getsize(path) > 1_000_000:
             return
         mtime = os.path.getmtime(path)

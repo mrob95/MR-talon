@@ -1,4 +1,4 @@
-from talon import ui, Module, Context, registry, actions, imgui, cron
+from talon import Context
 
 ctx = Context("sql")
 ctx.matches = r"""
@@ -28,4 +28,3 @@ ctx.lists["user.logicals"] = {
     "then": " then ",
     "not": " not ",
 }
-
