@@ -17,6 +17,10 @@ class Actions:
         """Concatenate"""
         return sep.join(l)
 
+    def first_letter_lowercase(s: str) -> str:
+        """Return the first letter of the string, lowercased"""
+        return "" if len(s) == 0 else s[0].lower()
+
     def replace(pat: str, rep: str, s: str) -> str:
         """Replace"""
         return re.sub(pat, rep, s)

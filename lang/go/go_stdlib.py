@@ -1,4 +1,4 @@
-from talon import ui, Module, Context, registry, actions, imgui, cron
+from talon import Module, Context, resource
 import json
 from pathlib import Path
 
@@ -65,7 +65,7 @@ ctx.lists["user.doclinks"] = {
 
 package_spoken_look_up = {v: k for k, v in go_packages.items()}
 
-with open(Path(__file__).parent / "std_libs_2.json", "r") as f:
+with resource.open(Path(__file__).parent / "std_libs_2.json", "r") as f:
     libs_map = json.load(f)
 
 go_stdlib_identifiers = {}

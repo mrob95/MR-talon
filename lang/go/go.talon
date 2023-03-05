@@ -19,8 +19,11 @@ shell iffae:
 shells:
     "else {}"
     key("left enter up end left:2")
-switch:
+switcher:
     "switch  {}"
+    key("left enter up end left:2")
+selector:
+    "select  {}"
     key("left enter up end left:2")
 case when:
     "case :"
@@ -36,35 +39,45 @@ for loop:
     key("left enter up end left:7")
 for each:
     "for  := range  {}"
-    key("left enter up home right:4")
+    key("left enter up end left:12")
 
 (end | finish) timer: "elapsed := time.Since(start)\nfmt.Printf(\"execution took %s\", elapsed)"
 (start | begin) timer: "start := time.Now()"
-
-value true: "true"
-value false: "false"
-value (null|nil): "nil"
 
 import:
     "import ()"
     key("left enter")
 
-
-function [<phrase>]$:
+# Functions, methods
+create function [<phrase>]$:
     "func "
     insert(user.camel(phrase or ""))
     "() {}"
     key(left enter up end left:3)
-type struct:
-    "type  struct {}"
+private {user.file_types} [<phrase>]$:
+    "func ({user.first_letter_lowercase(file_types)} *{file_types}) {user.camel(phrase or '')}() {{}}"
+    key(left enter up end left:3)
+public {user.file_types} [<phrase>]$:
+    "func ({user.first_letter_lowercase(file_types)} *{file_types}) {user.title(phrase or '')}() {{}}"
+    key(left enter up end left:3)
+type struct [<phrase>]$:
+    "type {user.title(phrase or '')} struct {{}}"
     key(left enter up home right:5)
-return: "return "
-assign: " := "
+variable <phrase>:
+    "var {user.camel(phrase or '')} "
+camel <phrase>: insert(user.camel(phrase))
 
 type <user.go_type>: user.insert_fancy(go_type)
 make <user.go_map>: user.insert_fancy("make({go_map})")
-very <user.go_slice>: user.insert_fancy("var [|] {go_slice}")
 
 document {user.doclinks}: user.browser_open(doclinks)
 {user.go_stdlib}: user.insert_function(go_stdlib)
 package {user.go_packages}: insert(go_packages)
+
+deferral: "defer "
+continual: "continue"
+breaker: "break"
+return: "return "
+constant: "const "
+assign: " := "
+error assign: "err := "

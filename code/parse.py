@@ -7,6 +7,7 @@ mod = Module()
 ctx = Context()
 
 mod.list("file_variables")
+mod.list("file_types")
 
 
 @imgui.open(x=0, y=30)
@@ -20,7 +21,11 @@ def list_info(gui: imgui.GUI):
 @mod.action_class
 class Actions:
     def get_var_regex() -> str:
-        """Return a regex to parse the contents of the current file"""
+        """Return a regex to parse the contents of the current file for variables"""
+        raise NotImplementedError
+
+    def get_type_regex() -> str:
+        """Return a regex to parse the contents of the current file for types"""
         raise NotImplementedError
 
     def get_file_path() -> str:
@@ -33,16 +38,23 @@ class Actions:
             return
         try:
             var_regex = re.compile(actions.user.get_var_regex())
+            variable_idents = set()
+            for c in var_regex.findall(file_contents):
+                if len(c[1]) > 2:
+                    variable_idents.add(c[1])
+
+            var_mapping = create_voice_mapping(variable_idents, acronyms=False)
+            ctx.lists["user.file_variables"] = var_mapping
         except NotImplementedError:
-            return
+            pass
 
-        variable_idents = set()
-        for c in var_regex.findall(file_contents):
-            if len(c[1]) > 2:
-                variable_idents.add(c[1])
-
-        var_mapping = create_voice_mapping(variable_idents, acronyms=False)
-        ctx.lists["user.file_variables"] = var_mapping
+        try:
+            type_regex = re.compile(actions.user.get_type_regex())
+            type_idents = set(type_regex.findall(file_contents))
+            type_mapping = create_voice_mapping(type_idents, acronyms=False)
+            ctx.lists["user.file_types"] = type_mapping
+        except NotImplementedError:
+            pass
 
     def refresh_lists():
         """refresh user.file_variables"""
