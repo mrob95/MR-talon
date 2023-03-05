@@ -2,10 +2,9 @@
 # see https://github.com/timo/talon_scripts
 #
 # Modified to not do the screenshot-in-the-centre thing. This one behaves more like Dragon's -MR
-from talon import Module, Context, app, canvas, screen, settings, ui, ctrl, cron
+from talon import Module, Context, app, canvas, screen, settings, ui, ctrl, cron, actions
 from talon.skia import Shader, Color, Paint, Rect
 from talon.types.point import Point2d
-from talon_plugins import eye_mouse, eye_zoom_mouse
 from typing import Union
 
 import math, time
@@ -65,13 +64,6 @@ class MouseSnapNine:
     def show(self):
         if self.active:
             return
-        # noinspection PyUnresolvedReferences
-        if eye_zoom_mouse.zoom_mouse.enabled:
-            self.was_zoom_mouse_active = True
-            eye_zoom_mouse.toggle_zoom_mouse(False)
-        if eye_mouse.control_mouse.enabled:
-            self.was_control_mouse_active = True
-            eye_mouse.control_mouse.toggle()
         self.mcanvas.register("draw", self.draw)
         self.mcanvas.freeze()
         self.active = True
@@ -84,15 +76,7 @@ class MouseSnapNine:
         self.mcanvas.close()
         self.mcanvas = None
         self.img = None
-
         self.active = False
-        if self.was_control_mouse_active and not eye_mouse.control_mouse.enabled:
-            eye_mouse.control_mouse.toggle()
-        if self.was_zoom_mouse_active and not eye_zoom_mouse.zoom_mouse.enabled:
-            eye_zoom_mouse.toggle_zoom_mouse(True)
-
-        self.was_zoom_mouse_active = False
-        self.was_control_mouse_active = False
 
     def draw(self, canvas):
         paint = canvas.paint
@@ -242,7 +226,7 @@ class GridActions:
     def grid_narrow_list(digit_list: str):
         """Choose fields multiple times in a row"""
         for d in digit_list:
-            GridActions.grid_narrow(int(d))
+            actions.user.grid_narrow(int(d))
 
     def grid_narrow(digit: Union[int, str]):
         """Choose a field of the grid and narrow the selection down"""

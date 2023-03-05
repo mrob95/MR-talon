@@ -8,7 +8,7 @@ and user.vs_terminal: True
 -
 tag(): user.terminal
 tag(): user.command_mode
-see dee {user.directories}:
+(CD | C D | see dee) {user.directories}:
     insert('cd "{directories}" && ls')
     key(enter)
 file {user.files}:
@@ -20,6 +20,8 @@ go {user.folders}:
     key(enter)
 dot {user.extensions}:
     ".{extensions}"
+maker {user.makefile_targets}:
+    "make {makefile_targets}"
 #------------------------------------------------------
 bash: "bash "
 cancel: key(ctrl-c)
@@ -55,7 +57,6 @@ sublime: "subl -n "
 sublime here:
     "subl -n ."
     key(enter)
-SSH kali: "ssh -p 3022 mrob@172.30.1.3"
 jupiter notebook: "jupyter notebook"
 jupiter lab: "jupyter lab"
 youtube download: "youtube-dl -f best "

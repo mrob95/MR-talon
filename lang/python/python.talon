@@ -112,3 +112,7 @@ logging basic config:
         file=None,
         format="%(asctime)s [%(levelname)s] %(message)s",
         datefmt="%Y-%m-%d %H:%M","""
+
+time gate:
+    """start = time.perf_counter()
+    print(f"Took {time.perf_counter()-start}s")"""

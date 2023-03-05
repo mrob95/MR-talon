@@ -185,6 +185,7 @@ ctx.lists["user.functions"] = {
     "range": "range",
     "read lines": "readlines",
     "read": "read",
+    "read text": "read_text",
     "remove": "remove",
     "replace": "replace",
     "reverse": "reverse",
@@ -203,6 +204,7 @@ ctx.lists["user.functions"] = {
     "upper": "upper",
     "values": "values",
     "write": "write",
+    "write text": "write_text",
 }
 
 ctx.lists["user.logicals"] = {
