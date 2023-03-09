@@ -1,4 +1,4 @@
-title: /\.go/
+title: /\.go$/
 -
 iffae:
     "if  {}"
@@ -50,9 +50,10 @@ import:
 
 # Functions, methods
 create function [<phrase>]$:
-    "func "
-    insert(user.camel(phrase or ""))
-    "() {}"
+    "func {user.camel(phrase or '')}() {{}}"
+    key(left enter up end left:3)
+create test [<phrase>]$:
+    "func Test{user.title(phrase or '')}(t *testing.T) {{}}"
     key(left enter up end left:3)
 private {user.file_types} [<phrase>]$:
     "func ({user.first_letter_lowercase(file_types)} *{file_types}) {user.camel(phrase or '')}() {{}}"
@@ -62,10 +63,23 @@ public {user.file_types} [<phrase>]$:
     key(left enter up end left:3)
 type struct [<phrase>]$:
     "type {user.title(phrase or '')} struct {{}}"
-    key(left enter up home right:5)
+    key(left enter up end left:9)
+interface [<phrase>]$:
+    "interface {user.title(phrase or '')} {{}}"
+    key(left enter up end left:9)
 variable <phrase>:
     "var {user.camel(phrase or '')} "
 camel <phrase>: insert(user.camel(phrase))
+tag jason [<phrase>]: "`json:\"{user.snake(phrase or '')}\"`"
+produces type <user.go_type>:
+    key("end left:2 space ( ) left")
+    user.insert_fancy(go_type)
+produces type <user.go_type> and error:
+    key("end left:2 space ( ) left")
+    user.insert_fancy(go_type)
+    ", error"
+format error <phrase>$: "fmt.Errorf(\"{phrase}\")"
+wrap error <phrase>$: "fmt.Errorf(\"{phrase}: %q\", err)"
 
 type <user.go_type>: user.insert_fancy(go_type)
 make <user.go_map>: user.insert_fancy("make({go_map})")

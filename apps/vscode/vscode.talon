@@ -64,6 +64,9 @@ go to <phrase> [{user.filetype}]$:
     # key(enter)
 go to word: key(ctrl-;)
 go to symbol: key(ctrl-shift-o)
+go to symbol {user.file_types}:
+    key(ctrl-shift-o)
+    insert(file_types)
 go to [symbol in] project: key(ctrl-t)
 go to definition: key(f12)
 peek definition: key(alt-f12)

@@ -28,11 +28,6 @@ class Actions:
         """Open a file using SumatraPDF"""
         Popen(["SumatraPDF", path])
 
-    def view_talon_log():
-        """Open the talon log viewer"""
-        log_script = os.path.expanduser("~/AppData/Roaming/talon/.venv/Scripts/tail_log.bat")
-        Popen([log_script])
-
     def slow_key(pattern: str, wait: str = "50ms"):
         """Press some keys slowly"""
         keys = pattern.split(" ")

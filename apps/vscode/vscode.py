@@ -70,12 +70,15 @@ class UserAction:
         if not first: # e.g. title = "Save As"
             return ""
         if "WSL: Ubuntu" in first:
-            if path.startswith("/"):
+            if path.startswith("/C:/"):
+                return path[1:]
+            elif path.startswith("/"):
                 path = "\\\\wsl$\\Ubuntu" + path
             else:
                 path = path.replace("~/", "\\\\wsl$\\Ubuntu\\home\\mike\\")
         if not os.path.exists(path):
             print(f"get_file_path found non-existent path {path}!")
+            return ""
         return path
 
 

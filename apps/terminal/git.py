@@ -101,7 +101,7 @@ ctx.lists["user.git_commands"] = {
     "remote set url": "remote set-url ",
     "remote rename": "remote rename ",
     "remove branch": "branch -d ",
-    "reset": "reset ",
+    "reset": "reset --mixed ",
     "show remotes": "remote -v @",
     "show": "show ",
     "submodule update": "submodule update ",

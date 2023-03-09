@@ -4,7 +4,7 @@ mod = Module()
 ctx = Context()
 
 ctx.matches = r"""
-title: /\.go/
+title: /\.go$/
 """
 
 @ctx.action_class("user")
@@ -38,12 +38,14 @@ ctx.lists["user.logicals"] = {
 ctx.lists["user.values"] = {
     "false": "false",
     "nil": "nil",
+    "none": "nil",
     "null": "nil",
     "true": "true",
 }
 
 mod.list("go_types")
 ctx.lists["user.go_types"] = {
+    # builtins
     "integer": "int",
     "inter eight": "int8",
     "inter sixteen": "int16",
@@ -61,9 +63,22 @@ ctx.lists["user.go_types"] = {
     "byte": "byte",
     "float thirty two": "float32",
     "float sixty four": "float64",
+    # common
+    "time duration": "time.Duration",
+    "time time": "time.Time",
+    "HTTP client": "http.Client",
+    "testing": "testing.T",
+    "sequel DB": "sql.DB",
+    "Context": "context.Context",
 }
 
-@mod.capture(rule="[ref] ({user.go_types} | <user.go_map> | <user.go_slice> | <user.go_chan> | {user.file_types})")
+@mod.capture(rule="""[ref] (
+             {user.go_types} |
+              <user.go_map> |
+              <user.go_slice> |
+              <user.go_chan> |
+              {user.file_types}
+            )""")
 def go_type(m) -> str:
     """A Go type"""
     if m[0] == "ref":
