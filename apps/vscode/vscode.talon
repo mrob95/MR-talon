@@ -165,3 +165,5 @@ debug choose:
 debug test cursor: key(ctrl-; ctrl-c)
 debug test file: key(ctrl-; ctrl-f)
 debug test last: key(ctrl-; ctrl-l)
+
+pilot open: key(f13)

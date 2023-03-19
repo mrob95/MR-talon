@@ -61,7 +61,7 @@ private {user.file_types} [<phrase>]$:
 public {user.file_types} [<phrase>]$:
     "func ({user.first_letter_lowercase(file_types)} *{file_types}) {user.title(phrase or '')}() {{}}"
     key(left enter up end left:3)
-type struct [<phrase>]$:
+create structure [<phrase>]$:
     "type {user.title(phrase or '')} struct {{}}"
     key(left enter up end left:9)
 interface [<phrase>]$:

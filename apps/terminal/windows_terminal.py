@@ -3,7 +3,7 @@ import re
 from typing import Iterator, NamedTuple, List, Optional, Callable, Dict
 
 from user.code.speakify import create_spoken_forms, map_numbers_to_spoken
-from user.accessibility.terminal.wt import WindowsTerminalAccess, first_where
+# from user.accessibility.terminal.wt import WindowsTerminalAccess, first_where
 
 mod = Module()
 ctx = Context()

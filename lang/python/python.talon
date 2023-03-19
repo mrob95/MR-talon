@@ -115,4 +115,4 @@ logging basic config:
 
 time gate:
     """start = time.perf_counter()
-    print(f"Took {time.perf_counter()-start}s")"""
+    print(f"Took {{time.perf_counter()-start}}s")"""
