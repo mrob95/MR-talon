@@ -8,6 +8,7 @@ and user.vs_terminal: True
 -
 tag(): user.terminal
 tag(): user.command_mode
+tag(): user.kubectl
 (CD | C D | see dee) {user.directories}:
     insert('cd "{directories}" && ls')
     key(enter)
@@ -23,6 +24,7 @@ dot {user.extensions}:
 maker {user.makefile_targets}:
     "make {makefile_targets}"
 #------------------------------------------------------
+sudo apt install: "sudo apt install "
 bash: "bash "
 cancel: key(ctrl-c)
 (history | page back): key(ctrl-r)

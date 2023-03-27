@@ -25,6 +25,17 @@ def password(text: str):
             result.append(text[i])
     return "".join(result)
 
+def dictation(text: str) -> str:
+    text = text.lower()
+    text = text.replace("- ", "-")
+    text = text.replace(" i ", " I ")
+    text = text.replace(" i'", " I'")
+    if text.startswith("i "):
+        text = "I " + text[2:]
+    if text.endswith(" i"):
+        text = text[:-2] + " I"
+    return text
+
 CAPITALISATIONS = {
     0: lambda text: text,
     1: lambda text: text.upper(),
@@ -33,6 +44,7 @@ CAPITALISATIONS = {
     4: lambda text: text.capitalize(),
     5: lambda text: text.lower(),
     6: password,
+    7: dictation,
 }
 
 SPACINGS = {

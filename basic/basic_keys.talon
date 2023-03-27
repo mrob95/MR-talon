@@ -63,9 +63,9 @@ splat ross [<user.r20>]:
 
 # Text
 phrase <phrase> [over]:
-    insert(user.formatted_text(phrase, 0, 0))
+    insert(user.formatted_text(phrase, 7, 0))
 say <phrase>$:
-    insert(user.formatted_text(phrase, 0, 0))
+    insert(user.formatted_text(phrase, 7, 0))
 ({user.capitalisation} {user.spacing} | {user.capitalisation} | {user.spacing}) bow <phrase>:
     insert(user.formatted_text(phrase, capitalisation or 0, spacing or 0))
 ({user.capitalisation} {user.spacing} | {user.capitalisation} | {user.spacing}) burner <phrase>$:

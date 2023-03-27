@@ -70,6 +70,8 @@ ctx.lists["user.go_types"] = {
     "testing": "testing.T",
     "sequel DB": "sql.DB",
     "Context": "context.Context",
+    # external
+    "cobra command": "cobra.Command",
 }
 
 @mod.capture(rule="""[ref] (
