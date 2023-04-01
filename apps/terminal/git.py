@@ -77,6 +77,7 @@ ctx.lists["user.git_commands"] = {
     "fetch origin": "fetch origin ",
     "fetch origin and pull": "fetch origin && git pull",
     "fetch": "fetch ",
+    "fix up": "fixup ",
     "gooey blame": "gui blame PATH",
     "init": "init ",
     "log": "log ",
