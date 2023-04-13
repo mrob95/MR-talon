@@ -140,3 +140,23 @@ mux layout: key(ctrl-b space)
 mux page up: key(ctrl-b pgup)
 
 complete: key(alt-?)
+# ------------------------------------------------
+go build: "go build "
+go clean: "go clean "
+go doc: "go doc "
+go env: "go env "
+go fix: "go fix "
+go format: "go fmt "
+go generate: "go generate "
+go get: "go get "
+go install: "go install "
+go list: "go list "
+go mod: "go mod "
+go mod init: "go mod init "
+go mod tidy: "go mod tidy "
+go work: "go work "
+go run: "go run "
+go test: "go test "
+go tool: "go tool "
+go version: "go version "
+go vet: "go vet "
