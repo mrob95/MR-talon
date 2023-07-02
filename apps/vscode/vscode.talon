@@ -44,6 +44,7 @@ previous match [<user.n20>]: key("shift-enter:{n20 or 1}")
 find all: key(alt-enter)
 replace: key(ctrl-h)
 search in directory: key(ctrl-shift-f)
+replace in directory: key(ctrl-shift-h)
 #
 copy relative path: key(ctrl-k ctrl-shift-c)
 copy path: key(alt-shift-c)
@@ -169,4 +170,4 @@ debug test cursor: key(ctrl-; ctrl-c)
 debug test file: key(ctrl-; ctrl-f)
 debug test last: key(ctrl-; ctrl-l)
 
-pilot open: key(f13)
+pilot (open|show): key(f13)
