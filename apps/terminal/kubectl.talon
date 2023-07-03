@@ -56,9 +56,15 @@ cube help: "kubectl help "
 cube plugin: "kubectl plugin "
 cube version: "kubectl version "
 
+cube [rollout] restart [deployment]: "kubectl rollout restart deployment "
+
+cube search {user.kubectl_object} [<phrase>]:
+    insert("kubectl get {kubectl_object} | egrep {phrase}")
+
 cube {user.kubectl_action} [{user.kubectl_object}]:
     insert("kubectl {kubectl_action} ")
     insert(kubectl_object or "")
+    insert(" ")
 
 cube detach:
     key("ctrl-p")
@@ -85,3 +91,7 @@ scaffold fix: "skaffold fix "
 scaffold schema: "skaffold schema "
 scaffold survey: "skaffold survey "
 scaffold version: "skaffold version "
+
+jason path:
+    " -o jsonpath={{.data.}}"
+    key(left)

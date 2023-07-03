@@ -28,6 +28,13 @@ ctx.lists["user.functions"] = {
     "string": "string",
     "to integer": "strconv.Atoi",
     "to string": "strconv.Itoa",
+    # logging
+    "log debug": 'log.Debugf("[|]")',
+    "log info": 'log.Infof("[|]")',
+    "log error": 'log.Errorf("[|]")',
+    "log context debug": 'log.WithContext(ctx).Debugf("[|]")',
+    "log context info":  'log.WithContext(ctx).Infof("[|]")',
+    "log context error": 'log.WithContext(ctx).Errorf("[|]")',
 }
 
 ctx.lists["user.logicals"] = {
@@ -67,6 +74,7 @@ ctx.lists["user.go_types"] = {
     "time duration": "time.Duration",
     "time time": "time.Time",
     "HTTP client": "http.Client",
+    "UUID": "uuid.UUID",
     "testing": "testing.T",
     "sequel DB": "sql.DB",
     "Context": "context.Context",

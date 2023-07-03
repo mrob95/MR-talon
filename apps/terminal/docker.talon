@@ -65,3 +65,7 @@ docker system: "docker system "
 docker trust: "docker trust "
 docker volume: "docker volume "
 docker volume create: "docker volume create "
+
+docker compose up: "docker-compose up "
+docker compose down: "docker-compose down "
+docker compose logs: "docker-compose logs "

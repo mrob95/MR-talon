@@ -24,4 +24,7 @@ ctx.lists["self.kubectl_object"] = [
     "deployments",
     "replicasets",
     "daemonsets",
+    "configmaps",
+    "roles",
+    "mappings",
 ]

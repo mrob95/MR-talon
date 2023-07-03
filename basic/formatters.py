@@ -64,6 +64,8 @@ def format_text(text, capitalisation=0, spacing=0):
         capitalisation = 5
     if spacing == 0 and capitalisation == 3:
         spacing = 1
+    if spacing == 0 and capitalisation == 2:
+        spacing = 1
     text = CAPITALISATIONS[capitalisation](text)
     text = SPACINGS[spacing].join(text.split(" "))
     return text
