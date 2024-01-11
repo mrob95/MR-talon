@@ -70,10 +70,12 @@ go to symbol {user.file_types}:
     insert(file_types)
 go to [symbol in] project: key(ctrl-t)
 go to definition: key(f12)
+go to implementations: key(ctrl-f12)
 peek definition: key(alt-f12)
 peek references: key(shift-f12)
 command pallette: key(ctrl-shift-p)
 rename (symbol | that): key(f2)
+re-factor (this | that): key(ctrl-shift-r)
 #
 edit lines: key(shift-alt-i)
 sort lines: user.vscode_palette("sort ascending")

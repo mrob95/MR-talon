@@ -54,7 +54,7 @@ ctx.lists["user.git_commands"] = {
     "bisect bad": "bisect bad ",
     "bisect reset": "bisect reset ",
     "bisect": "bisect ",
-    "checkout develop": "checkout develop@",
+    "checkout development": "checkout development@",
     "checkout master": "checkout master@",
     "checkout patch": "checkout -p ",
     "checkout upstream develop": "checkout upstream/develop@",

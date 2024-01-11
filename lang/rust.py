@@ -29,6 +29,7 @@ ctx.lists["user.functions"] = {
     "enumerate": "enumerate",
     "entry": "entry",
     "filter": "filter(|[|]| )",
+    "format": 'format!("[|]")',
     "flatten": "flatten",
     "get": "get",
     "into": "into",
@@ -39,6 +40,7 @@ ctx.lists["user.functions"] = {
     "lines": "lines",
     "length": "len",
     "map": "map(|[|]| )",
+    "map error": "map_err(|e| [|])",
     "max": "max",
     "min": "min",
     "next": "next",
@@ -67,6 +69,11 @@ ctx.lists["user.functions"] = {
     "hash map new": "HashMap[|]::new()",
     "hash set new": "HashSet[|]::new()",
     "vector new": "Vec[|]::new()",
+
+    "anyhow": 'anyhow!("[|]")',
+    "context": "context",
+    "with context": "with_context(|| [|])",
+    "bail": 'bail!("[|]")',
 }
 
 ctx.lists["user.logicals"] = {

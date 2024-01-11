@@ -41,7 +41,8 @@ infinite loop:
 letter: "let "
 letter mut: "let mut "
 
-produces: " => "
+produces: key(end left space - > space)
+arrow: " => "
 implement [{user.file_variables}]:
 	"impl {file_variables or ''} {{}}"
 	key(left enter up end left)
