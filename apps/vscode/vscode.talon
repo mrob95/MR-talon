@@ -173,3 +173,12 @@ debug test file: key(ctrl-; ctrl-f)
 debug test last: key(ctrl-; ctrl-l)
 
 pilot (open|show): key(f13)
+pilot next: key(alt-])
+pilot previous: key(alt-[)
+pilot trigger: key(alt-\)
+pilot generate:
+    user.vscode_palette("GitHub Copilot: Generate This")
+    key(right)
+pilot fix: user.vscode_palette("GitHub Copilot: Fix This")
+pilot document: user.vscode_palette("GitHub Copilot: Fix This")
+pilot explain: user.vscode_palette("GitHub Copilot: Explain This")
