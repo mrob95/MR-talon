@@ -52,3 +52,5 @@ allow notification: key(alt-shift-a)
 deny notification: key(alt-shift-a)
 developer tools: key(f12)
 view [page] source: key(ctrl-u)
+
+auto fill: key(ctrl-shift-l)

@@ -1,23 +1,18 @@
 from datetime import time, datetime
-from talon import imgui, cron, actions, ui, Module, speech_system
-
-@imgui.open(x=1450, y=1042)
-def google_meet(gui: imgui.GUI):
-    if gui.button("Talk"):
-        speech_system.engine_mimic("go to sleep")
-        # actions.key("F17")
-    if gui.button("Code"):
-        speech_system.engine_mimic("wake up")
-        # actions.key("F17")
-
-def activate_if_google_meet(w: ui.Window):
-    if "google meet" in w.title:
-        google_meet.show()
-
-
-ui.register("win_title", activate_if_google_meet)
+from talon import imgui, cron, actions, ui, Module, Context
 
 mod = Module()
+ctx = Context()
+
+
+@imgui.open(x=2150, y=2220)
+def google_meet(gui: imgui.GUI):
+    if gui.button("Mute"):
+        actions.key("ctrl-shift-5")
+    #     speech_system.engine_mimic("go to sleep")
+    # if gui.button("Code"):
+    #     speech_system.engine_mimic("wake up")
+
 
 @mod.action_class
 class Actions:

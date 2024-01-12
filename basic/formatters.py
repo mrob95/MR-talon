@@ -34,6 +34,7 @@ def dictation(text: str) -> str:
         text = "I " + text[2:]
     if text.endswith(" i"):
         text = text[:-2] + " I"
+    text = text.replace(" id ", " ID ")
     return text
 
 CAPITALISATIONS = {

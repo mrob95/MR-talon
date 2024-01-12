@@ -42,6 +42,8 @@ ctx.lists["user.git_commands"] = {
     "new branch": "checkout -b ",
     "add": "add ",
     "add patch": "add -p ",
+    "add pet": "add -p ",
+    "add pipe": "add -p ",
     "add all": "add -A ",
     "add force": "add -f ",
     "remove": "rm ",

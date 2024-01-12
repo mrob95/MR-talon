@@ -102,7 +102,8 @@ pip install: "pip install "
 pip install requirements: "pip install -r requirements.txt "
 pip install editable: "pip install -e ."
 upgrade pip: "--upgrade pip"
-pie test: "pytest --pdb "
+pie test: "pytest  "
+pie test debug: "pytest --pdb "
 pie flakes: "pyflakes "
 eye python: "ipython "
 venv activate: "activate"
@@ -132,6 +133,7 @@ rename PNG large: "rename 'png_large' 'png' *.png_large"
 rename jay peg large: "rename 'jpg_large' 'jpg' *.jpg_large"
 # ------------------------------------------------
 mux new: key(ctrl-b c)
+mux detach: key(ctrl-b d)
 mux next: key(ctrl-b n)
 mux previous: key(ctrl-b p)
 mux find: key(ctrl-b f)

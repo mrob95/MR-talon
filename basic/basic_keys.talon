@@ -64,7 +64,7 @@ splat ross [<user.r20>]:
 # Text
 phrase <phrase> [over]:
     insert(user.formatted_text(phrase, 7, 0))
-say <phrase>$:
+(say | so) <phrase>$:
     insert(user.formatted_text(phrase, 7, 0))
 sigma <phrase>$:
     insert(user.formatted_text(phrase, 4, 0))
