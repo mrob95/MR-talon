@@ -180,5 +180,7 @@ pilot generate:
     user.vscode_palette("GitHub Copilot: Generate This")
     key(right)
 pilot fix: user.vscode_palette("GitHub Copilot: Fix This")
-pilot document: user.vscode_palette("GitHub Copilot: Fix This")
+pilot document: user.vscode_palette("GitHub Copilot: Generate Docs")
+pilot (chat | modify): key(ctrl-i)
+pilot accept: user.vscode_palette("Inline chat: accept changes")
 pilot explain: user.vscode_palette("GitHub Copilot: Explain This")
