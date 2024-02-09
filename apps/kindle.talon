@@ -1,4 +1,4 @@
-app: Kindle.exe
+app: kindle.exe
 -
 tag(): user.command_mode
 library: key(ctrl-alt-l)

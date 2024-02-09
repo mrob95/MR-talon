@@ -1,4 +1,4 @@
-app: Spotify.exe
+app: spotify.exe
 -
 page back [<user.n20>]: key("alt-left:{n20 or 1}")
 page forward [<user.n20>]: key("alt-right:{n20 or 1}")

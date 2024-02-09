@@ -17,7 +17,7 @@ and app.exe: firefox.exe
 
 # app.name: Visual Studio Code
 apps.vscode = """
-app.exe: Code.exe
+app.exe: code.exe
 """
 
 apps.windows_explorer = """
@@ -39,7 +39,7 @@ and app.exe: cmd.exe
 
 apps.windows_terminal = """
 os: windows
-and app.exe: WindowsTerminal.exe
+and app.exe: windowsterminal.exe
 """
 
 apps.windows_power_shell = """

@@ -1,6 +1,4 @@
-app: Visual Studio Code
-and title: /user - .*\.py/
-app: Code.exe
+app: vscode
 and title: /user - .*\.py/
 -
 standard imports:
