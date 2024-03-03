@@ -77,3 +77,5 @@ repeat last [<user.n20>]:
     core.repeat_phrase(n20)
 
 {user.personal}: insert(personal)
+
+and sleep$: user.dragon_mimic("go to sleep")
