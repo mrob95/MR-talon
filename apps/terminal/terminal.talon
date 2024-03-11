@@ -36,14 +36,14 @@ page forward: key(ctrl-s)
 see dee up:
     "cd .."
     key(enter)
-see dee: "cd "
+(CD | C D | see dee): "cd "
 curly: "curl "
 greppy: "egrep "
 greppy recursive: "egrep -R "
 header: "head "
 echo: "echo "
 list: "ls "
-long list: "ls -la "
+long list: "ls -lah "
 remove: "rm "
 remove recursive: "rm -rf "
 line count: "wc -l "

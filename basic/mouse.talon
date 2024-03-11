@@ -13,7 +13,7 @@ colic:
     mouse_click()
     key(ctrl:up)
     user.grid_close()
-mouse alt click:
+mouse (alt|alternate) click:
     key(alt:down)
     mouse_click()
     key(alt:up)

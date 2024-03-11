@@ -18,6 +18,7 @@ and app.exe: firefox.exe
 # app.name: Visual Studio Code
 apps.vscode = """
 app.exe: code.exe
+app.exe: Code.exe
 """
 
 apps.windows_explorer = """

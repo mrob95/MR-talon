@@ -76,6 +76,7 @@ ctx.lists["user.git_commands"] = {
     "discard": "checkout -- ",
     "discard all": "reset --hard ",
     "status": "tl-status\n",
+    "status normal": "status\n",
     "reset hard": "reset --hard ",
     "fetch upstream": "fetch upstream ",
     "fetch upstream and pull": "fetch upstream && git pull",

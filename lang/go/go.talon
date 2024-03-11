@@ -67,7 +67,7 @@ public {user.file_types} [<phrase>]$:
 create structure [<phrase>]$:
     "type {user.title(phrase or '')} struct {{}}"
     key(left enter up end left:9)
-interface [<phrase>]$:
+create interface [<phrase>]$:
     "interface {user.title(phrase or '')} {{}}"
     key(left enter up end left:9)
 variable <phrase>:

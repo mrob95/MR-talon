@@ -1,8 +1,8 @@
 app: vscode
 and title: / - GitHub Copilot/
 -
-accept <number>:
+(choose | accept) <number>:
     key(ctrl-f)
-    sleep(100ms)
+    sleep(500ms)
     "Suggestion {number}"
-    key(enter escape ctrl-/)
+    key(enter escape f14)
