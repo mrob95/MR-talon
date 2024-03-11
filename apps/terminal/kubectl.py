@@ -13,18 +13,19 @@ mod.list("kubectl_action", desc="actions performed by kubectl")
 ctx.lists["self.kubectl_action"] = ["get", "delete", "describe", "label"]
 
 mod.list("kubectl_object", desc="objects performed by kubectl")
-ctx.lists["self.kubectl_object"] = [
-    "nodes",
-    "jobs",
-    "pods",
-    "namespaces",
-    "services",
-    "secrets",
-    "events",
-    "deployments",
-    "replicasets",
-    "daemonsets",
-    "configmaps",
-    "roles",
-    "mappings",
-]
+ctx.lists["self.kubectl_object"] = {
+    "nodes": "nodes",
+    "jobs": "jobs",
+    "pods": "pods",
+    "odd": "pods",
+    "namespaces": "namespaces",
+    "services": "services",
+    "secrets": "secrets",
+    "events": "events",
+    "deployments": "deployments",
+    "replicasets": "replicasets",
+    "daemonsets": "daemonsets",
+    "configmaps": "configmaps",
+    "roles": "roles",
+    "mappings": "mappings",
+}
