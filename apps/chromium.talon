@@ -24,10 +24,7 @@ refresh: key(ctrl-f5)
 [find] previous match [<user.n20>]: key("ctrl-shift-g:{n20 or 1}")
 [toggle] caret browsing: key(f7)
 home page: key(alt-home)
-show history:
-    key(ctrl-t)
-    "brave://history/"
-    key(enter)
+show history: key(ctrl-h)
 google search: key(ctrl-l)
 copy path: key(ctrl-l ctrl-c escape)
 image search:
