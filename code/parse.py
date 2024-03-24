@@ -9,9 +9,11 @@ ctx = Context()
 mod.list("file_variables")
 mod.list("file_types")
 
+previous_file = (None, None) # path, mtime
 
 @imgui.open(x=0, y=30)
 def list_info(gui: imgui.GUI):
+    gui.text(f"-- {previous_file[0]} --")
     gui.text("-- file_variables --")
     variables = registry.lists["user.file_variables"][0].items()
     variables = sorted(variables, key=lambda v: v[0])
@@ -65,7 +67,6 @@ class Actions:
         list_info.hide() if list_info.showing else list_info.show()
 
 
-previous_file = (None, None) # path, mtime
 
 def refresh(_):
     try:
