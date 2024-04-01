@@ -169,3 +169,5 @@ go vet: "go vet "
 go lint: "golangci-lint run\n"
 go style: "golangci-lint run  -E stylecheck -e ST1000:\n"
 run config check: "configcheck\n"
+
+previous <number>: key("alt:down {number} . alt:up")
