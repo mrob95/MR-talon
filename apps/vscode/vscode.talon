@@ -130,6 +130,7 @@ move down: key(ctrl-k ctrl-shift-down)
 move left: key(ctrl-k ctrl-shift-left)
 move right: key(ctrl-k ctrl-shift-right)
 split right: key(alt-shift-2 ctrl-k ctrl-shift-right)
+split dupe: key("ctrl-\\")
 split definition: key(ctrl-k f12)
 #
 mark set: key(ctrl-k ctrl-b)
