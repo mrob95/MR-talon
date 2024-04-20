@@ -68,7 +68,7 @@ create structure [<phrase>]$:
     "type {user.title(phrase or '')} struct {{}}"
     key(left enter up end left:9)
 create interface [<phrase>]$:
-    "interface {user.title(phrase or '')} {{}}"
+    "type {user.title(phrase or '')} interface {{}}"
     key(left enter up end left:9)
 variable <phrase>:
     "var {user.camel(phrase or '')} "
