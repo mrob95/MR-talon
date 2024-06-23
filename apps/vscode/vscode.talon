@@ -43,7 +43,7 @@ next match [<user.n20>]: key("f3:{n20 or 1}")
 previous match [<user.n20>]: key("shift-enter:{n20 or 1}")
 find all: key(alt-enter)
 replace: key(ctrl-h)
-search in directory: key(ctrl-shift-f)
+(search in directory | searcher): key(ctrl-shift-f)
 replace in directory: key(ctrl-shift-h)
 #
 copy relative path: key(ctrl-k ctrl-shift-c)
