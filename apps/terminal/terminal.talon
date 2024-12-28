@@ -1,5 +1,6 @@
 app: mintty.exe
 app: windowsterminal.exe
+app: WindowsTerminal.exe
 app: /.*/
 and title: /MSYS:.*/
 

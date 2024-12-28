@@ -41,6 +41,8 @@ and app.exe: cmd.exe
 apps.windows_terminal = """
 os: windows
 and app.exe: windowsterminal.exe
+os: windows
+and app.exe: WindowsTerminal.exe
 """
 
 apps.windows_power_shell = """

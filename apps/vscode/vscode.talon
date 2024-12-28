@@ -97,7 +97,7 @@ fold level [<user.n20>]: key("ctrl-k ctrl-{n20}")
 #
 full screen: key(f11)
 toggle side bar: key(ctrl-b)
-toggle (bottom | lower): key(ctrl-j)
+toggle (bottom | lower) [bar]: key(ctrl-j)
 show problems: key(ctrl-shift-m)
 problem next: key(f8)
 problem previous: key(shift-f8)
@@ -170,9 +170,16 @@ debug (start | continue): key(f5)
 debug choose:
     key(ctrl-p)
     "debug "
-debug test cursor: key(ctrl-; ctrl-c)
-debug test file: key(ctrl-; ctrl-f)
-debug test last: key(ctrl-; ctrl-l)
+
+test debug this: key(ctrl-; ctrl-c)
+test debug file: key(ctrl-; ctrl-f)
+test debug last: key(ctrl-; ctrl-l)
+test debug all: key(ctrl-; ctrl-a)
+
+test run this: key(ctrl-; c)
+test run file: key(ctrl-; f)
+test run last: key(ctrl-; l)
+test run all: key(ctrl-; a)
 
 pilot (open|show): key(f13)
 pilot next: key(alt-])
