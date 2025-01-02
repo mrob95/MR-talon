@@ -58,6 +58,7 @@ ctx.lists["user.git_commands"] = {
     "bisect": "bisect ",
     "checkout development": "checkout development@",
     "checkout master": "checkout master@",
+    "checkout main": "checkout main@",
     "checkout patch": "checkout -p ",
     "checkout upstream develop": "checkout upstream/develop@",
     "checkout": "checkout ",

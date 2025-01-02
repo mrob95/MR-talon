@@ -108,6 +108,8 @@ pie flakes: "pyflakes "
 eye python: "ipython "
 venv activate: "activate"
 venv deactivate: "deactivate"
+you've sink: "uv sync "
+you've run: "uv run "
 #------------------------------------------------------
 # r
 R script:
@@ -116,11 +118,6 @@ R script:
 R markdown:
     "Rscript -e \"rmarkdown::render('.Rmd', clean=TRUE)\""
     key(left:19)
-#------------------------------------------------------
-# jekyll
-jekyll serve watch: "jekyll serve --watch"
-jekyll build: "jekyll build"
-jekyll: "jekyll "
 #------------------------------------------------------
 # image
 image [magic] trim:
@@ -132,12 +129,14 @@ image [magic] transparent:
 rename PNG large: "rename 'png_large' 'png' *.png_large"
 rename jay peg large: "rename 'jpg_large' 'jpg' *.jpg_large"
 # ------------------------------------------------
+mux attach: "tmux att"
 mux new: key(ctrl-b c)
 mux detach: key(ctrl-b d)
 mux next: key(ctrl-b n)
 mux previous: key(ctrl-b p)
 mux find: key(ctrl-b f)
-mux close: key(ctrl-b &)
+mux close: key(ctrl-b x)
+mux step: key(ctrl-b b)
 mux split: key(ctrl-b %)
 mux split horizontal: key(ctrl-b ")
 mux swap: key(ctrl-b o)
@@ -172,3 +171,13 @@ go style: "golangci-lint run  -E stylecheck -e ST1000:\n"
 run config check: "configcheck\n"
 
 previous <number>: key("alt:down {number} . alt:up")
+
+ruff check: "ruff check "
+ruff check fix: "ruff check --fix "
+ruff format: "ruff format "
+
+cloud sequel proxy: "cloud-sql-proxy "
+
+pilot suggest [<phrase>]:
+    "gh copilot suggest '{phrase or ''}'"
+    key(left)
