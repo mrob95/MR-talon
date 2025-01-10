@@ -44,6 +44,9 @@ classy [<phrase>]$:
 data classy [<phrase>]$:
     "@dataclass\nclass {user.formatted_text(phrase or '', 2, 1)}:"
     key(left)
+base model [<phrase>]$:
+    "class {user.formatted_text(phrase or '', 2, 1)}(BaseModel):"
+    key(left:12)
 commenter <phrase>$:
     "# "
     insert(user.formatted_text(phrase or "", 4, 0))
