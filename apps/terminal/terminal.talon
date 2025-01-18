@@ -53,18 +53,10 @@ make directory: "mkdir "
 move file: "mv "
 lodge and: " && "
 to file: " > "
-screen copy: "scrcpy "
-android [list] devices: "adb devices -l"
-android connect: "adb connect 192.168.0.65:5555"
-android disconnect: "adb disconnect 192.168.0.65:5555"
 sed replace:
     'sed -i -e "s///g"'
     key(left:4)
 sumatra [PDF]: "SumatraPDF "
-sublime: "subl -n "
-sublime here:
-    "subl -n ."
-    key(enter)
 jupiter notebook: "jupyter notebook"
 jupiter lab: "jupyter lab"
 youtube download: "youtube-dl -f best "
