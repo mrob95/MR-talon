@@ -32,7 +32,8 @@ base sixty four decode: "base64 -d "
 sudo apt install: "sudo apt install "
 bash: "bash "
 cancel: key(ctrl-c)
-(history | page back): key(ctrl-r)
+history: key(ctrl-r)
+files: key(ctrl-t)
 page forward: key(ctrl-s)
 see dee up:
     "cd .."
